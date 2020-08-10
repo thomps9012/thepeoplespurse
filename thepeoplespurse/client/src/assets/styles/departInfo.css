@@ -1,0 +1,84 @@
+.deptInfo .intro {
+  background: url(../../assets/images/bg-books.png);
+  background-size: cover;
+  padding: 120px 100px;
+  text-align: center;
+  color: #fff;
+}
+
+.deptInfo .intro h1 {
+  font-size: 42px;
+  font-weight: 700;
+  color: #fff;
+  font-family: "Roboto Slab", serif;
+  line-height: 1;
+  margin-bottom: 40px;
+}
+
+.deptInfo .intro p {
+  font-size: 36px;
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.deptInfo .agencyInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  padding: 100px;
+}
+
+.deptInfo .agencyInfo img {
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+  max-width: 600px;
+}
+
+.deptInfo .agencyInfo .deptDrop {
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+  max-width: 600px;
+  color: #797979;
+}
+
+.deptInfo .agencyInfo .deptDrop select {
+  padding: 10px;
+  font-size: 18px;
+}
+
+.deptInfo .agencyInfo .deptDrop section h2 {
+  font-size: 32px;
+  font-family: "Roboto Slab", serif;
+  padding: 20px 0 10px;
+  font-weight: 700;
+}
+
+.deptInfo .agencyInfo .deptDrop section p {
+  font-size: 18px;
+}
+
+.deptInfo .agencyInfo .deptDrop .code {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.deptInfo .agencyInfo .deptDrop .year {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.deptInfo .agencyInfo .deptDrop .link a {
+  color: #11a8bd;
+  font-weight: 700;
+}
+
+.deptInfo .agencyInfo .deptDrop .link a:hover {
+  color: #176fa6;
+}
+/*# sourceMappingURL=departInfo.css.map */

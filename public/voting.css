@@ -1,0 +1,42 @@
+/* textbox styling (Ericka try no to laugh) */
+textarea {
+    width: 50%;
+    height: 80px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    margin: 50px 25px 100px 50px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    resize: none;
+  }
+
+/*Barchart Styling for W3 schools option*/ 
+/* Make sure that padding behaves as expected */
+* {box-sizing:border-box}
+
+/* Container for skill bars */
+.container {
+  width: 100%; /* Full width */
+  background-color: #ddd; /* Grey background */
+}
+
+.spending {
+  text-align: right; /* Right-align text */
+  padding-top: 10px; /* Add top padding */
+  padding-bottom: 10px; /* Add bottom padding */
+  color: white; /* White text color */
+}
+
+.military {width: 90%; background-color: #1f138a;} 
+.goverment {width: 80%; background-color: #1f138a;} 
+.education {width: 65%; background-color: #1f138a;} 
+.healthcare {width: 60%; background-color: #1f138a;} 
+.veterans {width: 60%; background-color: #1f138a;} 
+.community {width: 60%; background-color: #1f138a;} 
+.international {width: 60%; background-color: #1f138a;} 
+.energy {width: 60%; background-color: #1f138a;} 
+.science {width: 60%; background-color: #1f138a;} 
+.transportation {width: 60%; background-color: #1f138a;} 
+.food {width: 60%; background-color: #1f138a;} 
