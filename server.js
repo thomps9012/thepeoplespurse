@@ -33,12 +33,3 @@ db.sequelize.sync().then(function(){
     console.log('app listening on port 3001!');
   });
 });
-
-//route for pulling data
-app.get('/', function (req, res) {
-  connection.query('SELECT * FROM votes', function(error, results, fields)
-  {
-    if (error) throw error;
-    res.end(JSON.parse(results));
-  });
-});
