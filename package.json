@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "thepeoplespurse Demo",
   "main": "server.js",
-  "engines":{
-    "node": "12.x"},
+  "engines": {
+    "node": "12.x"
+  },
   "scripts": {
     "predeploy": "npm run build",
     "dev": "react-scripts start",
@@ -35,6 +36,7 @@
     "mysql": "^2.18.1",
     "mysql2": "^2.1.0",
     "react-chartjs-2": "^2.9.0",
+    "react-scripts": "^3.4.3",
     "sequelize": "^6.3.3",
     "sql": "^0.78.0"
   }
