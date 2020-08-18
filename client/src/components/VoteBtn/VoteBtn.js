@@ -12,7 +12,7 @@ class VoteBtn extends Component {
 
     if (document.querySelector(".active")) {
       let taxBracket = parseInt(document.querySelector(".active").id);
-    axios.post("/api/voter", { taxBracket })
+      axios.post("/api/voter", { taxBracket })
       .then(data => console.log(data));
     }
     else {

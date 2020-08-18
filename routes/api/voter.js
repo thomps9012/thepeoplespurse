@@ -18,15 +18,11 @@ router.post('/voter', function (req, res) {
 
 //route for retrieving the data before we push it into our chart
 router.get('/voter/get', (req, res) => {
-    db.Voter.findAll({
-        where: {
-            tax_bracket: 5
-        }
-    })
-        .then(bracket5 => {
-            //manipulate votes
-            res.json(bracket5)
-            
+    db.Voter.findAll()
+        .then(voters => {
+       
+            res.json(voters)
+           
         })
         .catch(err => {
             res.json(err)
