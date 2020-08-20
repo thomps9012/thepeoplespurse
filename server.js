@@ -14,6 +14,20 @@ const votes = require('./models/votes');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+app.use(express.static(path.join(__dirname, 'client/build')));
+
+if(process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, 'client/build')));
+  //
+  app.get('*', (req, res) => {
+    res.sendfile(path.join(__dirname = 'client/build/index.html'));
+  })
+}
+//build mode
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname+'/client/public/index.html'));
+})
+
 
 // sets up connection to db
 var connection = mysql.createConnection({
@@ -28,7 +42,8 @@ connection.connect();
 
 app.use(routes)
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}.`);
+db.sequelize.sync().then(function(){
+  app.listen(3001, function(){
+    console.log('app listening on port 3001!');
+  });
 });
