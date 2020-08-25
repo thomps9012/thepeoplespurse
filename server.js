@@ -21,6 +21,10 @@ if(process.env.NODE_ENV === 'production') {
     res.sendfile(path.join(__dirname, '..', 'public'), 'index.html');
   })
 }
+// build mode
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 
 
 // sets up connection to db
