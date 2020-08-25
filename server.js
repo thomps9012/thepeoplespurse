@@ -1,15 +1,11 @@
 const mysql = require('mysql');
 const express = require('express');
-let cors = require('cors');
 const bodyParser = require('body-parser');
-const logger = require('morgan');
-const { response, query } = require('express');
 const router = express.Router();
 const routes = require("./routes");
 const db = require('./models');
 var app = express();
 var sequelize = require('sequelize');
-const votes = require('./models/votes');
 var PORT = process.env.PORT || 3001;
 
 
