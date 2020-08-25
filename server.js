@@ -10,6 +10,7 @@ const db = require('./models');
 var app = express();
 var sequelize = require('sequelize');
 const votes = require('./models/votes');
+var PORT = process.env.PORT || 3001;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -42,8 +43,12 @@ connection.connect();
 
 app.use(routes)
 
-db.sequelize.sync().then(function(){
-  app.listen(3001, function(){
-    console.log('app listening on port 3001!');
+db.sequelize.sync().then(function() {
+  app.listen(PORT, function() {
+    console.log(
+      "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
+      PORT,
+      PORT
+    );
   });
 });
