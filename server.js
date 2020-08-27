@@ -5,17 +5,17 @@ const router = express.Router();
 const routes = require("./routes");
 const db = require('./models');
 var app = express();
-var sequelize = require('sequelize');
-var PORT = process.env.PORT || 3001;
-const publicPath = path.join(__dirname, '..', 'public');
 
 
+// Setting up port and requiring models for syncing
+var PORT = process.env.PORT || 8080;
+var db = require("./models");
+
+// Creating express app and configuring middleware needed for authentication
+var app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-}
+app.use(express.static("public"));
 
 
 // sets up connection to db
