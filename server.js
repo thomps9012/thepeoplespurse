@@ -1,7 +1,5 @@
 const mysql = require('mysql');
 const express = require('express');
-const bodyParser = require('body-parser');
-const router = express.Router();
 const routes = require("./routes");
 const db = require('./models');
 var app = express();
