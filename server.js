@@ -25,12 +25,4 @@ app.get("*", function (req, res) {
 
 app.use(routes)
 
-db.sequelize.sync().then(function() {
-  app.listen(PORT, function() {
-    console.log(
-      "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
-      PORT,
-      PORT
-    );
-  });
-});
+app.listen(process.env.PORT || 3001);
