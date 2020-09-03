@@ -6,6 +6,7 @@ var app = express();
 
 
 // Setting up port and requiring models for syncing
+var PORT = process.env.PORT || 3001;
 var db = require("./models");
 
 // Creating express app and configuring middleware needed for authentication
@@ -32,5 +33,11 @@ connection.connect();
 app.use(routes)
 
 db.sequelize.sync().then(function() {
-  app.listen(process.env.PORT || 3001)
+  app.listen(process.env.PORT, function() {
+    console.log(
+      "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
+      PORT,
+      PORT
+    );
   });
+});
