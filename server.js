@@ -33,7 +33,7 @@ connection.connect();
 app.use(routes)
 
 db.sequelize.sync().then(function() {
-  app.listen(process.env.PORT, function() {
+  app.listen(PORT, function() {
     console.log(
       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
       PORT,
