@@ -18,15 +18,6 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-
-// sets up connection to db
-var connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'root',
-  database: 'thepeoplespurse'
-});
-
 //connect to database
 connection.connect();
 
