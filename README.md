@@ -9,7 +9,7 @@ A MERN stack, non-profit application dedicated to collecting data about how indi
 This project is currently in development to being a hosted application that will be used in the classroom. Functionality is being adding in as well based on educator feedback (limiting the amount of votes, data manipulation, etc.). The People's Purse can still be cloned, downloaded and run locally while in this phase.
 
 ## Project Screen Shot
-![Alt text](./client/src/assets/images/peoplespurse.png?raw=true "Peoples Purse Landing Page"
+![Alt text](./client/src/assets/images/peoplespurse.png?raw=true "Peoples Purse Landing Page")
 
 ## Installation and Setup Instructions
 
