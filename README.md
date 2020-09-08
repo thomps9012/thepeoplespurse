@@ -1,29 +1,38 @@
-# Create React Express App
+# The People's Purse
 
-## About This Boilerplate
+## Project Name & Pitch
 
-This setup allows for a Node/Express/React app which can be easily deployed to Heroku.
+A MERN stack, non-profit application dedicated to collecting data about how individuals would spend their tax dollars. The app features an educational component about the governments different departments in addition to a data visualization piece.
 
-The front-end React app will auto-reload as it's updated via webpack dev server, and the backend Express app will auto-reload independently with nodemon.
+## Project Status
 
-## Starting the app locally
+This project is currently in development to being a hosted application that will be used in the classroom. Functionality is being adding in as well based on educator feedback (limiting the amount of votes, data manipulation, etc.). The People's Purse can still be cloned, downloaded and run locally while in this phase.
 
-Start by installing front and backend dependencies. While in this directory, run the following command:
+## Project Screen Shot
+![Alt text](./client/src/assets/images/peoplespurse.png?raw=true "Peoples Purse Landing Page"
 
-```
-npm install
-```
+## Installation and Setup Instructions
 
-This should install node modules within the server and the client folder.
+Clone down this repository. You will need `node` and `npm` installed globally on your machine.  
 
-After both installations complete, run the following command in your terminal:
+Installation:
 
-```
-npm start
-```
+`npm install`  
 
-Your app should now be running on <http://localhost:3000>. The Express server should intercept any AJAX requests from the client.
+To Run Test Suite:  
 
-## Deployment (Heroku)
+`npm test`  
+
+To Start Server:
+
+`npm start`  
+
+To Visit App:
+
+`http://localhost:3000/`
+
+Your app should now be running on your local host and the Express server should intercept any AJAX requests from the client.
+
+## Reflection
 
 To deploy, simply add and commit your changes, and push to Heroku. As is, the NPM scripts should take care of the rest.
