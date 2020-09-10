@@ -25,4 +25,4 @@ app.get("*", function (req, res) {
 
 app.use(routes)
 
-.listen(process.env.PORT || 3001);
+app.listen(process.env.PORT || 3001);
