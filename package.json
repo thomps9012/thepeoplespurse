@@ -35,6 +35,11 @@
     "react-scripts": "^3.4.3",
     "react-scrollspy": "^3.4.2",
     "react-scrollspy-nav": "^1.2.2",
-    "react-select": "^3.0.8"
+    "react-select": "^3.0.8",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.1.0",
+    "react-chartjs-2": "^2.9.0",
+    "sequelize": "^6.3.3",
+    "sql": "^0.78.0"
   }
 }

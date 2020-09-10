@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const db = require('../../models');
-const sequelize = require('sequelize');
+const sequelize = require("sequelize");
 
 //posting routes for dept values in the database
 router.post('/vote', function (req, res) {

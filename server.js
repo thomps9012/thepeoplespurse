@@ -6,9 +6,17 @@ const db = require('./models');
 var app = express();
 
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+var PORT = process.env.PORT || 3001;
+var db = require("./models");
 
+// Creating express app and configuring middleware needed for authentication
+var app = express();
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
 
 // sets up connection to db
 var connection = mysql.createConnection({
@@ -21,10 +29,15 @@ var connection = mysql.createConnection({
 //connect to database
 connection.connect();
 
-app.use(routes)
+// Requiring our routes
+app.use(routes);
 
-db.sequelize.sync().then(function(){
-  app.listen(3001, function(){
-    console.log('app listening on port 3001!');
+// Syncing our database and logging a message to the user upon success
+db.sequelize.sync().then(function() {
+  app.listen(PORT, function() {
+    console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
+      PORT,
+      PORT
+    );
   });
 });
