@@ -1,11 +1,11 @@
 const router = require("express").Router();
 const db = require('../../models');
-const sequelize = require("sequelize");
+
 
 //posting routes for dept values in the database
 router.post('/vote', function (req, res) {
      
-    const ag = req.body.depts[0]
+    
     db.Vote.create({
         agriculture: req.body.depts[0],
         commerce: req.body.depts[1],
@@ -46,7 +46,7 @@ router.post('/vote', function (req, res) {
 router.get('/vote/get', (req, res) => {
     db.Vote.findAll()
         .then(votes => {
-            //manipulate votes
+
             res.json(votes)
         })
         .catch(err => {

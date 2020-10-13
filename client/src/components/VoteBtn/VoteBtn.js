@@ -12,6 +12,7 @@ class VoteBtn extends Component {
 
     if (document.querySelector(".active")) {
       let taxBracket = parseInt(document.querySelector(".active").id);
+      console.log(taxBracket);
       axios.post("/api/voter", { taxBracket })
       .then(data => console.log(data));
     }
@@ -50,9 +51,10 @@ class VoteBtn extends Component {
 
 
     if ((depts.reduce((a, b) => a + b, 0)) <= 100) {
+      console.log(depts);
       axios.post("/api/vote", { depts })
         .then(data => console.log(data));
-        document.location.href='/BudgetResults'
+        // document.location.href='/BudgetResults'
     } else {
       const over = depts.reduce((a, b) => a + b, 0) - 100;
 

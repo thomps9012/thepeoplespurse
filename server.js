@@ -6,8 +6,7 @@ const db = require('./models');
 var app = express();
 
 
-var PORT = process.env.PORT || 3001;
-var db = require("./models");
+var PORT = process.env.PORT || 3000;
 
 // Creating express app and configuring middleware needed for authentication
 var app = express();
@@ -29,6 +28,9 @@ var connection = mysql.createConnection({
 //connect to database
 connection.connect();
 
+console.log(connection);
+
+
 // Requiring our routes
 app.use(routes);
 
@@ -39,5 +41,14 @@ db.sequelize.sync().then(function() {
       PORT,
       PORT
     );
+  });
+});
+
+//test route for pulling data
+app.get('/', function (req, res) {
+  connection.query('SELECT * FROM votes', function(error, results, fields)
+  {
+    if (error) throw error;
+    res.end(JSON.parse(results));
   });
 });
