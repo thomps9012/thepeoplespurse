@@ -1,12 +1,11 @@
 const mysql = require('mysql');
 const express = require('express');
-const bodyParser = require('body-parser');
 const routes = require("./routes");
 const db = require('./models');
 var app = express();
 
 
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 3001;
 
 // Creating express app and configuring middleware needed for authentication
 var app = express();
