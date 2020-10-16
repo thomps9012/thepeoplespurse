@@ -30,7 +30,7 @@ class TaxBrackets extends Component {
                 <button type="button" className="btn btn-lg tax" onClick={this.handleClick} id="5">$326,601 to $414,700</button>
                 <button type="button" className="btn btn-lg tax" onClick={this.handleClick} id="6">$414,701 to $622,050</button>
                 <button type="button" className="btn btn-lg tax" onClick={this.handleClick} id="7">Over $622,050</button>
-                <h2 className="directions">Slide to select the percentage of the budget you feel each department should receive. Your total must equal 100. </h2>
+                <h2 className="directions">Slide to select the percentage of the budget you feel each department should receive. <br></br>Your total must equal 100. </h2>
             </div>
         )
     }

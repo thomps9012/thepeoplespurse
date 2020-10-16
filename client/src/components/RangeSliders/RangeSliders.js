@@ -191,7 +191,7 @@ export default function InputSlider() {
   // };
 
   return (
-    <>
+    <div className="sliders">
       <div className={classes.root}>
         <Typography id="input-slider" gutterBottom>
           Department of Agriculture
@@ -573,7 +573,7 @@ export default function InputSlider() {
           </Grid>
         </Grid>
       </div>
-    </>
+    </div>
   );
 }
 
