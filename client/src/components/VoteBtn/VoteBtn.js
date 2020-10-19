@@ -21,7 +21,7 @@ class VoteBtn extends Component {
 
     }
     
- 
+    
     let agriculture = parseInt(document.querySelector("#DoA > input[type=hidden]").value);
     let commerce = parseInt(document.querySelector("#DoC > input[type=hidden]").value);
     let defense = parseInt(document.querySelector("#DoD > input[type=hidden]").value);

@@ -19,3 +19,16 @@
     margin: 100px 0 100px 50px;
   }
 }
+
+@media only screen and (min-width: 600px) {
+  /* For mobile phones: */
+  [class="PieChart"] {
+    width: 100%;
+  }
+  [class="h3"] {
+    width: 100%;
+  }
+  [class="chartArea"] {
+    width: 100%;
+  }
+}
