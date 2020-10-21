@@ -64,7 +64,7 @@ export default class WeightedBudget extends React.Component {
         //data manipulation
 
         //defines each dept
-
+        
       });
     
     //api call for votes

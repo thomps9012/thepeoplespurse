@@ -13,15 +13,15 @@ class VoteBtn extends Component {
     if (document.querySelector(".active")) {
       let taxBracket = parseInt(document.querySelector(".active").id);
       console.log(taxBracket);
-     
+
     }
     else {
       alert("Slow your horses there, let's make sure to select a tax bracket first")
       return;
 
     }
-    
-    
+
+
     let agriculture = parseInt(document.querySelector("#DoA > input[type=hidden]").value);
     let commerce = parseInt(document.querySelector("#DoC > input[type=hidden]").value);
     let defense = parseInt(document.querySelector("#DoD > input[type=hidden]").value);
@@ -54,10 +54,17 @@ class VoteBtn extends Component {
       let taxBracket = parseInt(document.querySelector(".active").id);
       axios.post("/api/vote", { depts })
         .then(data => console.log(data));
-      
-        axios.post("/api/voter", { taxBracket })
+
+      axios.post("/api/voter", { taxBracket })
         .then(data => console.log(data));
-        
+
+      var voteData = [];
+      voteData.push(taxBracket, agriculture, commerce, communication, defense, education, election, energy, environmental_protection, equal_employment, health_human_services, homeland_security, housing_urban_development, interior, justice, labor, nasa, social, state, trade, transportation, treasury, veterans);
+      console.log(voteData);
+     
+      axios.post("/api/weightedBudget", { voteData })
+        .then(data => console.log(data));
+
     } else {
       const over = depts.reduce((a, b) => a + b, 0) - 100;
 
@@ -65,10 +72,10 @@ class VoteBtn extends Component {
       return;
 
     }
-    if(((depts.reduce((a, b) => a + b, 0)) <= 100) && (document.querySelector(".active")) ){
-      document.location.href='/BudgetResults'
-    };
-    
+    // if(((depts.reduce((a, b) => a + b, 0)) <= 100) && (document.querySelector(".active")) ){
+    //   document.location.href='/BudgetResults'
+    // };
+
   }
   render() {
     return (

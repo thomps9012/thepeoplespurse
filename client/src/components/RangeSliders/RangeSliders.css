@@ -5,3 +5,22 @@
     padding: 10px;
     position: relative;
 }
+
+@media only screen and (min-width: 500px) {
+    /* For mobile phones: */
+    [class="sliders"] {
+      width: 100%;
+      position: relative;
+      margin-left: 0;
+      padding: 0;
+      
+    }
+    [class="MuiGrid-root"] {
+        size: 50%;
+        position: relative;
+        margin-left: 0;
+        padding: 0;
+        
+      }
+    
+  }
