@@ -40,17 +40,6 @@ router.post('/weightedBudget', function (req, res) {
     res.json(req.body)
 });
 
-//route for retrieving the data before we push it into our chart
-router.get('/weightedBudget/get', (req, res) => {
-    db.weightedBudget.findAll()
-        .then(weightedBudget => {
-       
-            res.json(weightedBudget)
-           
-        })
-        .catch(err => {
-            res.json(err)
-        })
-});
+
 
 module.exports = router
