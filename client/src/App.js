@@ -5,9 +5,13 @@ import BudgetResults from "./pages/BudgetResults";
 import BudgetVoting from "./pages/BudgetVoting";
 import DeptInfo from "./pages/DeptInfo";
 import Navbar from "./components/Navbar/Navbar.js";
-import Footer from "./components/Footer/Footer"
+import Footer from "./components/Footer/Footer";
+import runtimeEnv from '@mars/heroku-js-runtime-env';
+
 
 function App() {
+  const env = runtimeEnv();
+  
   return (
     <Router>
       <Navbar />
