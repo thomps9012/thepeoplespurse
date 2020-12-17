@@ -72,9 +72,9 @@ class VoteBtn extends Component {
       return;
 
     }
-    // if(((depts.reduce((a, b) => a + b, 0)) <= 100) && (document.querySelector(".active")) ){
-    //   document.location.href='/BudgetResults'
-    // };
+    if(((depts.reduce((a, b) => a + b, 0)) <= 100) && (document.querySelector(".active")) ){
+      document.location.href='/BudgetResults'
+    };
 
   }
   render() {
