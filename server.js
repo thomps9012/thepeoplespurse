@@ -16,12 +16,6 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-if (process.env.NODE_ENV){
-  app.use(express.static(path.resole(process.cwd(), 'client/build')))
-  app.get('*', (req, res) => {
-    res.sendFile(path.resolve(process.cwd(), 'client/build/index.html'))
-  })
-}
 
 // sets up connection to db
 var connection = mysql.createConnection({
