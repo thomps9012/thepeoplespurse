@@ -9,6 +9,12 @@ var PORT = process.env.PORT || 3001;
 
 // Creating express app and configuring middleware needed for authentication
 var app = express();
+var path = require('path');
+app.use(express.static(path.join(__dirname, 'build')));
+
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
