@@ -3,18 +3,16 @@ const express = require('express');
 const routes = require("./routes");
 const db = require('./models');
 var app = express();
-
-
+var path = require('path');
 var PORT = process.env.PORT || 3001;
 
 // Creating express app and configuring middleware needed for authentication
-var app = express();
-var path = require('path');
-app.use(express.static(path.join(__dirname, 'build')));
 
-app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
+// app.use(express.static(path.join(__dirname, 'build')));
+
+// app.get('/', function (req, res) {
+//   res.sendFile(path.join(__dirname, 'build', 'index.html'));
+// });
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
@@ -37,7 +35,7 @@ connection.connect();
 console.log(connection);
 
 
-// Requiring our routes
+// Requiring our API routes
 app.use(routes);
 
 // Syncing our database and logging a message to the user upon success
@@ -50,6 +48,11 @@ db.sequelize.sync().then(function() {
   });
 });
 
+
+//running our other requests through the react app
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+}); 
 //test route for pulling data
 app.get('/', function (req, res) {
   connection.query('SELECT * FROM votes', function(error, results, fields)
