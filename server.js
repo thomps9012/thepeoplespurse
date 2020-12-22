@@ -23,7 +23,7 @@ if (process.env.NODE_ENV === "production") {
 
 // sets up connection to db
 var connection = mysql.createConnection({
-  host: '3001',
+  host: 'localhost',
   user: 'root',
   password: 'root',
   database: 'budgetvotes'
