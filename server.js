@@ -21,15 +21,23 @@ if (process.env.NODE_ENV === "production") {
 }
 
 
-// sets up connection to db
-var connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'root',
-  database: 'budgetvotes'
-});
 
-//connect to database
+
+//connect to database via JAWSDB 
+if (process.env.JAWSDB_URL) {
+  connection = mysql.createConnection(process.env.JAWSDB_URL);
+} 
+  else {
+  // sets up connection to db
+  var connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'root',
+    database: 'budgetvotes'
+  });
+};
+
+// sets up connection
 connection.connect();
 
 console.log(connection);
@@ -39,8 +47,8 @@ console.log(connection);
 app.use(routes);
 
 // Syncing our database and logging a message to the user upon success
-db.sequelize.sync().then(function() {
-  app.listen(PORT, function() {
+db.sequelize.sync().then(function () {
+  app.listen(PORT, function () {
     console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
       PORT,
       PORT
@@ -52,11 +60,10 @@ db.sequelize.sync().then(function() {
 //running our other requests through the react app
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
-}); 
+});
 //test route for pulling data
 app.get('/', function (req, res) {
-  connection.query('SELECT * FROM votes', function(error, results, fields)
-  {
+  connection.query('SELECT * FROM votes', function (error, results, fields) {
     if (error) throw error;
     res.end(JSON.parse(results));
   });
