@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import "./Navbar.css"
 import logo from '../../assets/images/logo-peoples-purse.png';
 
@@ -11,10 +12,10 @@ function Navbar() {
       </div>
       <div className="navbar-nav">
         <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/DeptInfo">Educational Information</a></li>
-          <li><a href="/BudgetVoting">Voting</a></li>
-          <li><a href="/BudgetResults">Proposed Budget</a></li>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/DeptInfo">Educational Information</Link></li>
+          <li><Link to="/BudgetVoting">Voting</Link></li>
+          <li><Link to="/BudgetResults">Proposed Budget</Link></li>
         </ul>
       </div>
     </nav>
