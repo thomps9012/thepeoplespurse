@@ -1,7 +1,6 @@
-import React, { Component, useCallback } from 'react';
+import React, { Component } from 'react';
 import axios from 'axios';
 import "./VoteBtn.css";
-import { useHistory } from 'react-router-dom';
 
 class VoteBtn extends Component {
   constructor(props) {
@@ -73,17 +72,18 @@ class VoteBtn extends Component {
       return;
 
     }
+    
     if(((depts.reduce((a, b) => a + b, 0)) <= 100) && (document.querySelector(".active")) ){
-      const history = useHistory();
-      useCallback(() => history.push('/BudgetResults'), [history]);
-      // document.location.href='/BudgetResults'
+      window.location="/BudgetResults";
     };
 
   }
   render() {
     return (
       <div>
+        
         <button type="button" className="voteBtn" onClick={this.handleClick}>Submit My Vote</button>
+        
       </div>
     )
   }
