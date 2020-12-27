@@ -1,6 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import axios from 'axios';
 import "./VoteBtn.css";
+import { Link } from 'react-router-dom';
+import { Component } from 'react';
 
 class VoteBtn extends Component {
   constructor(props) {
@@ -16,7 +18,7 @@ class VoteBtn extends Component {
 
     }
     else {
-      alert("Slow your horses there, let's make sure to select a tax bracket first")
+      alert("Slow your horses there, let's make sure to select a tax bracket first. Please go back to the Voting page to try again.")
       return;
 
     }
@@ -68,13 +70,13 @@ class VoteBtn extends Component {
     } else {
       const over = depts.reduce((a, b) => a + b, 0) - 100;
 
-      alert("Holy guacamole your budget is over by " + over)
+      alert("Holy guacamole your budget is over by " + over + "Please go back to the Voting page to try again.")
       return;
 
     }
     
     if(((depts.reduce((a, b) => a + b, 0)) <= 100) && (document.querySelector(".active")) ){
-      window.location="/BudgetResults";
+      alert("Your vote has been successfully counted!");
     };
 
   }
@@ -82,7 +84,7 @@ class VoteBtn extends Component {
     return (
       <div>
         
-        <button type="button" className="voteBtn" onClick={this.handleClick}>Submit My Vote</button>
+        <Link to="/BudgetResults"><button type="button" className="voteBtn" onClick={this.handleClick}>Submit My Vote</button></Link>
         
       </div>
     )
