@@ -6,10 +6,10 @@ const Tile = props => {
     return (
         <div className={props.classNames}>
             <div className="icon">
-                <img
+                {/* <img
                     src={require("../../assets/images/" + props.icon + ".png")}
                     alt={"icon " + props.icon}
-                />
+                /> */}
             </div>
             <h3>{props.tileTitle}</h3>
             <p>{props.tileText}</p>

@@ -3,6 +3,9 @@ import "../assets/styles/home.css";
 import PieChart from "../components/PieChart/PieChart";
 import NonProfitBanner from '../components/NonProfitBanner/NonProfitBanner';
 import Tile from "../components/Tile/Tile";
+import education from '../assets/images/icon-education.png';
+import data from '../assets/images/icon-data.png';
+import vote from '../assets/images/icon-vote.png';
 
 const Home = () => {
   return (
@@ -14,6 +17,7 @@ const Home = () => {
       </section>
       <div className="tiles contentWrap">
 
+        <img src = {education} alt={"education"} />
         <Tile
           classNames="tile blue"
           icon="icon-education"
@@ -23,6 +27,7 @@ const Home = () => {
           tileButton="Learn More"
         />
 
+        <img src = {vote} alt={"vote"}/>
         <Tile
           classNames="tile yellow"
           icon="icon-vote"
@@ -31,7 +36,8 @@ const Home = () => {
           link="/BudgetVoting"
           tileButton="Vote Now"
         />
-
+        
+        <img src = {data} alt={"data"}/>
         <Tile
           classNames="tile green"
           icon="icon-data"
