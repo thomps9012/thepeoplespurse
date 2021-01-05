@@ -1,4 +1,4 @@
-[
+const DeptInfo = [ 
     // dept of state info
     {
         value: 'Department of State',
@@ -221,3 +221,5 @@
         code: "028",
       },
 ]
+
+export default DeptInfo;
