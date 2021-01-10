@@ -1,9 +1,11 @@
 import React from 'react';
 import DeptDropdown from "../components/DeptDropdown/DeptDropdown.js";
 import "../assets/styles/departInfo.css";
-import library from "../assets/images/library.png";
+import DeptImg from '../components/DeptDropdown/DeptImg';
+// import library from '../assets/images/library.png';
 
 const DeptInfo = () => {
+  
   return (
     <main className="deptInfo">
       <section className="intro" >
@@ -12,7 +14,9 @@ const DeptInfo = () => {
       </section>
 
       <section className="agencyInfo">
-        <img alt="test" src={library} />
+        
+        {/* <img alt={library} src={DOS}/> */}
+        {/* <DeptImg /> */}
         <DeptDropdown />
       </section>
     </main>

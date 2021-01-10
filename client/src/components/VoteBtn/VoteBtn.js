@@ -22,7 +22,7 @@ class VoteBtn extends Component {
       return;
 
     }
-
+    let class_id = parseInt()
 
     let agriculture = parseInt(document.querySelector("#DoA > input[type=hidden]").value);
     let commerce = parseInt(document.querySelector("#DoC > input[type=hidden]").value);
@@ -67,6 +67,11 @@ class VoteBtn extends Component {
       axios.post("/api/weightedBudget", { voteData })
         .then(data => console.log(data));
 
+      var sessionData = [];
+      sessionData.push(class_id, taxBracket, agriculture, commerce, communication, defense, education, election, energy, environmental_protection, equal_employment, health_human_services, homeland_security, housing_urban_development, interior, justice, labor, nasa, social, state, trade, transportation, treasury, veterans);
+      
+      axios.post("/api/singleSession", { sessionData })
+        .then(data => console.log(data));
     } else {
       const over = depts.reduce((a, b) => a + b, 0) - 100;
 

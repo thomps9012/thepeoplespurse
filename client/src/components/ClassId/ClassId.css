@@ -1,0 +1,28 @@
+#classid{
+    margin-left: 2vh;
+    height: 5.5vh;
+    align-items: center;
+    border: 2px solid;
+    border-radius: 10px;
+    color: #11a8bd;
+}
+
+h2{
+    color: #28558d;
+    font-weight: bold;
+    position: relative;
+    padding: 10px;
+    margin-left: 73vh;
+}
+
+#flexCheckDefault{
+    margin-top: 4vh;
+    transform: scale(2);
+    color: #11a8bd;
+}
+
+.classId{
+    position: relative;
+    padding: 10px;
+    margin-left: 73vh;
+}
