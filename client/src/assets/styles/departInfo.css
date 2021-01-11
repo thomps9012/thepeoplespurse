@@ -57,6 +57,10 @@
   font-family: "Roboto Slab", serif;
   padding: 20px 0 10px;
   font-weight: 700;
+  
+}
+h2{
+  margin-left: 0%;
 }
 
 .deptInfo .agencyInfo .deptDrop section p {
