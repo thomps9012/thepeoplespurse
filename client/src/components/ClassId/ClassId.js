@@ -18,18 +18,14 @@ class ClassId extends Component {
     render() {
         return (
             <>
-            <h2>Enter Class Code Below</h2>
-            <div className="classId">
-                
-                <div class="input-group mb-3">
-                    
-                    <div class="col-auto">
-                        
-                        <br></br>
-                        <input type="classid" class="form-control" id="classid" />
+                <br></br>
+                <h2>Enter Class Code Below</h2>
+                <div className="classId">
+
+                    <div class="input-group input-group-lg">
+                        <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" id="classid" />
                     </div>
                 </div>
-            </div>
             </>
         )
     }

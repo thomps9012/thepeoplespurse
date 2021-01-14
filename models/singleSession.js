@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-    var singleSession = sequelize.define("Single Session", {
+    var singleSession = sequelize.define("singleSession", {
         class_id: {
             type: DataTypes.INTEGER,
         },

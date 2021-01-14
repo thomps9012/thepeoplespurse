@@ -22,7 +22,7 @@ class VoteBtn extends Component {
       return;
 
     }
-    let class_id = parseInt()
+    let class_id = parseInt(document.querySelector("#classid").value);
 
     let agriculture = parseInt(document.querySelector("#DoA > input[type=hidden]").value);
     let commerce = parseInt(document.querySelector("#DoC > input[type=hidden]").value);
@@ -68,8 +68,10 @@ class VoteBtn extends Component {
         .then(data => console.log(data));
 
       var sessionData = [];
+      console.log(class_id);
       sessionData.push(class_id, taxBracket, agriculture, commerce, communication, defense, education, election, energy, environmental_protection, equal_employment, health_human_services, homeland_security, housing_urban_development, interior, justice, labor, nasa, social, state, trade, transportation, treasury, veterans);
-      
+      console.log(sessionData);
+
       axios.post("/api/singleSession", { sessionData })
         .then(data => console.log(data));
     } else {

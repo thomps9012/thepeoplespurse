@@ -3,6 +3,8 @@ import UnweightedBudget from "../components/SuggestedBudgets/unweightedBudget.js
 import WeightedBudget from "../components/SuggestedBudgets/weightedBudget.js";
 import NavTabs from "../components/SuggestedBudgets/SuggestedBudgetTabs";
 import "../assets/styles/budgetResults.css";
+import ClassRetrieveBtn from '../components/ClassRetrieve/ClassRetrieveBtn.js';
+import ClassId from '../components/ClassId/ClassId.js';
 
 
 class BudgetResults extends Component {
@@ -43,6 +45,12 @@ class BudgetResults extends Component {
               />
               {this.renderChart()}
             </div>
+          </div>
+        </section>
+        <section className="classRetrieve">
+          <div>
+              <ClassId />
+              <ClassRetrieveBtn />
           </div>
         </section>
       </main>
