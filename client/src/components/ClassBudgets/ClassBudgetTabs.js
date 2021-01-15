@@ -1,7 +1,7 @@
 import React from "react";
-import "./SuggestedBudgetTabs.css";
+import "./ClassBudgetTabs.css";
 
-function SuggestedBudgetTabs(props) {
+function ClassBudgetTabs(props) {
     return (
         <ul className="nav nav-tabs">
             <li className="nav-item">
@@ -26,4 +26,4 @@ function SuggestedBudgetTabs(props) {
     );
 }
 
-export default SuggestedBudgetTabs;
+export default ClassBudgetTabs;

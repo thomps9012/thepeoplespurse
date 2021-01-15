@@ -1,6 +1,6 @@
 import React from "react";
 import { Doughnut } from "react-chartjs-2";
-import "./suggestedBudgets.css";
+import "./ClassBudgets.css";
 import axios from "axios";
 
 

@@ -6,6 +6,7 @@ import BudgetVoting from "./pages/BudgetVoting";
 import DeptInfo from "./pages/DeptInfo";
 import Navbar from "./components/Navbar/Navbar.js";
 import Footer from "./components/Footer/Footer";
+import ClassResults from './pages/ClassResults';
 import runtimeEnv from '@mars/heroku-js-runtime-env';
 
 
@@ -19,6 +20,7 @@ function App() {
       <Route exact path="/BudgetResults" component={BudgetResults} />
       <Route exact path="/BudgetVoting" component={BudgetVoting} />
       <Route exact path="/DeptInfo" component={DeptInfo} />
+      <Route exact path="/ClassResults" component={ClassResults} />
       <Footer></Footer>
     </Router>
   );
