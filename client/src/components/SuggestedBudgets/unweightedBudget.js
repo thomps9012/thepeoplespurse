@@ -58,7 +58,7 @@ export default class UnweightedBudget extends React.Component {
       .then(res => {
         const votes = res.data;
         this.setState({ votes });
-
+        console.log(votes)
         //data manipulation piece
 
         //defines each dept as an array
