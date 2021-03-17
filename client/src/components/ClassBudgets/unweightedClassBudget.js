@@ -54,7 +54,7 @@ export default class UnweightedBudget extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('/api/vote/get')
+    axios.get('/api/singleSession/get')
       .then(res => {
         const votes = res.data;
         this.setState({ votes });

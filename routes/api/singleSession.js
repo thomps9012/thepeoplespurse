@@ -41,6 +41,21 @@ router.post('/singleSession', function (req, res) {
     res.json(req.body)
 });
 
+//route for retrieving the class' session data before we push it into our chart
+router.get('/singleSession/get', (req, res) => {
+    db.singleSession.findAll({
+        where: {
+            class_id: document.getElementById(class_id)
+        }
+    })
+        .then(data => {
+
+            res.json(data)
+        })
+        .catch(err => {
+            res.json(err)
+        })
+});
 
 
 module.exports = router

@@ -2,17 +2,16 @@ const router = require("express").Router();
 const db = require('../../models');
 
 //route for retrieving the data before we push it into our chart
-router.get('/bracket1/get', (req, res) => {
+router.get('/bracket7/get', (req, res) => {
     db.singleSession.findAll({
         where: {
-            // class_id: class_id,
-            tax_bracket: 1
+            tax_bracket: 7
         }
     })
-        .then(bracket1 => {
+        .then(bracket7 => {
 
-            res.json(bracket1)
-            console.log(bracket1)
+            res.json(bracket7)
+            console.log(bracket7)
         })
         .catch(err => {
             res.json(err)

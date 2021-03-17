@@ -30,6 +30,7 @@ router.post('/weightedBudget', function (req, res) {
     })
         .then(data => {
             res.send(data)
+            console.log(data)
         })
         .catch(err => {
             res.status(500).send({
