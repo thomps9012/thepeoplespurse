@@ -10,13 +10,13 @@ type User @entity {
     username: String! @column
     email: EmailAddress @column(overrideType: "string")
     password: String! @column
-    teachers: [Teacher]! @link
+    classCode: Class! @link
     actions: [Action]! @link
 }
 
 type Teacher @entity {
     id: ID! @id
-    username: String! @unique
+    username: String! @column
     email: EmailAddress @column(overrideType: "string")
     password: String! @column
     classes: [Class]! @link
@@ -25,7 +25,6 @@ type Teacher @entity {
 type Vote @entity {
     id: ID! @id 
     voter: User! @link
-    classCode: Class! @link
     createdAt: DateTime @column(overrideType: "Date")
     budget: [Dept]! @link
 }
@@ -48,6 +47,7 @@ type Dept @entity{
 
 type Class @entity{
     id: String! @column
+    users: [User]! @link
     votes: [Vote]! @link
     createdAt: DateTime @column(overrideType: "Date")
 }
@@ -90,7 +90,14 @@ input LoginInput {
     password: String
 }
 
-input SignUpInput {
+input UserSignUpInput {
+    email: EmailAddress,
+    classCode: String,
+    username: String,
+    password: String
+}
+
+input TeacherSignUpInput {
     email: EmailAddress,
     username: String,
     password: String
@@ -99,8 +106,8 @@ input SignUpInput {
 type Mutation {
     login(input: LoginInput!): JWT!
     teacherLogin(input: LoginInput!): JWT!
-    signUp(input: SignUpInput!): JWT!
-    teacherSignUp(input: SignUpInput!): JWT!
+    signUp(input: UserSignUpInput!): JWT!
+    teacherSignUp(input: TeacherSignUpInput!): JWT!
     castVote(input: CastVote!): Vote!
     takeAction(input: TakeAction!): Action!
 }

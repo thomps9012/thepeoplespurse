@@ -1,5 +1,5 @@
 import { DateTimeResolver } from 'graphql-scalars'
-import { ActionDbObject, CastVote, ClassDbObject, LoginInput, SignUpInput, TakeAction, User, UserDbObject, VoteDbObject } from './graphql-codegen-typings'
+import { ActionDbObject, CastVote, ClassDbObject, LoginInput, UserSignUpInput, TakeAction, User, UserDbObject, VoteDbObject, TeacherSignUpInput } from './graphql-codegen-typings'
 import { ObjectId } from 'mongodb'
 import { mongoDbProvider } from './mongodb.provider'
 import jwt from 'jsonwebtoken'
@@ -35,13 +35,13 @@ export const resolvers = {
     Mutation: {
         signUp: async (
             obj: any,
-            { input }: { input: SignUpInput }
+            { input }: { input: UserSignUpInput }
         ) => {
             const result = await mongoDbProvider.usersCollection.insertOne({
                 email: input.email,
                 username: input.username,
                 password: input.password ? await bcrypt.hash(input.password, 10) : '',
-                teachers: [],
+                classCode: input.classCode,
                 actions: []
             });
             console.log(result.insertedId)
@@ -54,7 +54,7 @@ export const resolvers = {
         },
         teacherSignUp: async (
             obj: any,
-            { input }: { input: SignUpInput }
+            { input }: { input: TeacherSignUpInput }
         ) => {
             const result = await mongoDbProvider.usersCollection.insertOne({
                 email: input.email,
