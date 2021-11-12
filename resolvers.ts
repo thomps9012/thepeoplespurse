@@ -38,6 +38,7 @@ export const resolvers = {
             { input }: { input: SignUpInput }
         ) => {
             const result = await mongoDbProvider.usersCollection.insertOne({
+                email: input.email,
                 username: input.username,
                 password: input.password ? await bcrypt.hash(input.password, 10) : '',
                 teachers: [],
@@ -56,6 +57,7 @@ export const resolvers = {
             { input }: { input: SignUpInput }
         ) => {
             const result = await mongoDbProvider.usersCollection.insertOne({
+                email: input.email,
                 username: input.username,
                 password: input.password ? await bcrypt.hash(input.password, 10) : '',
                 classes: []
@@ -73,7 +75,7 @@ export const resolvers = {
             { input }: { input: LoginInput }
         ) => {
             const user = await mongoDbProvider.usersCollection.findOne({
-                username: input.username,
+                email: input.email,
             });
             const correctPw = input.password ? await bcrypt.compare(input.password, user?.password) : '';
             if (!correctPw) {
@@ -91,7 +93,7 @@ export const resolvers = {
             { input }: { input: LoginInput }
         ) => {
             const teacher = await mongoDbProvider.teachersCollection.findOne({
-                username: input.username,
+                email: input.email,
             });
             const correctPw = input.password ? await bcrypt.compare(input.password, teacher?.password) : '';
             if (!correctPw) {
@@ -116,8 +118,8 @@ export const resolvers = {
                     classCode: input.classCode,
                     budget: input.department
                 })
-                console.log(vote.result)
-                return vote.result;
+                console.log(vote)
+                return vote;
             } catch {
                 console.log('Invalid Token')
             }
@@ -140,8 +142,8 @@ export const resolvers = {
                             },
                             { upsert: true }
                         );
-                    console.log(result.result)
-                return result.result;
+                    console.log(result)
+                return result;
                 } catch {
                     console.log('Invalid Token')
                 }

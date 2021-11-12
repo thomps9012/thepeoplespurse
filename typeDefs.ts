@@ -3,10 +3,12 @@ import { gql } from 'apollo-server';
 const typeDefs = gql`
 scalar DateTime
 scalar JWT
+scalar EmailAddress
 
 type User @entity {
     id: ID! @id
-    username: String! @column @unique
+    username: String! @column
+    email: EmailAddress @column(overrideType: "string")
     password: String! @column
     teachers: [Teacher]! @link
     actions: [Action]! @link
@@ -14,7 +16,8 @@ type User @entity {
 
 type Teacher @entity {
     id: ID! @id
-    username: String! @column @unique
+    username: String! @unique
+    email: EmailAddress @column(overrideType: "string")
     password: String! @column
     classes: [Class]! @link
 }
@@ -37,13 +40,13 @@ type Action @entity {
     length: Float!
 }
 
-type Dept @entity @key(fields: "code"){
+type Dept @entity{
     code: String! @column
     name: String! @column
     percent: Float! @column
 }
 
-type Class @entity @key(fields: "id"){
+type Class @entity{
     id: String! @column
     votes: [Vote]! @link
     createdAt: DateTime @column(overrideType: "Date")
@@ -83,11 +86,12 @@ input TakeAction {
 }
 
 input LoginInput {
-    username: String,
+    email: EmailAddress,
     password: String
 }
 
 input SignUpInput {
+    email: EmailAddress,
     username: String,
     password: String
 }
