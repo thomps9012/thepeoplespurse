@@ -2,18 +2,15 @@ import { gql } from 'apollo-server';
 
 const typeDefs = gql`
 scalar DateTime
-scalar EmailAddress
 scalar JWT
 
 type User @entity {
     id: ID! @id
     username: String! @column
     password: String! @column
-    email: EmailAddress @column(overrideType: "string")
     teacher: Boolean! @column
-    interests: [Interest]! @column
-    actions: [Action] @link
-    classes: [Class] @link
+    actions: [Action]! @link
+    classes: [Class]! @link
 }
 
 type Vote @entity {
@@ -21,7 +18,7 @@ type Vote @entity {
     voter: User! @link
     classCode: Class! @link
     createdAt: DateTime @column(overrideType: "Date")
-    budget: [Dept]! @column
+    budget: [Dept]! @link
 }
 
 type Action @entity {
@@ -31,18 +28,13 @@ type Action @entity {
     detail: String! @column
     organization: String! @column
     actionDate: DateTime @column(overrideType: "Date")
-    length: Number!
-}
-
-type Interest @entity {
-    name: String! @column
-    depts: [Dept]! @column
+    length: Float!
 }
 
 type Dept @entity @key(fields: "code"){
     code: String! @column
     name: String! @column
-    percent: Number! @column
+    percent: Float! @column
 }
 
 type Class @entity @key(fields: "id"){
@@ -60,9 +52,18 @@ type Query {
     actions(userID: ID!): [Action]
 }
 
+input DeptInput {
+    name: String!
+    code: String!
+    percent: Float!
+}
+
+input Interest {
+    name: String!
+}
+
 input CastVote {
-    interests: [Interest]
-    department: [Dept]!
+    department: [DeptInput]!
     classCode: String
 }
 
@@ -71,16 +72,15 @@ input TakeAction {
     detail: String!
     organization: String!
     actionDate: DateTime
-    length: Number!
+    length: Float!
 }
 
 input LoginInput {
-    email: EmailAdress,
+    username: String,
     password: String
 }
 
 input SignUpInput {
-    email: EmailAddress,
     username: String,
     password: String
 }
@@ -88,7 +88,7 @@ input SignUpInput {
 type Mutation {
     login(input: LoginInput!): JWT!
     signUp(input: SignUpInput!): JWT!
-    castVote(input: CastVoteInput!): Vote!
+    castVote(input: CastVote!): Vote!
     takeAction(input: TakeAction!): Action!
 }
 `;
