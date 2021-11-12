@@ -6,10 +6,16 @@ scalar JWT
 
 type User @entity {
     id: ID! @id
-    username: String! @column
+    username: String! @column @unique
     password: String! @column
-    teacher: Boolean! @column
+    teachers: [Teacher]! @link
     actions: [Action]! @link
+}
+
+type Teacher @entity {
+    id: ID! @id
+    username: String! @column @unique
+    password: String! @column
     classes: [Class]! @link
 }
 
@@ -88,7 +94,9 @@ input SignUpInput {
 
 type Mutation {
     login(input: LoginInput!): JWT!
+    teacherLogin(input: LoginInput!): JWT!
     signUp(input: SignUpInput!): JWT!
+    teacherSignUp(input: SignUpInput!): JWT!
     castVote(input: CastVote!): Vote!
     takeAction(input: TakeAction!): Action!
 }
