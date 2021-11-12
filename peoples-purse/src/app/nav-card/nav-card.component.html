@@ -1,1 +1,7 @@
-<p>nav-card works!</p>
+<div *ngFor="let navcard of navcards">
+    <h3>{{navcard.title}}</h3>
+    <p>{{navcard.text}}</p>
+    <a [title]="navcard.title" [routerLink]="[navcard.link]">
+        <p>{{navcard.button}}</p>
+    </a>
+</div>

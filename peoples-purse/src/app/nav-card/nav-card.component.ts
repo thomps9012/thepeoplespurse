@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { navcards } from './navcards';
 
 @Component({
   selector: 'nav-card',
@@ -6,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nav-card.component.css']
 })
 export class NavCardComponent implements OnInit {
-
+  navcards = navcards
+  
   constructor() { }
 
   ngOnInit(): void {
