@@ -22,6 +22,15 @@ export class MongoDbProvider {
         return votesCollection;
     }
 
+    get classesCollection(): Collection {
+        const classesCollection = this.getCollection('classes');
+        
+        if (!classesCollection) {
+            throw new Error('Classes collection is undefined');
+        }
+        return classesCollection;
+    }
+
     get usersCollection(): Collection {
         const usersCollection = this.getCollection('users');
         

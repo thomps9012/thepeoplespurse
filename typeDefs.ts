@@ -45,10 +45,11 @@ type Class @entity @key(fields: "id"){
 
 type Query {
     getUser(id: ID!): User
-    users: [User]
+    allUsers: [User]
     vote(id: ID!): Vote
+    allVotes: [Vote]
     classVotes(classCode: String!): [Vote]
-    classes(userID: ID!): [Class]
+    classes(id: String!): [Class]
     actions(userID: ID!): [Action]
 }
 
