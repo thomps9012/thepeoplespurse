@@ -1,4 +1,29 @@
-<p>signup works!</p>
-<a class="button" routerLink="/login">Returning User?
-    <br />
-    Login Here</a>
+<h1>Sign Up</h1>
+<form>
+    <div class="row">
+        <label>Username</label>
+        <input type="text" placeholder="Username" (change)="setUsername($event)" />
+    </div>
+    <div class="row">
+        <label>Email</label>
+        <input type="text" placeholder="Email" (change)="setEmail($event)" />
+    </div>
+    <label>Password</label>
+    <input type="text" placeholder="Password" (change)="setPassword($event)" />
+    <div class="row">
+        <label>Have a class code?</label>
+        <input type="checkbox" (click)="showClassInput()" />
+    </div>
+    <div class="row" id="ClassCodeInput" style="display: none">
+        <label>Enter it here</label>
+        <input type="number" (change)="setClassCode($event)" />
+    </div>
+    <button (click)="signUp($event)">
+        Sign Up
+    </button>
+</form>
+<h3>
+    <a class="button" routerLink="/login">Returning User?
+        <br />
+        Login Here</a>
+</h3>

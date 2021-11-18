@@ -92,9 +92,9 @@ input LoginInput {
 
 input UserSignUpInput {
     email: EmailAddress,
-    classCode: String,
     username: String,
     password: String
+    classCode: String,
 }
 
 input TeacherSignUpInput {

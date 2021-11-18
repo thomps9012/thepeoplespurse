@@ -14,6 +14,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 
+import { GraphQLModule } from './graphql.module';
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +41,9 @@ import { SignupComponent } from './signup/signup.component';
       {path: 'login', component: LoginComponent},
       {path: 'signup', component: SignupComponent},
       {path: '**', component: PageNotFoundComponent}
-    ])
+    ]),
+    GraphQLModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
