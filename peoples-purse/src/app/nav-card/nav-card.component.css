@@ -1,0 +1,41 @@
+:host{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  
+  .icon {
+  margin: 10px;
+  padding: 10px;
+  }
+  
+  h3 {
+    font-family: "Roboto Slab", serif;
+    font-size: 26px;
+  }
+  
+  p {
+    font-size: 18px;
+  }
+  
+  a {
+    display: inline-block;
+    padding: 5px;
+    font-size: 18px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    color: #1976d2;
+    }
+
+  a:hover {
+    color: #046314;
+  }
+
+  

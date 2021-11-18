@@ -11,6 +11,8 @@ import { InformationComponent } from './information/information.component';
 import { VotingComponent } from './voting/voting.component';
 import { ResultsComponent } from './results/results.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     InformationComponent,
     VotingComponent,
     ResultsComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -31,6 +35,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
       {path: 'info', component: InformationComponent},
       {path: 'voting', component: VotingComponent},
       {path: 'results', component: ResultsComponent},
+      {path: 'login', component: LoginComponent},
+      {path: 'signup', component: SignupComponent},
       {path: '**', component: PageNotFoundComponent}
     ])
   ],
