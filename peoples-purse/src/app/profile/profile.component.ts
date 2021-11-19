@@ -15,18 +15,19 @@ query Query($getUserId: ID!) {
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-
+  data: any
+  username?: string
   constructor(private apollo: Apollo) { }
-  
   ngOnInit() {
     console.log(localStorage.getItem('USER_ID'))
-    this.apollo.query({
+    this.data = this.apollo.query({
       query: GET_USER,
       variables: {
         getUserId: localStorage.getItem('USER_ID')
       }
     }).subscribe(({ data }: any) => {
-      console.log('got data', data);
+      console.log('got data', data.getUser.username);
+      this.username = data.getUser.username
     }, (error) => {
       console.log('there was an error sending the query', error);
     });
