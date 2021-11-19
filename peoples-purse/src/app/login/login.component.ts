@@ -7,6 +7,7 @@ mutation Mutation($input: LoginInput!) {
   login(input: $input) {
     token
     user {
+    id
     username
   }
 }
@@ -51,11 +52,13 @@ export class LoginComponent implements OnInit {
     }).subscribe(({ data }: any) => {
       console.log('got data', data);
       const username = data.login.user.username;
+      const userId = data.login.user.id;
       const token = data.login.token;
-      localStorage.setItem('USER_ID', username)
+      localStorage.setItem('USER', username)
+      localStorage.setItem('USER_ID', userId)
       localStorage.setItem('AUTH_TOKEN', token)
-
       // load to profile page
+      window.location.replace('/profile')
     }, (error) => {
       console.log('there was an error sending the query', error);
     });

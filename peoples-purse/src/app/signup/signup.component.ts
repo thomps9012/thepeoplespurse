@@ -6,6 +6,9 @@ const SIGN_UP = gql`
 mutation Mutation($input: UserSignUpInput!) {
   signUp(input: $input){
     token
+    user {
+      id
+    }
   }
 }
 `;
@@ -66,9 +69,12 @@ export class SignupComponent implements OnInit {
     }).subscribe(({ data }: any) => {
       console.log('got data', data);
       const token = data.signUp.token;
-      localStorage.setItem('USER_ID', this.username)
+      const userId = data.signUp.user.id
+      localStorage.setItem('USER', this.username)
+      localStorage.setItem('USER_ID', userId)
       localStorage.setItem('AUTH_TOKEN', token)
       // load to profile page
+      window.location.replace('/profile')
     }, (error) => {
       console.log('there was an error sending the query', error);
     });
