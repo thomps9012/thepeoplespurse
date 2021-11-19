@@ -16,6 +16,7 @@ import { SignupComponent } from './signup/signup.component';
 
 import { GraphQLModule } from './graphql.module';
 import { HttpClientModule } from '@angular/common/http';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { HttpClientModule } from '@angular/common/http';
     ResultsComponent,
     PageNotFoundComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -40,6 +42,7 @@ import { HttpClientModule } from '@angular/common/http';
       {path: 'results', component: ResultsComponent},
       {path: 'login', component: LoginComponent},
       {path: 'signup', component: SignupComponent},
+      {path: 'profile', component: ProfileComponent},
       {path: '**', component: PageNotFoundComponent}
     ]),
     GraphQLModule,

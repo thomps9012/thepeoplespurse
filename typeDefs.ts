@@ -103,11 +103,16 @@ input TeacherSignUpInput {
     password: String
 }
 
+type Auth {
+    token: JWT!
+    user: User!
+  }
+
 type Mutation {
-    login(input: LoginInput!): JWT!
-    teacherLogin(input: LoginInput!): JWT!
-    signUp(input: UserSignUpInput!): JWT!
-    teacherSignUp(input: TeacherSignUpInput!): JWT!
+    login(input: LoginInput!): Auth!
+    teacherLogin(input: LoginInput!): Auth!
+    signUp(input: UserSignUpInput!): Auth!
+    teacherSignUp(input: TeacherSignUpInput!): Auth!
     castVote(input: CastVote!): Vote!
     takeAction(input: TakeAction!): Action!
 }

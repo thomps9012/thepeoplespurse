@@ -4,7 +4,12 @@ import { Apollo, gql } from 'apollo-angular';
 
 const LOGIN = gql`
 mutation Mutation($input: LoginInput!) {
-  login(input: $input)
+  login(input: $input) {
+    token
+    user {
+    username
+  }
+}
 }
 `;
 
@@ -32,6 +37,7 @@ export class LoginComponent implements OnInit {
   }
 
   login(event: Event) {
+    // comment out
     event.preventDefault()
 
     this.apollo.mutate({
@@ -42,8 +48,14 @@ export class LoginComponent implements OnInit {
           password: this.password
         }
       }
-    }).subscribe(({ data }) => {
+    }).subscribe(({data}: any) => {
       console.log('got data', data);
+      const username = data.login.user.username;
+      const token = data.login.token;
+      localStorage.setItem('USER_ID', username)
+      localStorage.setItem('AUTH_TOKEN', token)
+
+      // load to profile page
     }, (error) => {
       console.log('there was an error sending the query', error);
     });

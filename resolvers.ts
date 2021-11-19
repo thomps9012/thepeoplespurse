@@ -45,12 +45,14 @@ export const resolvers = {
                 actions: []
             });
             console.log(result.insertedId)
-            return jwt.sign(
+            const token = jwt.sign(
                 // will change on PRODUCTION
                 { "https://localhost:4000/": {} },
                 "f1BtnWgD3VKY",
                 { algorithm: "HS256", subject: input.username ? input.username : '', expiresIn: "1d" }
             );
+            const data = {token, result}
+            return data
         },
         teacherSignUp: async (
             obj: any,
@@ -63,12 +65,14 @@ export const resolvers = {
                 classes: []
             });
             console.log(result.insertedId)
-            return jwt.sign(
+            const token = jwt.sign(
                 // will change on PRODUCTION
                 { "https://localhost:4000/": {} },
                 "f1BtnWgD3VKY",
                 { algorithm: "HS256", subject: input.username ? input.username : '', expiresIn: "1d" }
             );
+            const data = {token, result}
+            return data
         },
         login: async (
             obj: any,
@@ -81,12 +85,14 @@ export const resolvers = {
             if (!correctPw) {
                 throw new AuthenticationError('Incorrect Password')
             }
-            return jwt.sign(
+            const token = jwt.sign(
                 // will change on PRODUCTION
                 { "https://localhost:4000/": {} },
                 "f1BtnWgD3VKY",
                 { algorithm: "HS256", subject: user?.username, expiresIn: "1d" }
             );
+            const data = {token, user}
+            return data
         },
         teacherLogin: async (
             obj: any,
@@ -99,12 +105,14 @@ export const resolvers = {
             if (!correctPw) {
                 throw new AuthenticationError('Incorrect Password')
             }
-            return jwt.sign(
+            const token = jwt.sign(
                 // will change on PRODUCTION
                 { "https://localhost:4000/": {} },
                 "f1BtnWgD3VKY",
                 { algorithm: "HS256", subject: teacher?.username, expiresIn: "1d" }
             );
+            const data = {token, teacher}
+            return data
         },
         castVote: async (
             obj: any,

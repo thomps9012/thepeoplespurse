@@ -48,6 +48,7 @@ export class SignupComponent implements OnInit {
   }
 
   signUp(event: Event) {
+    // comment out
     event.preventDefault()
 
     this.apollo.mutate({
@@ -62,6 +63,7 @@ export class SignupComponent implements OnInit {
       }
     }).subscribe(({ data }) => {
       console.log('got data', data);
+      // load to profile page
     }, (error) => {
       console.log('there was an error sending the query', error);
     });
