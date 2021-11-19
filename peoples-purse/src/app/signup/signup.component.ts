@@ -3,10 +3,9 @@ import { Apollo, gql } from 'apollo-angular';
 
 
 const SIGN_UP = gql`
-mutation signUp($input: UserSignUpInput!) {
+mutation Mutation($input: UserSignUpInput!) {
   signUp(input: $input)
-    JWT
-} 
+}
 `;
 
 @Component({
@@ -51,27 +50,14 @@ export class SignupComponent implements OnInit {
   signUp(event: Event) {
     event.preventDefault()
 
-    const UserSignUpInput = {
-      email: this.email,
-      username: this.username,
-      password: this.password,
-      classCode: this.classCode
-    }
-
-    // console.log(UserSignUpInput)
-
     this.apollo.mutate({
-      mutation: gql`
-      mutation Mutation($input: UserSignUpInput!) {
-        signUp(input: $input)
-      }
-      `,
+      mutation: SIGN_UP,
       variables: {
         input: {
-          email: "test1@test.com",
-          classCode: "999",
-          username: "test",
-          password: "test12345"
+          email: this.email,
+          username: this.username,
+          password: this.password,
+          classCode: this.classCode
         }
       }
     }).subscribe(({ data }) => {
