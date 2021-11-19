@@ -69,7 +69,7 @@ export class SignupComponent implements OnInit {
     }).subscribe(({ data }: any) => {
       console.log('got data', data);
       const token = data.signUp.token;
-      const userId = data.signUp.user.id
+      const userId = data.signUp.user.id;
       localStorage.setItem('USER', this.username)
       localStorage.setItem('USER_ID', userId)
       localStorage.setItem('AUTH_TOKEN', token)

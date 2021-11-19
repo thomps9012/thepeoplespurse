@@ -44,14 +44,18 @@ export const resolvers = {
                 classCode: input.classCode,
                 actions: []
             });
-            console.log(result.insertedId)
+            const user = await mongoDbProvider.usersCollection.findOne({
+                email: input.email
+            })
+            console.log(user)
             const token = jwt.sign(
                 // will change on PRODUCTION
                 { "https://localhost:4000/": {} },
                 "f1BtnWgD3VKY",
                 { algorithm: "HS256", subject: input.username ? input.username : '', expiresIn: "1d" }
-            );
-            const data = {token, result}
+                );
+                const data = {token, user}
+                console.log(data)
             return data
         },
         teacherSignUp: async (
@@ -64,14 +68,16 @@ export const resolvers = {
                 password: input.password ? await bcrypt.hash(input.password, 10) : '',
                 classes: []
             });
-            console.log(result.insertedId)
+            const teacher = await mongoDbProvider.usersCollection.findOne({
+                email: input.email
+            })
             const token = jwt.sign(
                 // will change on PRODUCTION
                 { "https://localhost:4000/": {} },
                 "f1BtnWgD3VKY",
                 { algorithm: "HS256", subject: input.username ? input.username : '', expiresIn: "1d" }
             );
-            const data = {token, result}
+            const data = {token, teacher}
             return data
         },
         login: async (
