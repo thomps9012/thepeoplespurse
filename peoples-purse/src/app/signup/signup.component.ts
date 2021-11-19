@@ -4,7 +4,9 @@ import { Apollo, gql } from 'apollo-angular';
 
 const SIGN_UP = gql`
 mutation Mutation($input: UserSignUpInput!) {
-  signUp(input: $input)
+  signUp(input: $input){
+    token
+  }
 }
 `;
 
@@ -61,8 +63,11 @@ export class SignupComponent implements OnInit {
           classCode: this.classCode
         }
       }
-    }).subscribe(({ data }) => {
+    }).subscribe(({ data }: any) => {
       console.log('got data', data);
+      const token = data.signUp.token;
+      localStorage.setItem('USER_ID', this.username)
+      localStorage.setItem('AUTH_TOKEN', token)
       // load to profile page
     }, (error) => {
       console.log('there was an error sending the query', error);

@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
           password: this.password
         }
       }
-    }).subscribe(({data}: any) => {
+    }).subscribe(({ data }: any) => {
       console.log('got data', data);
       const username = data.login.user.username;
       const token = data.login.token;
