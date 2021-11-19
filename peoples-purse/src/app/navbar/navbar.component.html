@@ -4,7 +4,9 @@
     <a class="button" routerLink="/voting">Voting</a>
     <a class="button" routerLink="/results">Proposed Budget Results</a>
     <!-- conditional rendering of links show username -->
-    <a class="button" routerLink="/signup">Sign Up</a>
-    <a class="button" routerLink="/login">Login<i class="material-icons">login</i></a>
+    <a *ngIf="data" class="button" routerLink="/profile">Welcome {{username}}</a>
+    <a *ngIf="data" class="button" (click)="logout()">Logout<i class="material-icons">logout</i></a>
     <!-- conditional showing of profile page button -->
+    <a class="button" *ngIf="!data" routerLink="/signup">Sign Up</a>
+    <a class="button" *ngIf="!data" routerLink="/login">Login<i class="material-icons">login</i></a>
 </nav>
