@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { defenseDepts } from './defenseDepts';
 import { depts } from './depts';
 import { eduDepts } from './eduDepts';
+import { enviroDepts } from './enviroDepts';
+import { healthDepts } from './healthDepts';
+import { transpoDepts } from './transpoDepts';
 
 @Component({
   selector: 'voting',
@@ -78,11 +82,50 @@ export class VotingComponent implements OnInit {
       this.depts = eduDepts;
   }
   enviroDist(event: Event) {
-    event.preventDefault()}
+    event.preventDefault()
+    event.preventDefault()
+    this.totalDept = 100;
+    let totalArea = document.getElementById("totalBudget")
+    let budgetAlert = <HTMLElement>document.getElementById('budgetAlert')
+    totalArea?.setAttribute('style', 'background-color: green')
+      let dangerAlert = document.createElement("h1")
+      dangerAlert.innerHTML+="You're perfect!";
+      budgetAlert.innerHTML="";
+      budgetAlert?.append(dangerAlert);
+      this.depts = enviroDepts;
+    }
   healthDist(event: Event) {
-    event.preventDefault()}
+    event.preventDefault()
+    this.totalDept = 100;
+    let totalArea = document.getElementById("totalBudget")
+    let budgetAlert = <HTMLElement>document.getElementById('budgetAlert')
+    totalArea?.setAttribute('style', 'background-color: green')
+      let dangerAlert = document.createElement("h1")
+      dangerAlert.innerHTML+="You're perfect!";
+      budgetAlert.innerHTML="";
+      budgetAlert?.append(dangerAlert);
+      this.depts = healthDepts;
+  }
   defenseDist(event: Event) {
-    event.preventDefault()}
+    event.preventDefault()
+    this.totalDept = 100;
+    let totalArea = document.getElementById("totalBudget")
+    let budgetAlert = <HTMLElement>document.getElementById('budgetAlert')
+    totalArea?.setAttribute('style', 'background-color: green')
+      let dangerAlert = document.createElement("h1")
+      dangerAlert.innerHTML+="You're perfect!";
+      budgetAlert.innerHTML="";
+      budgetAlert?.append(dangerAlert);
+      this.depts = defenseDepts;}
   transportDist(event: Event) {
-    event.preventDefault()}
+    event.preventDefault()
+    this.totalDept = 100;
+    let totalArea = document.getElementById("totalBudget")
+    let budgetAlert = <HTMLElement>document.getElementById('budgetAlert')
+    totalArea?.setAttribute('style', 'background-color: green')
+      let dangerAlert = document.createElement("h1")
+      dangerAlert.innerHTML+="You're perfect!";
+      budgetAlert.innerHTML="";
+      budgetAlert?.append(dangerAlert);
+      this.depts = transpoDepts;}
 }
