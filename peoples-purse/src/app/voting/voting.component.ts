@@ -20,7 +20,6 @@ export class VotingComponent implements OnInit {
   }
 
   updateBudget() {
-    // event.preventDefault()
     this.totalDept = 0;
     for(let i=1; i<= 20; i++) {
       const number = <HTMLInputElement>document.getElementById(JSON.stringify(i))
@@ -50,4 +49,24 @@ export class VotingComponent implements OnInit {
     }
   }
 
+  evenDist(event: Event) {
+    event.preventDefault()
+    this.totalDept = 100;
+    let totalArea = document.getElementById("totalBudget")
+    let budgetAlert = <HTMLElement>document.getElementById('budgetAlert')
+    for(let i=1; i<=20; i++) {
+      const dept = <HTMLInputElement>document.getElementById(JSON.stringify(i))
+      dept.value = '5';
+      totalArea?.setAttribute('style', 'background-color: green')
+      let dangerAlert = document.createElement("h1")
+      dangerAlert.innerHTML+="You're perfect!";
+      budgetAlert.innerHTML="";
+      budgetAlert?.append(dangerAlert);
+    }
+  }
+  educationDist() {}
+  enviroDist() {}
+  healthDist() {}
+  defenseDist() {}
+  transportDist() {}
 }
