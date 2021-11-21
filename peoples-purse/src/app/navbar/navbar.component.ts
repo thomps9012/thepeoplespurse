@@ -26,9 +26,7 @@ export class NavbarComponent implements OnInit {
     window.location.replace('/');
   }
   ngOnInit() {
-    console.log(localStorage.getItem('USER_ID'))
     const userId = localStorage.getItem('USER_ID')
-    console.log(userId)
     if (userId != null) {
       this.data = this.apollo.query({
         query: GET_USER,
@@ -36,8 +34,6 @@ export class NavbarComponent implements OnInit {
           getUserId: localStorage.getItem('USER_ID')
         }
       }).subscribe(({ data }: any) => {
-        console.log(data)
-        console.log('got data', data.getUser.username);
         this.username = data.getUser.username
       }, (error) => {
         console.log('there was an error sending the query', error);

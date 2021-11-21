@@ -1,11 +1,41 @@
-<p>voting works!</p>
-
-<!-- <slider 
-thumbLabel 
-[displayWith]="formatLabel" 
-tickInterval="1" 
-step="1" 
-min="0" 
-max="100" 
-aria-label="units">
-</slider> -->
+<div class="header">
+    <button>Distribute Equally</button>
+    <button>Education Focused</button>
+    <button>Environment Focused</button>
+    <button>Healthcare Focused</button>
+    <button>Defense Focused</button>
+    <button>Transportaion Focused</button>
+    <br />
+    <div id="totalBudget">
+        <h2>Total Budget Used</h2>
+        <h2 *ngIf="totalDept">{{totalDept}} %</h2>
+        <div id="budgetAlert"></div>
+    </div>
+    <br />
+</div>
+<div class="container">
+    <div class="item">
+        <div *ngFor="let dept of depts | slice:0:5">
+            <input id="{{dept.code}}" type="number" min="1" max="100" value="{{dept.percent}}" (change)="updateBudget()"/><span>%</span>
+            <h3>{{dept.name}}</h3>
+        </div>
+    </div>
+    <div class="item">
+        <div *ngFor="let dept of depts | slice:5:10">
+            <input id="{{dept.code}}" type="number" min="1" max="100" value="{{dept.percent}}" (change)="updateBudget()"/><span>%</span>
+            <h3>{{dept.name}}</h3>
+        </div>
+    </div>
+    <div class="item">
+        <div *ngFor="let dept of depts | slice:10:15">
+            <input id="{{dept.code}}" type="number" min="1" max="100" value="{{dept.percent}}" (change)="updateBudget()"/><span>%</span>
+            <h3>{{dept.name}}</h3>
+        </div>
+    </div>
+    <div class="item">
+        <div *ngFor="let dept of depts | slice:15:20">
+            <input id="{{dept.code}}" type="number" min="1" max="100" value="{{dept.percent}}" (change)="updateBudget()"/><span>%</span>
+            <h3>{{dept.name}}</h3>
+        </div>
+    </div>
+</div>
