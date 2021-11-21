@@ -30,32 +30,32 @@ export class VotingComponent implements OnInit {
       const number = <HTMLInputElement>document.getElementById(JSON.stringify(i))
       console.log(number.value)
       this.totalDept += JSON.parse(number.value)
-    }
-    let totalArea = document.getElementById("totalBudget")
-    let budgetAlert = <HTMLElement>document.getElementById('budgetAlert')
-    if (this.totalDept > 100) {
-      totalArea?.setAttribute('style', 'background-color: red')
-      let dangerAlert = document.createElement("h1")
-      dangerAlert.innerHTML += `Woah you've used ${this.totalDept - 100} percent more than your budget`;
-      budgetAlert.innerHTML = "";
-      budgetAlert?.append(dangerAlert);
-    } else if (this.totalDept === 100) {
-      totalArea?.setAttribute('style', 'background-color: green')
-      let dangerAlert = document.createElement("h1")
-      dangerAlert.innerHTML += "You're perfect!";
-      budgetAlert.innerHTML = "";
-      budgetAlert?.append(dangerAlert);
-    } else {
-      totalArea?.setAttribute('style', 'background-color: yellow')
-      let dangerAlert = document.createElement("h1")
-      dangerAlert.innerHTML += `You still have ${100 - this.totalDept} percent of your budget remaining`;
-      budgetAlert.innerHTML = "";
-      budgetAlert?.append(dangerAlert);
+
+      let totalArea = document.getElementById("totalBudget")
+      let budgetAlert = <HTMLElement>document.getElementById('budgetAlert')
+      if (this.totalDept > 100) {
+        totalArea?.setAttribute('style', 'background-color: red')
+        let dangerAlert = document.createElement("h1")
+        dangerAlert.innerHTML += `Woah you've used ${this.totalDept - 100} percent more than your budget`;
+        budgetAlert.innerHTML = "";
+        budgetAlert?.append(dangerAlert);
+      } else if (this.totalDept === 100) {
+        totalArea?.setAttribute('style', 'background-color: green')
+        let dangerAlert = document.createElement("h1")
+        dangerAlert.innerHTML += "You're perfect!";
+        budgetAlert.innerHTML = "";
+        budgetAlert?.append(dangerAlert);
+      } else {
+        totalArea?.setAttribute('style', 'background-color: yellow')
+        let dangerAlert = document.createElement("h1")
+        dangerAlert.innerHTML += `You still have ${100 - this.totalDept} percent of your budget remaining`;
+        budgetAlert.innerHTML = "";
+        budgetAlert?.append(dangerAlert);
+      }
     }
   }
 
-  evenDist(event: Event) {
-    event.preventDefault()
+  evenDist() {
     this.totalDept = 100;
     let totalArea = document.getElementById("totalBudget")
     let budgetAlert = <HTMLElement>document.getElementById('budgetAlert')
@@ -69,8 +69,7 @@ export class VotingComponent implements OnInit {
       budgetAlert?.append(dangerAlert);
     }
   }
-  educationDist(event: Event) {
-    event.preventDefault()
+  educationDist() {
     this.totalDept = 100;
     let totalArea = document.getElementById("totalBudget")
     let budgetAlert = <HTMLElement>document.getElementById('budgetAlert')
@@ -81,9 +80,7 @@ export class VotingComponent implements OnInit {
     budgetAlert?.append(dangerAlert);
     this.depts = eduDepts;
   }
-  enviroDist(event: Event) {
-    event.preventDefault()
-    event.preventDefault()
+  enviroDist() {
     this.totalDept = 100;
     let totalArea = document.getElementById("totalBudget")
     let budgetAlert = <HTMLElement>document.getElementById('budgetAlert')
@@ -94,8 +91,7 @@ export class VotingComponent implements OnInit {
     budgetAlert?.append(dangerAlert);
     this.depts = enviroDepts;
   }
-  healthDist(event: Event) {
-    event.preventDefault()
+  healthDist() {
     this.totalDept = 100;
     let totalArea = document.getElementById("totalBudget")
     let budgetAlert = <HTMLElement>document.getElementById('budgetAlert')
@@ -106,8 +102,7 @@ export class VotingComponent implements OnInit {
     budgetAlert?.append(dangerAlert);
     this.depts = healthDepts;
   }
-  defenseDist(event: Event) {
-    event.preventDefault()
+  defenseDist() {
     this.totalDept = 100;
     let totalArea = document.getElementById("totalBudget")
     let budgetAlert = <HTMLElement>document.getElementById('budgetAlert')
@@ -118,8 +113,7 @@ export class VotingComponent implements OnInit {
     budgetAlert?.append(dangerAlert);
     this.depts = defenseDepts;
   }
-  transportDist(event: Event) {
-    event.preventDefault()
+  transportDist() {
     this.totalDept = 100;
     let totalArea = document.getElementById("totalBudget")
     let budgetAlert = <HTMLElement>document.getElementById('budgetAlert')
@@ -129,5 +123,8 @@ export class VotingComponent implements OnInit {
     budgetAlert.innerHTML = "";
     budgetAlert?.append(dangerAlert);
     this.depts = transpoDepts;
+  }
+  resetBudget() {
+    window.location.reload();
   }
 }

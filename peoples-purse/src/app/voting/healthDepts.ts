@@ -76,7 +76,7 @@ export const healthDepts = [
     },
     {
         "name": "Social Security Administration",
-        "percent": 15,
+        "percent": 16,
         "code": 16
     },
     {

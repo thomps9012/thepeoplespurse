@@ -18,3 +18,8 @@
 button {
     margin: 25px;
 }
+
+#totalBudget {
+    align-content: center;
+    text-align: center;
+}

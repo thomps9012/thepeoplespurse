@@ -1,14 +1,15 @@
 <div class="header">
-    <button (click)="evenDist($event)">Distribute Equally</button>
-    <button (click)="educationDist($event)">Education Focused</button>
-    <button (click)="enviroDist($event)">Environment Focused</button>
-    <button (click)="healthDist($event)">Healthcare Focused</button>
-    <button (click)="defenseDist($event)">Defense Focused</button>
-    <button (click)="transportDist($event)">Transportaion Focused</button>
+    <button (click)="evenDist()">Distribute Equally</button>
+    <button (click)="educationDist()">Education Focused</button>
+    <button (click)="enviroDist()">Environment Focused</button>
+    <button (click)="healthDist()">Healthcare Focused</button>
+    <button (click)="defenseDist()">Defense Focused</button>
+    <button (click)="transportDist()">Transportaion Focused</button>
+    <button (click)="resetBudget()">Reset Budget</button>
     <br />
     <div id="totalBudget">
-        <h2>Total Budget Used</h2>
-        <h2 *ngIf="totalDept">{{totalDept}} %</h2>
+        <h1>Total Budget Used</h1>
+        <h1 *ngIf="totalDept">{{totalDept}} %</h1>
         <div id="budgetAlert"></div>
     </div>
     <br />

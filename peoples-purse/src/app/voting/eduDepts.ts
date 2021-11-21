@@ -16,7 +16,7 @@ export const eduDepts = [
 },
 {
     "name": "Department of Education",
-    "percent": 20,
+    "percent": 21,
     "code": 4
 },
 {
