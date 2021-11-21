@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { depts } from './depts';
+import { eduDepts } from './eduDepts';
 
 @Component({
   selector: 'voting',
@@ -64,9 +65,24 @@ export class VotingComponent implements OnInit {
       budgetAlert?.append(dangerAlert);
     }
   }
-  educationDist() {}
-  enviroDist() {}
-  healthDist() {}
-  defenseDist() {}
-  transportDist() {}
+  educationDist(event: Event) {
+    event.preventDefault()
+    this.totalDept = 100;
+    let totalArea = document.getElementById("totalBudget")
+    let budgetAlert = <HTMLElement>document.getElementById('budgetAlert')
+    totalArea?.setAttribute('style', 'background-color: green')
+      let dangerAlert = document.createElement("h1")
+      dangerAlert.innerHTML+="You're perfect!";
+      budgetAlert.innerHTML="";
+      budgetAlert?.append(dangerAlert);
+      this.depts = eduDepts;
+  }
+  enviroDist(event: Event) {
+    event.preventDefault()}
+  healthDist(event: Event) {
+    event.preventDefault()}
+  defenseDist(event: Event) {
+    event.preventDefault()}
+  transportDist(event: Event) {
+    event.preventDefault()}
 }
