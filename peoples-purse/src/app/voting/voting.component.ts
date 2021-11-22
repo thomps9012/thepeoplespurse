@@ -5,6 +5,13 @@ import { eduDepts } from './eduDepts';
 import { enviroDepts } from './enviroDepts';
 import { healthDepts } from './healthDepts';
 import { transpoDepts } from './transpoDepts';
+import { Apollo, gql } from 'apollo-angular';
+
+const VOTE = gql`
+  mutation Mutation($input: CastVote!) {
+    castVote(input: $input) 
+}
+`;
 
 @Component({
   selector: 'voting',
@@ -13,9 +20,11 @@ import { transpoDepts } from './transpoDepts';
 })
 export class VotingComponent implements OnInit {
 
+  constructor(private apollo: Apollo) { }
+
   depts = depts
-  constructor() { }
   totalDept = 0
+
 
   ngOnInit() {
     for (let i = 0; i < depts.length; i++) {
@@ -28,7 +37,7 @@ export class VotingComponent implements OnInit {
     this.totalDept = 0;
     for (let i = 1; i <= 20; i++) {
       const number = <HTMLInputElement>document.getElementById(JSON.stringify(i))
-      console.log(number.value)
+      console.log(number.parentElement?.firstChild?.textContent)
       this.totalDept += JSON.parse(number.value)
 
       let totalArea = document.getElementById("totalBudget")
@@ -134,10 +143,41 @@ export class VotingComponent implements OnInit {
     window.location.reload();
   }
 
-  submitBudget() {
-// grab all dept values and names
-// grab user information
-// apollo mutation
-// load budget page
+  submitBudget(event: Event) {
+    event.preventDefault();
+    if (this.totalDept > 100) {
+      alert(`You've used too much of your budget, please remove ${this.totalDept - 100} points from your budget before submitting.`)
+
+    }
+    else {
+      const voter = localStorage.getItem('USER_ID');
+      
+      let budget = []
+
+      for(let i=1; i<=20; i++){
+        const rawData = <HTMLInputElement>document.getElementById(JSON.stringify(i))
+        const dept = {
+          name: rawData.parentElement?.firstChild?.textContent,
+          code: rawData.id,
+          percent: JSON.parse(rawData.value)
+        }
+        budget.push(dept)
+      }
+      this.apollo.mutate({
+        mutation: VOTE,
+        variables: {
+          input: {
+            voter: voter,
+            budget: budget
+          }
+        }
+      }).subscribe(({ data }: any) => {
+        console.log('got data', data);
+        alert("You're vote has been successfully recorded")
+        window.location.replace('/results')
+      }, (error) => {
+        console.log('there was an error sending the query', error);
+      });
+    }
   }
 }

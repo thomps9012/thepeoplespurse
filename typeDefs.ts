@@ -73,8 +73,9 @@ input Interest {
 }
 
 input CastVote {
-    department: [DeptInput]!
+    budget: [DeptInput]!
     classCode: String
+    voter: String!
 }
 
 input TakeAction {
@@ -113,7 +114,7 @@ type Mutation {
     teacherLogin(input: LoginInput!): Auth!
     signUp(input: UserSignUpInput!): Auth!
     teacherSignUp(input: TeacherSignUpInput!): Auth!
-    castVote(input: CastVote!): Vote!
+    castVote(input: CastVote!): ID
     takeAction(input: TakeAction!): Action!
 }
 `;

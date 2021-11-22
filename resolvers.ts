@@ -53,9 +53,9 @@ export const resolvers = {
                 { "https://localhost:4000/": {} },
                 "f1BtnWgD3VKY",
                 { algorithm: "HS256", subject: input.username ? input.username : '', expiresIn: "1d" }
-                );
-                const data = {token, user}
-                console.log(data)
+            );
+            const data = { token, user }
+            console.log(data)
             return data
         },
         teacherSignUp: async (
@@ -77,7 +77,7 @@ export const resolvers = {
                 "f1BtnWgD3VKY",
                 { algorithm: "HS256", subject: input.username ? input.username : '', expiresIn: "1d" }
             );
-            const data = {token, teacher}
+            const data = { token, teacher }
             return data
         },
         login: async (
@@ -97,7 +97,7 @@ export const resolvers = {
                 "f1BtnWgD3VKY",
                 { algorithm: "HS256", subject: user?.username, expiresIn: "1d" }
             );
-            const data = {token, user}
+            const data = { token, user }
             return data
         },
         teacherLogin: async (
@@ -117,7 +117,7 @@ export const resolvers = {
                 "f1BtnWgD3VKY",
                 { algorithm: "HS256", subject: teacher?.username, expiresIn: "1d" }
             );
-            const data = {token, teacher}
+            const data = { token, teacher }
             return data
         },
         castVote: async (
@@ -126,14 +126,15 @@ export const resolvers = {
             context: any
         ) => {
             try {
-                const data = jwt.verify(context.token, 'f1BtnWgD3VKY')
+                const classCode = await mongoDbProvider.usersCollection.findOne({
+                    email: input.voter,
+                });
                 const vote = await mongoDbProvider.votesCollection.insertOne({
-                    voter: data.sub,
-                    classCode: input.classCode,
-                    budget: input.department
+                    voter: input.voter,
+                    classCode: classCode?.class,
+                    budget: input.budget
                 })
-                console.log(vote)
-                return vote;
+                return vote.insertedId;
             } catch {
                 console.log('Invalid Token')
             }
@@ -146,27 +147,27 @@ export const resolvers = {
             try {
                 const data = jwt.verify(context.token, 'f1BtnWgD3VKY')
                 const result = await
-                        mongoDbProvider.usersCollection.updateOne(
-                            { username: data.sub },
-                            {
-                                $addToSet: {
-                                    actions: input
+                    mongoDbProvider.usersCollection.updateOne(
+                        { username: data.sub },
+                        {
+                            $addToSet: {
+                                actions: input
 
-                                },
                             },
-                            { upsert: true }
-                        );
-                    console.log(result)
+                        },
+                        { upsert: true }
+                    );
+                console.log(result)
                 return result;
-                } catch {
-                    console.log('Invalid Token')
-                }
-            },
+            } catch {
+                console.log('Invalid Token')
+            }
         },
-        User: {
-            id: (obj: User | UserDbObject): string =>
-                (obj as UserDbObject)._id
-                    ? (obj as UserDbObject)._id.toString()
-                    : (obj as User).id
-        }
-    };
+    },
+    User: {
+        id: (obj: User | UserDbObject): string =>
+            (obj as UserDbObject)._id
+                ? (obj as UserDbObject)._id.toString()
+                : (obj as User).id
+    }
+};
