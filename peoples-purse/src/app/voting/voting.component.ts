@@ -151,7 +151,6 @@ export class VotingComponent implements OnInit {
     }
     else {
       const voter = localStorage.getItem('USER_ID');
-      
       let budget = []
 
       for(let i=1; i<=20; i++){
@@ -163,6 +162,7 @@ export class VotingComponent implements OnInit {
         }
         budget.push(dept)
       }
+      
       this.apollo.mutate({
         mutation: VOTE,
         variables: {

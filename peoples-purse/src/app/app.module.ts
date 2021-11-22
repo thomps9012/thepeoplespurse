@@ -19,7 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProfileComponent } from './profile/profile.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MatSliderModule } from '@angular/material/slider'
+import * as echarts from 'echarts';
+import { NgxEchartsModule } from 'ngx-echarts'
 
 @NgModule({
   declarations: [
@@ -38,6 +39,9 @@ import { MatSliderModule } from '@angular/material/slider'
   ],
   imports: [
     BrowserModule,
+    NgxEchartsModule.forRoot({
+      echarts
+    }),
     RouterModule.forRoot([
       {path: '', component: LandingComponent},
       {path: 'info', component: InformationComponent},
@@ -50,8 +54,7 @@ import { MatSliderModule } from '@angular/material/slider'
     ]),
     GraphQLModule,
     HttpClientModule,
-    BrowserAnimationsModule,
-    MatSliderModule
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
