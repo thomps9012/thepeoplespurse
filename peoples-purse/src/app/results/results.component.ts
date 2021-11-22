@@ -52,6 +52,10 @@ export class ResultsComponent implements OnInit {
     legend: {
       top: 'bottom'
     },
+    tooltip: {
+      trigger: 'item',
+      formatter: '{a} <br/>{b} : {c} ({d}%)'
+    },
     toolbox: {
       show: true,
       feature: {
@@ -65,7 +69,7 @@ export class ResultsComponent implements OnInit {
       {
         name: 'Proposed Budget',
         type: 'pie',
-        radius: [50, 250],
+        radius: [175, 225],
         center: ['50%', '50%'],
         roseType: 'area',
         itemStyle: {
