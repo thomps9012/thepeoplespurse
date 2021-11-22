@@ -50,7 +50,10 @@ export class ResultsComponent implements OnInit {
   }
   options: EChartsOption = {
     legend: {
-      top: 'bottom'
+      bottom: 150,
+      left: 0,
+      align: 'left',
+      orient: 'vertical'
     },
     tooltip: {
       trigger: 'item',
@@ -58,6 +61,7 @@ export class ResultsComponent implements OnInit {
     },
     toolbox: {
       show: true,
+      top: 'bottom',
       feature: {
         mark: { show: true },
         dataView: { show: true, readOnly: false },
@@ -70,7 +74,7 @@ export class ResultsComponent implements OnInit {
         name: 'Proposed Budget',
         type: 'pie',
         radius: [175, 225],
-        center: ['50%', '50%'],
+        center: ['65%', '50%'],
         roseType: 'area',
         itemStyle: {
           borderRadius: 8
