@@ -69,6 +69,7 @@ export class VotingComponent implements OnInit {
       budgetAlert?.append(dangerAlert);
     }
   }
+
   educationDist() {
     this.totalDept = 100;
     let totalArea = document.getElementById("totalBudget")
@@ -80,6 +81,7 @@ export class VotingComponent implements OnInit {
     budgetAlert?.append(dangerAlert);
     this.depts = eduDepts;
   }
+
   enviroDist() {
     this.totalDept = 100;
     let totalArea = document.getElementById("totalBudget")
@@ -91,6 +93,7 @@ export class VotingComponent implements OnInit {
     budgetAlert?.append(dangerAlert);
     this.depts = enviroDepts;
   }
+
   healthDist() {
     this.totalDept = 100;
     let totalArea = document.getElementById("totalBudget")
@@ -102,6 +105,7 @@ export class VotingComponent implements OnInit {
     budgetAlert?.append(dangerAlert);
     this.depts = healthDepts;
   }
+
   defenseDist() {
     this.totalDept = 100;
     let totalArea = document.getElementById("totalBudget")
@@ -113,6 +117,7 @@ export class VotingComponent implements OnInit {
     budgetAlert?.append(dangerAlert);
     this.depts = defenseDepts;
   }
+
   transportDist() {
     this.totalDept = 100;
     let totalArea = document.getElementById("totalBudget")
@@ -124,7 +129,15 @@ export class VotingComponent implements OnInit {
     budgetAlert?.append(dangerAlert);
     this.depts = transpoDepts;
   }
+
   resetBudget() {
     window.location.reload();
+  }
+
+  submitBudget() {
+// grab all dept values and names
+// grab user information
+// apollo mutation
+// load budget page
   }
 }

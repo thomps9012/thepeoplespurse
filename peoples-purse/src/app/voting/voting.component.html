@@ -7,36 +7,39 @@
     <button (click)="transportDist()">Transportaion Focused</button>
     <button (click)="resetBudget()">Reset Budget</button>
     <br />
-    <div id="totalBudget">
-        <h1>Total Budget Used</h1>
-        <h1 *ngIf="totalDept">{{totalDept}} %</h1>
-        <div id="budgetAlert"></div>
-    </div>
-    <br />
 </div>
+<div id="totalBudget">
+    <h1>Total Budget Used</h1>
+    <h1 *ngIf="totalDept">{{totalDept}} %</h1>
+    <div id="budgetAlert"></div>
+</div>
+<br />
 <div class="container">
     <div class="item">
         <div *ngFor="let dept of depts | slice:0:5">
-            <input id="{{dept.code}}" type="number" min="1" max="100" value="{{dept.percent}}" (change)="updateBudget()"/><span>%</span>
             <h3>{{dept.name}}</h3>
+            <input id="{{dept.code}}" type="number" min="1" max="100" value="{{dept.percent}}" (change)="updateBudget()"/><span>%</span>
         </div>
     </div>
     <div class="item">
         <div *ngFor="let dept of depts | slice:5:10">
-            <input id="{{dept.code}}" type="number" min="1" max="100" value="{{dept.percent}}" (change)="updateBudget()"/><span>%</span>
             <h3>{{dept.name}}</h3>
+            <input id="{{dept.code}}" type="number" min="1" max="100" value="{{dept.percent}}" (change)="updateBudget()"/><span>%</span>
         </div>
     </div>
     <div class="item">
         <div *ngFor="let dept of depts | slice:10:15">
-            <input id="{{dept.code}}" type="number" min="1" max="100" value="{{dept.percent}}" (change)="updateBudget()"/><span>%</span>
             <h3>{{dept.name}}</h3>
+            <input id="{{dept.code}}" type="number" min="1" max="100" value="{{dept.percent}}" (change)="updateBudget()"/><span>%</span>
         </div>
     </div>
     <div class="item">
         <div *ngFor="let dept of depts | slice:15:20">
-            <input id="{{dept.code}}" type="number" min="1" max="100" value="{{dept.percent}}" (change)="updateBudget()"/><span>%</span>
             <h3>{{dept.name}}</h3>
+            <input id="{{dept.code}}" type="number" min="1" max="100" value="{{dept.percent}}" (change)="updateBudget()"/><span>%</span>
         </div>
     </div>
+</div>
+<div id ="submit">
+    <button (click)="submitBudget()">Submit Your Budget</button>
 </div>

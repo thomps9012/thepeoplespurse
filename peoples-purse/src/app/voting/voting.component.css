@@ -6,6 +6,20 @@
     align-items: center;
     justify-content: center;
     padding: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 16px;
+}
+
+#submit {
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 10px;
 }
 
 .container {
@@ -17,9 +31,41 @@
 
 button {
     margin: 25px;
+    all: unset;
+    border-radius: 4px;
+    border: 1px solid #eee;
+    background-color: #fafafa;
+    height: 40px;
+    width: 100px;
+    margin: 0 8px 16px;
+    padding: 16px;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+    line-height: 24px;
+}
+
+button:hover {
+    color: #1976d2;
+    text-decoration: none;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
 }
 
 #totalBudget {
     align-content: center;
     text-align: center;
+}
+
+span {
+    font-weight: 700;
+    font-size: large;
+    margin: 5px;
+}
+
+input {
+        font-weight: 700;
+        font-size: large;
+        width: 40px;
+        border: transparent;
 }
