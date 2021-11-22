@@ -1,5 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { EChartsOption } from 'echarts';
+import { Apollo, gql } from 'apollo-angular';
+
+const ALL_VOTES = gql`
+  query Query {
+    allVotes {
+      budget {
+        name
+        percent
+    }
+  }
+}
+`;
 
 @Component({
   selector: 'results',
@@ -8,12 +20,35 @@ import { EChartsOption } from 'echarts';
 })
 export class ResultsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private apollo: Apollo) { }
+  voteData?: any;
+  updateData: any;
+  ngOnInit() {
+    this.voteData = this.apollo.query({
+      query: ALL_VOTES
+    }).subscribe(({ data }: any) => {
 
-  ngOnInit(): void {
+      let voteArr = data.allVotes;
+      let finalData = [];
+      // single vote functionality
+      let keyVote = voteArr[0].budget;
+      for (const key of keyVote) {
+        let dept = key.name;
+        let percent = key.percent
+        finalData.push({ name: dept, value: percent })
+      }
+      this.voteData = finalData;
+      // merges in new data
+      this.updateData = {
+        series: [{
+          data: finalData
+        }]
+      }
+    }, (error) => {
+      console.log('there was an error sending the query', error);
+    });
   }
-
-  chartOption: EChartsOption = {
+  options: EChartsOption = {
     legend: {
       top: 'bottom'
     },
@@ -28,24 +63,14 @@ export class ResultsComponent implements OnInit {
     },
     series: [
       {
-        name: 'Nightingale Chart',
+        name: 'Proposed Budget',
         type: 'pie',
         radius: [50, 250],
         center: ['50%', '50%'],
         roseType: 'area',
         itemStyle: {
           borderRadius: 8
-        },
-        data: [
-          { value: 40, name: 'rose 1' },
-          { value: 38, name: 'rose 2' },
-          { value: 32, name: 'rose 3' },
-          { value: 30, name: 'rose 4' },
-          { value: 28, name: 'rose 5' },
-          { value: 26, name: 'rose 6' },
-          { value: 22, name: 'rose 7' },
-          { value: 18, name: 'rose 8' }
-        ]
+        }
       }
     ]
   };
