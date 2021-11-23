@@ -18,6 +18,7 @@ const ALL_VOTES = gql`
   templateUrl: './results.component.html',
   styleUrls: ['./results.component.css']
 })
+
 export class ResultsComponent implements OnInit {
   [x: string]: any;
 

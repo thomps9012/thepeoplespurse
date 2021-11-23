@@ -10,6 +10,8 @@ export class InformationComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    // api call to opensecrets
+    // api call to different departmental websites
   }
 
 }
