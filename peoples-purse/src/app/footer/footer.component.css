@@ -1,6 +1,5 @@
 .footer {
-    text-align: center;
-    box-sizing: border-box;
+    line-height: 20px;
     display: flex;
     align-items: center;
     background-color: #1976d2;
@@ -12,4 +11,13 @@
     text-align: right;
     right: 0;
     margin: 5px;
+  }
+
+  a:hover {
+    color: #e7f70f;
+  }
+
+  a {
+    margin: 20px;
+    padding: 10px;
   }
