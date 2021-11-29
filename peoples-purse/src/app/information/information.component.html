@@ -1,7 +1,12 @@
-<p>information works!</p>
-<!-- dept dropdown bar -->
-<!-- populates logo and information in a div below -->
 
-<!-- select a state -->
-<!-- select a level of government -->
-<!-- populate information below -->
+    <!-- dept dropdown bar -->
+    <h1>Select a Department to Learn About</h1>
+    <select id="deptSelect" (change)="displayDept($event)">
+        <option *ngFor="let dept of DeptInfo" [title]="dept.value" value="{{dept.value}}">{{dept.name}}</option>
+    </select>
+    <!-- populates logo and information in a div below -->
+    <div id="deptInfo"></div>
+    <!-- select a state -->
+    <!-- select a level of government -->
+    <!-- populate information below -->
+    
