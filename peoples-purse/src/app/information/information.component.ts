@@ -102,17 +102,46 @@ export class InformationComponent implements OnInit {
             let officialList = document.createElement('ul')
             // console.log(lvlOfficials)
             nationalList.append(officialList)
+            // ******************************************************************************
             // this code is recreated
             for (let i = 0; i < lvlOfficials.length; i++) {
+              // turn this into a card
               let officialListItem = document.createElement('a')
               officialListItem.setAttribute("id", lvlOfficials[i])
               officialListItem.setAttribute('target', '_blank')
               console.log(officials[lvlOfficials[i]])
+              // set in some custom styling
               officialListItem.setAttribute("href", officials[lvlOfficials[i]].urls ? officials[lvlOfficials[i]].urls[0] : `https://www.google.com/search?q=${officials[lvlOfficials[i]].name}`)
+              // add in dynamically rendered phone number
+              let contactPhone = document.createElement('p')
+              {
+                officials[lvlOfficials[i]].phones ?
+                contactPhone.append('Phone Number: ', officials[lvlOfficials[i]].phones[0])
+                : 'N/A'
+              }
+              // add in dynamically rendered party
+              let party = document.createElement('p')
+              {
+                officials[lvlOfficials[i]].party ?
+                party.append('Party: ', officials[lvlOfficials[i]].party)
+                : 'N/A'
+              }
+              // add in dynamically rendered address
+              let address = document.createElement('p')
+              {
+                officials[lvlOfficials[i]].address ?
+                address.append('Address: ', `${officials[lvlOfficials[i]].address[0].line1}, ${officials[lvlOfficials[i]].address[0].city}, ${officials[lvlOfficials[i]].address[0].state}, ${officials[lvlOfficials[i]].address[0].zip}`)
+                : 'N/A'
+              }
+
               officialListItem.append(officials[lvlOfficials[i]].name)
               officialList.append(officialListItem)
+              officialList.append(party)
+              officialList.append(address)
+              officialList.append(contactPhone)
             }
             // end of recreated code
+            // ****************************************************************************
             national.append(nationalList)
           } else if (office.levels[0] === 'administrativeArea1') {
             const lvlOfficials = office.officialIndices;
