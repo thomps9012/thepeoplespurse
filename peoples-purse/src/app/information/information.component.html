@@ -6,12 +6,8 @@
 <!-- populates logo and information in a div below -->
 <div id="deptInfo"></div>
 <!-- select address -->
-<h1>Enter Your Address to Look Up Your Elected Officials</h1>
-<input type="text" (change)="getAddress($event)" placeholder="Address Here" />
-<button (click)="execute(location)">Search</button>
-
+    <h1>Enter Your Address to Look Up Your Elected Officials</h1>
+    <input type="text" (change)="getAddress($event)" placeholder="Address Here" />
+    <button (click)="onSubmit(location)">Search</button>
 <!-- populate information below -->
-<script src="https://apis.google.com/js/api.js"></script>
-
-
 <div id="official-display"></div>

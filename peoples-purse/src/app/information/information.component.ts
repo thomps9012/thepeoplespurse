@@ -48,13 +48,11 @@ export class InformationComponent implements OnInit {
     }
   }
 
-  // const officialDiv = document.getElementById('official-display');
-  // if (officialDiv != null) { officialDiv.innerHTML = ""; }
+
   location = '';
   getAddress = (event: Event) => {
     event.preventDefault();
     const address = (event.target as HTMLInputElement).value;
-    console.log(address)
     this.location = address;
 
   }
@@ -68,15 +66,65 @@ export class InformationComponent implements OnInit {
         function (err: any) { console.error("Error loading GAPI client for API", err); });
   }
 
-  execute = async (location: any) => {
+  async onSubmit(location: any) {
     await this.loadClient()
+    const officialDiv = document.getElementById('official-display');
+    if (officialDiv != null) { officialDiv.innerHTML = ""; }
     return gapi.client.civicinfo.representatives.representativeInfoByAddress({
       "address": location,
-      "includeOffices": true
     })
       .then(function (response: any) {
         // Handle the results here (response.result has the parsed body).
         console.log("Response", response.result);
+        const officeRes = response.result.offices;
+
+        const title = document.createElement('h1');
+        title.append('Elected Officials and Level of Government')
+        officialDiv?.append(title)
+        const nationalTitle = document.createElement('h3')
+        nationalTitle.append('National Level Offices')
+        const national = document.createElement('ul')
+
+        const stateTitle = document.createElement('h3')
+        stateTitle.append('State Level Offices')
+        const state = document.createElement('ul')
+
+        const countyTitle = document.createElement('h3')
+        countyTitle.append('County Level Offices')
+        const county = document.createElement('ul')
+
+
+        officeRes.map((office: any) => {
+          if (office.levels[0] === 'country') {
+            console.log('national level', office)
+            const nationalList = document.createElement('li')
+            nationalList.append(office.name)
+            national.append(nationalList)
+          } else if (office.levels[0] === 'administrativeArea1') {
+            console.log('state level', office)
+            const stateList = document.createElement('li')
+            stateList.append(office.name)
+            state.append(stateList)
+          } else if (office.levels[0] === 'administrativeArea2') {
+            console.log('county level', office)
+            const countyList = document.createElement('li')
+            countyList.append(office.name)
+            county.append(countyList)
+          }
+        })
+        officialDiv?.append(nationalTitle)
+        officialDiv?.append(national)
+        
+        officialDiv?.append(stateTitle)
+        officialDiv?.append(state)
+
+        officialDiv?.append(countyTitle)
+        officialDiv?.append(county)
+
+        let header = document.createElement('h3');
+
+        officialDiv?.append(header ? header : '')
+
       },
         function (err: any) { console.error("Execute error", err); });
   }
