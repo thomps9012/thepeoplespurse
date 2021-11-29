@@ -66,6 +66,8 @@ export class InformationComponent implements OnInit {
         function (err: any) { console.error("Error loading GAPI client for API", err); });
   }
 
+
+
   async onSubmit(location: any) {
     await this.loadClient()
     const officialDiv = document.getElementById('official-display');
@@ -74,10 +76,9 @@ export class InformationComponent implements OnInit {
       "address": location,
     })
       .then(function (response: any) {
-        // Handle the results here (response.result has the parsed body).
-        console.log("Response", response.result);
         const officeRes = response.result.offices;
-
+        const officials = response.result.officials
+        console.log(officials)
         const title = document.createElement('h1');
         title.append('Elected Officials and Level of Government')
         officialDiv?.append(title)
@@ -93,28 +94,63 @@ export class InformationComponent implements OnInit {
         countyTitle.append('County Level Offices')
         const county = document.createElement('ul')
 
-
         officeRes.map((office: any) => {
           if (office.levels[0] === 'country') {
-            console.log('national level', office)
+            const lvlOfficials = office.officialIndices;
             const nationalList = document.createElement('li')
             nationalList.append(office.name)
+            let officialList = document.createElement('ul')
+            // console.log(lvlOfficials)
+            nationalList.append(officialList)
+            // this code is recreated
+            for (let i = 0; i < lvlOfficials.length; i++) {
+              let officialListItem = document.createElement('a')
+              officialListItem.setAttribute("id", lvlOfficials[i])
+              officialListItem.setAttribute('target', '_blank')
+              console.log(officials[lvlOfficials[i]])
+              officialListItem.setAttribute("href", officials[lvlOfficials[i]].urls ? officials[lvlOfficials[i]].urls[0] : `https://www.google.com/search?q=${officials[lvlOfficials[i]].name}`)
+              officialListItem.append(officials[lvlOfficials[i]].name)
+              officialList.append(officialListItem)
+            }
+            // end of recreated code
             national.append(nationalList)
           } else if (office.levels[0] === 'administrativeArea1') {
-            console.log('state level', office)
+            const lvlOfficials = office.officialIndices;
             const stateList = document.createElement('li')
             stateList.append(office.name)
+            let officialList = document.createElement('ul')
+            stateList.append(officialList)
+            // this code is recreated
+            for (let i = 0; i < lvlOfficials.length; i++) {
+              let officialListItem = document.createElement('a')
+              officialListItem.setAttribute("id", lvlOfficials[i])
+              officialListItem.setAttribute('target', '_blank')
+              officialListItem.setAttribute("href", officials[lvlOfficials[i]].urls ? officials[lvlOfficials[i]].urls[0] : `https://www.google.com/search?q=${officials[lvlOfficials[i]].name}`)
+              officialListItem.append(officials[lvlOfficials[i]].name)
+              officialList.append(officialListItem)
+            }
             state.append(stateList)
           } else if (office.levels[0] === 'administrativeArea2') {
-            console.log('county level', office)
+            const lvlOfficials = office.officialIndices
             const countyList = document.createElement('li')
             countyList.append(office.name)
+            let officialList = document.createElement('ul')
+            countyList.append(officialList)
+            // this code is recreated
+            for (let i = 0; i < lvlOfficials.length; i++) {
+              let officialListItem = document.createElement('a')
+              officialListItem.append(officials[lvlOfficials[i]].name)
+              officialListItem.setAttribute("id", lvlOfficials[i])
+              officialListItem.setAttribute('target', '_blank')
+              officialListItem.setAttribute("href", officials[lvlOfficials[i]].urls ? officials[lvlOfficials[i]].urls[0] : `https://www.google.com/search?q=${officials[lvlOfficials[i]].name}`)
+              officialList.append(officialListItem)
+            }
             county.append(countyList)
           }
         })
         officialDiv?.append(nationalTitle)
         officialDiv?.append(national)
-        
+
         officialDiv?.append(stateTitle)
         officialDiv?.append(state)
 
@@ -128,4 +164,5 @@ export class InformationComponent implements OnInit {
       },
         function (err: any) { console.error("Execute error", err); });
   }
+
 }
