@@ -18,7 +18,7 @@ export class InformationComponent implements OnInit {
   ngOnInit(): void {
     gapi.load('client');
   }
-  
+
   displayDept = (event: Event) => {
     event.preventDefault();
     const selectedDept = (event.target as HTMLSelectElement).value;
@@ -56,7 +56,7 @@ export class InformationComponent implements OnInit {
     const address = (event.target as HTMLInputElement).value;
     console.log(address)
     this.location = address;
-    this.loadClient()
+
   }
 
   loadClient() {
@@ -67,14 +67,16 @@ export class InformationComponent implements OnInit {
       .then(function () { console.log("GAPI client loaded for API"); },
         function (err: any) { console.error("Error loading GAPI client for API", err); });
   }
-  execute(location: any) {
+
+  execute = async (location: any) => {
+    await this.loadClient()
     return gapi.client.civicinfo.representatives.representativeInfoByAddress({
       "address": location,
       "includeOffices": true
     })
       .then(function (response: any) {
         // Handle the results here (response.result has the parsed body).
-        console.log("Response", response);
+        console.log("Response", response.result);
       },
         function (err: any) { console.error("Execute error", err); });
   }
