@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DeptInfo } from './deptInfo';
+import { States } from './states'
 
 @Component({
   selector: 'information',
@@ -9,6 +10,7 @@ import { DeptInfo } from './deptInfo';
 export class InformationComponent implements OnInit {
 
   DeptInfo = DeptInfo;
+  States = States;
 
   constructor() { }
 
@@ -36,12 +38,20 @@ export class InformationComponent implements OnInit {
         website.href = DeptInfo[i].website;
         website.target = '_blank';
         website.append('Visit the Department Website');
-        
+
         deptInfoDiv?.append(name)
         deptInfoDiv?.append(seal)
         deptInfoDiv?.append(mission)
         deptInfoDiv?.append(website)
       }
     }
+  }
+
+  displayOfficial = (event: Event) => {
+    event.preventDefault();
+    const selectedState = (event.target as HTMLSelectElement).value; 
+    // const deptInfoDiv = document.getElementById('deptInfo');
+    // if(deptInfoDiv != null) {deptInfoDiv.innerHTML = "";}
+    console.log(selectedState)
   }
 }

@@ -7,6 +7,10 @@
     <!-- populates logo and information in a div below -->
     <div id="deptInfo"></div>
     <!-- select a state -->
+    <h1>Select a State to Investigate Your Elected Officials</h1>
+    <select id="officialSelect" (change)="displayOfficial($event)">
+        <option *ngFor="let state of States" [title]="state.abbr" value="{{state.abbr}}">{{state.name}}</option>
+    </select>
     <!-- select a level of government -->
     <!-- populate information below -->
     
