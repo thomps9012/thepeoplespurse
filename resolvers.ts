@@ -98,6 +98,7 @@ export const resolvers = {
                 { algorithm: "HS256", subject: user?.username, expiresIn: "1d" }
             );
             const data = { token, user }
+            console.log(data)
             return data
         },
         teacherLogin: async (
@@ -144,6 +145,10 @@ export const resolvers = {
             { input }: { input: TakeAction },
             context: any
         ) => {
+            // console.log(context)
+            // const data = jwt.verify(context.token, 'f1BtnWgD3VKY', function(decoded:any) {
+            //     console.log(decoded)})
+            // console.log('verification', data)
             try {
                 const data = jwt.verify(context.token, 'f1BtnWgD3VKY')
                 const result = await

@@ -30,8 +30,6 @@ type Vote @entity {
 }
 
 type Action @entity {
-    id: ID! @id
-    student: User! @link
     name: String! @column
     detail: String! @column
     organization: String! @column

@@ -1,4 +1,28 @@
-<h3>Welcome!</h3>
-<p *ngIf="data">
+<h1>Welcome!</h1>
+<h1 *ngIf="data">
     {{username}}
-</p>
+</h1>
+<h2 *ngIf="actions">Your Actions</h2>
+<ol>
+    <li *ngFor="let action of actions">
+        <h3 *ngIf="action.name">
+            {{ action.name }}
+        </h3>
+        <p *ngIf="action.detail">
+            {{ action.detail }}
+        </p>
+        <h4 *ngIf="action.organization">
+            Organization: 
+        </h4>
+        <p *ngIf="action.organization">
+            {{ action.organization }}
+        </p>
+        <p *ngIf="action.actionDate">
+            Date: {{ action.actionDate }}
+        </p>
+        <p *ngIf="action.length">
+            Time: {{ action.length }} hrs
+        </p>
+    </li>
+</ol>
+<button>Take Action!</button>

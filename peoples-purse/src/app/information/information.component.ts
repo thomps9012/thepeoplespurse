@@ -105,7 +105,7 @@ export class InformationComponent implements OnInit {
             // ******************************************************************************
             // this code is recreated
             for (let i = 0; i < lvlOfficials.length; i++) {
-              // turn this into a card
+              // *** turn this into a card
               let officialListItem = document.createElement('a')
               officialListItem.setAttribute("id", lvlOfficials[i])
               officialListItem.setAttribute('target', '_blank')

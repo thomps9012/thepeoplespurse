@@ -8,3 +8,11 @@
 // export type Mutation = {
 //     signUpUser: User;
 // }
+
+export type Action = {
+    name: string;
+    detail: string;
+    organization: string;
+    actionDate: Date;
+    length: Float32List;
+}
