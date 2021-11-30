@@ -173,10 +173,10 @@ export class VotingComponent implements OnInit {
         }
       }).subscribe(({ data }: any) => {
         console.log('got data', data);
-        alert("You're vote has been successfully recorded")
+        alert("Your vote has been successfully recorded")
         window.location.replace('/results')
       }, (error) => {
-        console.log('there was an error sending the query', error);
+        console.log('there was an error sending the mutation', error);
       });
     }
   }

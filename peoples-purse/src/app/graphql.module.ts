@@ -9,7 +9,8 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule
   ],
 })
-export class GraphQLModule { 
+export class GraphQLModule {
+ 
   constructor(apollo: Apollo, httpLink: HttpLink) {
     apollo.create({
       link: httpLink.create({

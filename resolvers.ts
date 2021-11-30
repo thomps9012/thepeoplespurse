@@ -124,8 +124,8 @@ export const resolvers = {
         castVote: async (
             obj: any,
             { input }: { input: CastVote },
-            context: any
         ) => {
+            // can add in JWT verification here as well
             try {
                 const classCode = await mongoDbProvider.usersCollection.findOne({
                     email: input.voter,
@@ -143,14 +143,10 @@ export const resolvers = {
         takeAction: async (
             obj: any,
             { input }: { input: TakeAction },
-            context: any
         ) => {
-            // console.log(context)
-            // const data = jwt.verify(context.token, 'f1BtnWgD3VKY', function(decoded:any) {
-            //     console.log(decoded)})
-            // console.log('verification', data)
+            console.log(input)
+            const data = jwt.verify(input.jwt, 'f1BtnWgD3VKY')
             try {
-                const data = jwt.verify(context.token, 'f1BtnWgD3VKY')
                 const result = await
                     mongoDbProvider.usersCollection.updateOne(
                         { username: data.sub },
@@ -162,8 +158,7 @@ export const resolvers = {
                         },
                         { upsert: true }
                     );
-                console.log(result)
-                return result;
+                return result.upsertedId;
             } catch {
                 console.log('Invalid Token')
             }

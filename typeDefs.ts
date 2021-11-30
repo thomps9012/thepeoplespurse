@@ -77,6 +77,7 @@ input CastVote {
 }
 
 input TakeAction {
+    jwt: JWT!
     name: String!
     detail: String!
     organization: String!
@@ -113,7 +114,7 @@ type Mutation {
     signUp(input: UserSignUpInput!): Auth!
     teacherSignUp(input: TeacherSignUpInput!): Auth!
     castVote(input: CastVote!): ID
-    takeAction(input: TakeAction!): Action!
+    takeAction(input: TakeAction!): Action
 }
 `;
 

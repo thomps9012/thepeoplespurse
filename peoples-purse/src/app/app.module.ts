@@ -20,7 +20,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import * as echarts from 'echarts';
-import { NgxEchartsModule } from 'ngx-echarts'
+import { NgxEchartsModule } from 'ngx-echarts';
+import { ActionFormComponent } from './action-form/action-form.component'
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { NgxEchartsModule } from 'ngx-echarts'
     PageNotFoundComponent,
     LoginComponent,
     SignupComponent,
-    ProfileComponent
+    ProfileComponent,
+    ActionFormComponent
   ],
   imports: [
     BrowserModule,
@@ -50,6 +52,7 @@ import { NgxEchartsModule } from 'ngx-echarts'
       {path: 'login', component: LoginComponent},
       {path: 'signup', component: SignupComponent},
       {path: 'profile', component: ProfileComponent},
+      {path: 'action', component: ActionFormComponent},
       {path: '**', component: PageNotFoundComponent}
     ]),
     GraphQLModule,
@@ -60,3 +63,4 @@ import { NgxEchartsModule } from 'ngx-echarts'
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
