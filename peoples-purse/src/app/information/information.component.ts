@@ -38,7 +38,7 @@ export class InformationComponent implements OnInit {
         mission.append(DeptInfo[i].mission);
         website.href = DeptInfo[i].website;
         website.target = '_blank';
-        website.append('Visit the Department Website');
+        website.append('Visit Department Website');
 
         deptInfoDiv?.append(name)
         deptInfoDiv?.append(seal)
@@ -114,30 +114,41 @@ export class InformationComponent implements OnInit {
               officialListItem.setAttribute("href", officials[lvlOfficials[i]].urls ? officials[lvlOfficials[i]].urls[0] : `https://www.google.com/search?q=${officials[lvlOfficials[i]].name}`)
               // add in dynamically rendered phone number
               let contactPhone = document.createElement('p')
+              let phoneTitle = document.createElement('h5')
+              phoneTitle.append('Phone Number:')
               {
                 officials[lvlOfficials[i]].phones ?
-                contactPhone.append('Phone Number: ', officials[lvlOfficials[i]].phones[0])
+                contactPhone.append(officials[lvlOfficials[i]].phones[0])
                 : 'N/A'
               }
               // add in dynamically rendered party
               let party = document.createElement('p')
+              let partyTitle = document.createElement('h5')
+              partyTitle.append('Party:')
               {
                 officials[lvlOfficials[i]].party ?
-                party.append('Party: ', officials[lvlOfficials[i]].party)
+                party.append(officials[lvlOfficials[i]].party)
                 : 'N/A'
               }
               // add in dynamically rendered address
-              let address = document.createElement('p')
+              let address = document.createElement('div')
+              let addressTitle = document.createElement('h5')
+              addressTitle.append('Address:')
               {
                 officials[lvlOfficials[i]].address ?
-                address.append('Address: ', `${officials[lvlOfficials[i]].address[0].line1}, ${officials[lvlOfficials[i]].address[0].city}, ${officials[lvlOfficials[i]].address[0].state}, ${officials[lvlOfficials[i]].address[0].zip}`)
+                address.innerText=(`${officials[lvlOfficials[i]].address[0].line1},
+                ${officials[lvlOfficials[i]].address[0].city}, ${officials[lvlOfficials[i]].address[0].state}, 
+                ${officials[lvlOfficials[i]].address[0].zip}`)
                 : 'N/A'
               }
 
               officialListItem.append(officials[lvlOfficials[i]].name)
               officialList.append(officialListItem)
+              officialList.append(partyTitle)
               officialList.append(party)
+              officialList.append(addressTitle)
               officialList.append(address)
+              officialList.append(phoneTitle)
               officialList.append(contactPhone)
             }
             // end of recreated code
