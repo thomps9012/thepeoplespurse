@@ -160,15 +160,57 @@ export class InformationComponent implements OnInit {
             stateList.append(office.name)
             let officialList = document.createElement('ul')
             stateList.append(officialList)
+            // ******************************************************************************
             // this code is recreated
             for (let i = 0; i < lvlOfficials.length; i++) {
+              // turn this into a card
               let officialListItem = document.createElement('a')
               officialListItem.setAttribute("id", lvlOfficials[i])
               officialListItem.setAttribute('target', '_blank')
+              console.log(officials[lvlOfficials[i]])
+              // set in some custom styling
               officialListItem.setAttribute("href", officials[lvlOfficials[i]].urls ? officials[lvlOfficials[i]].urls[0] : `https://www.google.com/search?q=${officials[lvlOfficials[i]].name}`)
+              // add in dynamically rendered phone number
+              let contactPhone = document.createElement('p')
+              let phoneTitle = document.createElement('h5')
+              phoneTitle.append('Phone Number:')
+              {
+                officials[lvlOfficials[i]].phones ?
+                contactPhone.append(officials[lvlOfficials[i]].phones[0])
+                : 'N/A'
+              }
+              // add in dynamically rendered party
+              let party = document.createElement('p')
+              let partyTitle = document.createElement('h5')
+              partyTitle.append('Party:')
+              {
+                officials[lvlOfficials[i]].party ?
+                party.append(officials[lvlOfficials[i]].party)
+                : 'N/A'
+              }
+              // add in dynamically rendered address
+              let address = document.createElement('div')
+              let addressTitle = document.createElement('h5')
+              addressTitle.append('Address:')
+              {
+                officials[lvlOfficials[i]].address ?
+                address.innerText=(`${officials[lvlOfficials[i]].address[0].line1},
+                ${officials[lvlOfficials[i]].address[0].city}, ${officials[lvlOfficials[i]].address[0].state}, 
+                ${officials[lvlOfficials[i]].address[0].zip}`)
+                : 'N/A'
+              }
+
               officialListItem.append(officials[lvlOfficials[i]].name)
               officialList.append(officialListItem)
+              officialList.append(partyTitle)
+              officialList.append(party)
+              officialList.append(addressTitle)
+              officialList.append(address)
+              officialList.append(phoneTitle)
+              officialList.append(contactPhone)
             }
+            // end of recreated code
+            // ****************************************************************************
             state.append(stateList)
           } else if (office.levels[0] === 'administrativeArea2') {
             const lvlOfficials = office.officialIndices
@@ -176,15 +218,57 @@ export class InformationComponent implements OnInit {
             countyList.append(office.name)
             let officialList = document.createElement('ul')
             countyList.append(officialList)
+            // ******************************************************************************
             // this code is recreated
             for (let i = 0; i < lvlOfficials.length; i++) {
+              // turn this into a card
               let officialListItem = document.createElement('a')
-              officialListItem.append(officials[lvlOfficials[i]].name)
               officialListItem.setAttribute("id", lvlOfficials[i])
               officialListItem.setAttribute('target', '_blank')
+              console.log(officials[lvlOfficials[i]])
+              // set in some custom styling
               officialListItem.setAttribute("href", officials[lvlOfficials[i]].urls ? officials[lvlOfficials[i]].urls[0] : `https://www.google.com/search?q=${officials[lvlOfficials[i]].name}`)
+              // add in dynamically rendered phone number
+              let contactPhone = document.createElement('p')
+              let phoneTitle = document.createElement('h5')
+              phoneTitle.append('Phone Number:')
+              {
+                officials[lvlOfficials[i]].phones ?
+                contactPhone.append(officials[lvlOfficials[i]].phones[0])
+                : 'N/A'
+              }
+              // add in dynamically rendered party
+              let party = document.createElement('p')
+              let partyTitle = document.createElement('h5')
+              partyTitle.append('Party:')
+              {
+                officials[lvlOfficials[i]].party ?
+                party.append(officials[lvlOfficials[i]].party)
+                : 'N/A'
+              }
+              // add in dynamically rendered address
+              let address = document.createElement('div')
+              let addressTitle = document.createElement('h5')
+              addressTitle.append('Address:')
+              {
+                officials[lvlOfficials[i]].address ?
+                address.innerText=(`${officials[lvlOfficials[i]].address[0].line1},
+                ${officials[lvlOfficials[i]].address[0].city}, ${officials[lvlOfficials[i]].address[0].state}, 
+                ${officials[lvlOfficials[i]].address[0].zip}`)
+                : 'N/A'
+              }
+
+              officialListItem.append(officials[lvlOfficials[i]].name)
               officialList.append(officialListItem)
+              officialList.append(partyTitle)
+              officialList.append(party)
+              officialList.append(addressTitle)
+              officialList.append(address)
+              officialList.append(phoneTitle)
+              officialList.append(contactPhone)
             }
+            // end of recreated code
+            // ****************************************************************************
             county.append(countyList)
           }
         })
