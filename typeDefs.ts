@@ -52,6 +52,7 @@ type Class @entity{
 
 type Query {
     getUser(id: ID!): User
+    getTeacher(id: ID!): Teacher
     allUsers: [User]
     vote(id: ID!): Vote
     allVotes: [Vote]

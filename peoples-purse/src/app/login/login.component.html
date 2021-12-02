@@ -2,11 +2,11 @@
 <form>
     <div class="row">
         <label>Email</label>
-        <input type="text" placeholder="Email" (change)="setEmail($event)"/>
+        <input type="text" placeholder="Email" (change)="setEmail($event)" />
     </div>
     <div class="row">
         <label>Password</label>
-        <input type="text" placeholder="Password" (change)="setPassword($event)"/>
+        <input type="text" placeholder="Password" (change)="setPassword($event)" />
     </div>
     <button (click)="login($event)">
         Login
@@ -16,4 +16,9 @@
     <a class="button" routerLink="/signup">New User?
         <br />
         Sign Up Here</a>
-    </h3>
+</h3>
+<p>
+    <a class="button" routerLink="/educatorSignUp">
+        Are you an educator?
+    </a>
+</p>

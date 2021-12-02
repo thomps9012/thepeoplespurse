@@ -12,6 +12,9 @@ export const resolvers = {
         getUser: (obj: any, { id }: { id: string }): Promise<UserDbObject
             | any> =>
             mongoDbProvider.usersCollection.findOne({ _id: new ObjectId(id) }),
+        getTeacher: (obj: any, { id }: { id: string }): Promise<UserDbObject
+            | any> =>
+            mongoDbProvider.teachersCollection.findOne({ _id: new ObjectId(id) }),
         allUsers: () =>
             mongoDbProvider.usersCollection.find({}).toArray(),
         vote: (obj: any, { id }: { id: string }): Promise<VoteDbObject

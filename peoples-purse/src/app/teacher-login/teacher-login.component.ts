@@ -6,7 +6,7 @@ const TEACHER_LOGIN = gql`
 mutation Mutation($input: LoginInput!) {
   teacherLogin(input: $input) {
     token
-    user {
+    teacher {
     id
     username
   }
@@ -50,11 +50,11 @@ export class TeacherLoginComponent implements OnInit {
       }
     }).subscribe(({ data }: any) => {
       console.log('got data', data);
-      const username = data.teacherLogin.user.username;
-      const userId = data.teacherLogin.user.id;
+      const username = data.teacherLogin.teacher.username;
+      const userId = data.teacherLogin.teacher.id;
       const token = data.teacherLogin.token;
-      localStorage.setItem('USER', username)
-      localStorage.setItem('USER_ID', userId)
+      localStorage.setItem('TEACHER', username)
+      localStorage.setItem('TEACHER_ID', userId)
       localStorage.setItem('AUTH_TOKEN', token)
       // load to profile page
       window.location.replace('/educatorProfile')

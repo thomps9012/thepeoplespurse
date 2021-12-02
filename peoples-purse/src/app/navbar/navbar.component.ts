@@ -9,6 +9,14 @@ query Query($getUserId: ID!) {
 }
 `;
 
+const GET_TEACHER = gql`
+query Query($getTeacherId: ID!) {
+  getTeacher(id: $getTeacherId) {
+    username
+  }
+}
+`;
+
 @Component({
   selector: 'navbar',
   templateUrl: './navbar.component.html',
@@ -22,12 +30,16 @@ export class NavbarComponent implements OnInit {
   logout() {
     localStorage.removeItem('USER_ID')
     localStorage.removeItem('USER')
+    localStorage.removeItem('TEACHER_ID')
+    localStorage.removeItem('TEACHER')
     localStorage.removeItem('AUTH_TOKEN')
     window.location.replace('/');
   }
+  userId = localStorage.getItem('USER_ID')
+  teacherId = localStorage.getItem('TEACHER_ID')
+
   ngOnInit() {
-    const userId = localStorage.getItem('USER_ID')
-    if (userId != null) {
+    if (this.userId != null) {
       this.data = this.apollo.query({
         query: GET_USER,
         variables: {
@@ -37,7 +49,20 @@ export class NavbarComponent implements OnInit {
         this.username = data.getUser.username
       }, (error) => {
         console.log('there was an error sending the query', error);
-      });
+      })
+    } else if (this.teacherId != null) {
+      this.data = this.apollo.query({
+        query: GET_TEACHER,
+        variables: {
+          getTeacherId: localStorage.getItem('TEACHER_ID')
+        }
+      }).subscribe(({ data }: any) => {
+        this.username = data.getTeacher.username
+      }, (error) => {
+        console.log('there was an error sending the query', error);
+      })
     }
+    else {}
+
   }
 }

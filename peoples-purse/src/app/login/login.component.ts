@@ -40,7 +40,8 @@ export class LoginComponent implements OnInit {
   login(event: Event) {
     // comment out
     event.preventDefault()
-
+    console.log(this.email)
+    console.log(this.password)
     this.apollo.mutate({
       mutation: LOGIN,
       variables: {
