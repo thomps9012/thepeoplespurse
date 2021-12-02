@@ -2,7 +2,7 @@ import { DateTimeResolver } from 'graphql-scalars'
 import { ActionDbObject, CastVote, ClassDbObject, LoginInput, UserSignUpInput, TakeAction, User, UserDbObject, VoteDbObject, TeacherSignUpInput } from './graphql-codegen-typings'
 import { ObjectId } from 'mongodb'
 import { mongoDbProvider } from './mongodb.provider'
-import jwt from 'jsonwebtoken'
+import jwt, { Jwt } from 'jsonwebtoken'
 import bcrypt from 'bcrypt'
 import { AuthenticationError } from 'apollo-server-core'
 
@@ -143,8 +143,12 @@ export const resolvers = {
         takeAction: async (
             obj: any,
             { input }: { input: TakeAction },
+            // {context}: {context: Jwt},
+            // headers: any
         ) => {
-            console.log(input)
+            // console.log('input--> ', input)
+            // console.log('context--> ', context)
+            // console.log('headers--> ', headers)
             const data = jwt.verify(input.jwt, 'f1BtnWgD3VKY')
             try {
                 const result = await

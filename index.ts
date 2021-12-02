@@ -12,6 +12,10 @@ import { mongoDbProvider } from './mongodb.provider'
     const server = new ApolloServer({
         typeDefs: [DIRECTIVES, typeDefs],
         resolvers,
+        // context: ({ req }) => {
+        //     const token = req.headers || '';
+        //     return { token };
+        // },
         introspection: environment.apollo.introspection,
     });
 

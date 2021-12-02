@@ -21,7 +21,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import * as echarts from 'echarts';
 import { NgxEchartsModule } from 'ngx-echarts';
-import { ActionFormComponent } from './action-form/action-form.component'
+import { ActionFormComponent } from './action-form/action-form.component';
+import { TeacherSignupComponent } from './teacher-signup/teacher-signup.component';
+import { TeacherProfileComponent } from './teacher-profile/teacher-profile.component';
+import { TeacherLoginComponent } from './teacher-login/teacher-login.component'
 
 @NgModule({
   declarations: [
@@ -37,7 +40,10 @@ import { ActionFormComponent } from './action-form/action-form.component'
     LoginComponent,
     SignupComponent,
     ProfileComponent,
-    ActionFormComponent
+    ActionFormComponent,
+    TeacherSignupComponent,
+    TeacherProfileComponent,
+    TeacherLoginComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +56,9 @@ import { ActionFormComponent } from './action-form/action-form.component'
       {path: 'voting', component: VotingComponent},
       {path: 'results', component: ResultsComponent},
       {path: 'login', component: LoginComponent},
+      {path: 'educatorLogin', component: TeacherLoginComponent},
       {path: 'signup', component: SignupComponent},
+      {path: 'educatorSignUp', component: TeacherSignupComponent},
       {path: 'profile', component: ProfileComponent},
       {path: 'action', component: ActionFormComponent},
       {path: '**', component: PageNotFoundComponent}

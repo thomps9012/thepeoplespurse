@@ -1,0 +1,12 @@
+form {
+    align-content: center;
+    margin: 10px;
+    padding: auto;
+}
+
+input {
+    align-content: center;
+    flex: auto;
+    margin: 15px;
+    justify-content: center;
+}

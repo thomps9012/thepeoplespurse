@@ -177,6 +177,7 @@ export class VotingComponent implements OnInit {
         window.location.replace('/results')
       }, (error) => {
         console.log('there was an error sending the mutation', error);
+        alert('You need to be logged in to case a vote.')
       });
     }
   }

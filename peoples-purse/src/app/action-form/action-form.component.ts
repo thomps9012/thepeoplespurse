@@ -1,3 +1,4 @@
+import { HttpContext, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Apollo, gql } from 'apollo-angular';
 
@@ -47,19 +48,21 @@ export class ActionFormComponent implements OnInit {
   setActionDate(event: Event) {
     this.actionDate = new Date((event.target as HTMLInputElement).value);
   }
-  
+
   setLength(event: Event) {
     this.length = parseInt((event.target as HTMLInputElement).value)
   }
 
   submitAction(event: Event) {
     event.preventDefault();
-    const token = localStorage.getItem('AUTH_TOKEN')
+    const JWTtoken = localStorage.getItem('AUTH_TOKEN')
+    console.log(JWTtoken)
     this.apollo.mutate({
       mutation: TAKE_ACTION,
+      context: {'auth': JWTtoken},
       variables: {
         input: {
-          jwt: token,
+          jwt: JWTtoken,
           name: this.name,
           detail: this.detail,
           organization: this.organization,
@@ -70,10 +73,10 @@ export class ActionFormComponent implements OnInit {
     }).subscribe(({ data }: any) => {
       console.log('got data', data);
       alert("Your action has been successfully recorded")
-      window.location.replace('/profile')
+      // window.location.replace('/profile')
     }, (error) => {
       console.log("there was an error sending the mutation", error)
     })
   }
-  
+
 }

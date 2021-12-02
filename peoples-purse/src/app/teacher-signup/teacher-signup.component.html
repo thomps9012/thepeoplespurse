@@ -1,4 +1,4 @@
-<h1>Sign Up</h1>
+<h1>Educator Sign Up</h1>
 <form>
     <div class="row">
         <label>Username</label>
@@ -10,26 +10,13 @@
     </div>
     <label>Password</label>
     <input type="text" placeholder="Password" (change)="setPassword($event)" />
-    <div class="row">
-        <label>Have a class code?</label>
-        <input type="checkbox" (click)="showClassInput()" />
-    </div>
-    <div class="row" id="ClassCodeInput" style="display: none">
-        <label>Enter it here</label>
-        <input type="number" (change)="setClassCode($event)" />
-    </div>
     <button (click)="signUp($event)">
         Sign Up
     </button>
 </form>
 <h3>
-    <a class="button" routerLink="/login">Returning User?
+    <a class="button" routerLink="/educatorLogin">Returning Educator?
         <br />
         Login Here</a>
 </h3>
 <br />
-<p>
-    <a class="button" routerLink="/educatorSignUp">
-        Are you an educator?
-    </a>
-</p>
