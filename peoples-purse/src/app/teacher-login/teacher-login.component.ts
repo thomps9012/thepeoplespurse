@@ -57,7 +57,7 @@ export class TeacherLoginComponent implements OnInit {
       localStorage.setItem('USER_ID', userId)
       localStorage.setItem('AUTH_TOKEN', token)
       // load to profile page
-      window.location.replace('/profile')
+      window.location.replace('/educatorProfile')
     }, (error) => {
       console.log('there was an error sending the query', error);
     });

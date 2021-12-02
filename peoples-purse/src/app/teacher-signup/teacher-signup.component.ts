@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Apollo, gql } from 'apollo-angular';
 
 const TEACHER_SIGN_UP = gql `
-mutation Mutation($input: TeacherSignUpInput!) {
-  teacherteacherSignUp(input: $input){
+mutation TeacherSignUp($input: TeacherSignUpInput!) {
+  teacherSignUp(input: $input) {
     token
-    user {
+    teacher {
       id
     }
   }
@@ -36,7 +36,7 @@ export class TeacherSignupComponent implements OnInit {
     this.email = (event.target as HTMLInputElement).value
   }
 
-  setPassowrd(event: Event) {
+  setPassword(event: Event) {
     this.password = (event.target as HTMLInputElement).value
   }
 
@@ -60,7 +60,7 @@ export class TeacherSignupComponent implements OnInit {
       localStorage.setItem('USER_ID', userId)
       localStorage.setItem('AUTH_TOKEN', token)
       // load to profile page
-      window.location.replace('/profile')
+      window.location.replace('/educatorProfile')
     }, (error) => {
       console.log('there was an error sending the query', error);
     });

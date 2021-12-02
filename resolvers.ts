@@ -1,8 +1,8 @@
 import { DateTimeResolver } from 'graphql-scalars'
-import { ActionDbObject, CastVote, ClassDbObject, LoginInput, UserSignUpInput, TakeAction, User, UserDbObject, VoteDbObject, TeacherSignUpInput } from './graphql-codegen-typings'
+import { ActionDbObject, CastVote, ClassDbObject, LoginInput, UserSignUpInput, TakeAction, User, UserDbObject, VoteDbObject, TeacherSignUpInput, TeacherDbObject, Teacher } from './graphql-codegen-typings'
 import { ObjectId } from 'mongodb'
 import { mongoDbProvider } from './mongodb.provider'
-import jwt, { Jwt } from 'jsonwebtoken'
+import jwt from 'jsonwebtoken'
 import bcrypt from 'bcrypt'
 import { AuthenticationError } from 'apollo-server-core'
 
@@ -62,13 +62,13 @@ export const resolvers = {
             obj: any,
             { input }: { input: TeacherSignUpInput }
         ) => {
-            const result = await mongoDbProvider.usersCollection.insertOne({
+            const result = await mongoDbProvider.teachersCollection.insertOne({
                 email: input.email,
                 username: input.username,
                 password: input.password ? await bcrypt.hash(input.password, 10) : '',
                 classes: []
             });
-            const teacher = await mongoDbProvider.usersCollection.findOne({
+            const teacher = await mongoDbProvider.teachersCollection.findOne({
                 email: input.email
             })
             const token = jwt.sign(
@@ -78,6 +78,7 @@ export const resolvers = {
                 { algorithm: "HS256", subject: input.username ? input.username : '', expiresIn: "1d" }
             );
             const data = { token, teacher }
+            console.log(data)
             return data
         },
         login: async (
@@ -173,5 +174,11 @@ export const resolvers = {
             (obj as UserDbObject)._id
                 ? (obj as UserDbObject)._id.toString()
                 : (obj as User).id
+    },
+    Teacher: {
+        id: (obj: Teacher | TeacherDbObject): string =>
+            (obj as TeacherDbObject)._id
+            ? (obj as TeacherDbObject)._id.toString()
+            : (obj as Teacher).id
     }
 };

@@ -105,7 +105,8 @@ input TeacherSignUpInput {
 
 type Auth {
     token: JWT!
-    user: User!
+    user: User
+    teacher: Teacher
   }
 
 type Mutation {

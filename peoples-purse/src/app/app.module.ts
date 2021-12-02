@@ -60,6 +60,7 @@ import { TeacherLoginComponent } from './teacher-login/teacher-login.component'
       {path: 'signup', component: SignupComponent},
       {path: 'educatorSignUp', component: TeacherSignupComponent},
       {path: 'profile', component: ProfileComponent},
+      {path: 'educatorProfile', component: TeacherProfileComponent},
       {path: 'action', component: ActionFormComponent},
       {path: '**', component: PageNotFoundComponent}
     ]),
