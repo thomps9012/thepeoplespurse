@@ -4,7 +4,7 @@ import { Apollo, gql } from 'apollo-angular';
 
 const TEACHER_LOGIN = gql`
 mutation Mutation($input: LoginInput!) {
-  login(input: $input) {
+  teacherLogin(input: $input) {
     token
     user {
     id
@@ -50,9 +50,9 @@ export class TeacherLoginComponent implements OnInit {
       }
     }).subscribe(({ data }: any) => {
       console.log('got data', data);
-      const username = data.login.user.username;
-      const userId = data.login.user.id;
-      const token = data.login.token;
+      const username = data.teacherLogin.user.username;
+      const userId = data.teacherLogin.user.id;
+      const token = data.teacherLogin.token;
       localStorage.setItem('USER', username)
       localStorage.setItem('USER_ID', userId)
       localStorage.setItem('AUTH_TOKEN', token)
