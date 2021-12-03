@@ -24,7 +24,8 @@ import { NgxEchartsModule } from 'ngx-echarts';
 import { ActionFormComponent } from './action-form/action-form.component';
 import { TeacherSignupComponent } from './teacher-signup/teacher-signup.component';
 import { TeacherProfileComponent } from './teacher-profile/teacher-profile.component';
-import { TeacherLoginComponent } from './teacher-login/teacher-login.component'
+import { TeacherLoginComponent } from './teacher-login/teacher-login.component';
+import { ClassCreateComponent } from './class-create/class-create.component'
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { TeacherLoginComponent } from './teacher-login/teacher-login.component'
     ActionFormComponent,
     TeacherSignupComponent,
     TeacherProfileComponent,
-    TeacherLoginComponent
+    TeacherLoginComponent,
+    ClassCreateComponent
   ],
   imports: [
     BrowserModule,
@@ -62,6 +64,7 @@ import { TeacherLoginComponent } from './teacher-login/teacher-login.component'
       {path: 'profile', component: ProfileComponent},
       {path: 'educatorProfile', component: TeacherProfileComponent},
       {path: 'action', component: ActionFormComponent},
+      {path: 'newClass', component: ClassCreateComponent},
       {path: '**', component: PageNotFoundComponent}
     ]),
     GraphQLModule,

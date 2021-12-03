@@ -147,7 +147,6 @@ export const resolvers = {
                     classCode: input.classCode,
                     budget: input.budget
                 })
-                // add in class code update / mutation
                 if (input.classCode != null) {
                     const updatedClass = await mongoDbProvider.classesCollection.updateOne(
                         { classCode: input.classCode },
