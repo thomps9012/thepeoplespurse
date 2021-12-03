@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Apollo, gql } from 'apollo-angular';
 import { Action } from '../types'
-import { Observable } from 'rxjs';
 
 const GET_USER = gql`
 query Query($getUserId: ID!) {

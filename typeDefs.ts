@@ -19,7 +19,7 @@ type Teacher @entity {
     username: String! @column
     email: EmailAddress @column(overrideType: "string")
     password: String! @column
-    classes: [Class]! @link
+    classes: [ID]! @link
 }
 
 type Vote @entity {
@@ -45,8 +45,10 @@ type Dept @entity{
 
 type Class @entity{
     id: String! @column
-    users: [User]! @link
-    votes: [Vote]! @link
+    classCode: String! @column
+    users: [User] @link
+    votes: [Vote] @link
+    teacher: Teacher! @link
     createdAt: DateTime @column(overrideType: "Date")
 }
 
@@ -65,10 +67,6 @@ input DeptInput {
     name: String!
     code: String!
     percent: Float!
-}
-
-input Interest {
-    name: String!
 }
 
 input CastVote {
@@ -104,6 +102,11 @@ input TeacherSignUpInput {
     password: String
 }
 
+input CreateClassInput {
+    classCode: String!,
+    teacher: String!
+}
+
 type Auth {
     token: JWT!
     user: User
@@ -117,6 +120,7 @@ type Mutation {
     teacherSignUp(input: TeacherSignUpInput!): Auth!
     castVote(input: CastVote!): ID
     takeAction(input: TakeAction!): Action
+    createClass(input: CreateClassInput!): ID!
 }
 `;
 

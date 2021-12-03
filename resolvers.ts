@@ -1,5 +1,5 @@
 import { DateTimeResolver } from 'graphql-scalars'
-import { ActionDbObject, CastVote, ClassDbObject, LoginInput, UserSignUpInput, TakeAction, User, UserDbObject, VoteDbObject, TeacherSignUpInput, TeacherDbObject, Teacher } from './graphql-codegen-typings'
+import { ActionDbObject, CastVote, ClassDbObject, LoginInput, UserSignUpInput, TakeAction, User, UserDbObject, VoteDbObject, TeacherSignUpInput, TeacherDbObject, Teacher, CreateClassInput } from './graphql-codegen-typings'
 import { ObjectId } from 'mongodb'
 import { mongoDbProvider } from './mongodb.provider'
 import jwt from 'jsonwebtoken'
@@ -171,6 +171,29 @@ export const resolvers = {
                 console.log('Invalid Token')
             }
         },
+        createClass: async (obj: any, { input }: { input: CreateClassInput }) => {
+            try {
+                const createdClass = await mongoDbProvider.classesCollection.insertOne({
+                    teacher: input.teacher,
+                    classCode: input.classCode,
+                    users: [],
+                    votes: [],
+                    createdAt: new Date()
+                })
+                const updatedTeacher = await mongoDbProvider.teachersCollection.updateOne(
+                    { _id: new ObjectId(input.teacher) },
+                    {
+                        $addToSet: {
+                            classes: createdClass.insertedId
+                        }
+                    },
+                    { upsert: true }
+                );
+                return createdClass.insertedId
+            } catch {
+                console.log('Invalid Token')
+            }
+        }
     },
     User: {
         id: (obj: User | UserDbObject): string =>
@@ -181,7 +204,7 @@ export const resolvers = {
     Teacher: {
         id: (obj: Teacher | TeacherDbObject): string =>
             (obj as TeacherDbObject)._id
-            ? (obj as TeacherDbObject)._id.toString()
-            : (obj as Teacher).id
+                ? (obj as TeacherDbObject)._id.toString()
+                : (obj as Teacher).id
     }
 };
