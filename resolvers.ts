@@ -51,7 +51,6 @@ export const resolvers = {
                 email: input.email
             })
             console.log(user)
-            // add in class code mutation / upsert adding user to class
             if (input.classCode) {
                 const updatedClass = await mongoDbProvider.classesCollection.updateOne(
                     { classCode: input.classCode },
@@ -143,15 +142,23 @@ export const resolvers = {
         ) => {
             // can add in JWT verification here as well
             try {
-                const classCode = await mongoDbProvider.usersCollection.findOne({
-                    email: input.voter,
-                });
                 const vote = await mongoDbProvider.votesCollection.insertOne({
                     voter: input.voter,
-                    classCode: classCode?.class,
+                    classCode: input.classCode,
                     budget: input.budget
                 })
                 // add in class code update / mutation
+                if (input.classCode != null) {
+                    const updatedClass = await mongoDbProvider.classesCollection.updateOne(
+                        { classCode: input.classCode },
+                        {
+                            $addToSet: {
+                                votes: vote.insertedId
+                            }
+                        }
+                    )
+                    console.log(updatedClass)
+                }
                 return vote.insertedId;
             } catch {
                 console.log('Invalid Token')
