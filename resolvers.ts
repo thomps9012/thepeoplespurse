@@ -51,6 +51,18 @@ export const resolvers = {
                 email: input.email
             })
             console.log(user)
+            // add in class code mutation / upsert adding user to class
+            if (input.classCode) {
+                const updatedClass = await mongoDbProvider.classesCollection.updateOne(
+                    { classCode: input.classCode },
+                    {
+                        $addToSet: {
+                            users: result.insertedId
+                        }
+                    }
+                )
+                console.log(updatedClass)
+            }
             const token = jwt.sign(
                 // will change on PRODUCTION
                 { "https://localhost:4000/": {} },
@@ -139,6 +151,7 @@ export const resolvers = {
                     classCode: classCode?.class,
                     budget: input.budget
                 })
+                // add in class code update / mutation
                 return vote.insertedId;
             } catch {
                 console.log('Invalid Token')
