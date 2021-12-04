@@ -23,6 +23,7 @@
     "@apollo/client": "^3.4.17",
     "@types/gapi": "^0.0.41",
     "@types/gapi.client": "^1.0.5",
+    "@types/randombytes": "^2.0.0",
     "apollo-angular": "^2.6.0",
     "echarts": "^5.2.2",
     "gapi": "^0.0.3",

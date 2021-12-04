@@ -29,18 +29,11 @@ export class ClassCreateComponent implements OnInit {
   randomClass() {
     const pool = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
     let pwd = '';
-    var randomIndex: number | undefined;
-    var randomBytes: string | any[];
+
     let getNextRandomValue = () => {
-      if (randomIndex === undefined || randomIndex >= randomBytes.length) {
-        randomIndex = 0;
-      }
-
-      var result = randomBytes[randomIndex];
-      randomIndex += 1;
-
-      return result;
+      return Math.floor(Math.random() * 256)+0;
     }
+
     let randomNumber = (max: number) => {
       var rand = getNextRandomValue();
       while (rand >= 256 - (256 % max)) {
@@ -48,11 +41,12 @@ export class ClassCreateComponent implements OnInit {
       }
       return rand % max;
     }
-    for (let i = 0; i < 3; i++) {
-      pwd += pool[randomNumber(64)]
+
+    for (let i = 0; i < 10; i++) {
+      pwd += pool[randomNumber(62)]
     }
-    let randomClassInput = document.getElementById('classCode') as HTMLElement
-    randomClassInput.innerHTML = pwd
+    const codeDiv = document.getElementById('generatedCode') as HTMLElement
+    codeDiv.innerHTML = `Class Code: ${pwd}`
     this.classCode = pwd;
   }
 
