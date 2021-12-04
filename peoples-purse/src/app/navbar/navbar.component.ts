@@ -25,6 +25,7 @@ query Query($getTeacherId: ID!) {
 export class NavbarComponent implements OnInit {
   data?: any
   username?: string
+  teachername?: string
   constructor(private apollo: Apollo) { }
 
   logout() {
@@ -57,7 +58,7 @@ export class NavbarComponent implements OnInit {
           getTeacherId: localStorage.getItem('TEACHER_ID')
         }
       }).subscribe(({ data }: any) => {
-        this.username = data.getTeacher.username
+        this.teachername = data.getTeacher.username
       }, (error) => {
         console.log('there was an error sending the query', error);
       })

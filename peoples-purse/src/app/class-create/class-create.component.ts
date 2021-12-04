@@ -27,10 +27,6 @@ export class ClassCreateComponent implements OnInit {
   }
 
   randomClass() {
-    // const lowercase = 'abcdefghijklmnopqrstuvwxyz';
-    // const uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    // const numbers = '0123456789';
-    // const symbols = '!@#$%^&*()+_-=}{[]|:;"/?.><,`~';
     const pool = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
     let pwd = '';
     var randomIndex: number | undefined;
@@ -64,8 +60,10 @@ export class ClassCreateComponent implements OnInit {
     this.apollo.mutate({
       mutation: CREATE_CLASS,
       variables: {
-        classCode: this.classCode,
-        teacher: localStorage.getItem('TEACHER_ID')
+        input: {
+          classCode: this.classCode,
+          teacher: localStorage.getItem('TEACHER_ID')
+        }
       }
     }).subscribe(({ data }: any) => {
       console.log('got data', data);
