@@ -25,7 +25,8 @@ import { ActionFormComponent } from './action-form/action-form.component';
 import { TeacherSignupComponent } from './teacher-signup/teacher-signup.component';
 import { TeacherProfileComponent } from './teacher-profile/teacher-profile.component';
 import { TeacherLoginComponent } from './teacher-login/teacher-login.component';
-import { ClassCreateComponent } from './class-create/class-create.component'
+import { ClassCreateComponent } from './class-create/class-create.component';
+import { ClassDetailComponent } from './class-detail/class-detail.component'
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { ClassCreateComponent } from './class-create/class-create.component'
     TeacherSignupComponent,
     TeacherProfileComponent,
     TeacherLoginComponent,
-    ClassCreateComponent
+    ClassCreateComponent,
+    ClassDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -65,6 +67,7 @@ import { ClassCreateComponent } from './class-create/class-create.component'
       {path: 'educatorProfile', component: TeacherProfileComponent},
       {path: 'action', component: ActionFormComponent},
       {path: 'newClass', component: ClassCreateComponent},
+      {path: 'class/:id', component: ClassDetailComponent},
       {path: '**', component: PageNotFoundComponent}
     ]),
     GraphQLModule,
