@@ -1,4 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { Apollo, gql } from 'apollo-angular';
+import { Class } from '../types'
+
+const GET_CLASSES = gql`
+query Query() {
+  getClasses(){
+
+  }
+}
+`;
 
 @Component({
   selector: 'app-teacher-profile',
@@ -7,7 +17,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TeacherProfileComponent implements OnInit {
 
-  constructor() { }
+  data: any
+  classes?: [Class];
+  class!: Class;
+  
+  constructor(private apollo: Apollo) { }
 
   ngOnInit(): void {
   }

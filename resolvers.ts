@@ -26,9 +26,9 @@ export const resolvers = {
         classVotes: (obj: any, { classCode }: { classCode: string }): Promise<VoteDbObject
             | any> =>
             mongoDbProvider.votesCollection.find({ classCode: classCode }).toArray(),
-        classes: (obj: any, { id }: { id: string }): Promise<ClassDbObject
+        classes: (obj: any, { teacherID }: { teacherID: string }): Promise<ClassDbObject
             | any> =>
-            mongoDbProvider.classesCollection.find({ id: id }).toArray(),
+            mongoDbProvider.classesCollection.find({ teacher: teacherID }).toArray(),
         actions: (obj: any, { userID }: { userID: string }): Promise<ActionDbObject
             | any> =>
             mongoDbProvider.usersCollection.findOne({ _id: new ObjectId(userID) })

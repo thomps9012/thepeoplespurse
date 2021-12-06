@@ -1,13 +1,10 @@
-// export type User = {
-//     username: string;
-//     email: string;
-//     password: string;
-//     classCode: string;
-// }
-
-// export type Mutation = {
-//     signUpUser: User;
-// }
+// update type here
+export type Class = {
+    username: string;
+    email: string;
+    password: string;
+    classCode: string;
+}
 
 export type Action = {
     name: string;

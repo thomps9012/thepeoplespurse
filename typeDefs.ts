@@ -59,7 +59,7 @@ type Query {
     vote(id: ID!): Vote
     allVotes: [Vote]
     classVotes(classCode: String!): [Vote]
-    classes(id: String!): [Class]
+    classes(teacherID: ID!): [Class]
     actions(userID: ID!): [Action]
 }
 
