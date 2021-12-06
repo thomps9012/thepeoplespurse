@@ -24,7 +24,7 @@ type Teacher @entity {
 
 type Vote @entity {
     id: ID! @id 
-    voter: User! @link
+    voter: ID! @link
     createdAt: DateTime @column(overrideType: "Date")
     budget: [Dept]! @link
 }
@@ -44,7 +44,7 @@ type Dept @entity{
 }
 
 type Class @entity{
-    id: String! @column
+    id: ID! @id
     classCode: String! @column
     users: [User] @link
     votes: [Vote] @link

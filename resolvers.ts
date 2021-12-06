@@ -1,5 +1,5 @@
 import { DateTimeResolver } from 'graphql-scalars'
-import { ActionDbObject, CastVote, ClassDbObject, LoginInput, UserSignUpInput, TakeAction, User, UserDbObject, VoteDbObject, TeacherSignUpInput, TeacherDbObject, Teacher, CreateClassInput } from './graphql-codegen-typings'
+import { ActionDbObject, CastVote, ClassDbObject, LoginInput, UserSignUpInput, TakeAction, User, UserDbObject, VoteDbObject, TeacherSignUpInput, TeacherDbObject, Teacher, CreateClassInput, Class, Vote } from './graphql-codegen-typings'
 import { ObjectId } from 'mongodb'
 import { mongoDbProvider } from './mongodb.provider'
 import jwt from 'jsonwebtoken'
@@ -143,9 +143,10 @@ export const resolvers = {
             // can add in JWT verification here as well
             try {
                 const vote = await mongoDbProvider.votesCollection.insertOne({
-                    voter: input.voter,
+                    voter: new ObjectId(input.voter),
                     classCode: input.classCode,
-                    budget: input.budget
+                    budget: input.budget,
+                    createdAt: new Date()
                 })
                 if (input.classCode != null) {
                     const updatedClass = await mongoDbProvider.classesCollection.updateOne(
@@ -193,7 +194,7 @@ export const resolvers = {
         createClass: async (obj: any, { input }: { input: CreateClassInput }) => {
             try {
                 const createdClass = await mongoDbProvider.classesCollection.insertOne({
-                    teacher: input.teacher,
+                    teacher: new ObjectId(input.teacher),
                     classCode: input.classCode,
                     users: [],
                     votes: [],
@@ -225,5 +226,17 @@ export const resolvers = {
             (obj as TeacherDbObject)._id
                 ? (obj as TeacherDbObject)._id.toString()
                 : (obj as Teacher).id
+    },
+    Class: {
+        id: (obj: Class | ClassDbObject): string =>
+            (obj as ClassDbObject)._id
+                ? (obj as ClassDbObject)._id.toString()
+                : (obj as Class).id
+    },
+    Vote: {
+        id: (obj: Vote | VoteDbObject): string =>
+            (obj as VoteDbObject)._id
+                ? (obj as VoteDbObject)._id.toString()
+                : (obj as Vote).id
     }
 };
