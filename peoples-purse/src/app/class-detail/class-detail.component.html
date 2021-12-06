@@ -1,1 +1,17 @@
-<p>class-detail works!</p>
+<h1 *ngIf="!data">
+    No Data Found for that Class
+</h1>
+<div *ngIf="class">
+    <h1>
+        Class Information for {{class.classCode}}
+    </h1>
+    <h2>Student and Action List</h2>
+    <ol>
+        <li *ngFor="let user of class.users">
+            <p>
+                {{user}}
+            </p>
+        </li>
+    </ol>
+    <h3>Vote Count: {{(class.votes).length}}</h3>
+</div>

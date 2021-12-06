@@ -21,7 +21,6 @@ export class TeacherProfileComponent implements OnInit {
 
   data: any
   classes?: [Class];
-  class!: Class;
 
   constructor(private apollo: Apollo) { }
 

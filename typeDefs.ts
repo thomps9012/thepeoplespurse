@@ -58,7 +58,7 @@ type Query {
     allUsers: [User]
     vote(id: ID!): Vote
     allVotes: [Vote]
-    classVotes(classCode: String!): [Vote]
+    classInfo(classID: ID!): Class
     classes(teacherID: ID!): [Class]
     actions(userID: ID!): [Action]
 }

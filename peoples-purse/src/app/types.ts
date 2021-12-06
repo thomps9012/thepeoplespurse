@@ -3,11 +3,10 @@ import { ObjectId } from "bson"
 // update type here
 export type Class = {
     id: ObjectId;
-    username: string;
-    email: string;
-    password: string;
     classCode: string;
     createdAt: Date;
+    users: [User];
+    votes: [Vote];
 }
 
 export type Action = {
@@ -16,4 +15,15 @@ export type Action = {
     organization: string;
     actionDate: Date;
     length: Float32List;
+}
+
+export type User = {
+    id: ObjectId;
+    username: string;
+    email: string;
+    actions: [Action];
+}
+
+export type Vote = {
+    id: ObjectId;
 }
