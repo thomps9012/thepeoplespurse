@@ -27,3 +27,7 @@ export type User = {
 export type Vote = {
     id: ObjectId;
 }
+
+export type UserQuery = {
+    users: User[];
+}
