@@ -46,9 +46,9 @@ type Dept @entity{
 type Class @entity{
     id: ID! @id
     classCode: String! @column
-    users: [User] @link
-    votes: [Vote] @link
-    teacher: Teacher! @link
+    users: [ID] @link
+    votes: [ID] @link
+    teacher: ID! @link
     createdAt: DateTime @column(overrideType: "Date")
 }
 

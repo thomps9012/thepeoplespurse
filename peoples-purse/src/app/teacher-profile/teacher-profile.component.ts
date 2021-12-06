@@ -3,9 +3,11 @@ import { Apollo, gql } from 'apollo-angular';
 import { Class } from '../types'
 
 const GET_CLASSES = gql`
-query Query() {
-  getClasses(){
-
+query Query($teacherId: ID!) {
+  classes(teacherID: $teacherId) {
+    id
+    classCode
+    createdAt
   }
 }
 `;
@@ -20,10 +22,22 @@ export class TeacherProfileComponent implements OnInit {
   data: any
   classes?: [Class];
   class!: Class;
-  
+
   constructor(private apollo: Apollo) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    // replace with a local storage variable
+    let teacher = '61a9367059f1854613bc578e';
+
+    this.data = this.apollo.query({
+      query: GET_CLASSES,
+      variables: {
+        teacherId: teacher
+      }
+    }).subscribe(({ data }: any) => {
+      console.log('got data', data);
+      this.classes = data.classes
+    })
   }
 
 }

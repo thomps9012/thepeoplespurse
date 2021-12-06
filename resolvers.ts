@@ -28,7 +28,7 @@ export const resolvers = {
             mongoDbProvider.votesCollection.find({ classCode: classCode }).toArray(),
         classes: (obj: any, { teacherID }: { teacherID: string }): Promise<ClassDbObject
             | any> =>
-            mongoDbProvider.classesCollection.find({ teacher: teacherID }).toArray(),
+            mongoDbProvider.classesCollection.find({ teacher: new ObjectId(teacherID) }).toArray(),
         actions: (obj: any, { userID }: { userID: string }): Promise<ActionDbObject
             | any> =>
             mongoDbProvider.usersCollection.findOne({ _id: new ObjectId(userID) })
@@ -237,6 +237,10 @@ export const resolvers = {
         id: (obj: Vote | VoteDbObject): string =>
             (obj as VoteDbObject)._id
                 ? (obj as VoteDbObject)._id.toString()
-                : (obj as Vote).id
+                : (obj as Vote).id,
+        // voter: (obj: User | UserDbObject): string => 
+        // (obj as UserDbObject)._id
+        // ? (obj as UserDbObject)._id.toString()
+        // : (obj as User).id,
     }
 };
