@@ -43,19 +43,19 @@ export class VotingComponent implements OnInit {
       let totalArea = document.getElementById("totalBudget")
       let budgetAlert = <HTMLElement>document.getElementById('budgetAlert')
       if (this.totalDept > 100) {
-        totalArea?.setAttribute('style', 'background-color: red')
+        totalArea?.setAttribute('style', 'color: crimson')
         let dangerAlert = document.createElement("h1")
         dangerAlert.innerHTML += `Woah you've used ${this.totalDept - 100} percent more than your budget`;
         budgetAlert.innerHTML = "";
         budgetAlert?.append(dangerAlert);
       } else if (this.totalDept === 100) {
-        totalArea?.setAttribute('style', 'background-color: green')
+        totalArea?.setAttribute('style', 'color: green')
         let dangerAlert = document.createElement("h1")
         dangerAlert.innerHTML += "You're perfect!";
         budgetAlert.innerHTML = "";
         budgetAlert?.append(dangerAlert);
       } else {
-        totalArea?.setAttribute('style', 'background-color: yellow')
+        totalArea?.setAttribute('style', 'color: goldenrod')
         let dangerAlert = document.createElement("h1")
         dangerAlert.innerHTML += `You still have ${100 - this.totalDept} percent of your budget remaining`;
         budgetAlert.innerHTML = "";
@@ -71,7 +71,7 @@ export class VotingComponent implements OnInit {
     for (let i = 1; i <= 20; i++) {
       const dept = <HTMLInputElement>document.getElementById(JSON.stringify(i))
       dept.value = '5';
-      totalArea?.setAttribute('style', 'background-color: green')
+      totalArea?.setAttribute('style', 'color: green')
       let dangerAlert = document.createElement("h1")
       dangerAlert.innerHTML += "You're perfect!";
       budgetAlert.innerHTML = "";
@@ -83,7 +83,7 @@ export class VotingComponent implements OnInit {
     this.totalDept = 100;
     let totalArea = document.getElementById("totalBudget")
     let budgetAlert = <HTMLElement>document.getElementById('budgetAlert')
-    totalArea?.setAttribute('style', 'background-color: green')
+    totalArea?.setAttribute('style', 'color: green')
     let dangerAlert = document.createElement("h1")
     dangerAlert.innerHTML += "You're perfect!";
     budgetAlert.innerHTML = "";
@@ -95,7 +95,7 @@ export class VotingComponent implements OnInit {
     this.totalDept = 100;
     let totalArea = document.getElementById("totalBudget")
     let budgetAlert = <HTMLElement>document.getElementById('budgetAlert')
-    totalArea?.setAttribute('style', 'background-color: green')
+    totalArea?.setAttribute('style', 'color: green')
     let dangerAlert = document.createElement("h1")
     dangerAlert.innerHTML += "You're perfect!";
     budgetAlert.innerHTML = "";
@@ -107,7 +107,7 @@ export class VotingComponent implements OnInit {
     this.totalDept = 100;
     let totalArea = document.getElementById("totalBudget")
     let budgetAlert = <HTMLElement>document.getElementById('budgetAlert')
-    totalArea?.setAttribute('style', 'background-color: green')
+    totalArea?.setAttribute('style', 'color: green')
     let dangerAlert = document.createElement("h1")
     dangerAlert.innerHTML += "You're perfect!";
     budgetAlert.innerHTML = "";
@@ -119,7 +119,7 @@ export class VotingComponent implements OnInit {
     this.totalDept = 100;
     let totalArea = document.getElementById("totalBudget")
     let budgetAlert = <HTMLElement>document.getElementById('budgetAlert')
-    totalArea?.setAttribute('style', 'background-color: green')
+    totalArea?.setAttribute('style', 'color: green')
     let dangerAlert = document.createElement("h1")
     dangerAlert.innerHTML += "You're perfect!";
     budgetAlert.innerHTML = "";
@@ -131,7 +131,7 @@ export class VotingComponent implements OnInit {
     this.totalDept = 100;
     let totalArea = document.getElementById("totalBudget")
     let budgetAlert = <HTMLElement>document.getElementById('budgetAlert')
-    totalArea?.setAttribute('style', 'background-color: green')
+    totalArea?.setAttribute('style', 'color: green')
     let dangerAlert = document.createElement("h1")
     dangerAlert.innerHTML += "You're perfect!";
     budgetAlert.innerHTML = "";
