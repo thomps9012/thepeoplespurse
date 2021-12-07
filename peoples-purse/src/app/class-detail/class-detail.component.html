@@ -5,6 +5,7 @@
     <h1>
         Class Information for {{class.classCode}}
     </h1>
+    <h3>Total Class Vote Count: {{(class.votes).length}}</h3>
     <div *ngIf="studentDetails">
 
         <h2>Student and Action List</h2>
@@ -16,25 +17,28 @@
                 <h3>
                     {{student.email}}
                 </h3>
-                <ul *ngFor="let action of student.actions">
-                    <li>
-                        {{action.name}}
-                    </li>
-                    <li>
-                        {{action.detail}}
-                    </li>
-                    <li>
-                        Organization: {{action.organization}}
-                    </li>
-                    <li>
-                        Length: {{action.length}}
-                    </li>
-                    <li>
-                        {{action.actionDate}}
-                    </li>
-                </ul>
+                <div *ngIf="student.actions.length >0">
+                Actions
+                <hr />
+
+                    <ul *ngFor="let action of student.actions">
+                        <li>
+                            {{action.name}}
+                            <br />
+                            {{action.detail}}
+                            <br />
+                            Organization: {{action.organization}}
+                            <br />
+                            Length: {{action.length}}
+                            <br />
+                            {{action.actionDate || 'N/A'}}
+                        </li>
+                    </ul>
+                </div>
+                <div *ngIf="student.actions.length === 0">
+                    No Actions Yet
+                </div>
             </li>
         </ol>
     </div>
-    <h3>Vote Count: {{(class.votes).length}}</h3>
 </div>
