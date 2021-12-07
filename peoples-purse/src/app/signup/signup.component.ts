@@ -73,6 +73,7 @@ export class SignupComponent implements OnInit {
       localStorage.setItem('USER', this.username)
       localStorage.setItem('USER_ID', userId)
       localStorage.setItem('AUTH_TOKEN', token)
+      localStorage.setItem('CLASS_CODE', this.classCode)
       // load to profile page
       window.location.replace('/profile')
     }, (error) => {

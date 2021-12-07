@@ -151,6 +151,7 @@ export class VotingComponent implements OnInit {
     }
     else {
       const voter = localStorage.getItem('USER_ID');
+      const classCode = localStorage.getItem('CLASS_CODE') ? localStorage.getItem('CLASS_CODE') : ''
       let budget = []
 
       for(let i=1; i<=20; i++){
@@ -168,7 +169,8 @@ export class VotingComponent implements OnInit {
         variables: {
           input: {
             voter: voter,
-            budget: budget
+            budget: budget,
+            classCode: classCode
           }
         }
       }).subscribe(({ data }: any) => {

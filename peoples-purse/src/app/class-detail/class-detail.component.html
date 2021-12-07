@@ -2,9 +2,9 @@
     No Data Found for that Class
 </h1>
 <div *ngIf="class">
-    <h1>
-        Class Information for {{class.classCode}}
-    </h1>
+        <h1>
+            Class Information for {{class.classCode}}
+        </h1>
     <h3>Total Class Vote Count: {{(class.votes).length}}</h3>
     <div *ngIf="studentDetails">
 
@@ -23,7 +23,7 @@
 
                     <ul *ngFor="let action of student.actions">
                         <li>
-                            {{action.name}}
+                            Action: {{action.name}}
                             <br />
                             {{action.detail}}
                             <br />
