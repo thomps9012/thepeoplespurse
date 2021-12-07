@@ -94,15 +94,15 @@ export class InformationComponent implements OnInit {
         const nationalTitle = document.createElement('h2')
         nationalTitle.append('National')
         const nationalTable = document.createElement('table')
-        
+
         const stateTitle = document.createElement('h2')
         stateTitle.append('State')
         const stateTable = document.createElement('table')
-        
+
         const countyTitle = document.createElement('h2')
         countyTitle.append('County')
         const countyTable = document.createElement('table')
-        
+
         const officeHeaders = `
         <tr>
         <th> Office </th>
@@ -116,7 +116,7 @@ export class InformationComponent implements OnInit {
         nationalTable.innerHTML += (officeHeaders)
         stateTable.innerHTML += (officeHeaders)
         countyTable.innerHTML += (officeHeaders)
-        
+
         officeRes.map((office: any) => {
           if (office.levels[0] === 'country') {
             const lvlOfficials = office.officialIndices;
@@ -132,30 +132,27 @@ export class InformationComponent implements OnInit {
               <a target="_blank" href=${officials[lvlOfficials[i]].urls ? officials[lvlOfficials[i]].urls[0] : `https://www.google.com/search?q=${officials[lvlOfficials[i]].name}`}> ${officials[lvlOfficials[i]].name}</a>
               </td>
               <td>
-              ${
-                officials[lvlOfficials[i]].party
-                ? officials[lvlOfficials[i]].party
-                : 'N/A'
-              }
+              ${officials[lvlOfficials[i]].party
+                  ? officials[lvlOfficials[i]].party
+                  : 'N/A'
+                }
               </td>
               <td>
-              ${
-                officials[lvlOfficials[i]].address ?
-                (`${officials[lvlOfficials[i]].address[0].line1},
+              ${officials[lvlOfficials[i]].address ?
+                  (`${officials[lvlOfficials[i]].address[0].line1},
                 ${officials[lvlOfficials[i]].address[0].city}, ${officials[lvlOfficials[i]].address[0].state}`)
-                : 'N/A'
-              }
+                  : 'N/A'
+                }
               </td>
               <td>
-              ${
-                officials[lvlOfficials[i]].phones 
-                ? officials[lvlOfficials[i]].phones[0]
-                : 'N/A'
-              }
+              ${officials[lvlOfficials[i]].phones
+                  ? officials[lvlOfficials[i]].phones[0]
+                  : 'N/A'
+                }
               </td>
               </tr>
               `;
-              nationalTable.innerHTML +=(nationalOfficial)
+              nationalTable.innerHTML += (nationalOfficial)
             }
             // end of recreated code
             // ****************************************************************************
@@ -173,30 +170,27 @@ export class InformationComponent implements OnInit {
               <a target="_blank" href=${officials[lvlOfficials[i]].urls ? officials[lvlOfficials[i]].urls[0] : `https://www.google.com/search?q=${officials[lvlOfficials[i]].name}`}> ${officials[lvlOfficials[i]].name}</a>
               </td>
               <td>
-              ${
-                officials[lvlOfficials[i]].party
-                ? officials[lvlOfficials[i]].party
-                : 'N/A'
-              }
+              ${officials[lvlOfficials[i]].party
+                  ? officials[lvlOfficials[i]].party
+                  : 'N/A'
+                }
               </td>
               <td>
-              ${
-                officials[lvlOfficials[i]].address ?
-                (`${officials[lvlOfficials[i]].address[0].line1},
+              ${officials[lvlOfficials[i]].address ?
+                  (`${officials[lvlOfficials[i]].address[0].line1},
                 ${officials[lvlOfficials[i]].address[0].city}, ${officials[lvlOfficials[i]].address[0].state}`)
-                : 'N/A'
-              }
+                  : 'N/A'
+                }
               </td>
               <td>
-              ${
-                officials[lvlOfficials[i]].phones 
-                ? officials[lvlOfficials[i]].phones[0]
-                : 'N/A'
-              }
+              ${officials[lvlOfficials[i]].phones
+                  ? officials[lvlOfficials[i]].phones[0]
+                  : 'N/A'
+                }
               </td>
               </tr>
               `;
-              stateTable.innerHTML +=(stateOfficial)
+              stateTable.innerHTML += (stateOfficial)
             }
             // end of recreated code
             // ****************************************************************************
@@ -214,30 +208,27 @@ export class InformationComponent implements OnInit {
               <a target="_blank" href=${officials[lvlOfficials[i]].urls ? officials[lvlOfficials[i]].urls[0] : `https://www.google.com/search?q=${officials[lvlOfficials[i]].name}`}> ${officials[lvlOfficials[i]].name}</a>
               </td>
               <td>
-              ${
-                officials[lvlOfficials[i]].party
-                ? officials[lvlOfficials[i]].party
-                : 'N/A'
-              }
+              ${officials[lvlOfficials[i]].party
+                  ? officials[lvlOfficials[i]].party
+                  : 'N/A'
+                }
               </td>
               <td>
-              ${
-                officials[lvlOfficials[i]].address ?
-                (`${officials[lvlOfficials[i]].address[0].line1},
+              ${officials[lvlOfficials[i]].address ?
+                  (`${officials[lvlOfficials[i]].address[0].line1},
                 ${officials[lvlOfficials[i]].address[0].city}, ${officials[lvlOfficials[i]].address[0].state}`)
-                : 'N/A'
-              }
+                  : 'N/A'
+                }
               </td>
               <td>
-              ${
-                officials[lvlOfficials[i]].phones 
-                ? officials[lvlOfficials[i]].phones[0]
-                : 'N/A'
-              }
+              ${officials[lvlOfficials[i]].phones
+                  ? officials[lvlOfficials[i]].phones[0]
+                  : 'N/A'
+                }
               </td>
               </tr>
               `;
-              countyTable.innerHTML +=(countyOfficial)
+              countyTable.innerHTML += (countyOfficial)
             }
             // end of recreated code
             // ****************************************************************************
@@ -251,10 +242,6 @@ export class InformationComponent implements OnInit {
 
         officialDiv?.append(countyTitle)
         officialDiv?.append(countyTable)
-
-        let header = document.createElement('h3');
-
-        officialDiv?.append(header ? header : '')
 
       },
         function (err: any) { console.error("Execute error", err); });
