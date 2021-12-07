@@ -2,3 +2,66 @@ a {
     padding: 15px;
     margin: 15px;
 }
+
+.col {
+    display: flex;
+    margin: auto;
+    padding: 0 16px;
+    max-width: 960px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.showHide:hover {
+    color: #1976d2;
+    transform: translateY(-3px);
+    text-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+}
+
+#deptSelect {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 5px;
+    height: 35px;
+}
+
+button {
+    margin: 25px;
+    all: unset;
+    border-radius: 4px;
+    background-color: #fafafad3;
+    width: 100px;
+    padding: 5px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: all 0.2s ease-in-out;
+    line-height: 24px;
+}
+
+button:hover {
+    background-color: #1976d2;
+    color: #eee;
+    text-decoration: none;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+}
+
+input {
+    align-content: center;
+    flex: auto;
+    margin: 15px;
+    justify-content: center;
+}
+
+#address {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 5px;
+    height: 35px;
+    width: 35vh;
+}

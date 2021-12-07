@@ -1,13 +1,26 @@
 <!-- dept dropdown bar -->
-<h1>Select a Department to Learn About</h1>
-<select id="deptSelect" (change)="displayDept($event)">
-    <option *ngFor="let dept of DeptInfo" [title]="dept.value" value="{{dept.value}}">{{dept.name}}</option>
-</select>
-<!-- populates logo and information in a div below -->
-<div id="deptInfo"></div>
-<!-- select address -->
-    <h1>Enter Your Address to Look Up Your Elected Officials</h1>
-    <input type="text" (change)="getAddress($event)" placeholder="Address Here" />
-    <button (click)="onSubmit(location)">Search</button>
-<!-- populate information below -->
-<div id="official-display"></div>
+<div class="row">
+    <div class="col">
+        <h1 class="showHide" (click)="showDeptInput()">Select a Department to Learn About</h1>
+        <div id="deptInput" style="display: none">
+            <select id="deptSelect" (change)="displayDept($event)">
+                <option *ngFor="let dept of DeptInfo" [title]="dept.value" value="{{dept.value}}">{{dept.name}}</option>
+            </select>
+            <!-- populates logo and information in a div below -->
+            <div id="deptInfo"></div>
+        </div>
+    </div>
+    <div class="col">
+        <h1>- or -</h1>
+    </div>
+    <div class="col">
+        <!-- select address -->
+        <h1 class="showHide" (click)="showAddressInput()">Enter Your Address to Look Up Your Elected Officials</h1>
+        <div id="addressInput" style="display: none">
+            <input id="address" type="text" (change)="getAddress($event)" placeholder="Enter Address Here" />
+            <button (click)="onSubmit(location)">Search</button>
+            <!-- populate information below -->
+            <div id="official-display"></div>
+        </div>
+    </div>
+</div>

@@ -1,35 +1,30 @@
-<h1>Sign Up</h1>
 <form>
-    <div class="row">
+    <h1>Sign Up</h1>
         <label>Username</label>
         <input type="text" placeholder="Username" (change)="setUsername($event)" />
-    </div>
-    <div class="row">
         <label>Email</label>
         <input type="text" placeholder="Email" (change)="setEmail($event)" />
-    </div>
     <label>Password</label>
     <input type="text" placeholder="Password" (change)="setPassword($event)" />
     <div class="row">
         <label>Have a class code?</label>
         <input type="checkbox" (click)="showClassInput()" />
     </div>
-    <div class="row" id="ClassCodeInput" style="display: none">
-        <label>Enter it here</label>
-        <input type="string" (change)="setClassCode($event)" />
+    <div id="ClassCodeInput" style="display: none">
+        <input placeholder="Enter it Here" type="string" (change)="setClassCode($event)" />
     </div>
     <button (click)="signUp($event)">
         Sign Up
     </button>
+    <h3>
+        <a class="button" routerLink="/login">Returning User?
+            <br />
+            Login Here</a>
+    </h3>
 </form>
-<h3>
-    <a class="button" routerLink="/login">Returning User?
-        <br />
-        Login Here</a>
-</h3>
 <br />
-<p>
+<h3>
     <a class="button" routerLink="/educatorSignUp">
         Are you an educator?
     </a>
-</p>
+</h3>

@@ -173,7 +173,6 @@ export const resolvers = {
             // console.log('input--> ', input)
             // console.log('context--> ', context)
             // console.log('headers--> ', headers)
-            console.log(input)
             try {
                 const result = await
                     mongoDbProvider.usersCollection.updateOne(
