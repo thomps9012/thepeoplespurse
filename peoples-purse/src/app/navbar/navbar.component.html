@@ -1,13 +1,13 @@
 <nav>
-    <a class="button" routerLink="/">Home</a>
-    <a class="button" routerLink="/info">Information Center</a>
-    <a class="button" routerLink="/voting">Voting</a>
-    <a class="button" routerLink="/results">Proposed Budget Results</a>
+    <a class="button" routerLink="/" title='Homepage'><i class="material-icons">home</i></a>
+    <a class="button" routerLink="/info" title='Information Center'><i class="material-icons">help_outline</i></a>
+    <a class="button" routerLink="/voting" title='Voting'><i class="material-icons">ballot</i></a>
+    <a class="button" routerLink="/results" title='Budget Results'><i class="material-icons">leaderboard</i></a>
     <!-- conditional rendering of links show username -->
-    <a *ngIf="username" class="button" routerLink="/profile">Welcome {{username}}</a>
-    <a *ngIf="teachername" class="button" routerLink="/educatorProfile">Welcome {{teachername}}</a>
-    <a *ngIf="data" class="button" (click)="logout()">Logout<i class="material-icons">logout</i></a>
+    <a *ngIf="username" class="button" routerLink="/profile" title='Profile Page'><i class="material-icons">account_circle</i>Welcome {{username}}</a>
+    <a *ngIf="teachername" class="button" routerLink="/educatorProfile" title='Profile Page'><i class="material-icons">account_circle</i>Welcome {{teachername}}</a>
+    <a *ngIf="data" class="button" (click)="logout()"><i class="material-icons">exit_to_app</i></a>
     <!-- conditional showing of profile page button -->
-    <a class="button" *ngIf="!data" routerLink="/signup">Sign Up</a>
-    <a class="button" *ngIf="!data" routerLink="/login">Login<i class="material-icons">login</i></a>
+    <a class="button" *ngIf="!data" routerLink="/signup" title='Sign Up Page'><i class="material-icons">person_add</i></a>
+    <a class="button" *ngIf="!data" routerLink="/login" title='Login Page'><i class="material-icons">login</i></a>
 </nav>
