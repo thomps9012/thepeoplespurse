@@ -34,6 +34,7 @@ export class NavbarComponent implements OnInit {
     localStorage.removeItem('TEACHER_ID')
     localStorage.removeItem('TEACHER')
     localStorage.removeItem('AUTH_TOKEN')
+    localStorage.removeItem('CLASS_CODE')
     window.location.replace('/');
   }
   userId = localStorage.getItem('USER_ID')

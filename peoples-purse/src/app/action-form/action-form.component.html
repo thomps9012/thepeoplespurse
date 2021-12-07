@@ -1,12 +1,14 @@
-<p>action-form works!</p>
-<span>Action Name</span>
-<input name="actionForm" id="name" type="text" (change)="setName($event)"/>
-<span>Action Detail</span>
-<input name="actionForm" id="detail" type="text" (change)="setDetail($event)"/>
-<span>Affiliated Organization</span>
-<input name="actionForm" id="organization" type="text" (change)="setOrganization($event)" />
-<span>Action Date</span>
-<input name="actionForm" id="actionDate" type="datetime" (change)="setActionDate($event)"/>
-<span>Length of Action</span>
-<input name="actionForm" id="length" type="number" (change)="setLength($event)" />
-<button (click)="submitAction($event)">Record Action!</button>
+<h1>Record Your Civic Action Here</h1>
+<div class="actionForm">
+    <!-- <span>Action Name</span> -->
+    <input name="actionForm" class="actionInput" placeholder="Action Name" type="text" (change)="setName($event)"/>
+    <!-- <span>Action Detail</span> -->
+    <input name="actionForm" class="actionInput" type="text" placeholder="Detail" (change)="setDetail($event)"/>
+    <!-- <span>Affiliated Organization</span> -->
+    <input name="actionForm" class="actionInput" type="text" placeholder="Affiliated Organization" (change)="setOrganization($event)" />
+    <!-- <span>Action Date</span> -->
+    <input name="actionForm" class="actionInput" type="datetime" placeholder="Action Date" (change)="setActionDate($event)"/>
+    <!-- <span>Length of Action</span> -->
+    <input name="actionForm" class="actionInput" type="number" placeholder="Length of Action i.e. Hours" (change)="setLength($event)" />
+    <button (click)="submitAction($event)">Record Action!</button>
+</div>

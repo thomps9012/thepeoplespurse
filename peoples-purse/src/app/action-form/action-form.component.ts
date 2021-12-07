@@ -1,4 +1,3 @@
-import { HttpContext, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Apollo, gql } from 'apollo-angular';
 
@@ -55,14 +54,13 @@ export class ActionFormComponent implements OnInit {
 
   submitAction(event: Event) {
     event.preventDefault();
-    const JWTtoken = localStorage.getItem('AUTH_TOKEN')
-    console.log(JWTtoken)
+    const userId = localStorage.getItem('USER_ID')
+    console.log(userId)
     this.apollo.mutate({
       mutation: TAKE_ACTION,
-      context: {'auth': JWTtoken},
       variables: {
         input: {
-          jwt: JWTtoken,
+          userID: userId,
           name: this.name,
           detail: this.detail,
           organization: this.organization,

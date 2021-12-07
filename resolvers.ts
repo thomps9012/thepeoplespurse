@@ -173,11 +173,11 @@ export const resolvers = {
             // console.log('input--> ', input)
             // console.log('context--> ', context)
             // console.log('headers--> ', headers)
-            const data = jwt.verify(input.jwt, 'f1BtnWgD3VKY')
+            console.log(input)
             try {
                 const result = await
                     mongoDbProvider.usersCollection.updateOne(
-                        { username: data.sub },
+                        { _id: new ObjectId(input.userID) },
                         {
                             $addToSet: {
                                 actions: {

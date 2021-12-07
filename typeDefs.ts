@@ -76,7 +76,7 @@ input CastVote {
 }
 
 input TakeAction {
-    jwt: JWT!
+    userID: String!
     name: String!
     detail: String!
     organization: String!
