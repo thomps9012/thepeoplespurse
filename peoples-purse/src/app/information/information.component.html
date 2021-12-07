@@ -18,6 +18,7 @@
         <h1 class="showHide" (click)="showAddressInput()">Enter Your Address to Look Up Your Elected Officials</h1>
         <div id="addressInput" style="display: none">
             <input id="address" type="text" (change)="getAddress($event)" placeholder="Enter Address Here" />
+            <br />
             <button (click)="onSubmit(location)">Search</button>
             <!-- populate information below -->
             <div id="official-display"></div>

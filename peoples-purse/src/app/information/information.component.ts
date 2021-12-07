@@ -48,8 +48,8 @@ export class InformationComponent implements OnInit {
         website.target = '_blank';
         website.append('Visit Department Website');
 
-        deptInfoDiv?.append(name)
         deptInfoDiv?.append(seal)
+        deptInfoDiv?.append(name)
         deptInfoDiv?.append(mission)
         deptInfoDiv?.append(website)
       }
@@ -88,22 +88,26 @@ export class InformationComponent implements OnInit {
         const officials = response.result.officials
         console.log(officials)
         const title = document.createElement('h1');
-        title.append('Elected Officials and Level of Government')
+        title.innerHTML = '<div class="tableTitle"> Elected Officials and Level of Government </div>';
         officialDiv?.append(title)
 
-        const nationalTitle = document.createElement('h2')
+        const nationalTitle = document.createElement('h1')
         nationalTitle.append('National')
         const nationalTable = document.createElement('table')
+        nationalTable.setAttribute('class', 'mystyles')
 
-        const stateTitle = document.createElement('h2')
+        const stateTitle = document.createElement('h1')
         stateTitle.append('State')
         const stateTable = document.createElement('table')
+        stateTable.setAttribute('class', 'mystyles')
 
-        const countyTitle = document.createElement('h2')
+        const countyTitle = document.createElement('h1')
         countyTitle.append('County')
         const countyTable = document.createElement('table')
+        countyTable.setAttribute('class', 'mystyles')
 
         const officeHeaders = `
+        <thead>
         <tr>
         <th> Office </th>
         <th> Name </th>
@@ -111,11 +115,16 @@ export class InformationComponent implements OnInit {
         <th> Address </th>
         <th> Phone </th>
         </tr>
+        </thead>
         `;
 
         nationalTable.innerHTML += (officeHeaders)
         stateTable.innerHTML += (officeHeaders)
         countyTable.innerHTML += (officeHeaders)
+
+        const nationalBody = document.createElement('tbody')
+        const stateBody = document.createElement('tbody')
+        const countyBody = document.createElement('tbody')
 
         officeRes.map((office: any) => {
           if (office.levels[0] === 'country') {
@@ -152,12 +161,13 @@ export class InformationComponent implements OnInit {
               </td>
               </tr>
               `;
-              nationalTable.innerHTML += (nationalOfficial)
+              nationalBody.innerHTML += (nationalOfficial)
             }
+            nationalTable.append(nationalBody);
             // end of recreated code
             // ****************************************************************************
           } else if (office.levels[0] === 'administrativeArea1') {
-            const lvlOfficials = office.officialIndices;
+            const lvlOfficials = office.officialIndices; 
             // ******************************************************************************
             // this code is recreated
             for (let i = 0; i < lvlOfficials.length; i++) {
@@ -190,8 +200,9 @@ export class InformationComponent implements OnInit {
               </td>
               </tr>
               `;
-              stateTable.innerHTML += (stateOfficial)
+              stateBody.innerHTML += (stateOfficial)
             }
+            stateTable.append(stateBody);
             // end of recreated code
             // ****************************************************************************
           } else if (office.levels[0] === 'administrativeArea2') {
@@ -228,10 +239,11 @@ export class InformationComponent implements OnInit {
               </td>
               </tr>
               `;
-              countyTable.innerHTML += (countyOfficial)
+              countyBody.innerHTML += (countyOfficial)
             }
             // end of recreated code
             // ****************************************************************************
+            countyTable.append(countyBody)
           }
         })
         officialDiv?.append(nationalTitle)
@@ -243,6 +255,36 @@ export class InformationComponent implements OnInit {
         officialDiv?.append(countyTitle)
         officialDiv?.append(countyTable)
 
+        const sheet = document.createElement('style');
+        sheet.innerHTML = `
+        table {
+          border: 1px solid #333;
+          width: 100%;
+      }
+      
+      thead {
+          background-color: #333;
+          color: #fff;
+      }
+      
+      td, th {
+          border: 1px solid #999;
+          padding: 0.5rem;
+        }
+      
+      tbody tr:nth-child(odd) {
+          background: #eee;
+        }
+
+        tbody tr:hover {
+          background: yellow;
+        }
+
+        .tableTitle {
+          border-bottom: 1px solid #999;
+        }
+        `;
+        document.body.appendChild(sheet)
       },
         function (err: any) { console.error("Execute error", err); });
   }

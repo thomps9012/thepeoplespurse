@@ -18,6 +18,12 @@ a {
     text-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
 }
 
+#deptInput {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
 #deptSelect {
     margin: 5px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -27,6 +33,7 @@ a {
     display: flex;
     margin: auto;
     height: 35px;
+    text-align: center;
 }
 
 button {
@@ -72,5 +79,33 @@ input {
     margin: auto;
     height: 35px;
     width: 35vh;
-    
+    text-align: center;
+}
+
+select:focus {
+    border-color: blue;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    font-family: inherit;
+    font-size: inherit;
+    padding: 0;
+    border-width: 0;
+    flex: 1;
+    text-align: center;
+    font-size: large;
+    width: 25em;
+}
+
+#deptInfo {
+    margin-top: 2.5vh;
+}
+
+
+#official-display {
+      text-align: center;
+      justify-content: center;
 }
