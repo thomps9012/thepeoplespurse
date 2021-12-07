@@ -180,7 +180,13 @@ export const resolvers = {
                         { username: data.sub },
                         {
                             $addToSet: {
-                                actions: input
+                                actions: {
+                                    name: input.name,
+                                    detail: input.detail,
+                                    organization: input.organization,
+                                    length: input.length,
+                                    actionDate: input.actionDate
+                                }
 
                             },
                         },

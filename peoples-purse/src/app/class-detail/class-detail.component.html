@@ -10,9 +10,29 @@
         <h2>Student and Action List</h2>
         <ol>
             <li *ngFor="let student of studentDetails">
-                <p>
+                <h3 [title]="student.username + 'details'">
                     {{student.username}}
-                </p>
+                </h3>
+                <h3>
+                    {{student.email}}
+                </h3>
+                <ul *ngFor="let action of student.actions">
+                    <li>
+                        {{action.name}}
+                    </li>
+                    <li>
+                        {{action.detail}}
+                    </li>
+                    <li>
+                        Organization: {{action.organization}}
+                    </li>
+                    <li>
+                        Length: {{action.length}}
+                    </li>
+                    <li>
+                        {{action.actionDate}}
+                    </li>
+                </ul>
             </li>
         </ol>
     </div>
