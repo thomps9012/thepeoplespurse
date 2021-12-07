@@ -3,7 +3,7 @@
     <h1 *ngIf="data">
         Welcome {{username}}
     </h1>
-    <h2 *ngIf="actions">Your Actions</h2>
+    <h2 *ngIf="actions">Your Civic Actions</h2>
     <ol>
         <li *ngFor="let action of actions">
             <h3 *ngIf="action.name">
@@ -18,12 +18,15 @@
             <p *ngIf="action.organization">
                 {{ action.organization }}
             </p>
+            <h4>Date:</h4>
             <p *ngIf="action.actionDate">
-                Date: {{ action.actionDate }}
+                {{ action.actionDate }}
             </p>
+            <h4>Time Spent:</h4>
             <p *ngIf="action.length">
-                Time: {{ action.length }} hrs
+                {{ action.length }} hrs
             </p>
+            <hr />
         </li>
     </ol>
     <button routerLink="/action">Take Action!</button>

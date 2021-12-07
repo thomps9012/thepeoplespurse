@@ -43,3 +43,11 @@ a {
     text-decoration: none;
     color: darkslategray;
 }
+
+ol {
+    margin-left:40px;
+    margin-top:0;
+    padding-top:0;
+    font-size:1.25em;
+    list-style: armenian;
+   }
