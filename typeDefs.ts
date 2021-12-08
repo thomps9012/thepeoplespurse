@@ -10,7 +10,7 @@ type User @entity {
     username: String! @column
     email: EmailAddress @column(overrideType: "string")
     password: String! @column
-    classCode: Class! @link
+    class: ID @link
     actions: [Action]! @link
 }
 
@@ -25,6 +25,7 @@ type Teacher @entity {
 type Vote @entity {
     id: ID! @id 
     voter: ID! @link
+    class: ID @link
     createdAt: DateTime @column(overrideType: "Date")
     budget: [Dept]! @link
 }
@@ -56,7 +57,7 @@ type Query {
     getUser(id: ID!): User
     getTeacher(id: ID!): Teacher
     allUsers: [User]
-    vote(id: ID!): Vote
+    classVotes(classID: ID!): [Vote]
     allVotes: [Vote]
     classInfo(classID: ID!): Class
     classes(teacherID: ID!): [Class]

@@ -1,5 +1,5 @@
 import { DateTimeResolver } from 'graphql-scalars'
-import { ActionDbObject, CastVote, ClassDbObject, LoginInput, UserSignUpInput, TakeAction, User, UserDbObject, VoteDbObject, TeacherSignUpInput, TeacherDbObject, Teacher, CreateClassInput, Class, Vote } from './graphql-codegen-typings'
+import { CastVote, LoginInput, UserSignUpInput, TakeAction, User, TeacherSignUpInput, Teacher, CreateClassInput, Class, Vote, Action, ClassDbObject, TeacherDbObject, UserDbObject, VoteDbObject } from './graphql-codegen-typings'
 import { ObjectId } from 'mongodb'
 import { mongoDbProvider } from './mongodb.provider'
 import jwt from 'jsonwebtoken'
@@ -9,27 +9,27 @@ import { AuthenticationError } from 'apollo-server-core'
 export const resolvers = {
     DateTime: DateTimeResolver,
     Query: {
-        getUser: (obj: any, { id }: { id: string }): Promise<UserDbObject
+        getUser: async (obj: any, { id }: { id: string }): Promise<User
             | any> =>
             mongoDbProvider.usersCollection.findOne({ _id: new ObjectId(id) }),
-        getTeacher: (obj: any, { id }: { id: string }): Promise<UserDbObject
+        getTeacher: (obj: any, { id }: { id: string }): Promise<User
             | any> =>
             mongoDbProvider.teachersCollection.findOne({ _id: new ObjectId(id) }),
         allUsers: () =>
             mongoDbProvider.usersCollection.find({}).toArray(),
-        vote: (obj: any, { id }: { id: string }): Promise<VoteDbObject
+        classVotes: (obj: any, { classID }: { classID: string }): Promise<Vote
             | any> =>
-            mongoDbProvider.votesCollection.findOne({ _id: new ObjectId(id) }),
-        allVotes: (obj: any): Promise<VoteDbObject
+            mongoDbProvider.votesCollection.find({ class: new ObjectId(classID) }).toArray(),
+        allVotes: (obj: any): Promise<Vote
             | any> =>
             mongoDbProvider.votesCollection.find({}).toArray(),
-        classInfo: (obj: any, { classID }: { classID: string }): Promise<VoteDbObject
+        classInfo: (obj: any, { classID }: { classID: string }): Promise<Vote
             | any> =>
             mongoDbProvider.classesCollection.findOne({ _id: new ObjectId(classID) }),
-        classes: (obj: any, { teacherID }: { teacherID: string }): Promise<ClassDbObject
+        classes: (obj: any, { teacherID }: { teacherID: string }): Promise<Class
             | any> =>
             mongoDbProvider.classesCollection.find({ teacher: new ObjectId(teacherID) }).toArray(),
-        actions: (obj: any, { userID }: { userID: string }): Promise<ActionDbObject
+        actions: (obj: any, { userID }: { userID: string }): Promise<Action
             | any> =>
             mongoDbProvider.usersCollection.findOne({ _id: new ObjectId(userID) })
 
@@ -243,9 +243,5 @@ export const resolvers = {
             (obj as VoteDbObject)._id
                 ? (obj as VoteDbObject)._id.toString()
                 : (obj as Vote).id,
-        // voter: (obj: User | UserDbObject): string => 
-        // (obj as UserDbObject)._id
-        // ? (obj as UserDbObject)._id.toString()
-        // : (obj as User).id,
     }
 };

@@ -5,12 +5,12 @@ import { Apollo, gql } from 'apollo-angular';
 const LOGIN = gql`
 mutation Mutation($input: LoginInput!) {
   login(input: $input) {
-    token
     user {
-    id
-    username
+      id
+      username
+      class
+    }
   }
-}
 }
 `;
 
@@ -55,9 +55,11 @@ export class LoginComponent implements OnInit {
       const username = data.login.user.username;
       const userId = data.login.user.id;
       const token = data.login.token;
+      const classID = data.login.user.class;
       localStorage.setItem('USER', username)
       localStorage.setItem('USER_ID', userId)
       localStorage.setItem('AUTH_TOKEN', token)
+      localStorage.setItem('CLASS_CODE', classID)
       // load to profile page
       window.location.replace('/profile')
     }, (error) => {
