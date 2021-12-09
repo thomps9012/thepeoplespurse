@@ -5,7 +5,6 @@ a {
 
 .row {
     background: url(../../assets/bg-library.jpg);
-    background-size: cover;
     padding: 120px 100px 220px 100px;
     height: auto;
 }
@@ -61,8 +60,8 @@ button {
 }
 
 button:hover {
-    background-color: #1976d2;
-    color: #eee;
+    background-color: #67a621;
+    color: white;
     text-decoration: none;
     transform: translateY(-3px);
     box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
@@ -87,6 +86,7 @@ input {
     height: 35px;
     width: 35vh;
     text-align: center;
+    background: white;
 }
 
 select:focus {
@@ -119,4 +119,5 @@ select {
 
 h1 {
     color: white;
+    text-align: center;
 }
