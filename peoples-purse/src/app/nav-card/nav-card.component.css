@@ -49,7 +49,7 @@
     }
 
   .icon:hover {
-    background-color: #5a141d;
+    background-color: black;
     transform: translateY(-3px);
     box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
   }
@@ -58,6 +58,10 @@
     image-rendering: crisp-edges;
     display: flex;
     margin: auto;
+  }
+
+  .cardContainer {
+    display: flex;
   }
 
   

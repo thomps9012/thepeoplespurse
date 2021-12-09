@@ -1,6 +1,7 @@
 const voteIcon = '../../assets/icon-vote.png';
 const educationIcon = '../../assets/icon-education.png';
 const budgetIcon = '../../assets/icon-data.png';
+const signUpIcon = '../../assets/icon-about.png';
 
 export interface NavCard {
     link: string;
@@ -12,6 +13,14 @@ export interface NavCard {
 }
 
 export const navcards = [
+    {
+        "link": "/signup",
+        "title": "Sign Up",
+        "image": signUpIcon,
+        "iconAlt": "Sign Up Icon",
+        "text": "Sign up here to be able to access all of the application's features.",
+        "button": "Sign Up"
+    },
     {
         "link": "/info",
         "title": "Information Center",

@@ -1,15 +1,15 @@
 <form>
     <h1>Educator Login</h1>
-        <label>Email</label>
-        <input type="text" placeholder="Email" (change)="setEmail($event)"/>
-        <label>Password</label>
-        <input type="text" placeholder="Password" (change)="setPassword($event)"/>
+    <!-- <label>Email</label> -->
+    <input type="text" placeholder="Email" (change)="setEmail($event)" />
+    <!-- <label>Password</label> -->
+    <input type="text" placeholder="Password" (change)="setPassword($event)" />
     <button (click)="login($event)">
         Login
     </button>
-</form>
-<h3>
-    <a class="button" routerLink="/educatorSignUp">New Educator?
-        <br />
-        Sign Up Here</a>
+    <h3>
+        <a class="button" routerLink="/educatorSignUp">New Educator?
+            <br />
+            Sign Up Here</a>
     </h3>
+</form>
