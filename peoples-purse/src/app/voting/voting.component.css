@@ -1,5 +1,6 @@
 .item {
     margin: 15px;
+    text-align: center;
 }
 
 .header {
@@ -10,6 +11,10 @@
     flex-wrap: wrap;
     justify-content: center;
     margin-top: 10vh;
+}
+
+h1 {
+    color: black;
 }
 
 #submit {
@@ -43,10 +48,11 @@ button {
     align-items: center;
     transition: all 0.2s ease-in-out;
     line-height: 24px;
+    text-align: center;
 }
 
 button:hover {
-    color: #1976d2;
+    color: #101851;
     text-decoration: none;
     transform: translateY(-3px);
     box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);

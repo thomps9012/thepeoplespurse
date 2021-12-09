@@ -13,6 +13,11 @@ h1 {
     align-content: center;
 }
 
+h2 {
+    text-align: center;
+    align-content: center;
+}
+
 button {
     margin: 25px;
     all: unset;
@@ -27,11 +32,20 @@ button {
     align-items: center;
     transition: all 0.2s ease-in-out;
     line-height: 24px;
+    text-align: center;
 }
 
 button:hover {
-    color: #1976d2;
+    color: #101851;
     text-decoration: none;
     transform: translateY(-3px);
     box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+}
+
+#toggle {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }

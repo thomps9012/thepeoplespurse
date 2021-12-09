@@ -4,7 +4,7 @@ a {
 }
 
 .row {
-    background: url(../../assets/bg-library.jpg);
+    background: url(../../assets/bg-books.png);
     padding: 120px 100px 220px 100px;
     height: auto;
 }
@@ -19,7 +19,7 @@ a {
 }
 
 .showHide:hover {
-    color: #67a621;
+    color: white;
     transform: translateY(-3px);
     text-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
 }
@@ -60,7 +60,7 @@ button {
 }
 
 button:hover {
-    background-color: #67a621;
+    background-color: #101851;
     color: white;
     text-decoration: none;
     transform: translateY(-3px);
@@ -118,6 +118,6 @@ select {
 }
 
 h1 {
-    color: white;
+    color: black;
     text-align: center;
 }

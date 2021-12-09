@@ -1,7 +1,9 @@
 <div class="container">
-    <button (click)="toggleView()">
-        Toggle Charts
-    </button>
+    <div id="toggle">
+        <button (click)="toggleView()">
+            Toggle Charts
+        </button>
+    </div>
     <div id="allResults" style="display: block">
         <h1>All Results</h1>
         <div echarts [options]="options" [merge]="updateData" class="budget-results"></div>

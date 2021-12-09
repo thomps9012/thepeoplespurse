@@ -285,7 +285,7 @@ export class InformationComponent implements OnInit {
         }
 
         h1 {
-          color: white;
+          color: black;
           text-align: center;
       }
 
