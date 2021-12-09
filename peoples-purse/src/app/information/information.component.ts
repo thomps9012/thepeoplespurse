@@ -88,22 +88,19 @@ export class InformationComponent implements OnInit {
         const officeRes = response.result.offices;
         const officials = response.result.officials
         console.log(officials)
-        const title = document.createElement('h1');
-        title.innerHTML = '<div class="tableTitle"> Elected Officials and Level of Government </div>';
-        officialDiv?.append(title)
 
         const nationalTitle = document.createElement('h1')
-        nationalTitle.append('National')
+        nationalTitle.append('National Level')
         const nationalTable = document.createElement('table')
         nationalTable.setAttribute('class', 'mystyles')
 
         const stateTitle = document.createElement('h1')
-        stateTitle.append('State')
+        stateTitle.append('State Level')
         const stateTable = document.createElement('table')
         stateTable.setAttribute('class', 'mystyles')
 
         const countyTitle = document.createElement('h1')
-        countyTitle.append('County')
+        countyTitle.append('County Level')
         const countyTable = document.createElement('table')
         countyTable.setAttribute('class', 'mystyles')
 
@@ -111,7 +108,7 @@ export class InformationComponent implements OnInit {
         <thead>
         <tr>
         <th> Office </th>
-        <th> Name </th>
+        <th> Name / Website </th>
         <th> Party </th>
         <th> Address </th>
         <th> Phone </th>
@@ -259,8 +256,9 @@ export class InformationComponent implements OnInit {
         const sheet = document.createElement('style');
         sheet.innerHTML = `
         table {
-          border: 1px solid #333;
           width: 100%;
+          border-radius(5px);
+          font-family: Roboto, "Helvetica Neue", sans-serif;
       }
       
       thead {
@@ -277,13 +275,30 @@ export class InformationComponent implements OnInit {
           background: #eee;
         }
 
-        tbody tr:hover {
-          background: yellow;
+      tbody tr:nth-child(even) {
+          background: white;
         }
 
-        .tableTitle {
-          border-bottom: 1px solid #999;
+        tbody tr:hover {
+          background: #67a621;
+          color: white;
         }
+
+        h1 {
+          color: white;
+          text-align: center;
+      }
+
+      a {
+        text-decoration: none;
+        color: black;
+      }
+
+      a:hover {
+        transform: translateY(-3px);
+        color: white;
+        text-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+      }
         `;
         document.body.appendChild(sheet)
       },
