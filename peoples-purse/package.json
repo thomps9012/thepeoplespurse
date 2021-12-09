@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "dev": "yarn run start & cd .. && cd server && yarn run start",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
@@ -25,6 +26,7 @@
     "@types/gapi.client": "^1.0.5",
     "@types/randombytes": "^2.0.0",
     "apollo-angular": "^2.6.0",
+    "bson": "^4.6.0",
     "echarts": "^5.2.2",
     "gapi": "^0.0.3",
     "graphql": "^15.0.0",

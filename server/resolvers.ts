@@ -64,12 +64,11 @@ export const resolvers = {
             }
             const token = jwt.sign(
                 // will change on PRODUCTION
-                { "https://localhost:4000/": {} },
+                { "https://localhost:4200/": {} },
                 "f1BtnWgD3VKY",
                 { algorithm: "HS256", subject: input.username ? input.username : '', expiresIn: "1d" }
             );
             const data = { token, user }
-            console.log(data)
             return data
         },
         teacherSignUp: async (
@@ -87,12 +86,11 @@ export const resolvers = {
             })
             const token = jwt.sign(
                 // will change on PRODUCTION
-                { "https://localhost:4000/": {} },
+                { "https://localhost:4200/": {} },
                 "f1BtnWgD3VKY",
                 { algorithm: "HS256", subject: input.username ? input.username : '', expiresIn: "1d" }
             );
             const data = { token, teacher }
-            console.log(data)
             return data
         },
         login: async (
@@ -157,7 +155,6 @@ export const resolvers = {
                             }
                         }
                     )
-                    console.log(updatedClass)
                 }
                 return vote.insertedId;
             } catch {

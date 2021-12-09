@@ -1,11 +1,10 @@
 {
     "name": "thepeoplespurse",
-    "version": "2.0.0",
+    "version": "1.0.0",
     "description": "an educational and interactive web application that encourages citizens to take an active role in their communities",
-    "main": "index.ts",
     "scripts": {
-        "start": "nodemon index.ts",
-        "generate": "graphql-codegen --config codegen.yml"
+        "start": "(cd ./peoples-purse && yarn run start)",
+        "dev": "(cd ./server && yarn run start) & yarn run start"
     },
     "keywords": [],
     "author": {
@@ -13,28 +12,5 @@
         "name": "Samuel Thompson",
         "url": "https://sjtportfolio.herokuapp.com/"
     },
-    "license": "ISC",
-    "dependencies": {
-        "@types/bcrypt": "^5.0.0",
-        "@types/node": "^16.11.6",
-        "apollo-datasource-mongodb": "^0.5.2",
-        "apollo-server": "^3.5.0",
-        "apollo-server-core": "^3.5.0",
-        "bcrypt": "^5.0.1",
-        "dotenv": "^10.0.0",
-        "graphql": "^15.5.1",
-        "graphql-scalars": "^1.13.1",
-        "jsonwebtoken": "^8.5.1",
-        "mongodb": "^4.1.4",
-        "nodemon": "^2.0.15",
-        "ts-node": "^10.4.0",
-        "typescript": "^4.4.4"
-    },
-    "devDependencies": {
-        "@graphql-codegen/cli": "2.2.2",
-        "@graphql-codegen/introspection": "2.1.0",
-        "@graphql-codegen/typescript": "2.3.1",
-        "@graphql-codegen/typescript-mongodb": "2.2.0",
-        "@graphql-codegen/typescript-resolvers": "2.4.0"
-    }
+    "license": "ISC"
 }

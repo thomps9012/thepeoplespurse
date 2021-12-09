@@ -12,17 +12,13 @@ import { mongoDbProvider } from './mongodb.provider'
     const server = new ApolloServer({
         typeDefs: [DIRECTIVES, typeDefs],
         resolvers,
-        // context: ({ req }) => {
-        //     const token = req.headers || '';
-        //     return { token };
-        // },
         introspection: environment.apollo.introspection,
     });
 
     server
         .listen(environment.port)
         .then((url: any) => {
-            console.log(`Server running at http://localhost:${JSON.stringify(url.port)}${server.graphqlPath}`);
+            console.log(`Server ready at ${url.url}`)
         });
 })();
 

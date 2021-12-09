@@ -1,6 +1,6 @@
 import * as dotenv from 'dotenv';
-
-const defaultPort = 4201;
+// possible change to 4200/graphql
+const defaultPort = '4201';
 dotenv.config()
 
 interface Environment {
