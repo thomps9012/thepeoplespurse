@@ -1,24 +1,32 @@
 .footer {
-    line-height: 20px;
-    display: flex;
-    align-items: center;
-    background-color: #1976d2;
-    margin-top: 20px;
-  }
-
-  #voteLink {
-    position: absolute;
-    justify-content: right;
-    text-align: right;
-    right: 0;
-    margin: 5px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background-color: #101851;
+  color: white;
+  font-weight: 600;
   }
 
   a:hover {
-    color: #e7f70f;
+    color: #67a621;
   }
 
   a {
-    margin: 20px;
-    padding: 10px;
+    color: white;
+    text-decoration: none;
+    align-items: center;
+    margin: 10px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+  }
+  p {
+    text-decoration: none;
+    color: white;
+    text-align: left;
+    align-items: center;
+    justify-content: center;
+    display: flex;
   }

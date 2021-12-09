@@ -1,9 +1,10 @@
+.row {
+      background: url(../../assets/bg-dc.png);
+      background-size: cover;
+    }
 
-.banner {
-    /* background: url(../../assets/images/bg-dc.png); */
-    background-size: cover;
+    .banner {
     padding: 120px 100px;
-    font-family: "Roboto Slab", serif;
   }
   
   .banner h3 {

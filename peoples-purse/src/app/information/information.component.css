@@ -3,6 +3,13 @@ a {
     margin: 15px;
 }
 
+.row {
+    background: url(../../assets/bg-library.jpg);
+    background-size: cover;
+    padding: 120px 100px 220px 100px;
+    height: auto;
+}
+
 .col {
     display: flex;
     margin: auto;
@@ -13,7 +20,7 @@ a {
 }
 
 .showHide:hover {
-    color: #1976d2;
+    color: #67a621;
     transform: translateY(-3px);
     text-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
 }
@@ -108,4 +115,8 @@ select {
 #official-display {
       text-align: center;
       justify-content: center;
+}
+
+h1 {
+    color: white;
 }

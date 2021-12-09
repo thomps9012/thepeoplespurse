@@ -1,6 +1,5 @@
 a,
-a:visited,
-a:hover {
+a:visited {
     color: white;
     text-decoration: none;
     align-items: center;
@@ -12,7 +11,7 @@ a:hover {
   }
 
   a:hover {
-    color: goldenrod;
+    color: #67a621;
   }
 nav {
   align-items: center;
@@ -20,7 +19,7 @@ nav {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  background-color: #043d77;
+  background-color: #101851;
   color: white;
   font-weight: 600;
 }
