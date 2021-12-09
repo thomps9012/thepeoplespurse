@@ -36,6 +36,7 @@ export class InformationComponent implements OnInit {
     const name = document.createElement('h3')
     const mission = document.createElement('p')
     const website = document.createElement('a')
+    website.setAttribute('style', 'text-decoration: none; color: white;')
 
     for (let i = 0; i < DeptInfo.length; i++) {
       if (DeptInfo[i].name === selectedDept) {
