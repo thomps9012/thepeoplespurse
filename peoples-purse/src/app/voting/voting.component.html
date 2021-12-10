@@ -1,0 +1,44 @@
+<div class="header">
+    <button (click)="evenDist()">Distribute Equally</button>
+    <button (click)="educationDist()">Education Focused</button>
+    <button (click)="enviroDist()">Environment Focused</button>
+    <button (click)="healthDist()">Healthcare Focused</button>
+    <button (click)="defenseDist()">Defense Focused</button>
+    <button (click)="transportDist()">Transportaion Focused</button>
+    <button (click)="resetBudget()">Reset Budget</button>
+    <br />
+</div>
+<div id="totalBudget">
+    <h1 *ngIf="totalDept">Total Budget Used {{totalDept}} %</h1>
+    <div id="budgetAlert"></div>
+</div>
+<br />
+<div class="container">
+    <div class="item">
+        <div *ngFor="let dept of depts | slice:0:5">
+            <h3>{{dept.name}}</h3>
+            <input id="{{dept.code}}" type="number" min="1" max="100" value="{{dept.percent}}" (change)="updateBudget()"/><span>%</span>
+        </div>
+    </div>
+    <div class="item">
+        <div *ngFor="let dept of depts | slice:5:10">
+            <h3>{{dept.name}}</h3>
+            <input id="{{dept.code}}" type="number" min="1" max="100" value="{{dept.percent}}" (change)="updateBudget()"/><span>%</span>
+        </div>
+    </div>
+    <div class="item">
+        <div *ngFor="let dept of depts | slice:10:15">
+            <h3>{{dept.name}}</h3>
+            <input id="{{dept.code}}" type="number" min="1" max="100" value="{{dept.percent}}" (change)="updateBudget()"/><span>%</span>
+        </div>
+    </div>
+    <div class="item">
+        <div *ngFor="let dept of depts | slice:15:20">
+            <h3>{{dept.name}}</h3>
+            <input id="{{dept.code}}" type="number" min="1" max="100" value="{{dept.percent}}" (change)="updateBudget()"/><span>%</span>
+        </div>
+    </div>
+</div>
+<div id ="submit">
+    <button (click)="submitBudget($event)">Submit Your Budget</button>
+</div>

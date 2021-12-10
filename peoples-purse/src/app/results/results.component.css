@@ -1,0 +1,51 @@
+.budget-results {
+    height: 750px;
+    margin-top: -50px;
+}
+
+.container {
+    margin: 25px;
+    padding: 25px;
+}
+
+h1 {
+    text-align: center;
+    align-content: center;
+}
+
+h2 {
+    text-align: center;
+    align-content: center;
+}
+
+button {
+    margin: 25px;
+    all: unset;
+    border-radius: 4px;
+    border: 1px solid #eee;
+    background-color: #fafafa;
+    height: 40px;
+    width: 100px;
+    margin: 0 8px 16px;
+    padding: 16px;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+    line-height: 24px;
+    text-align: center;
+}
+
+button:hover {
+    color: #101851;
+    text-decoration: none;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+}
+
+#toggle {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}

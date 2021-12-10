@@ -1,0 +1,128 @@
+a {
+    padding: 15px;
+    margin: 15px;
+}
+
+.row {
+    background: url(../../assets/bg-books.png);
+    padding: 120px 100px 220px 100px;
+    height: auto;
+}
+
+.col {
+    display: flex;
+    margin: auto;
+    padding: 0 16px;
+    max-width: 960px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.showHide:hover {
+    color: black;
+    transform: translateY(-3px);
+    text-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+}
+
+#deptInput {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+#deptSelect {
+    margin: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+    margin: auto;
+    height: 35px;
+    text-align: center;
+}
+
+button {
+    margin: 25px;
+    all: unset;
+    border-radius: 4px;
+    background-color: #fafafad3;
+    width: 100px;
+    padding: 5px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: all 0.2s ease-in-out;
+    line-height: 24px;
+    flex-direction: column;
+    display: flex;
+    margin: auto;
+}
+
+button:hover {
+    background-color: #101851;
+    color: white;
+    text-decoration: none;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+}
+
+input {
+    align-content: center;
+    flex: auto;
+    margin: 15px;
+    justify-content: center;
+}
+
+#address {
+    margin: 5px;
+    all: unset;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+    margin: auto;
+    height: 35px;
+    width: 35vh;
+    text-align: center;
+    background: white;
+}
+
+select:focus {
+    border-color: blue;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    font-family: inherit;
+    font-size: inherit;
+    padding: 0;
+    border-width: 0;
+    flex: 1;
+    text-align: center;
+    font-size: large;
+    width: 25em;
+}
+
+#deptInfo {
+    margin-top: 2.5vh;
+    color: white;
+    font-size: x-large;
+}
+
+a:hover {
+    color: #101851;
+}
+
+#official-display {
+      text-align: center;
+      justify-content: center;
+}
+
+h1 {
+    color: black;
+    text-align: center;
+}

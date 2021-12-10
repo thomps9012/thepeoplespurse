@@ -1,0 +1,8 @@
+<p>class-create works!</p>
+<h1>Create new class</h1>
+<hr />
+<button (click)="randomClass()">Generate Random Class Code</button>
+<div id="generatedCode"></div>
+<label *ngIf="classCode === ''">Or Enter Your Own Class Code</label>
+<input *ngIf="classCode === ''" id="classCode" placeholder="Class Code" (change)="setClassCode($event)"/>
+<button (click)="saveClass()">Save Class</button>

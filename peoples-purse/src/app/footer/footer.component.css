@@ -1,0 +1,32 @@
+.footer {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background-color: #101851;
+  color: white;
+  font-weight: 600;
+  }
+
+  a:hover {
+    color: #67a621;
+  }
+
+  a {
+    color: white;
+    text-decoration: none;
+    align-items: center;
+    margin: 10px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+  }
+  p {
+    text-decoration: none;
+    color: white;
+    text-align: left;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+  }

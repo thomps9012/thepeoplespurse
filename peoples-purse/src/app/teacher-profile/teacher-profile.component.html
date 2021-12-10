@@ -1,0 +1,21 @@
+<p>teacher-profile works!</p>
+<h1>My Classes</h1>
+<hr />
+<div id="myClasses"></div>
+<ol *ngIf="data">
+    <li *ngFor="let class of classes">
+        <a [routerLink]="['/class', class.id]">
+            <h3>
+                {{class.classCode}}
+            </h3>
+        </a>
+        <h5>
+            {{class.createdAt}}
+        </h5>
+    </li>
+</ol>
+<p>
+    <a class="button" routerLink="/newClass">
+        Create a New Class
+    </a>
+</p>

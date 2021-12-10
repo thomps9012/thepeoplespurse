@@ -1,0 +1,6 @@
+schema: "./typeDefs.ts"
+extensions:
+  codegen:
+    ./graphql-codegen-typings.d.ts:
+      plugins:
+        -typescript
