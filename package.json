@@ -2,6 +2,10 @@
     "name": "thepeoplespurse",
     "version": "1.0.0",
     "description": "an educational and interactive web application that encourages citizens to take an active role in their communities",
+    "engines": {
+        "node": "16.13.0",
+        "npm": "6.14.8"
+      },
     "scripts": {
         "build": "cd ./peoples-purse && yarn run build",
         "start": "concurrently \"cd ./peoples-purse && yarn run start\" \"cd ./server && yarn run start\"",
