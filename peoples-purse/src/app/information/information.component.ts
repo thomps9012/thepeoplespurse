@@ -36,7 +36,22 @@ export class InformationComponent implements OnInit {
     const name = document.createElement('h3')
     const mission = document.createElement('p')
     const website = document.createElement('a')
-    website.setAttribute('style', 'text-decoration: none; color: white;')
+    const sheet = document.createElement('style');
+    sheet.innerHTML = `
+            a {
+              text-decoration: none;
+              color: black;
+              font-size: x-large;
+              font-weight: 600;
+            }
+
+            a:hover {
+              transform: translateY(-3px);
+              color: goldenrod;
+              text-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+            }
+              `;
+    document.body.appendChild(sheet)
 
     for (let i = 0; i < DeptInfo.length; i++) {
       if (DeptInfo[i].name === selectedDept) {
@@ -51,10 +66,12 @@ export class InformationComponent implements OnInit {
 
         deptInfoDiv?.append(seal)
         deptInfoDiv?.append(name)
-        deptInfoDiv?.append(mission)
         deptInfoDiv?.append(website)
+        deptInfoDiv?.append(mission)
       }
     }
+
+
   }
 
 
@@ -165,7 +182,7 @@ export class InformationComponent implements OnInit {
             // end of recreated code
             // ****************************************************************************
           } else if (office.levels[0] === 'administrativeArea1') {
-            const lvlOfficials = office.officialIndices; 
+            const lvlOfficials = office.officialIndices;
             // ******************************************************************************
             // this code is recreated
             for (let i = 0; i < lvlOfficials.length; i++) {
@@ -280,7 +297,7 @@ export class InformationComponent implements OnInit {
         }
 
         tbody tr:hover {
-          background: #67a621;
+          background: #101851;
           color: white;
         }
 
@@ -291,12 +308,12 @@ export class InformationComponent implements OnInit {
 
       a {
         text-decoration: none;
-        color: black;
+        color: #67a621;
       }
 
       a:hover {
         transform: translateY(-3px);
-        color: white;
+        color: goldenrod;
         text-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
       }
         `;

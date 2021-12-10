@@ -1,6 +1,6 @@
 import { gql } from 'apollo-server';
 
-const typeDefs = gql`
+export const typeDefs = gql`
 scalar DateTime
 scalar JWT
 scalar EmailAddress
@@ -124,5 +124,3 @@ type Mutation {
     createClass(input: CreateClassInput!): ID!
 }
 `;
-
-export default typeDefs;

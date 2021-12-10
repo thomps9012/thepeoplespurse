@@ -1,13 +1,18 @@
 {
   "name": "peoples-purse",
   "version": "0.0.0",
+  "engines": {
+    "node": "16.13.0",
+    "npm": "6.14.8"
+  },
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "dev": "yarn run start & cd .. && cd server && yarn run start",
+    "dev": "ng serve",
+    "start": "node server.js",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "heroku-postbuild": "ng build --prod"
   },
   "private": true,
   "dependencies": {
@@ -28,6 +33,7 @@
     "apollo-angular": "^2.6.0",
     "bson": "^4.6.0",
     "echarts": "^5.2.2",
+    "express": "^4.17.1",
     "gapi": "^0.0.3",
     "graphql": "^15.0.0",
     "ngx-echarts": "^8.0.0",

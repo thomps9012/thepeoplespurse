@@ -3,8 +3,7 @@
     "version": "1.0.0",
     "description": "an educational and interactive web application that encourages citizens to take an active role in their communities",
     "scripts": {
-        "start": "(cd ./peoples-purse && yarn run start)",
-        "dev": "(cd ./server && yarn run start) & yarn run start"
+        "start": "concurrently \"cd ./peoples-purse && yarn run start\" \"cd ./server && yarn run start\""
     },
     "keywords": [],
     "author": {
@@ -12,5 +11,8 @@
         "name": "Samuel Thompson",
         "url": "https://sjtportfolio.herokuapp.com/"
     },
-    "license": "ISC"
+    "license": "ISC",
+    "dependencies": {
+        "concurrently": "^6.4.0"
+    }
 }

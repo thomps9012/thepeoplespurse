@@ -4,7 +4,8 @@
     "description": "an educational and interactive web application that encourages citizens to take an active role in their communities",
     "main": "index.ts",
     "scripts": {
-        "start": "nodemon index.ts",
+        "build": "tsc",
+        "start": "node index.js",
         "generate": "graphql-codegen --config codegen.yml"
     },
     "keywords": [],

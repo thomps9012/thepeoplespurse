@@ -19,7 +19,7 @@ a {
 }
 
 .showHide:hover {
-    color: white;
+    color: black;
     transform: translateY(-3px);
     text-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
 }
@@ -110,6 +110,11 @@ select {
 #deptInfo {
     margin-top: 2.5vh;
     color: white;
+    font-size: x-large;
+}
+
+a:hover {
+    color: #101851;
 }
 
 #official-display {
