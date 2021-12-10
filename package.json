@@ -3,7 +3,9 @@
     "version": "1.0.0",
     "description": "an educational and interactive web application that encourages citizens to take an active role in their communities",
     "scripts": {
-        "start": "concurrently \"cd ./peoples-purse && yarn run start\" \"cd ./server && yarn run start\""
+        "build": "cd ./peoples-purse && yarn run build",
+        "start": "concurrently \"cd ./peoples-purse && yarn run start\" \"cd ./server && yarn run start\"",
+        "heroku-postbuild": "cd ./peoples-purse && yarn run heroku-postbuild"
     },
     "keywords": [],
     "author": {
