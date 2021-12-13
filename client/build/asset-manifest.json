@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/static/css/main.35f3d0c3.chunk.css",
+    "main.js": "/static/js/main.d116f4a2.chunk.js",
+    "main.js.map": "/static/js/main.d116f4a2.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.2f1c77c1.js",
+    "runtime-main.js.map": "/static/js/runtime-main.2f1c77c1.js.map",
+    "static/js/2.10df0ab0.chunk.js": "/static/js/2.10df0ab0.chunk.js",
+    "static/js/2.10df0ab0.chunk.js.map": "/static/js/2.10df0ab0.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.c1bd5fdbffa207c32439faafcba09996.js": "/precache-manifest.c1bd5fdbffa207c32439faafcba09996.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.35f3d0c3.chunk.css.map": "/static/css/main.35f3d0c3.chunk.css.map",
+    "static/js/2.10df0ab0.chunk.js.LICENSE.txt": "/static/js/2.10df0ab0.chunk.js.LICENSE.txt",
+    "static/media/departInfo.css": "/static/media/bg-books.c6df440a.png",
+    "static/media/bg-dc.png": "/static/media/bg-dc.3c66a9cc.png",
+    "static/media/budgetResults.css": "/static/media/bg-people.23a80a79.png",
+    "static/media/library.png": "/static/media/library.52da5e9f.png",
+    "static/media/peoplespurse.png": "/static/media/peoplespurse.8e396631.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2f1c77c1.js",
+    "static/js/2.10df0ab0.chunk.js",
+    "static/css/main.35f3d0c3.chunk.css",
+    "static/js/main.d116f4a2.chunk.js"
+  ]
+}
