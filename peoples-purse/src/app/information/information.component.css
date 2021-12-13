@@ -19,7 +19,7 @@ a {
 }
 
 .showHide:hover {
-    color: black;
+    color: white;
     transform: translateY(-3px);
     text-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
 }

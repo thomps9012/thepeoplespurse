@@ -52,7 +52,8 @@ button {
 }
 
 button:hover {
-    color: #101851;
+    color: white;
+    background-color: #101851;
     text-decoration: none;
     transform: translateY(-3px);
     box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);

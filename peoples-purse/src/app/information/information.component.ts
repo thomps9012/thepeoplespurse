@@ -40,7 +40,7 @@ export class InformationComponent implements OnInit {
     sheet.innerHTML = `
             a {
               text-decoration: none;
-              color: black;
+              color: #101851;
               font-size: x-large;
               font-weight: 600;
             }
@@ -64,10 +64,10 @@ export class InformationComponent implements OnInit {
         website.target = '_blank';
         website.append('Visit Department Website');
 
-        deptInfoDiv?.append(seal)
-        deptInfoDiv?.append(name)
         deptInfoDiv?.append(website)
+        deptInfoDiv?.append(name)
         deptInfoDiv?.append(mission)
+        deptInfoDiv?.append(seal)
       }
     }
 
