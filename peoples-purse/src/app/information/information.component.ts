@@ -40,14 +40,13 @@ export class InformationComponent implements OnInit {
     sheet.innerHTML = `
             a {
               text-decoration: none;
-              color: #101851;
-              font-size: x-large;
-              font-weight: 600;
+              color: black;
+              size: large;
             }
 
             a:hover {
               transform: translateY(-3px);
-              color: goldenrod;
+              color: white;
               text-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
             }
               `;
@@ -125,7 +124,7 @@ export class InformationComponent implements OnInit {
         <thead>
         <tr>
         <th> Office </th>
-        <th> Name / Website </th>
+        <th> Official </th>
         <th> Party </th>
         <th> Address </th>
         <th> Phone </th>
@@ -281,11 +280,14 @@ export class InformationComponent implements OnInit {
       thead {
           background-color: #333;
           color: #fff;
+          font-size: x-large;
+          font-weight: lighter;
       }
       
       td, th {
           border: 1px solid #999;
           padding: 0.5rem;
+          font-size: large;
         }
       
       tbody tr:nth-child(odd) {
@@ -297,7 +299,7 @@ export class InformationComponent implements OnInit {
         }
 
         tbody tr:hover {
-          background: #101851;
+          background: goldenrod;
           color: white;
         }
 
@@ -308,12 +310,12 @@ export class InformationComponent implements OnInit {
 
       a {
         text-decoration: none;
-        color: #67a621;
+        color: black;
       }
 
       a:hover {
         transform: translateY(-3px);
-        color: goldenrod;
+        color: white;
         text-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
       }
         `;
