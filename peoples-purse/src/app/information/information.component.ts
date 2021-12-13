@@ -278,7 +278,7 @@ export class InformationComponent implements OnInit {
       }
 
       .mystyles {
-        color: goldenrod;
+        color: black;
         border-solid: 1px;
       }
       
