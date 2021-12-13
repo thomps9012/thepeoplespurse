@@ -108,17 +108,17 @@ export class InformationComponent implements OnInit {
         const nationalTitle = document.createElement('h1')
         nationalTitle.append('National Level')
         const nationalTable = document.createElement('table')
-        nationalTable.setAttribute('class', 'mystyles')
+        nationalTitle.setAttribute('class', 'mystyles')
 
         const stateTitle = document.createElement('h1')
         stateTitle.append('State Level')
         const stateTable = document.createElement('table')
-        stateTable.setAttribute('class', 'mystyles')
+        stateTitle.setAttribute('class', 'mystyles')
 
         const countyTitle = document.createElement('h1')
         countyTitle.append('County Level')
         const countyTable = document.createElement('table')
-        countyTable.setAttribute('class', 'mystyles')
+        countyTitle.setAttribute('class', 'mystyles')
 
         const officeHeaders = `
         <thead>
@@ -275,6 +275,11 @@ export class InformationComponent implements OnInit {
           width: 100%;
           border-radius(5px);
           font-family: Roboto, "Helvetica Neue", sans-serif;
+      }
+
+      .mystyles {
+        color: goldenrod;
+        border-solid: 1px;
       }
       
       thead {

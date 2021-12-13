@@ -1,7 +1,7 @@
-export const transpoDepts = [
+export const developDepts = [
     {
         "name": "Department of Agriculture",
-        "percent": 1,
+        "percent": 5,
         "code": 1
     },
     {
@@ -16,12 +16,12 @@ export const transpoDepts = [
     },
     {
         "name": "Department of Education",
-        "percent": 1,
+        "percent": 5,
         "code": 4
     },
     {
         "name": "Department of Health and Human Services",
-        "percent": 1,
+        "percent": 5,
         "code": 5
     },
     {
@@ -41,12 +41,12 @@ export const transpoDepts = [
     },
     {
         "name": "Department of Transportation",
-        "percent": 20,
+        "percent": 5,
         "code": 9
     },
     {
         "name": "Department of Treasury",
-        "percent": 1,
+        "percent": 5,
         "code": 10
     },
     {
@@ -66,12 +66,12 @@ export const transpoDepts = [
     },
     {
         "name": "Federal Trade Comission",
-        "percent": 1,
+        "percent": 5,
         "code": 14
     },
     {
         "name": "Department of Housing and Urban Development",
-        "percent": 1,
+        "percent": 10,
         "code": 15
     },
     {
@@ -86,7 +86,7 @@ export const transpoDepts = [
     },
     {
         "name": "National Aeronautics and Space Administration",
-        "percent": 15,
+        "percent": 1,
         "code": 18
     },
     {
