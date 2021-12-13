@@ -82,3 +82,19 @@ input {
         width: 40px;
         border: transparent;
 }
+
+.LoginHeader {
+    font-size: 25px;
+    width: 75%;
+    padding: 10ch 10ch 19ch 10ch;
+    text-align: center;
+    margin: 0 auto 80px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color: goldenrod
+}

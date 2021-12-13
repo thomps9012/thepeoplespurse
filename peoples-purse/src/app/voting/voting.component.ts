@@ -24,6 +24,7 @@ export class VotingComponent implements OnInit {
 
   depts = depts
   totalDept = 0
+  userLoggedIn = localStorage.getItem('USER_ID')
 
 
   ngOnInit() {
