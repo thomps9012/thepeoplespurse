@@ -268,6 +268,13 @@ export class InformationComponent implements OnInit {
 
         officialDiv?.append(countyTitle)
         officialDiv?.append(countyTable)
+        
+        const attribution = document.createElement('p')
+        attribution.innerHTML +=(`Information provided by 
+        <a href="https://developers.google.com/civic-information" target="_blank">Google Civic Information API </a> 
+        in association with the 
+        <a href="https://www.votinginfoproject.org" target="_blank">Voting Information Project</a>`)
+        officialDiv?.append(attribution)
 
         const sheet = document.createElement('style');
         sheet.innerHTML = `
@@ -322,6 +329,10 @@ export class InformationComponent implements OnInit {
         transform: translateY(-3px);
         color: white;
         text-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+      }
+
+      p{
+        font-size: 15px;
       }
         `;
         document.body.appendChild(sheet)
