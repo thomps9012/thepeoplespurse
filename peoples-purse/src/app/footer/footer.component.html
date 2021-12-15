@@ -1,15 +1,12 @@
 <div class="footer">
-    <!-- copyright jazzmatazz -->
     <div id="copyright">
         <p>People's Purse Copyright © 2021</p>
     </div>
-    <!-- educator link -->
-    <h3>
+    <h3 *ngIf="!userLoggedIn">
         <a class="button" routerLink="/educatorSignUp">
             Are you an educator?
         </a>
     </h3>
-    <!-- add in a link to voter registration link -->
     <div id="voteLink">
         <a href="https://vote.gov/" target="_blank" rel="noopener noreferrer">
             <h3>Are you resgistered to vote?</h3>
