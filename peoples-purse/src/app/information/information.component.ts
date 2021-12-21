@@ -334,6 +334,10 @@ export class InformationComponent implements OnInit {
       p{
         font-size: 15px;
       }
+
+      table {
+        width: 100%;
+      }
         `;
         document.body.appendChild(sheet)
       },
