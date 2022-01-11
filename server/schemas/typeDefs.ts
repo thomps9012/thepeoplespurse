@@ -7,19 +7,12 @@ scalar EmailAddress
 
 type User @entity {
     id: ID! @id
+    first_name: String! @column
+    last_name: String! @column
     username: String! @column
     email: EmailAddress @column(overrideType: "string")
     password: String! @column
-    class: ID @link
-    actions: [Action]! @link
-}
-
-type Teacher @entity {
-    id: ID! @id
-    username: String! @column
-    email: EmailAddress @column(overrideType: "string")
-    password: String! @column
-    classes: [ID]! @link
+    educator: Boolean! @column
 }
 
 type Vote @entity {
@@ -47,9 +40,9 @@ type Dept @entity{
 type Class @entity{
     id: ID! @id
     classCode: String! @column
-    users: [ID] @link
+    learners: [ID] @link
     votes: [ID] @link
-    teacher: ID! @link
+    educaotr: ID! @link
     createdAt: DateTime @column(overrideType: "Date")
 }
 

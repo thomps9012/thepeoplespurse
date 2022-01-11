@@ -1,9 +1,9 @@
 import { ApolloServer } from 'apollo-server';
 import { DIRECTIVES } from '@graphql-codegen/typescript-mongodb'
-import { typeDefs } from './typeDefs';
-import { resolvers } from './resolvers';
-import { environment } from './environment';
-import { mongoDbProvider } from './mongodb.provider'
+import { typeDefs } from './schemas/typeDefs';
+import { resolvers } from './schemas/resolvers';
+import { environment } from './utils/environment';
+import { mongoDbProvider } from './config/mongodb.provider'
 
 (async function bootstrapAsync(): Promise<void> {
     await

@@ -1,6 +1,6 @@
 import { Collection, Db, MongoClient } from "mongodb";
 import * as dotenv from 'dotenv';
-import { environment } from './environment';
+import { environment } from '../utils/environment';
 
 dotenv.config()
 
