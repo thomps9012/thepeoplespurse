@@ -29,6 +29,10 @@ const voteSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Class',
         required: false
+    },
+    createdAt: {
+        type: Date,
+        default: Date.now
     }
 })
 

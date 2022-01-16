@@ -38,12 +38,12 @@ export const resolvers = {
 
     },
     Mutation: {
-        addUser: async (parent: any, args: any) => {
+        signUp: async (parent: any, args: any) => {
             const user = await User.create(args);
             const token = auth.signToken(user);
             return { token, user };
         },
-        addVote: async (parent: any, args: any, context: { user: any }) => {
+        castVote: async (parent: any, args: any, context: { user: any }) => {
             if (context.user) {
                 const vote = await Vote.create(args);
 
@@ -51,11 +51,12 @@ export const resolvers = {
             }
             throw new AuthenticationError('Not Logged In');
         },
-        addAction: async (parent: any, args: any, context: { user: any }) => {
+        takeAction: async (parent: any, args: any, context: { user: any }) => {
             if (context.user) {
                 const action = await Action.create(args);
 
-                await User.findByIdAndUpdate(context.user._id, { $push: { actions: action } });
+                return await User.findByIdAndUpdate(context.user._id, { $push: { actions: action } });
+
             }
             throw new AuthenticationError('Not Logged In');
         },
@@ -63,33 +64,33 @@ export const resolvers = {
             if (context.user) {
                 const createdClass = await Class.create(args);
 
-                await User.findByIdAndUpdate(context.user._id, { $push: { class: createdClass } });
+                return await User.findByIdAndUpdate(context.user._id, { $push: { class: createdClass } });
             }
             throw new AuthenticationError('Not an Educator In');
         },
         joinClass: async (parent: any, classCode: any, context: { user: any }) => {
             if (context.user) {
                 const joinedClass = await Class.findOne({ class_code: classCode });
-                await User.findByIdAndUpdate(context.user._id, { $push: { class: joinedClass } });
+                return await User.findByIdAndUpdate(context.user._id, { $push: { class: joinedClass } });
             }
             throw new AuthenticationError('Not Logged In')
         },
-        login:async (parent: any, {email, password}: any ) => {
+        login: async (parent: any, { email, password }: any) => {
             const user = await User.findOne({ email });
 
             if (!user) {
                 throw new AuthenticationError('Incorrect Credentials');
             }
-            
+
             const correctPW = await user.isCorrectPassword(password);
 
-            if(!correctPW) {
+            if (!correctPW) {
                 throw new AuthenticationError('Incorrect Password')
             }
 
             const token = auth.signToken(user)
 
-            return {token, user};
+            return { token, user };
         }
     }
 };

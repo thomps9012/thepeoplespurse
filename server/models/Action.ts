@@ -27,6 +27,10 @@ const actionSchema = new Schema({
         type: Number,
         required: true
     },
+    date: {
+        type: Date,
+        required: true
+    },
     affiliated_org: {
         type: String,
         required: false,
