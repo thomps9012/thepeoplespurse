@@ -2,10 +2,11 @@
     "name": "thepeoplespurse",
     "version": "2.0.0",
     "description": "an educational and interactive web application that encourages citizens to take an active role in their communities",
-    "main": "index.ts",
+    "main": "server.ts",
     "scripts": {
         "build": "tsc",
         "start": "node index.js",
+        "watch": "nodemon",
         "generate": "graphql-codegen --config codegen.yml"
     },
     "keywords": [],

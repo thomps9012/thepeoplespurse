@@ -1,10 +1,115 @@
 "use strict";
-var __makeTemplateObject = (this && this.__makeTemplateObject) || function (cooked, raw) {
-    if (Object.defineProperty) { Object.defineProperty(cooked, "raw", { value: raw }); } else { cooked.raw = raw; }
-    return cooked;
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.typeDefs = void 0;
-var apollo_server_1 = require("apollo-server");
-exports.typeDefs = (0, apollo_server_1.gql)(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\nscalar DateTime\nscalar JWT\nscalar EmailAddress\n\ntype User @entity {\n    id: ID! @id\n    username: String! @column\n    email: EmailAddress @column(overrideType: \"string\")\n    password: String! @column\n    class: ID @link\n    actions: [Action]! @link\n}\n\ntype Teacher @entity {\n    id: ID! @id\n    username: String! @column\n    email: EmailAddress @column(overrideType: \"string\")\n    password: String! @column\n    classes: [ID]! @link\n}\n\ntype Vote @entity {\n    id: ID! @id \n    voter: ID! @link\n    class: ID @link\n    createdAt: DateTime @column(overrideType: \"Date\")\n    budget: [Dept]! @link\n}\n\ntype Action @entity {\n    name: String! @column\n    detail: String! @column\n    organization: String! @column\n    actionDate: DateTime @column(overrideType: \"Date\")\n    length: Float!\n}\n\ntype Dept @entity{\n    code: String! @column\n    name: String! @column\n    percent: Float! @column\n}\n\ntype Class @entity{\n    id: ID! @id\n    classCode: String! @column\n    users: [ID] @link\n    votes: [ID] @link\n    teacher: ID! @link\n    createdAt: DateTime @column(overrideType: \"Date\")\n}\n\ntype Query {\n    getUser(id: ID!): User\n    getTeacher(id: ID!): Teacher\n    allUsers: [User]\n    classVotes(classID: ID!): [Vote]\n    allVotes: [Vote]\n    classInfo(classID: ID!): Class\n    classes(teacherID: ID!): [Class]\n    actions(userID: ID!): [Action]\n}\n\ninput DeptInput {\n    name: String!\n    code: String!\n    percent: Float!\n}\n\ninput CastVote {\n    budget: [DeptInput]!\n    classCode: String\n    voter: String!\n}\n\ninput TakeAction {\n    userID: String!\n    name: String!\n    detail: String!\n    organization: String!\n    actionDate: DateTime\n    length: Float!\n}\n\ninput LoginInput {\n    email: EmailAddress,\n    password: String\n}\n\ninput UserSignUpInput {\n    email: EmailAddress,\n    username: String,\n    password: String\n    classCode: String,\n}\n\ninput TeacherSignUpInput {\n    email: EmailAddress,\n    username: String,\n    password: String\n}\n\ninput CreateClassInput {\n    classCode: String!,\n    teacher: String!\n}\n\ntype Auth {\n    token: JWT!\n    user: User\n    teacher: Teacher\n  }\n\ntype Mutation {\n    login(input: LoginInput!): Auth!\n    teacherLogin(input: LoginInput!): Auth!\n    signUp(input: UserSignUpInput!): Auth!\n    teacherSignUp(input: TeacherSignUpInput!): Auth!\n    castVote(input: CastVote!): ID\n    takeAction(input: TakeAction!): Action\n    createClass(input: CreateClassInput!): ID!\n}\n"], ["\nscalar DateTime\nscalar JWT\nscalar EmailAddress\n\ntype User @entity {\n    id: ID! @id\n    username: String! @column\n    email: EmailAddress @column(overrideType: \"string\")\n    password: String! @column\n    class: ID @link\n    actions: [Action]! @link\n}\n\ntype Teacher @entity {\n    id: ID! @id\n    username: String! @column\n    email: EmailAddress @column(overrideType: \"string\")\n    password: String! @column\n    classes: [ID]! @link\n}\n\ntype Vote @entity {\n    id: ID! @id \n    voter: ID! @link\n    class: ID @link\n    createdAt: DateTime @column(overrideType: \"Date\")\n    budget: [Dept]! @link\n}\n\ntype Action @entity {\n    name: String! @column\n    detail: String! @column\n    organization: String! @column\n    actionDate: DateTime @column(overrideType: \"Date\")\n    length: Float!\n}\n\ntype Dept @entity{\n    code: String! @column\n    name: String! @column\n    percent: Float! @column\n}\n\ntype Class @entity{\n    id: ID! @id\n    classCode: String! @column\n    users: [ID] @link\n    votes: [ID] @link\n    teacher: ID! @link\n    createdAt: DateTime @column(overrideType: \"Date\")\n}\n\ntype Query {\n    getUser(id: ID!): User\n    getTeacher(id: ID!): Teacher\n    allUsers: [User]\n    classVotes(classID: ID!): [Vote]\n    allVotes: [Vote]\n    classInfo(classID: ID!): Class\n    classes(teacherID: ID!): [Class]\n    actions(userID: ID!): [Action]\n}\n\ninput DeptInput {\n    name: String!\n    code: String!\n    percent: Float!\n}\n\ninput CastVote {\n    budget: [DeptInput]!\n    classCode: String\n    voter: String!\n}\n\ninput TakeAction {\n    userID: String!\n    name: String!\n    detail: String!\n    organization: String!\n    actionDate: DateTime\n    length: Float!\n}\n\ninput LoginInput {\n    email: EmailAddress,\n    password: String\n}\n\ninput UserSignUpInput {\n    email: EmailAddress,\n    username: String,\n    password: String\n    classCode: String,\n}\n\ninput TeacherSignUpInput {\n    email: EmailAddress,\n    username: String,\n    password: String\n}\n\ninput CreateClassInput {\n    classCode: String!,\n    teacher: String!\n}\n\ntype Auth {\n    token: JWT!\n    user: User\n    teacher: Teacher\n  }\n\ntype Mutation {\n    login(input: LoginInput!): Auth!\n    teacherLogin(input: LoginInput!): Auth!\n    signUp(input: UserSignUpInput!): Auth!\n    teacherSignUp(input: TeacherSignUpInput!): Auth!\n    castVote(input: CastVote!): ID\n    takeAction(input: TakeAction!): Action\n    createClass(input: CreateClassInput!): ID!\n}\n"])));
-var templateObject_1;
+const apollo_server_1 = require("apollo-server");
+exports.typeDefs = (0, apollo_server_1.gql) `
+scalar DateTime
+scalar JWT
+scalar EmailAddress
+
+type User {
+    id: ID!
+    first_name: String! 
+    last_name: String! 
+    username: String! 
+    email: EmailAddress
+    password: String! 
+    class: [Class] 
+    actions: [Action] 
+    educator: Boolean! 
+}
+
+type Vote {
+    id: ID! 
+    voter: User! 
+    budget: [Dept]! 
+    class: Class 
+    createdAt: DateTime
+}
+
+type Action {
+    id: ID!
+    user: User!
+    name: String! 
+    detail: String! 
+    length: Float!
+    date: DateTime!
+    affiliated_org: String
+    sign_off: String! 
+}
+
+type Dept{
+    code: String! 
+    name: String! 
+    percent: Float! 
+}
+
+type Class{
+    id: ID!
+    classCode: String! 
+    learners: [ID] 
+    votes: [ID] 
+    educaotr: ID! 
+    createdAt: DateTime
+}
+
+type Query {
+    getUser(id: ID!): User
+    userActions(user: ID!): [Action]
+    classVotes(classID: ID!): [Vote]
+    allVotes: [Vote]
+    classInfo(classID: ID!): Class
+    classes(educator: ID!): [Class]
+}
+
+input DeptInput {
+    name: String!
+    code: String!
+    percent: Float!
+}
+
+input CastVote {
+    budget: [DeptInput]!
+    class: ID
+    voter: ID!
+}
+
+input TakeAction {
+    user: ID!
+    name: String!
+    detail: String!
+    organization: String!
+    actionDate: DateTime
+    length: Float!
+}
+
+input LoginInput {
+    email: EmailAddress,
+    password: String
+}
+
+input UserSignUpInput {
+    email: EmailAddress,
+    username: String,
+    password: String
+}
+
+input CreateClassInput {
+    classCode: String!,
+    educator: ID!
+}
+
+type Auth {
+    token: ID
+    user: User
+  }
+
+type Mutation {
+    signUp(input: UserSignUpInput!): Auth 
+    castVote(input: CastVote!): Vote
+    takeAction(input: TakeAction!): Action
+    createClass(input: CreateClassInput!): Class
+    joinClass(classCode: String!): Class 
+    login(input: LoginInput!): Auth
+}
+`;

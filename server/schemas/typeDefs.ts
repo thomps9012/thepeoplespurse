@@ -5,50 +5,50 @@ scalar DateTime
 scalar JWT
 scalar EmailAddress
 
-type User @entity {
-    id: ID! @id
-    first_name: String! @column
-    last_name: String! @column
-    username: String! @column
-    email: EmailAddress @column(overrideType: "string")
-    password: String! @column
-    class: [Class] @link
-    actions: [Action] @link
-    educator: Boolean! @column
+type User {
+    id: ID!
+    first_name: String! 
+    last_name: String! 
+    username: String! 
+    email: EmailAddress
+    password: String! 
+    class: [Class] 
+    actions: [Action] 
+    educator: Boolean! 
 }
 
-type Vote @entity {
-    id: ID! @id 
-    voter: User! @link
-    budget: [Dept]! @link
-    class: Class @link
-    createdAt: DateTime @column(overrideType: "Date")
+type Vote {
+    id: ID! 
+    voter: User! 
+    budget: [Dept]! 
+    class: Class 
+    createdAt: DateTime
 }
 
-type Action @entity {
-    id: ID! @id
+type Action {
+    id: ID!
     user: User!
-    name: String! @column
-    detail: String! @column
+    name: String! 
+    detail: String! 
     length: Float!
-    date: DateTime! @column(overrideType: "Date")
-    affiliated_org: String! @column
-    documentation: File @column
+    date: DateTime!
+    affiliated_org: String
+    sign_off: String! 
 }
 
-type Dept @entity{
-    code: String! @column
-    name: String! @column
-    percent: Float! @column
+type Dept{
+    code: String! 
+    name: String! 
+    percent: Float! 
 }
 
-type Class @entity{
-    id: ID! @id
-    classCode: String! @column
-    learners: [ID] @link
-    votes: [ID] @link
-    educaotr: ID! @link
-    createdAt: DateTime @column(overrideType: "Date")
+type Class{
+    id: ID!
+    classCode: String! 
+    learners: [ID] 
+    votes: [ID] 
+    educaotr: ID! 
+    createdAt: DateTime
 }
 
 type Query {

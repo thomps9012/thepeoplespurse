@@ -10,7 +10,7 @@ import Class from '../models/Class';
 import Vote from '../models/Vote';
 import Action from '../models/Action';
 import { ObjectIdLike } from 'bson'
-import { auth } from '../utils/auth';
+const { signToken } = require('../utils/auth');
 
 export const resolvers = {
     DateTime: DateTimeResolver,
@@ -40,7 +40,7 @@ export const resolvers = {
     Mutation: {
         signUp: async (parent: any, args: any) => {
             const user = await User.create(args);
-            const token = auth.signToken(user);
+            const token = signToken(user);
             return { token, user };
         },
         castVote: async (parent: any, args: any, context: { user: any }) => {
@@ -88,193 +88,9 @@ export const resolvers = {
                 throw new AuthenticationError('Incorrect Password')
             }
 
-            const token = auth.signToken(user)
+            const token = signToken(user)
 
             return { token, user };
         }
     }
 };
-
-module.exports = resolvers;
-        // signUp: async (
-        //     obj: any,
-        //     { input }: { input: UserSignUpInput }
-        // ) => {
-        //     const result = await mongoDbProvider.usersCollection.insertOne({
-        //         email: input.email,
-        //         username: input.username,
-        //         // password: input.password ? await bcrypt.hash(input.password, 10) : '',
-        //         classCode: input.classCode,
-        //         actions: []
-        //     });
-        //     const user = await mongoDbProvider.usersCollection.findOne({
-        //         email: input.email
-        //     })
-        //     console.log(user)
-        //     if (input.classCode) {
-        //         const updatedClass = await mongoDbProvider.classesCollection.updateOne(
-        //             { classCode: input.classCode },
-        //             {
-        //                 $addToSet: {
-        //                     users: result.insertedId
-        //                 }
-        //             }
-        //         )
-        //         console.log(updatedClass)
-        //     }
-        //     const token = jwt.sign(
-        //         // will change on PRODUCTION
-        //         { "https://localhost:4200/": {} },
-        //         "f1BtnWgD3VKY",
-        //         { algorithm: "HS256", subject: input.username ? input.username : '', expiresIn: "1d" }
-        //     );
-        //     const data = { token, user }
-        //     return data
-        // },
-        // teacherSignUp: async (
-        //     obj: any,
-        //     { input }: { input: TeacherSignUpInput }
-        // ) => {
-        //     const result = await mongoDbProvider.teachersCollection.insertOne({
-        //         email: input.email,
-        //         username: input.username,
-        //         password: input.password ? await bcrypt.hash(input.password, 10) : '',
-        //         classes: []
-        //     });
-        //     const teacher = await mongoDbProvider.teachersCollection.findOne({
-        //         email: input.email
-        //     })
-        //     const token = jwt.sign(
-        //         // will change on PRODUCTION
-        //         { "https://localhost:4200/": {} },
-        //         "f1BtnWgD3VKY",
-        //         { algorithm: "HS256", subject: input.username ? input.username : '', expiresIn: "1d" }
-        //     );
-        //     const data = { token, teacher }
-        //     return data
-        // },
-        // login: async (
-        //     obj: any,
-        //     { input }: { input: LoginInput }
-        // ) => {
-        //     const user = await mongoDbProvider.usersCollection.findOne({
-        //         email: input.email,
-        //     });
-        //     const correctPw = input.password ? await bcrypt.compare(input.password, user?.password) : '';
-        //     if (!correctPw) {
-        //         throw new AuthenticationError('Incorrect Password')
-        //     }
-        //     const token = jwt.sign(
-        //         // will change on PRODUCTION
-        //         { "https://localhost:4000/": {} },
-        //         "f1BtnWgD3VKY",
-        //         { algorithm: "HS256", subject: user?.username, expiresIn: "1d" }
-        //     );
-        //     const data = { token, user }
-        //     console.log(data)
-        //     return data
-        // },
-        // teacherLogin: async (
-        //     obj: any,
-        //     { input }: { input: LoginInput }
-        // ) => {
-        //     const teacher = await mongoDbProvider.teachersCollection.findOne({
-        //         email: input.email,
-        //     });
-        //     const correctPw = input.password ? await bcrypt.compare(input.password, teacher?.password) : '';
-        //     if (!correctPw) {
-        //         throw new AuthenticationError('Incorrect Password')
-        //     }
-        //     const token = jwt.sign(
-        //         // will change on PRODUCTION
-        //         { "https://localhost:4000/": {} },
-        //         "f1BtnWgD3VKY",
-        //         { algorithm: "HS256", subject: teacher?.username, expiresIn: "1d" }
-        //     );
-        //     const data = { token, teacher }
-        //     return data
-        // },
-        // castVote: async (
-        //     obj: any,
-        //     { input }: { input: CastVote },
-        // ) => {
-        //     // can add in JWT verification here as well
-        //     try {
-        //         const vote = await mongoDbProvider.votesCollection.insertOne({
-        //             voter: new ObjectId(input.voter),
-        //             classCode: input.classCode,
-        //             budget: input.budget,
-        //             createdAt: new Date()
-        //         })
-        //         if (input.classCode != null) {
-        //             const updatedClass = await mongoDbProvider.classesCollection.updateOne(
-        //                 { classCode: input.classCode },
-        //                 {
-        //                     $addToSet: {
-        //                         votes: vote.insertedId
-        //                     }
-        //                 }
-        //             )
-        //         }
-        //         return vote.insertedId;
-        //     } catch {
-        //         console.log('Invalid Token')
-        //     }
-        // },
-        // takeAction: async (
-        //     obj: any,
-        //     { input }: { input: TakeAction },
-        //     // {context}: {context: Jwt},
-        //     // headers: any
-        // ) => {
-        //     // console.log('input--> ', input)
-        //     // console.log('context--> ', context)
-        //     // console.log('headers--> ', headers)
-        //     try {
-        //         const result = await
-        //             mongoDbProvider.usersCollection.updateOne(
-        //                 { _id: new ObjectId(input.userID) },
-        //                 {
-        //                     $addToSet: {
-        //                         actions: {
-        //                             name: input.name,
-        //                             detail: input.detail,
-        //                             organization: input.organization,
-        //                             length: input.length,
-        //                             actionDate: input.actionDate
-        //                         }
-
-        //                     },
-        //                 },
-        //                 { upsert: true }
-        //             );
-        //         return result.upsertedId;
-        //     } catch {
-        //         console.log('Invalid Token')
-        //     }
-        // },
-        // createClass: async (obj: any, { input }: { input: CreateClassInput }) => {
-        //     try {
-        //         const createdClass = await mongoDbProvider.classesCollection.insertOne({
-        //             teacher: new ObjectId(input.teacher),
-        //             classCode: input.classCode,
-        //             users: [],
-        //             votes: [],
-        //             createdAt: new Date()
-        //         })
-        //         const updatedTeacher = await mongoDbProvider.teachersCollection.updateOne(
-        //             { _id: new ObjectId(input.teacher) },
-        //             {
-        //                 $addToSet: {
-        //                     classes: createdClass.insertedId
-        //                 }
-        //             },
-        //             { upsert: true }
-        //         );
-        //         return createdClass.insertedId
-        //     } catch {
-        //         console.log('Invalid Token')
-        //     }
-        // }
-//     },
-// };

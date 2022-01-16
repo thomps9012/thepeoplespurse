@@ -20,9 +20,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.environment = void 0;
-var dotenv = __importStar(require("dotenv"));
-// possible change to 4200/graphql
-var defaultPort = '4201';
+const dotenv = __importStar(require("dotenv"));
 dotenv.config();
 exports.environment = {
     apollo: {
@@ -31,7 +29,7 @@ exports.environment = {
     },
     mongoDb: {
         databaseName: process.env.MONGODB_DB_NAME,
-        url: process.env.ATLAS_URL,
+        url: process.env.ATLAS_URL || 'mongodb://localhost/peoples_purse',
     },
-    port: process.env.PORT || defaultPort
+    port: process.env.PORT || 3001
 };

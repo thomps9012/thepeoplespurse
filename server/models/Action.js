@@ -1,8 +1,9 @@
-import { Schema, model } from 'mongoose'
-
-const actionSchema = new Schema({
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const mongoose_1 = require("mongoose");
+const actionSchema = new mongoose_1.Schema({
     user: {
-        type: Schema.Types.ObjectId,
+        type: mongoose_1.Schema.Types.ObjectId,
         ref: 'User',
         required: true
     },
@@ -42,8 +43,6 @@ const actionSchema = new Schema({
         required: false,
         unique: false
     }
-})
-
-const Action = model('Action', actionSchema);
-
-export default Action;
+});
+const Action = (0, mongoose_1.model)('Action', actionSchema);
+exports.default = Action;

@@ -1,6 +1,4 @@
 import * as dotenv from 'dotenv';
-// possible change to 4200/graphql
-const defaultPort = '4201';
 dotenv.config()
 
 interface Environment {
@@ -22,7 +20,7 @@ export const environment: Environment = {
     },
     mongoDb: {
         databaseName: process.env.MONGODB_DB_NAME as string,
-        url: process.env.ATLAS_URL as string,
+        url: process.env.ATLAS_URL as string || 'mongodb://localhost/peoples_purse',
     },
-    port: process.env.PORT || defaultPort
+    port: process.env.PORT || 3001
 }
