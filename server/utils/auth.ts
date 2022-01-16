@@ -1,0 +1,32 @@
+import jwt from 'jsonwebtoken'
+
+const secret = 'secret';
+const expiration = '2h';
+
+export const auth = {
+    authMiddleware: ({req}: any) => {
+        let token = req.body.toekn || req.query.token || req.headers.authorization;
+        
+        if(req.headers.authorization) {
+            token = token.split('').pop().trim();
+        }
+
+        if(!token) {
+            return req;
+        }
+
+        try {
+            const data = jwt.verify(token, secret, { maxAge: expiration});
+            req.user = data;
+        } catch {
+            console.log('Invalid Token');
+        }
+        return req;
+    },
+    signToken: ({ email, username, _id }: any) => {
+        const payload = { email, username, _id };
+        return jwt.sign({ data: payload }, secret, { expiresIn: expiration });
+    },
+};
+
+// module.exports = auth;

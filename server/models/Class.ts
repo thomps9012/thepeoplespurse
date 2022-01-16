@@ -19,6 +19,12 @@ const classSchema = new Schema({
             ref: 'User'
         }
     ],
+    votes: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Vote'
+        }
+    ],
     createdAt: {
         type: Date,
         default: Date.now

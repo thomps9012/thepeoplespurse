@@ -6,11 +6,11 @@ const actionSchema = new Schema({
         ref: 'User',
         required: true
     },
-    class: {
-        type: Schema.Types.ObjectId,
-        ref: 'Class',
-        required: false
-    },
+    // class: {
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'Class',
+    //     required: false
+    // },
     name: {
         type: String,
         required: true,
