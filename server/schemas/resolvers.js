@@ -51,8 +51,7 @@ exports.resolvers = {
                 const expiration = '2h';
                 const user = jsonwebtoken_1.default.verify(user_jwt, secret, { maxAge: expiration });
                 const userId = user.data._id;
-                const voter = await mongodb_provider_1.mongoDbProvider.usersCollection.findOne({ _id: new mongodb_1.ObjectId(userId) });
-                const vote = await mongodb_provider_1.mongoDbProvider.votesCollection.insertOne(Object.assign(Object.assign({}, input), { voter: voter, created_at: Date.now() }));
+                const vote = await mongodb_provider_1.mongoDbProvider.votesCollection.insertOne(Object.assign(Object.assign({}, input), { voter: new mongodb_1.ObjectId(userId), created_at: new Date() }));
                 if (input.class_code) {
                     const updatedClass = await mongodb_provider_1.mongoDbProvider.classesCollection.updateOne({ class_code: input.class_code }, {
                         $addToSet: {
@@ -75,7 +74,7 @@ exports.resolvers = {
                 const secret = 'secret';
                 const expiration = '2h';
                 const user = jsonwebtoken_1.default.verify(user_jwt, secret, { maxAge: expiration });
-                const action = await mongodb_provider_1.mongoDbProvider.actionsCollection.insertOne(Object.assign(Object.assign({}, input), { user: user.data._id }));
+                const action = await mongodb_provider_1.mongoDbProvider.actionsCollection.insertOne(Object.assign(Object.assign({}, input), { user: new mongodb_1.ObjectId(user.data._id) }));
                 const updatedUser = await mongodb_provider_1.mongoDbProvider.usersCollection.updateOne({ _id: new mongodb_1.ObjectId(user.data._id) }, {
                     $addToSet: {
                         actions: Object.assign({}, input)

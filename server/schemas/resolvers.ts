@@ -53,12 +53,10 @@ export const resolvers = {
                 const user: any = jwt.verify(user_jwt, secret, { maxAge: expiration })
                 const userId = user.data._id;
 
-                const voter = await mongoDbProvider.usersCollection.findOne({ _id: new ObjectId(userId) })
-
                 const vote = await mongoDbProvider.votesCollection.insertOne({
                     ...input,
-                    voter: voter,
-                    created_at: Date.now()
+                    voter: new ObjectId(userId),
+                    created_at: new Date()
                 })
 
                 if (input.class_code) {
@@ -87,7 +85,7 @@ export const resolvers = {
                 const user: any = jwt.verify(user_jwt, secret, { maxAge: expiration })
                 const action = await mongoDbProvider.actionsCollection.insertOne({
                     ...input,
-                    user: user.data._id
+                    user: new ObjectId(user.data._id)
                 })
                 const updatedUser = await mongoDbProvider.usersCollection.updateOne(
                     { _id: new ObjectId(user.data._id) },
