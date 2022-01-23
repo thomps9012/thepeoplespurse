@@ -44,10 +44,25 @@ exports.resolvers = {
             const token = signToken(user);
             return { token, user };
         },
-        castVote: async (parent, args, context) => {
-            if (context.user) {
-                const vote = await Vote_1.default.create(args);
-                return vote;
+        castVote: async (parent, { input }, context) => {
+            const user_jwt = context.headers.authorization;
+            if (user_jwt) {
+                const secret = 'secret';
+                const expiration = '2h';
+                const user = jsonwebtoken_1.default.verify(user_jwt, secret, { maxAge: expiration });
+                const voter = await mongodb_provider_1.mongoDbProvider.usersCollection.findOne({ _id: new mongodb_1.ObjectId(user.data._id) });
+                const vote = await mongodb_provider_1.mongoDbProvider.votesCollection.insertOne(Object.assign(Object.assign({}, input), { voter: voter }));
+                console.log(voter);
+                if (input.class_code) {
+                    console.log(input.class_code);
+                    console.log(voter);
+                    const updatedClass = await mongodb_provider_1.mongoDbProvider.classesCollection.updateOne({ class_code: input.class_code }, { $addToSet: { learners: voter, votes: vote.insertedId } });
+                    console.log(vote, updatedClass);
+                    return vote.insertedId;
+                }
+                else {
+                    return vote.insertedId;
+                }
             }
             throw new apollo_server_core_1.AuthenticationError('Not Logged In');
         },

@@ -51,21 +51,31 @@ export const resolvers = {
                 const secret = 'secret';
                 const expiration = '2h';
                 const user: any = jwt.verify(user_jwt, secret, { maxAge: expiration })
-                const voter = await mongoDbProvider.usersCollection.findOne({ _id: new ObjectId(user.data._id) })
+                const userId = user.data._id;
+
+                const voter = await mongoDbProvider.usersCollection.findOne({ _id: new ObjectId(userId) })
+
                 const vote = await mongoDbProvider.votesCollection.insertOne({
                     ...input,
-                    voter: voter
+                    voter: voter,
+                    created_at: Date.now()
                 })
+
                 if (input.class_code) {
                     const updatedClass = await mongoDbProvider.classesCollection.updateOne(
                         { class_code: input.class_code },
-                        { $addToSet: { learners: voter, votes: input }, upsert: true }
+                        {
+                            $addToSet: {
+                                votes: vote.insertedId
+                            }
+                        }
                     )
-                    console.log(vote, updatedClass)
-                    return { vote, updatedClass }
+                    console.log(vote)
+                    console.log(updatedClass)
+                    return vote.insertedId
+                } else {
+                    return vote.insertedId
                 }
-                console.log(vote)
-                return vote
             }
             throw new AuthenticationError('Not Logged In');
         },
@@ -81,7 +91,12 @@ export const resolvers = {
                 })
                 const updatedUser = await mongoDbProvider.usersCollection.updateOne(
                     { _id: new ObjectId(user.data._id) },
-                    { $push: { actions: { ...input }, upsert: true } }
+                    {
+                        $addToSet:
+                        {
+                            actions: { ...input }
+                        }
+                    }, { upsert: true }
                 )
                 if (action.acknowledged && updatedUser.acknowledged) {
                     console.log(action.insertedId)
@@ -107,6 +122,15 @@ export const resolvers = {
                         votes: [],
                         createdAt: Date.now
                     });
+                    const updatedEducator = await mongoDbProvider.usersCollection.updateOne(
+                        { _id: new ObjectId(user.data._id) },
+                        {
+                            $addToSet: {
+                                classes: createdClass.insertedId
+                            }
+                        },
+                        { upsert: true }
+                    )
                     return createdClass.insertedId
                 }
                 throw new AuthenticationError('Not an Educator');

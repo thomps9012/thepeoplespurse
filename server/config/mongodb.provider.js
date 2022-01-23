@@ -28,13 +28,13 @@ class MongoDbProvider {
     constructor(url) {
         this.mongoClient = new mongodb_1.MongoClient(url);
     }
-    // get votesCollection(): Collection {
-    //     const votesCollection = this.getCollection('votes');
-    //     if (!votesCollection) {
-    //         throw new Error('Votes collection is undefined');
-    //     }
-    //     return votesCollection;
-    // }
+    get votesCollection() {
+        const votesCollection = this.getCollection('votes');
+        if (!votesCollection) {
+            throw new Error('Votes collection is undefined');
+        }
+        return votesCollection;
+    }
     get classesCollection() {
         const classesCollection = this.getCollection('classes');
         if (!classesCollection) {

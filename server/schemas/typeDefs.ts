@@ -68,8 +68,7 @@ input DeptInput {
 
 input CastVote {
     budget: [DeptInput]!
-    class: ID
-    voter: ID!
+    class_code: String
 }
 
 input TakeAction {
@@ -107,7 +106,7 @@ type Auth {
 
 type Mutation {
     signUp(input: UserSignUpInput!): Auth 
-    castVote(input: CastVote!): Vote
+    castVote(input: CastVote!): ID
     takeAction(input: TakeAction!): ID
     createClass(classCode: String!): ID
     joinClass(classCode: String!): Class 
