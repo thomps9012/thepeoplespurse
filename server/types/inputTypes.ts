@@ -1,3 +1,5 @@
+import { ObjectId } from "mongodb"
+
 export type UserSignUpInput = {
     first_name: String;
     last_name: String;
@@ -20,3 +22,8 @@ export type UserLoginInput = {
     };
     password: string;
 }
+
+// export type CreateClassInput = {
+//     class_code: String;
+//     educator: ObjectId;
+// }

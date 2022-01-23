@@ -12,7 +12,7 @@ type User {
     username: String! 
     email: EmailAddress
     password: String! 
-    class: [Class] 
+    classes: [Class] 
     actions: [Action] 
     educator: Boolean! 
 }
@@ -96,7 +96,7 @@ input UserSignUpInput {
 }
 
 input CreateClassInput {
-    classCode: String!,
+    class_code: String!,
     educator: ID!
 }
 
@@ -109,7 +109,7 @@ type Mutation {
     signUp(input: UserSignUpInput!): Auth 
     castVote(input: CastVote!): Vote
     takeAction(input: TakeAction!): Action
-    createClass(input: CreateClassInput!): Class
+    createClass(classCode: String!): ID
     joinClass(classCode: String!): Class 
     login(input: LoginInput!): Auth
 }

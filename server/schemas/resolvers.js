@@ -58,12 +58,20 @@ exports.resolvers = {
             }
             throw new apollo_server_core_1.AuthenticationError('Not Logged In');
         },
-        createClass: async (parent, args, context) => {
-            if (context.user) {
-                const createdClass = await Class_1.default.create(args);
-                return await User_1.default.findByIdAndUpdate(context.user._id, { $push: { class: createdClass } });
+        createClass: async (parent, input, context) => {
+            const user_jwt = context.headers.authorization;
+            if (user_jwt) {
+                const secret = 'secret';
+                const expiration = '2h';
+                const user = jsonwebtoken_1.default.verify(user_jwt, secret, { maxAge: expiration });
+                const educator = await mongodb_provider_1.mongoDbProvider.usersCollection.findOne({ _id: new mongodb_1.ObjectId(user.data._id) });
+                if (educator === null || educator === void 0 ? void 0 : educator.educator) {
+                    const createdClass = await mongodb_provider_1.mongoDbProvider.classesCollection.insertOne(Object.assign(Object.assign({}, input), { educator: educator, learners: [], votes: [], createdAt: Date.now }));
+                    return createdClass.insertedId;
+                }
+                throw new apollo_server_core_1.AuthenticationError('Not an Educator');
             }
-            throw new apollo_server_core_1.AuthenticationError('Not an Educator In');
+            throw new apollo_server_core_1.AuthenticationError('Not Logged In');
         },
         joinClass: async (parent, classCode, context) => {
             const user_jwt = context.headers.authorization;
@@ -73,8 +81,8 @@ exports.resolvers = {
                 const user = jsonwebtoken_1.default.verify(user_jwt, secret, { maxAge: expiration });
                 const class_code = classCode.classCode;
                 const joinedClass = await mongodb_provider_1.mongoDbProvider.classesCollection.findOne({ class_code: class_code });
-                const updatedClass = await mongodb_provider_1.mongoDbProvider.classesCollection.updateOne({ class_code: class_code }, { $addToSet: { learners: user.data } });
-                const updatedUser = await mongodb_provider_1.mongoDbProvider.usersCollection.updateOne({ _id: new mongodb_1.ObjectId(user.data._id) }, { $addToSet: { class: joinedClass } });
+                const updatedClass = await mongodb_provider_1.mongoDbProvider.classesCollection.updateOne({ class_code: class_code }, { $addToSet: { learners: user.data }, upsert: true });
+                const updatedUser = await mongodb_provider_1.mongoDbProvider.usersCollection.updateOne({ _id: new mongodb_1.ObjectId(user.data._id) }, { $addToSet: { class: joinedClass }, upsert: true });
                 if (updatedUser.modifiedCount === 1 || updatedClass.modifiedCount === 1) {
                     return joinedClass;
                 }
