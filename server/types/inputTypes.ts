@@ -23,7 +23,11 @@ export type UserLoginInput = {
     password: string;
 }
 
-// export type CreateClassInput = {
-//     class_code: String;
-//     educator: ObjectId;
-// }
+export type ActionInput = {
+    name: String;
+    detail: String;
+    length: Number;
+    action_date: Date;
+    affiliated_org: String;
+    contact: String;
+}

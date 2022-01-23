@@ -7,7 +7,7 @@ import Class from '../models/Class';
 import Vote from '../models/Vote';
 import Action from '../models/Action';
 import { ObjectIdLike } from 'bson'
-import { UserLoginInput, UserSignUpInput } from '../types/inputTypes';
+import { UserLoginInput, UserSignUpInput, ActionInput } from '../types/inputTypes';
 import { mongoDbProvider } from '../config/mongodb.provider';
 const { signToken } = require('../utils/auth');
 import bcrypt from 'bcrypt'
@@ -52,12 +52,26 @@ export const resolvers = {
             }
             throw new AuthenticationError('Not Logged In');
         },
-        takeAction: async (parent: any, args: any, context: { user: any }) => {
-            if (context.user) {
-                const action = await Action.create(args);
-
-                return await User.findByIdAndUpdate(context.user._id, { $push: { actions: action } });
-
+        takeAction: async (parent: any, { input }: { input: ActionInput }, context: any) => {
+            const user_jwt = context.headers.authorization;
+            if (user_jwt) {
+                const secret = 'secret';
+                const expiration = '2h';
+                const user: any = jwt.verify(user_jwt, secret, { maxAge: expiration })
+                const action = await mongoDbProvider.actionsCollection.insertOne({
+                    ...input,
+                    user: user.data._id
+                })
+                const updatedUser = await mongoDbProvider.usersCollection.updateOne(
+                    { _id: new ObjectId(user.data._id) },
+                    { $push: { actions: { ...input }, upsert: true } }
+                )
+                if(action.acknowledged && updatedUser.acknowledged){
+                    console.log(action.insertedId)
+                    return action.insertedId
+                } else {
+                    throw new AuthenticationError('Action Invalid')
+                }
             }
             throw new AuthenticationError('Not Logged In');
         },

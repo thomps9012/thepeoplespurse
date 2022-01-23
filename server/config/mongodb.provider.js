@@ -49,13 +49,13 @@ class MongoDbProvider {
         }
         return usersCollection;
     }
-    // get teachersCollection(): Collection {
-    //     const teachersCollection = this.getCollection('teachers');
-    //     if (!teachersCollection) {
-    //         throw new Error('Teachers collection is undefined');
-    //     }
-    //     return teachersCollection;
-    // }
+    get actionsCollection() {
+        const actionsCollection = this.getCollection('actions');
+        if (!actionsCollection) {
+            throw new Error('Actions collection is undefined');
+        }
+        return actionsCollection;
+    }
     async connectAsync(databaseName) {
         await this.mongoClient.connect();
         this.database = this.mongoClient.db(databaseName);

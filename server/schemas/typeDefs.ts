@@ -73,12 +73,12 @@ input CastVote {
 }
 
 input TakeAction {
-    user: ID!
     name: String!
     detail: String!
     organization: String!
-    actionDate: DateTime
     length: Float!
+    action_date: DateTime
+    contact: String!
 }
 
 input LoginInput {
@@ -108,7 +108,7 @@ type Auth {
 type Mutation {
     signUp(input: UserSignUpInput!): Auth 
     castVote(input: CastVote!): Vote
-    takeAction(input: TakeAction!): Action
+    takeAction(input: TakeAction!): ID
     createClass(classCode: String!): ID
     joinClass(classCode: String!): Class 
     login(input: LoginInput!): Auth

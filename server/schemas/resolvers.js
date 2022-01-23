@@ -51,10 +51,21 @@ exports.resolvers = {
             }
             throw new apollo_server_core_1.AuthenticationError('Not Logged In');
         },
-        takeAction: async (parent, args, context) => {
-            if (context.user) {
-                const action = await Action_1.default.create(args);
-                return await User_1.default.findByIdAndUpdate(context.user._id, { $push: { actions: action } });
+        takeAction: async (parent, { input }, context) => {
+            const user_jwt = context.headers.authorization;
+            if (user_jwt) {
+                const secret = 'secret';
+                const expiration = '2h';
+                const user = jsonwebtoken_1.default.verify(user_jwt, secret, { maxAge: expiration });
+                const action = await mongodb_provider_1.mongoDbProvider.actionsCollection.insertOne(Object.assign(Object.assign({}, input), { user: user.data._id }));
+                const updatedUser = await mongodb_provider_1.mongoDbProvider.usersCollection.updateOne({ _id: new mongodb_1.ObjectId(user.data._id) }, { $push: { actions: Object.assign({}, input), upsert: true } });
+                if (action.acknowledged && updatedUser.acknowledged) {
+                    console.log(action.insertedId);
+                    return action.insertedId;
+                }
+                else {
+                    throw new apollo_server_core_1.AuthenticationError('Action Invalid');
+                }
             }
             throw new apollo_server_core_1.AuthenticationError('Not Logged In');
         },

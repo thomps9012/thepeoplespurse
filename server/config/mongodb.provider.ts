@@ -40,14 +40,14 @@ export class MongoDbProvider {
         return usersCollection;
     }
 
-    // get teachersCollection(): Collection {
-    //     const teachersCollection = this.getCollection('teachers');
+    get actionsCollection(): Collection {
+        const actionsCollection = this.getCollection('actions');
         
-    //     if (!teachersCollection) {
-    //         throw new Error('Teachers collection is undefined');
-    //     }
-    //     return teachersCollection;
-    // }
+        if (!actionsCollection) {
+            throw new Error('Actions collection is undefined');
+        }
+        return actionsCollection;
+    }
    
     async connectAsync(databaseName: string): Promise<void> {
         await this.mongoClient.connect();
