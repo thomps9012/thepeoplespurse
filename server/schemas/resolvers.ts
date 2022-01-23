@@ -1,16 +1,16 @@
 import { DateTimeResolver } from 'graphql-scalars'
-// import { CastVote, LoginInput, UserSignUpInput, TakeAction, TeacherSignUpInput, Teacher, CreateClassInput, ClassDbObject, TeacherDbObject, UserDbObject, VoteDbObject } from '../graphql-codegen-typings'
 import { ObjectId } from 'mongodb'
-// import { mongoDbProvider } from '../config/mongodb.provider'
-// import jwt from 'jsonwebtoken'
-// import bcrypt from 'bcrypt'
+import jwt from 'jsonwebtoken'
 import { AuthenticationError } from 'apollo-server-core'
 import User from '../models/User';
 import Class from '../models/Class';
 import Vote from '../models/Vote';
 import Action from '../models/Action';
 import { ObjectIdLike } from 'bson'
+import { UserLoginInput, UserSignUpInput } from '../types/inputTypes';
+import { mongoDbProvider } from '../config/mongodb.provider';
 const { signToken } = require('../utils/auth');
+import bcrypt from 'bcrypt'
 
 export const resolvers = {
     DateTime: DateTimeResolver,
@@ -38,15 +38,16 @@ export const resolvers = {
 
     },
     Mutation: {
-        signUp: async (parent: any, args: any) => {
-            const user = await User.create(args);
+        signUp: async (parent: any, { input }: { input: UserSignUpInput }) => {
+            const user = await mongoDbProvider.usersCollection.insertOne({
+                ...input
+            })
             const token = signToken(user);
             return { token, user };
         },
         castVote: async (parent: any, args: any, context: { user: any }) => {
             if (context.user) {
                 const vote = await Vote.create(args);
-
                 return vote;
             }
             throw new AuthenticationError('Not Logged In');
@@ -68,29 +69,39 @@ export const resolvers = {
             }
             throw new AuthenticationError('Not an Educator In');
         },
-        joinClass: async (parent: any, classCode: any, context: { user: any }) => {
-            if (context.user) {
-                const joinedClass = await Class.findOne({ class_code: classCode });
-                return await User.findByIdAndUpdate(context.user._id, { $push: { class: joinedClass } });
+        joinClass: async (parent: any, classCode: any, context: any) => {
+            const user_jwt = context.headers.authorization;
+            if (user_jwt) {
+                const secret = 'secret';
+                const expiration = '2h';
+                const user: any = jwt.verify(user_jwt, secret, { maxAge: expiration })
+                const class_code = classCode.classCode
+                const joinedClass = await mongoDbProvider.classesCollection.findOne({ class_code: class_code });
+                const updatedClass = await mongoDbProvider.classesCollection.updateOne({ class_code: class_code }, { $addToSet: { learners: user.data } });
+                const updatedUser = await mongoDbProvider.usersCollection.updateOne({ _id: new ObjectId(user.data._id) }, { $addToSet: { class: joinedClass } });
+                if (updatedUser.modifiedCount === 1 || updatedClass.modifiedCount === 1) {
+                    return joinedClass
+                } else {
+                throw new Error("Already joined Class");
+
             }
-            throw new AuthenticationError('Not Logged In')
-        },
-        login: async (parent: any, { email, password }: any) => {
-            const user = await User.findOne({ email });
-
-            if (!user) {
-                throw new AuthenticationError('Incorrect Credentials');
-            }
-
-            const correctPW = await user.isCorrectPassword(password);
-
-            if (!correctPW) {
-                throw new AuthenticationError('Incorrect Password')
-            }
-
-            const token = signToken(user)
-
-            return { token, user };
         }
+            throw new AuthenticationError('Not Logged In')
+    },
+    login: async (parent: any, { input }: { input: UserLoginInput }) => {
+        const username = input.username;
+        const email = input.email;
+        const user = await mongoDbProvider.usersCollection.findOne({ $or: [{ email: email }, { username: username }] });
+        if (!user) {
+            throw new AuthenticationError('Incorrect Credentials');
+        }
+        const correctPW = input.password ? await bcrypt.compare(input.password, user?.password) : '';
+        if (!correctPW) {
+            throw new AuthenticationError('Incorrect Password')
+        }
+
+        const token = signToken(user)
+        return { token, user };
     }
+}
 };

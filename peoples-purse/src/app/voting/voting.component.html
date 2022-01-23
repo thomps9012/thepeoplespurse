@@ -1,4 +1,4 @@
-<div *ngIf="userLoggedIn">
+<!-- <div *ngIf="userLoggedIn"> -->
     <div class="header">
         <button (click)="evenDist()">Distribute Equally</button>
     <button (click)="educationDist()">Education Focused</button>
@@ -8,7 +8,7 @@
     <button (click)="developDist()">Development Focused</button>
     <button (click)="resetBudget()">Reset Budget</button>
     <br />
-</div>
+<!-- </div> -->
 <div id="totalBudget">
     <h1 *ngIf="totalDept">Total Budget Used {{totalDept}} %</h1>
     <div id="budgetAlert"></div>
@@ -44,6 +44,6 @@
     <button (click)="submitBudget($event)">Submit Your Budget</button>
 </div>
 </div>
-<div *ngIf="!userLoggedIn" class="LoginHeader">
+<!-- <div *ngIf="!userLoggedIn" class="LoginHeader">
     <h2>You either need to <a href="/login">Login</a> or <a href="/signup">Sign Up</a> to cast a vote.</h2>
-</div>
+</div> -->

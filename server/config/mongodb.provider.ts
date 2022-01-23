@@ -22,23 +22,23 @@ export class MongoDbProvider {
     //     return votesCollection;
     // }
 
-    // get classesCollection(): Collection {
-    //     const classesCollection = this.getCollection('classes');
+    get classesCollection(): Collection {
+        const classesCollection = this.getCollection('classes');
         
-    //     if (!classesCollection) {
-    //         throw new Error('Classes collection is undefined');
-    //     }
-    //     return classesCollection;
-    // }
+        if (!classesCollection) {
+            throw new Error('Classes collection is undefined');
+        }
+        return classesCollection;
+    }
 
-    // get usersCollection(): Collection {
-    //     const usersCollection = this.getCollection('users');
+    get usersCollection(): Collection {
+        const usersCollection = this.getCollection('users');
         
-    //     if (!usersCollection) {
-    //         throw new Error('Users collection is undefined');
-    //     }
-    //     return usersCollection;
-    // }
+        if (!usersCollection) {
+            throw new Error('Users collection is undefined');
+        }
+        return usersCollection;
+    }
 
     // get teachersCollection(): Collection {
     //     const teachersCollection = this.getCollection('teachers');
@@ -58,12 +58,12 @@ export class MongoDbProvider {
         await this.mongoClient.close();
     }
 
-    // private getCollection(collectionName: string): Collection {
-    //     if(!this.database) {
-    //         throw new Error('Database is undefined.');
-    //     }
-    //     return this.database.collection(collectionName);
-    // }
+    private getCollection(collectionName: string): Collection {
+        if(!this.database) {
+            throw new Error('Database is undefined.');
+        }
+        return this.database.collection(collectionName);
+    }
 }
 
 export const mongoDbProvider = new MongoDbProvider(environment.mongoDb.url);

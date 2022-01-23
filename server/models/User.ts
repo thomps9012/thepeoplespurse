@@ -24,7 +24,7 @@ const userSchema = new Schema({
         type: String,
         required: true,
         unique: true,
-        match: [/.+@.+\..+/, 'Must be a valid email address']
+        match: [/[a-z\A-Z\d]+([\.\_]?[a-z\A-Z\d]+)+@[a-z\A-Z\d]+(\.[a-z]+)+/, 'Must be a valid email address']
     },
     password: {
         type: String,
@@ -47,6 +47,7 @@ const userSchema = new Schema({
     ],
     educator: {
         type: Boolean,
+        default: false,
         required: true
     }
 })

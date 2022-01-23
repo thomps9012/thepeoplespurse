@@ -35,20 +35,20 @@ class MongoDbProvider {
     //     }
     //     return votesCollection;
     // }
-    // get classesCollection(): Collection {
-    //     const classesCollection = this.getCollection('classes');
-    //     if (!classesCollection) {
-    //         throw new Error('Classes collection is undefined');
-    //     }
-    //     return classesCollection;
-    // }
-    // get usersCollection(): Collection {
-    //     const usersCollection = this.getCollection('users');
-    //     if (!usersCollection) {
-    //         throw new Error('Users collection is undefined');
-    //     }
-    //     return usersCollection;
-    // }
+    get classesCollection() {
+        const classesCollection = this.getCollection('classes');
+        if (!classesCollection) {
+            throw new Error('Classes collection is undefined');
+        }
+        return classesCollection;
+    }
+    get usersCollection() {
+        const usersCollection = this.getCollection('users');
+        if (!usersCollection) {
+            throw new Error('Users collection is undefined');
+        }
+        return usersCollection;
+    }
     // get teachersCollection(): Collection {
     //     const teachersCollection = this.getCollection('teachers');
     //     if (!teachersCollection) {
@@ -62,6 +62,12 @@ class MongoDbProvider {
     }
     async closeAsync() {
         await this.mongoClient.close();
+    }
+    getCollection(collectionName) {
+        if (!this.database) {
+            throw new Error('Database is undefined.');
+        }
+        return this.database.collection(collectionName);
     }
 }
 exports.MongoDbProvider = MongoDbProvider;

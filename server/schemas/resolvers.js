@@ -5,17 +5,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.resolvers = void 0;
 const graphql_scalars_1 = require("graphql-scalars");
-// import { CastVote, LoginInput, UserSignUpInput, TakeAction, TeacherSignUpInput, Teacher, CreateClassInput, ClassDbObject, TeacherDbObject, UserDbObject, VoteDbObject } from '../graphql-codegen-typings'
 const mongodb_1 = require("mongodb");
-// import { mongoDbProvider } from '../config/mongodb.provider'
-// import jwt from 'jsonwebtoken'
-// import bcrypt from 'bcrypt'
+const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const apollo_server_core_1 = require("apollo-server-core");
 const User_1 = __importDefault(require("../models/User"));
 const Class_1 = __importDefault(require("../models/Class"));
 const Vote_1 = __importDefault(require("../models/Vote"));
 const Action_1 = __importDefault(require("../models/Action"));
+const mongodb_provider_1 = require("../config/mongodb.provider");
 const { signToken } = require('../utils/auth');
+const bcrypt_1 = __importDefault(require("bcrypt"));
 exports.resolvers = {
     DateTime: graphql_scalars_1.DateTimeResolver,
     Query: {
@@ -40,8 +39,8 @@ exports.resolvers = {
         },
     },
     Mutation: {
-        signUp: async (parent, args) => {
-            const user = await User_1.default.create(args);
+        signUp: async (parent, { input }) => {
+            const user = await mongodb_provider_1.mongoDbProvider.usersCollection.insertOne(Object.assign({}, input));
             const token = signToken(user);
             return { token, user };
         },
@@ -67,18 +66,32 @@ exports.resolvers = {
             throw new apollo_server_core_1.AuthenticationError('Not an Educator In');
         },
         joinClass: async (parent, classCode, context) => {
-            if (context.user) {
-                const joinedClass = await Class_1.default.findOne({ class_code: classCode });
-                return await User_1.default.findByIdAndUpdate(context.user._id, { $push: { class: joinedClass } });
+            const user_jwt = context.headers.authorization;
+            if (user_jwt) {
+                const secret = 'secret';
+                const expiration = '2h';
+                const user = jsonwebtoken_1.default.verify(user_jwt, secret, { maxAge: expiration });
+                const class_code = classCode.classCode;
+                const joinedClass = await mongodb_provider_1.mongoDbProvider.classesCollection.findOne({ class_code: class_code });
+                const updatedClass = await mongodb_provider_1.mongoDbProvider.classesCollection.updateOne({ class_code: class_code }, { $addToSet: { learners: user.data } });
+                const updatedUser = await mongodb_provider_1.mongoDbProvider.usersCollection.updateOne({ _id: new mongodb_1.ObjectId(user.data._id) }, { $addToSet: { class: joinedClass } });
+                if (updatedUser.modifiedCount === 1 || updatedClass.modifiedCount === 1) {
+                    return joinedClass;
+                }
+                else {
+                    throw new Error("Already joined Class");
+                }
             }
             throw new apollo_server_core_1.AuthenticationError('Not Logged In');
         },
-        login: async (parent, { email, password }) => {
-            const user = await User_1.default.findOne({ email });
+        login: async (parent, { input }) => {
+            const username = input.username;
+            const email = input.email;
+            const user = await mongodb_provider_1.mongoDbProvider.usersCollection.findOne({ $or: [{ email: email }, { username: username }] });
             if (!user) {
                 throw new apollo_server_core_1.AuthenticationError('Incorrect Credentials');
             }
-            const correctPW = await user.isCorrectPassword(password);
+            const correctPW = input.password ? await bcrypt_1.default.compare(input.password, user === null || user === void 0 ? void 0 : user.password) : '';
             if (!correctPW) {
                 throw new apollo_server_core_1.AuthenticationError('Incorrect Password');
             }

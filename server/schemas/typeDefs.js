@@ -8,7 +8,7 @@ scalar JWT
 scalar EmailAddress
 
 type User {
-    id: ID!
+    _id: ID
     first_name: String! 
     last_name: String! 
     username: String! 
@@ -20,7 +20,7 @@ type User {
 }
 
 type Vote {
-    id: ID! 
+    _id: ID 
     voter: User! 
     budget: [Dept]! 
     class: Class 
@@ -28,7 +28,7 @@ type Vote {
 }
 
 type Action {
-    id: ID!
+    _id: ID
     user: User!
     name: String! 
     detail: String! 
@@ -45,11 +45,11 @@ type Dept{
 }
 
 type Class{
-    id: ID!
-    classCode: String! 
-    learners: [ID] 
+    _id: ID
+    class_code: String! 
+    learners: [User] 
     votes: [ID] 
-    educaotr: ID! 
+    educator: ID! 
     createdAt: DateTime
 }
 
@@ -85,10 +85,13 @@ input TakeAction {
 
 input LoginInput {
     email: EmailAddress,
+    username: String,
     password: String
 }
 
 input UserSignUpInput {
+    first_name: String,
+    last_name: String,
     email: EmailAddress,
     username: String,
     password: String
