@@ -102,7 +102,7 @@ exports.resolvers = {
                     const createdClass = await mongodb_provider_1.mongoDbProvider.classesCollection.insertOne(Object.assign(Object.assign({}, input), { educator: educator, learners: [], votes: [], createdAt: Date.now }));
                     const updatedEducator = await mongodb_provider_1.mongoDbProvider.usersCollection.updateOne({ _id: new mongodb_1.ObjectId(user.data._id) }, {
                         $addToSet: {
-                            classes: createdClass.insertedId
+                            classes: Object.assign(Object.assign({}, input), { educator: educator, learners: [], votes: [], createdAt: Date.now })
                         }
                     }, { upsert: true });
                     return createdClass.insertedId;
@@ -126,7 +126,7 @@ exports.resolvers = {
                 });
                 const updatedUser = await mongodb_provider_1.mongoDbProvider.usersCollection.updateOne({ _id: new mongodb_1.ObjectId(user.data._id) }, {
                     $addToSet: {
-                        classes: joinedClass
+                        classes: joinedClass === null || joinedClass === void 0 ? void 0 : joinedClass._id
                     }
                 }, { upsert: true });
                 console.log(joinedClass);

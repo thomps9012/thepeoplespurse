@@ -126,7 +126,13 @@ export const resolvers = {
                         { _id: new ObjectId(user.data._id) },
                         {
                             $addToSet: {
-                                classes: createdClass.insertedId
+                                classes: {
+                                    ...input,
+                                    educator: educator,
+                                    learners: [],
+                                    votes: [],
+                                    createdAt: Date.now
+                                }
                             }
                         },
                         { upsert: true }
@@ -157,7 +163,7 @@ export const resolvers = {
                     { _id: new ObjectId(user.data._id) },
                     {
                         $addToSet: {
-                            classes: joinedClass
+                            classes: joinedClass?._id
                         }
                     },
                     { upsert: true }
