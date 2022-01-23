@@ -68,8 +68,6 @@ export const resolvers = {
                             }
                         }
                     )
-                    console.log(vote)
-                    console.log(updatedClass)
                     return vote.insertedId
                 } else {
                     return vote.insertedId
@@ -97,7 +95,6 @@ export const resolvers = {
                     }, { upsert: true }
                 )
                 if (action.acknowledged && updatedUser.acknowledged) {
-                    console.log(action.insertedId)
                     return action.insertedId
                 } else {
                     throw new AuthenticationError('Action Invalid')
@@ -166,7 +163,6 @@ export const resolvers = {
                     },
                     { upsert: true }
                 );
-                console.log(joinedClass)
                 if (updatedUser.modifiedCount === 1 || updatedClass.modifiedCount === 1) {
                     return joinedClass
                 } else {
