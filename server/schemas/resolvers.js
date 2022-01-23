@@ -50,14 +50,17 @@ exports.resolvers = {
                 const secret = 'secret';
                 const expiration = '2h';
                 const user = jsonwebtoken_1.default.verify(user_jwt, secret, { maxAge: expiration });
-                const voter = await mongodb_provider_1.mongoDbProvider.usersCollection.findOne({ _id: new mongodb_1.ObjectId(user.data._id) });
-                const vote = await mongodb_provider_1.mongoDbProvider.votesCollection.insertOne(Object.assign(Object.assign({}, input), { voter: voter }));
-                console.log(voter);
+                const userId = user.data._id;
+                const voter = await mongodb_provider_1.mongoDbProvider.usersCollection.findOne({ _id: new mongodb_1.ObjectId(userId) });
+                const vote = await mongodb_provider_1.mongoDbProvider.votesCollection.insertOne(Object.assign(Object.assign({}, input), { voter: voter, created_at: Date.now() }));
                 if (input.class_code) {
-                    console.log(input.class_code);
-                    console.log(voter);
-                    const updatedClass = await mongodb_provider_1.mongoDbProvider.classesCollection.updateOne({ class_code: input.class_code }, { $addToSet: { learners: voter, votes: vote.insertedId } });
-                    console.log(vote, updatedClass);
+                    const updatedClass = await mongodb_provider_1.mongoDbProvider.classesCollection.updateOne({ class_code: input.class_code }, {
+                        $addToSet: {
+                            votes: vote.insertedId
+                        }
+                    });
+                    console.log(vote);
+                    console.log(updatedClass);
                     return vote.insertedId;
                 }
                 else {
@@ -73,7 +76,11 @@ exports.resolvers = {
                 const expiration = '2h';
                 const user = jsonwebtoken_1.default.verify(user_jwt, secret, { maxAge: expiration });
                 const action = await mongodb_provider_1.mongoDbProvider.actionsCollection.insertOne(Object.assign(Object.assign({}, input), { user: user.data._id }));
-                const updatedUser = await mongodb_provider_1.mongoDbProvider.usersCollection.updateOne({ _id: new mongodb_1.ObjectId(user.data._id) }, { $push: { actions: Object.assign({}, input), upsert: true } });
+                const updatedUser = await mongodb_provider_1.mongoDbProvider.usersCollection.updateOne({ _id: new mongodb_1.ObjectId(user.data._id) }, {
+                    $addToSet: {
+                        actions: Object.assign({}, input)
+                    }
+                }, { upsert: true });
                 if (action.acknowledged && updatedUser.acknowledged) {
                     console.log(action.insertedId);
                     return action.insertedId;
@@ -93,6 +100,11 @@ exports.resolvers = {
                 const educator = await mongodb_provider_1.mongoDbProvider.usersCollection.findOne({ _id: new mongodb_1.ObjectId(user.data._id) });
                 if (educator === null || educator === void 0 ? void 0 : educator.educator) {
                     const createdClass = await mongodb_provider_1.mongoDbProvider.classesCollection.insertOne(Object.assign(Object.assign({}, input), { educator: educator, learners: [], votes: [], createdAt: Date.now }));
+                    const updatedEducator = await mongodb_provider_1.mongoDbProvider.usersCollection.updateOne({ _id: new mongodb_1.ObjectId(user.data._id) }, {
+                        $addToSet: {
+                            classes: createdClass.insertedId
+                        }
+                    }, { upsert: true });
                     return createdClass.insertedId;
                 }
                 throw new apollo_server_core_1.AuthenticationError('Not an Educator');
