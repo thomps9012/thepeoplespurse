@@ -7,7 +7,7 @@ import Class from '../models/Class';
 import Vote from '../models/Vote';
 import Action from '../models/Action';
 import { ObjectIdLike } from 'bson'
-import { UserLoginInput, UserSignUpInput, ActionInput } from '../types/inputTypes';
+import { UserLoginInput, UserSignUpInput, ActionInput, VoteInput } from '../types/inputTypes';
 import { mongoDbProvider } from '../config/mongodb.provider';
 const { signToken } = require('../utils/auth');
 import bcrypt from 'bcrypt'
@@ -45,10 +45,27 @@ export const resolvers = {
             const token = signToken(user);
             return { token, user };
         },
-        castVote: async (parent: any, args: any, context: { user: any }) => {
-            if (context.user) {
-                const vote = await Vote.create(args);
-                return vote;
+        castVote: async (parent: any, { input }: { input: VoteInput }, context: any) => {
+            const user_jwt = context.headers.authorization;
+            if (user_jwt) {
+                const secret = 'secret';
+                const expiration = '2h';
+                const user: any = jwt.verify(user_jwt, secret, { maxAge: expiration })
+                const voter = await mongoDbProvider.usersCollection.findOne({ _id: new ObjectId(user.data._id) })
+                const vote = await mongoDbProvider.votesCollection.insertOne({
+                    ...input,
+                    voter: voter
+                })
+                if (input.class_code) {
+                    const updatedClass = await mongoDbProvider.classesCollection.updateOne(
+                        { class_code: input.class_code },
+                        { $addToSet: { learners: voter, votes: input }, upsert: true }
+                    )
+                    console.log(vote, updatedClass)
+                    return { vote, updatedClass }
+                }
+                console.log(vote)
+                return vote
             }
             throw new AuthenticationError('Not Logged In');
         },
@@ -66,7 +83,7 @@ export const resolvers = {
                     { _id: new ObjectId(user.data._id) },
                     { $push: { actions: { ...input }, upsert: true } }
                 )
-                if(action.acknowledged && updatedUser.acknowledged){
+                if (action.acknowledged && updatedUser.acknowledged) {
                     console.log(action.insertedId)
                     return action.insertedId
                 } else {

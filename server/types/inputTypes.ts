@@ -31,3 +31,14 @@ export type ActionInput = {
     affiliated_org: String;
     contact: String;
 }
+
+export type VoteInput = {
+    class_code: String;
+    budget: [
+        {
+            code: String;
+            name: String;
+            percent: Number;
+        }
+    ]
+}

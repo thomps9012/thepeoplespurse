@@ -13,14 +13,14 @@ export class MongoDbProvider {
             );
     }
 
-    // get votesCollection(): Collection {
-    //     const votesCollection = this.getCollection('votes');
+    get votesCollection(): Collection {
+        const votesCollection = this.getCollection('votes');
 
-    //     if (!votesCollection) {
-    //         throw new Error('Votes collection is undefined');
-    //     }
-    //     return votesCollection;
-    // }
+        if (!votesCollection) {
+            throw new Error('Votes collection is undefined');
+        }
+        return votesCollection;
+    }
 
     get classesCollection(): Collection {
         const classesCollection = this.getCollection('classes');
