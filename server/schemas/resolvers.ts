@@ -137,16 +137,32 @@ export const resolvers = {
             }
             throw new AuthenticationError('Not Logged In');
         },
-        joinClass: async (parent: any, classCode: any, context: any) => {
+        joinClass: async (parent: any, class_code: any, context: any) => {
             const user_jwt = context.headers.authorization;
             if (user_jwt) {
                 const secret = 'secret';
                 const expiration = '2h';
                 const user: any = jwt.verify(user_jwt, secret, { maxAge: expiration })
-                const class_code = classCode.classCode
-                const joinedClass = await mongoDbProvider.classesCollection.findOne({ class_code: class_code });
-                const updatedClass = await mongoDbProvider.classesCollection.updateOne({ class_code: class_code }, { $addToSet: { learners: user.data }, upsert: true });
-                const updatedUser = await mongoDbProvider.usersCollection.updateOne({ _id: new ObjectId(user.data._id) }, { $addToSet: { class: joinedClass }, upsert: true });
+                const classCode = class_code.class_code
+                const joinedClass = await mongoDbProvider.classesCollection.findOne({ class_code: classCode });
+                const updatedClass = await mongoDbProvider.classesCollection.updateOne(
+                    { class_code: classCode },
+                    {
+                        $addToSet: {
+                            learners: new ObjectId(user.data._id)
+                        }
+                    }
+                );
+                const updatedUser = await mongoDbProvider.usersCollection.updateOne(
+                    { _id: new ObjectId(user.data._id) },
+                    {
+                        $addToSet: {
+                            classes: joinedClass
+                        }
+                    },
+                    { upsert: true }
+                );
+                console.log(joinedClass)
                 if (updatedUser.modifiedCount === 1 || updatedClass.modifiedCount === 1) {
                     return joinedClass
                 } else {

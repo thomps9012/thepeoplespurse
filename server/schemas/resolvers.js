@@ -111,16 +111,25 @@ exports.resolvers = {
             }
             throw new apollo_server_core_1.AuthenticationError('Not Logged In');
         },
-        joinClass: async (parent, classCode, context) => {
+        joinClass: async (parent, class_code, context) => {
             const user_jwt = context.headers.authorization;
             if (user_jwt) {
                 const secret = 'secret';
                 const expiration = '2h';
                 const user = jsonwebtoken_1.default.verify(user_jwt, secret, { maxAge: expiration });
-                const class_code = classCode.classCode;
-                const joinedClass = await mongodb_provider_1.mongoDbProvider.classesCollection.findOne({ class_code: class_code });
-                const updatedClass = await mongodb_provider_1.mongoDbProvider.classesCollection.updateOne({ class_code: class_code }, { $addToSet: { learners: user.data }, upsert: true });
-                const updatedUser = await mongodb_provider_1.mongoDbProvider.usersCollection.updateOne({ _id: new mongodb_1.ObjectId(user.data._id) }, { $addToSet: { class: joinedClass }, upsert: true });
+                const classCode = class_code.class_code;
+                const joinedClass = await mongodb_provider_1.mongoDbProvider.classesCollection.findOne({ class_code: classCode });
+                const updatedClass = await mongodb_provider_1.mongoDbProvider.classesCollection.updateOne({ class_code: classCode }, {
+                    $addToSet: {
+                        learners: new mongodb_1.ObjectId(user.data._id)
+                    }
+                });
+                const updatedUser = await mongodb_provider_1.mongoDbProvider.usersCollection.updateOne({ _id: new mongodb_1.ObjectId(user.data._id) }, {
+                    $addToSet: {
+                        classes: joinedClass
+                    }
+                }, { upsert: true });
+                console.log(joinedClass);
                 if (updatedUser.modifiedCount === 1 || updatedClass.modifiedCount === 1) {
                     return joinedClass;
                 }

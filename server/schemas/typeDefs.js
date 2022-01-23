@@ -110,8 +110,8 @@ type Mutation {
     signUp(input: UserSignUpInput!): Auth 
     castVote(input: CastVote!): ID
     takeAction(input: TakeAction!): ID
-    createClass(classCode: String!): ID
-    joinClass(classCode: String!): Class 
+    createClass(class_code: String!): ID
+    joinClass(class_code: String!): Class 
     login(input: LoginInput!): Auth
 }
 `;
