@@ -22,7 +22,6 @@ export const resolvers = {
                 throw new AuthenticationError('Not Logged In')
             }
         },
-        // need to do some modification here
         classActions: async (parent: any, args: any, context: any) => {
             const user_jwt = context.headers.authorization;
             if (user_jwt) {
