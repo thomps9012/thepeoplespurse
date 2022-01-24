@@ -15,10 +15,29 @@ import bcrypt from 'bcrypt'
 export const resolvers = {
     DateTime: DateTimeResolver,
     Query: {
-        getUser: async (obj: any, { id }: { id: string }) => { return await User.findOne({ _id: new ObjectId(id) }); },
-        userActions: async (parent: any, args: any, context: { user: { _id: string | number | Buffer | ObjectId | ObjectIdLike | undefined } }) => {
-            if (context.user) {
-                return await Action.find({ user: new ObjectId(context.user._id) });
+        getUser: async (obj: any, args: any, context: any) => {
+            const user_jwt = context.headers.authorization;
+            if (user_jwt) {
+                const secret = 'secret';
+                const expiration = '2h';
+                const user: any = jwt.verify(user_jwt, secret, { maxAge: expiration })
+                const userId = user.data._id;
+                return await mongoDbProvider.usersCollection.findOne({ _id: new ObjectId(userId) });
+            } else {
+                throw new AuthenticationError('Not Logged In')
+            }
+        },
+
+        classActions: async (parent: any, args: any, context: any) => {
+            const user_jwt = context.headers.authorization;
+            if (user_jwt) {
+                const secret = 'secret';
+                const expiration = '2h';
+                const user: any = jwt.verify(user_jwt, secret, { maxAge: expiration })
+                const userId = user.data._id;
+                return await mongoDbProvider.actionsCollection.find({ user: new ObjectId(userId) });
+            } else {
+                throw new AuthenticationError('Not Logged In')
             }
         },
         classVotes: async (obj: any, { classID }: { classID: string }) => {
@@ -46,7 +65,6 @@ export const resolvers = {
                 classes: [],
                 actions: []
             })
-            console.log(user.insertedId)
             let payload = {
                 email: input.email,
                 username: input.username,
@@ -54,7 +72,6 @@ export const resolvers = {
                 educator: false
 
             }
-            console.log(payload)
             const token = await signToken(payload);
             return { token, user };
         },
@@ -121,11 +138,10 @@ export const resolvers = {
                 const secret = 'secret';
                 const expiration = '2h';
                 const user: any = jwt.verify(user_jwt, secret, { maxAge: expiration })
-                const educator = await mongoDbProvider.usersCollection.findOne({ _id: new ObjectId(user.data._id) })
-                if (educator?.educator) {
+                if (user.data.educator) {
                     const createdClass = await mongoDbProvider.classesCollection.insertOne({
                         ...input,
-                        educator: educator,
+                        educator: new ObjectId(user.data._id),
                         learners: [],
                         votes: [],
                         createdAt: Date.now
@@ -136,7 +152,7 @@ export const resolvers = {
                             $addToSet: {
                                 classes: {
                                     ...input,
-                                    educator: educator,
+                                    educator: new ObjectId(user.data._id),
                                     learners: [],
                                     votes: [],
                                     createdAt: Date.now

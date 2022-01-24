@@ -8,20 +8,38 @@ const graphql_scalars_1 = require("graphql-scalars");
 const mongodb_1 = require("mongodb");
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const apollo_server_core_1 = require("apollo-server-core");
-const User_1 = __importDefault(require("../models/User"));
 const Class_1 = __importDefault(require("../models/Class"));
 const Vote_1 = __importDefault(require("../models/Vote"));
-const Action_1 = __importDefault(require("../models/Action"));
 const mongodb_provider_1 = require("../config/mongodb.provider");
 const { signToken } = require('../utils/auth');
 const bcrypt_1 = __importDefault(require("bcrypt"));
 exports.resolvers = {
     DateTime: graphql_scalars_1.DateTimeResolver,
     Query: {
-        getUser: async (obj, { id }) => { return await User_1.default.findOne({ _id: new mongodb_1.ObjectId(id) }); },
-        userActions: async (parent, args, context) => {
-            if (context.user) {
-                return await Action_1.default.find({ user: new mongodb_1.ObjectId(context.user._id) });
+        getUser: async (obj, args, context) => {
+            const user_jwt = context.headers.authorization;
+            if (user_jwt) {
+                const secret = 'secret';
+                const expiration = '2h';
+                const user = jsonwebtoken_1.default.verify(user_jwt, secret, { maxAge: expiration });
+                const userId = user.data._id;
+                return await mongodb_provider_1.mongoDbProvider.usersCollection.findOne({ _id: new mongodb_1.ObjectId(userId) });
+            }
+            else {
+                throw new apollo_server_core_1.AuthenticationError('Not Logged In');
+            }
+        },
+        classActions: async (parent, args, context) => {
+            const user_jwt = context.headers.authorization;
+            if (user_jwt) {
+                const secret = 'secret';
+                const expiration = '2h';
+                const user = jsonwebtoken_1.default.verify(user_jwt, secret, { maxAge: expiration });
+                const userId = user.data._id;
+                return await mongodb_provider_1.mongoDbProvider.actionsCollection.find({ user: new mongodb_1.ObjectId(userId) });
+            }
+            else {
+                throw new apollo_server_core_1.AuthenticationError('Not Logged In');
             }
         },
         classVotes: async (obj, { classID }) => {
@@ -41,14 +59,12 @@ exports.resolvers = {
     Mutation: {
         signUp: async (parent, { input }) => {
             const user = await mongodb_provider_1.mongoDbProvider.usersCollection.insertOne(Object.assign(Object.assign({}, input), { password: await bcrypt_1.default.hash(input.password, 10), educator: false, classes: [], actions: [] }));
-            console.log(user.insertedId);
             let payload = {
                 email: input.email,
                 username: input.username,
                 _id: user.insertedId,
                 educator: false
             };
-            console.log(payload);
             const token = await signToken(payload);
             return { token, user };
         },
@@ -101,12 +117,12 @@ exports.resolvers = {
                 const secret = 'secret';
                 const expiration = '2h';
                 const user = jsonwebtoken_1.default.verify(user_jwt, secret, { maxAge: expiration });
-                const educator = await mongodb_provider_1.mongoDbProvider.usersCollection.findOne({ _id: new mongodb_1.ObjectId(user.data._id) });
-                if (educator === null || educator === void 0 ? void 0 : educator.educator) {
-                    const createdClass = await mongodb_provider_1.mongoDbProvider.classesCollection.insertOne(Object.assign(Object.assign({}, input), { educator: educator, learners: [], votes: [], createdAt: Date.now }));
+                // const educator = await mongoDbProvider.usersCollection.findOne({ _id: new ObjectId(user.data._id) })
+                if (user.data.educator) {
+                    const createdClass = await mongodb_provider_1.mongoDbProvider.classesCollection.insertOne(Object.assign(Object.assign({}, input), { educator: new mongodb_1.ObjectId(user.data._id), learners: [], votes: [], createdAt: Date.now }));
                     const updatedEducator = await mongodb_provider_1.mongoDbProvider.usersCollection.updateOne({ _id: new mongodb_1.ObjectId(user.data._id) }, {
                         $addToSet: {
-                            classes: Object.assign(Object.assign({}, input), { educator: educator, learners: [], votes: [], createdAt: Date.now })
+                            classes: Object.assign(Object.assign({}, input), { educator: new mongodb_1.ObjectId(user.data._id), learners: [], votes: [], createdAt: Date.now })
                         }
                     }, { upsert: true });
                     return createdClass.insertedId;

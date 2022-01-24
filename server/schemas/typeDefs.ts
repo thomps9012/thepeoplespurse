@@ -53,7 +53,7 @@ type Class{
 
 type Query {
     getUser(id: ID!): User
-    userActions(user: ID!): [Action]
+    classActions(classID: ID!): [Action]
     classVotes(classID: ID!): [Vote]
     allVotes: [Vote]
     classInfo(classID: ID!): Class
