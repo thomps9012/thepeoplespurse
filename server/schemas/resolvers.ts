@@ -46,7 +46,16 @@ export const resolvers = {
                 classes: [],
                 actions: []
             })
-            const token = signToken(user);
+            console.log(user.insertedId)
+            let payload = {
+                email: input.email,
+                username: input.username,
+                _id: user.insertedId,
+                educator: false
+
+            }
+            console.log(payload)
+            const token = await signToken(payload);
             return { token, user };
         },
         castVote: async (parent: any, { input }: { input: VoteInput }, context: any) => {

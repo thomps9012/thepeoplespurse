@@ -41,7 +41,15 @@ exports.resolvers = {
     Mutation: {
         signUp: async (parent, { input }) => {
             const user = await mongodb_provider_1.mongoDbProvider.usersCollection.insertOne(Object.assign(Object.assign({}, input), { password: await bcrypt_1.default.hash(input.password, 10), educator: false, classes: [], actions: [] }));
-            const token = signToken(user);
+            console.log(user.insertedId);
+            let payload = {
+                email: input.email,
+                username: input.username,
+                _id: user.insertedId,
+                educator: false
+            };
+            console.log(payload);
+            const token = await signToken(payload);
             return { token, user };
         },
         castVote: async (parent, { input }, context) => {
