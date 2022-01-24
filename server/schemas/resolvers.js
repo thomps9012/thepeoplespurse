@@ -40,7 +40,7 @@ exports.resolvers = {
     },
     Mutation: {
         signUp: async (parent, { input }) => {
-            const user = await mongodb_provider_1.mongoDbProvider.usersCollection.insertOne(Object.assign({}, input));
+            const user = await mongodb_provider_1.mongoDbProvider.usersCollection.insertOne(Object.assign(Object.assign({}, input), { password: await bcrypt_1.default.hash(input.password, 10), educator: false, classes: [], actions: [] }));
             const token = signToken(user);
             return { token, user };
         },
@@ -58,8 +58,6 @@ exports.resolvers = {
                             votes: vote.insertedId
                         }
                     });
-                    console.log(vote);
-                    console.log(updatedClass);
                     return vote.insertedId;
                 }
                 else {
@@ -81,7 +79,6 @@ exports.resolvers = {
                     }
                 }, { upsert: true });
                 if (action.acknowledged && updatedUser.acknowledged) {
-                    console.log(action.insertedId);
                     return action.insertedId;
                 }
                 else {
@@ -128,7 +125,6 @@ exports.resolvers = {
                         classes: joinedClass === null || joinedClass === void 0 ? void 0 : joinedClass._id
                     }
                 }, { upsert: true });
-                console.log(joinedClass);
                 if (updatedUser.modifiedCount === 1 || updatedClass.modifiedCount === 1) {
                     return joinedClass;
                 }

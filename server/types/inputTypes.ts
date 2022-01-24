@@ -1,5 +1,3 @@
-import { ObjectId } from "mongodb"
-
 export type UserSignUpInput = {
     first_name: String;
     last_name: String;
@@ -8,7 +6,7 @@ export type UserSignUpInput = {
         match: ['/[a-z\A-Z\d]+([\.\_]?[a-z\A-Z\d]+)+@[a-z\A-Z\d]+(\.[a-z]+)+/']
     };
     username: String;
-    password: String;
+    password: string;
 }
 
 export type UserLoginInput = {

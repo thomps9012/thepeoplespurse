@@ -24,8 +24,8 @@ module.exports = {
         }
         return req;
     },
-    signToken: ({ email, username, _id }) => {
-        const payload = { email, username, _id };
+    signToken: ({ email, username, _id, educator }) => {
+        const payload = { email, username, _id, educator };
         return jsonwebtoken_1.default.sign({ data: payload }, secret, { expiresIn: expiration });
     },
 };

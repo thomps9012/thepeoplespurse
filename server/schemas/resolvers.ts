@@ -40,7 +40,11 @@ export const resolvers = {
     Mutation: {
         signUp: async (parent: any, { input }: { input: UserSignUpInput }) => {
             const user = await mongoDbProvider.usersCollection.insertOne({
-                ...input
+                ...input,
+                password: await bcrypt.hash(input.password, 10),
+                educator: false,
+                classes: [],
+                actions: []
             })
             const token = signToken(user);
             return { token, user };
