@@ -8,8 +8,6 @@ const graphql_scalars_1 = require("graphql-scalars");
 const mongodb_1 = require("mongodb");
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const apollo_server_core_1 = require("apollo-server-core");
-const Class_1 = __importDefault(require("../models/Class"));
-const Vote_1 = __importDefault(require("../models/Vote"));
 const mongodb_provider_1 = require("../config/mongodb.provider");
 const { signToken } = require('../utils/auth');
 const bcrypt_1 = __importDefault(require("bcrypt"));
@@ -29,31 +27,53 @@ exports.resolvers = {
                 throw new apollo_server_core_1.AuthenticationError('Not Logged In');
             }
         },
-        classActions: async (parent, args, context) => {
+        classActions: async (parent, classID, context) => {
             const user_jwt = context.headers.authorization;
             if (user_jwt) {
                 const secret = 'secret';
                 const expiration = '2h';
                 const user = jsonwebtoken_1.default.verify(user_jwt, secret, { maxAge: expiration });
                 const userId = user.data._id;
-                return await mongodb_provider_1.mongoDbProvider.actionsCollection.find({ user: new mongodb_1.ObjectId(userId) });
+                return mongodb_provider_1.mongoDbProvider.classesCollection.find({ educator: new mongodb_1.ObjectId(userId), _id: new mongodb_1.ObjectId(classID) });
             }
             else {
                 throw new apollo_server_core_1.AuthenticationError('Not Logged In');
             }
         },
         classVotes: async (obj, { classID }) => {
-            // return await Class.find({ _id: new ObjectId(classID) }).populate('votes');
-            return await Vote_1.default.find({ class: new mongodb_1.ObjectId(classID) });
+            const projection = { votes: 1 };
+            const classVotes = await mongodb_provider_1.mongoDbProvider.classesCollection.find({ _id: new mongodb_1.ObjectId(classID) }).project(projection).toArray();
+            let voteIDs = classVotes[0].votes;
+            let voteArr = [];
+            for (const item in voteIDs) {
+                const singleVote = await mongodb_provider_1.mongoDbProvider.votesCollection.findOne({ _id: voteIDs[item] });
+                voteArr.push(singleVote);
+            }
+            return voteArr;
         },
         allVotes: async (obj) => {
-            return await Vote_1.default.find({});
+            return mongodb_provider_1.mongoDbProvider.votesCollection.find({}).toArray();
         },
         classInfo: async (obj, { classID }) => {
-            return await Class_1.default.findOne({ _id: new mongodb_1.ObjectId(classID) }).populate('learners');
+            return await mongodb_provider_1.mongoDbProvider.classesCollection.findOne({ _id: new mongodb_1.ObjectId(classID) });
         },
-        classes: async (obj, { teacherID }) => {
-            return await Class_1.default.find({ educator: new mongodb_1.ObjectId(teacherID) });
+        classes: async (obj, args, context) => {
+            const user_jwt = context.headers.authorization;
+            if (user_jwt) {
+                const secret = 'secret';
+                const expiration = '2h';
+                const user = jsonwebtoken_1.default.verify(user_jwt, secret, { maxAge: expiration });
+                const userId = user.data._id;
+                if (user.data.educator) {
+                    return mongodb_provider_1.mongoDbProvider.classesCollection.find({ educator: new mongodb_1.ObjectId(userId) });
+                }
+                else {
+                    throw new apollo_server_core_1.AuthenticationError('Not an Educator');
+                }
+            }
+            else {
+                throw new apollo_server_core_1.AuthenticationError('Not Logged In');
+            }
         },
     },
     Mutation: {
@@ -117,7 +137,6 @@ exports.resolvers = {
                 const secret = 'secret';
                 const expiration = '2h';
                 const user = jsonwebtoken_1.default.verify(user_jwt, secret, { maxAge: expiration });
-                // const educator = await mongoDbProvider.usersCollection.findOne({ _id: new ObjectId(user.data._id) })
                 if (user.data.educator) {
                     const createdClass = await mongodb_provider_1.mongoDbProvider.classesCollection.insertOne(Object.assign(Object.assign({}, input), { educator: new mongodb_1.ObjectId(user.data._id), learners: [], votes: [], createdAt: Date.now }));
                     const updatedEducator = await mongodb_provider_1.mongoDbProvider.usersCollection.updateOne({ _id: new mongodb_1.ObjectId(user.data._id) }, {

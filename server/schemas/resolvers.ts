@@ -2,11 +2,6 @@ import { DateTimeResolver } from 'graphql-scalars'
 import { ObjectId } from 'mongodb'
 import jwt from 'jsonwebtoken'
 import { AuthenticationError } from 'apollo-server-core'
-import User from '../models/User';
-import Class from '../models/Class';
-import Vote from '../models/Vote';
-import Action from '../models/Action';
-import { ObjectIdLike } from 'bson'
 import { UserLoginInput, UserSignUpInput, ActionInput, VoteInput } from '../types/inputTypes';
 import { mongoDbProvider } from '../config/mongodb.provider';
 const { signToken } = require('../utils/auth');
@@ -28,30 +23,51 @@ export const resolvers = {
             }
         },
 
-        classActions: async (parent: any, args: any, context: any) => {
+        classActions: async (parent: any, classID: any, context: any) => {
             const user_jwt = context.headers.authorization;
             if (user_jwt) {
                 const secret = 'secret';
                 const expiration = '2h';
                 const user: any = jwt.verify(user_jwt, secret, { maxAge: expiration })
                 const userId = user.data._id;
-                return await mongoDbProvider.actionsCollection.find({ user: new ObjectId(userId) });
+                return mongoDbProvider.classesCollection.find({ educator: new ObjectId(userId), _id: new ObjectId(classID) });
             } else {
                 throw new AuthenticationError('Not Logged In')
             }
         },
         classVotes: async (obj: any, { classID }: { classID: string }) => {
-            // return await Class.find({ _id: new ObjectId(classID) }).populate('votes');
-            return await Vote.find({ class: new ObjectId(classID) });
+            const projection = { votes: 1 }
+            const classVotes = await mongoDbProvider.classesCollection.find({ _id: new ObjectId(classID) }).project(projection).toArray();
+            let voteIDs = classVotes[0].votes
+            let voteArr = []
+            for (const item in voteIDs) {
+                const singleVote = await mongoDbProvider.votesCollection.findOne({_id: voteIDs[item]})
+                voteArr.push(singleVote)
+            }
+            return voteArr
         },
         allVotes: async (obj: any) => {
-            return await Vote.find({});
+            return mongoDbProvider.votesCollection.find({}).toArray();
         },
         classInfo: async (obj: any, { classID }: { classID: string }) => {
-            return await Class.findOne({ _id: new ObjectId(classID) }).populate('learners');
+            return await mongoDbProvider.classesCollection.findOne({ _id: new ObjectId(classID) });
         },
-        classes: async (obj: any, { teacherID }: { teacherID: string }) => {
-            return await Class.find({ educator: new ObjectId(teacherID) });
+        classes: async (obj: any, args: any, context: any) => {
+            const user_jwt = context.headers.authorization;
+            if (user_jwt) {
+                const secret = 'secret';
+                const expiration = '2h';
+                const user: any = jwt.verify(user_jwt, secret, { maxAge: expiration })
+                const userId = user.data._id;
+                if (user.data.educator) {
+                    return mongoDbProvider.classesCollection.find({ educator: new ObjectId(userId) });
+                }
+                else {
+                    throw new AuthenticationError('Not an Educator')
+                }
+            } else {
+                throw new AuthenticationError('Not Logged In')
+            }
         },
 
 
