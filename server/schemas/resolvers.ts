@@ -22,15 +22,27 @@ export const resolvers = {
                 throw new AuthenticationError('Not Logged In')
             }
         },
-
-        classActions: async (parent: any, classID: any, context: any) => {
+        // need to do some modification here
+        classActions: async (parent: any, args: any, context: any) => {
             const user_jwt = context.headers.authorization;
             if (user_jwt) {
                 const secret = 'secret';
                 const expiration = '2h';
                 const user: any = jwt.verify(user_jwt, secret, { maxAge: expiration })
                 const userId = user.data._id;
-                return mongoDbProvider.classesCollection.find({ educator: new ObjectId(userId), _id: new ObjectId(classID) });
+                if (user.data.educator) {
+                    const projection = { learners: 1 }
+                    const classInfo = await mongoDbProvider.classesCollection.find({ educator: new ObjectId(userId) }).project(projection).toArray();
+                    let learnerIDs = classInfo[0].learners
+                    let learnerArr = [];
+                    for (const item in learnerIDs) {
+                        const learner = await mongoDbProvider.usersCollection.findOne({ _id: learnerIDs[item] })
+                        learnerArr.push(learner)
+                    }
+                    return learnerArr
+                } else {
+                    throw new AuthenticationError('Not an Educator')
+                }
             } else {
                 throw new AuthenticationError('Not Logged In')
             }
@@ -41,7 +53,7 @@ export const resolvers = {
             let voteIDs = classVotes[0].votes
             let voteArr = []
             for (const item in voteIDs) {
-                const singleVote = await mongoDbProvider.votesCollection.findOne({_id: voteIDs[item]})
+                const singleVote = await mongoDbProvider.votesCollection.findOne({ _id: voteIDs[item] })
                 voteArr.push(singleVote)
             }
             return voteArr

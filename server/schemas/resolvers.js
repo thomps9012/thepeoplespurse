@@ -27,14 +27,28 @@ exports.resolvers = {
                 throw new apollo_server_core_1.AuthenticationError('Not Logged In');
             }
         },
-        classActions: async (parent, classID, context) => {
+        // need to do some modification here
+        classActions: async (parent, args, context) => {
             const user_jwt = context.headers.authorization;
             if (user_jwt) {
                 const secret = 'secret';
                 const expiration = '2h';
                 const user = jsonwebtoken_1.default.verify(user_jwt, secret, { maxAge: expiration });
                 const userId = user.data._id;
-                return mongodb_provider_1.mongoDbProvider.classesCollection.find({ educator: new mongodb_1.ObjectId(userId), _id: new mongodb_1.ObjectId(classID) });
+                if (user.data.educator) {
+                    const projection = { learners: 1 };
+                    const classInfo = await mongodb_provider_1.mongoDbProvider.classesCollection.find({ educator: new mongodb_1.ObjectId(userId) }).project(projection).toArray();
+                    let learnerIDs = classInfo[0].learners;
+                    let learnerArr = [];
+                    for (const item in learnerIDs) {
+                        const learner = await mongodb_provider_1.mongoDbProvider.usersCollection.findOne({ _id: learnerIDs[item] });
+                        learnerArr.push(learner);
+                    }
+                    return learnerArr;
+                }
+                else {
+                    throw new apollo_server_core_1.AuthenticationError('Not an Educator');
+                }
             }
             else {
                 throw new apollo_server_core_1.AuthenticationError('Not Logged In');

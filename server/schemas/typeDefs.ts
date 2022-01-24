@@ -52,12 +52,12 @@ type Class{
 }
 
 type Query {
-    getUser(id: ID!): User
-    classActions(classID: ID!): [Action]
+    getUser: User
+    classActions: [Action]
     classVotes(classID: ID!): [Vote]
     allVotes: [Vote]
     classInfo(classID: ID!): Class
-    classes(educator: ID!): [Class]
+    classes: [Class]
 }
 
 input DeptInput {
