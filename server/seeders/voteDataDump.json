@@ -1,0 +1,3094 @@
+[{
+  "_id": {
+    "$oid": "619be14921bb0ba5b4038f08"
+  },
+  "voter": {
+    "$oid": "6196aa0893ea3a5f2d1b0134"
+  },
+  "budget": [
+    {
+      "name": "Department of Agriculture",
+      "code": "1",
+      "percent": 1
+    },
+    {
+      "name": "Department of Defense",
+      "code": "2",
+      "percent": 1
+    },
+    {
+      "name": "Department of Energy",
+      "code": "3",
+      "percent": 1
+    },
+    {
+      "name": "Department of Education",
+      "code": "4",
+      "percent": 7
+    },
+    {
+      "name": "Department of Health and Human Services",
+      "code": "5",
+      "percent": 20
+    },
+    {
+      "name": "Department of the Interior",
+      "code": "6",
+      "percent": 1
+    },
+    {
+      "name": "Department of Labor",
+      "code": "7",
+      "percent": 10
+    },
+    {
+      "name": "Department of State",
+      "code": "8",
+      "percent": 10
+    },
+    {
+      "name": "Department of Transportation",
+      "code": "9",
+      "percent": 1
+    },
+    {
+      "name": "Department of Treasury",
+      "code": "10",
+      "percent": 1
+    },
+    {
+      "name": "Environmental Protection Agency",
+      "code": "11",
+      "percent": 1
+    },
+    {
+      "name": "Federal Communication Comission",
+      "code": "12",
+      "percent": 1
+    },
+    {
+      "name": "Federal Election Comission",
+      "code": "13",
+      "percent": 1
+    },
+    {
+      "name": "Federal Trade Comission",
+      "code": "14",
+      "percent": 1
+    },
+    {
+      "name": "Department of Housing and Urban Development",
+      "code": "15",
+      "percent": 10
+    },
+    {
+      "name": "Social Security Administration",
+      "code": "16",
+      "percent": 16
+    },
+    {
+      "name": "Department of Justice",
+      "code": "17",
+      "percent": 1
+    },
+    {
+      "name": "National Aeronautics and Space Administration",
+      "code": "18",
+      "percent": 1
+    },
+    {
+      "name": "Department of Veterans Affairs",
+      "code": "19",
+      "percent": 10
+    },
+    {
+      "name": "Equal Opportunity Employment Commission",
+      "code": "20",
+      "percent": 5
+    }
+  ],
+  "class": {
+    "$oid": "61aa7b735d956a25df5ae01f"
+  }
+},{
+  "_id": {
+    "$oid": "619be15021bb0ba5b4039125"
+  },
+  "voter": {
+    "$oid": "6196aa0893ea3a5f2d1b0134"
+  },
+  "budget": [
+    {
+      "name": "Department of Agriculture",
+      "code": "1",
+      "percent": 1
+    },
+    {
+      "name": "Department of Defense",
+      "code": "2",
+      "percent": 1
+    },
+    {
+      "name": "Department of Energy",
+      "code": "3",
+      "percent": 1
+    },
+    {
+      "name": "Department of Education",
+      "code": "4",
+      "percent": 7
+    },
+    {
+      "name": "Department of Health and Human Services",
+      "code": "5",
+      "percent": 20
+    },
+    {
+      "name": "Department of the Interior",
+      "code": "6",
+      "percent": 1
+    },
+    {
+      "name": "Department of Labor",
+      "code": "7",
+      "percent": 10
+    },
+    {
+      "name": "Department of State",
+      "code": "8",
+      "percent": 10
+    },
+    {
+      "name": "Department of Transportation",
+      "code": "9",
+      "percent": 1
+    },
+    {
+      "name": "Department of Treasury",
+      "code": "10",
+      "percent": 1
+    },
+    {
+      "name": "Environmental Protection Agency",
+      "code": "11",
+      "percent": 1
+    },
+    {
+      "name": "Federal Communication Comission",
+      "code": "12",
+      "percent": 1
+    },
+    {
+      "name": "Federal Election Comission",
+      "code": "13",
+      "percent": 1
+    },
+    {
+      "name": "Federal Trade Comission",
+      "code": "14",
+      "percent": 1
+    },
+    {
+      "name": "Department of Housing and Urban Development",
+      "code": "15",
+      "percent": 10
+    },
+    {
+      "name": "Social Security Administration",
+      "code": "16",
+      "percent": 16
+    },
+    {
+      "name": "Department of Justice",
+      "code": "17",
+      "percent": 1
+    },
+    {
+      "name": "National Aeronautics and Space Administration",
+      "code": "18",
+      "percent": 1
+    },
+    {
+      "name": "Department of Veterans Affairs",
+      "code": "19",
+      "percent": 10
+    },
+    {
+      "name": "Equal Opportunity Employment Commission",
+      "code": "20",
+      "percent": 5
+    }
+  ],
+  "class": {
+    "$oid": "61aa7b735d956a25df5ae01f"
+  }
+},{
+  "_id": {
+    "$oid": "619e9be7a641ad49b08d88a8"
+  },
+  "voter": {
+    "$oid": "6196aa0893ea3a5f2d1b0134"
+  },
+  "budget": [
+    {
+      "name": "Department of Agriculture",
+      "code": "1",
+      "percent": 1
+    },
+    {
+      "name": "Department of Defense",
+      "code": "2",
+      "percent": 1
+    },
+    {
+      "name": "Department of Energy",
+      "code": "3",
+      "percent": 1
+    },
+    {
+      "name": "Department of Education",
+      "code": "4",
+      "percent": 7
+    },
+    {
+      "name": "Department of Health and Human Services",
+      "code": "5",
+      "percent": 20
+    },
+    {
+      "name": "Department of the Interior",
+      "code": "6",
+      "percent": 1
+    },
+    {
+      "name": "Department of Labor",
+      "code": "7",
+      "percent": 10
+    },
+    {
+      "name": "Department of State",
+      "code": "8",
+      "percent": 10
+    },
+    {
+      "name": "Department of Transportation",
+      "code": "9",
+      "percent": 1
+    },
+    {
+      "name": "Department of Treasury",
+      "code": "10",
+      "percent": 1
+    },
+    {
+      "name": "Environmental Protection Agency",
+      "code": "11",
+      "percent": 1
+    },
+    {
+      "name": "Federal Communication Comission",
+      "code": "12",
+      "percent": 1
+    },
+    {
+      "name": "Federal Election Comission",
+      "code": "13",
+      "percent": 1
+    },
+    {
+      "name": "Federal Trade Comission",
+      "code": "14",
+      "percent": 1
+    },
+    {
+      "name": "Department of Housing and Urban Development",
+      "code": "15",
+      "percent": 10
+    },
+    {
+      "name": "Social Security Administration",
+      "code": "16",
+      "percent": 16
+    },
+    {
+      "name": "Department of Justice",
+      "code": "17",
+      "percent": 1
+    },
+    {
+      "name": "National Aeronautics and Space Administration",
+      "code": "18",
+      "percent": 1
+    },
+    {
+      "name": "Department of Veterans Affairs",
+      "code": "19",
+      "percent": 10
+    },
+    {
+      "name": "Equal Opportunity Employment Commission",
+      "code": "20",
+      "percent": 5
+    }
+  ],
+  "class": {
+    "$oid": "61aa7c36440c774f20a31317"
+  }
+},{
+  "_id": {
+    "$oid": "61aa8dbcb29228760f472656"
+  },
+  "voter": {
+    "$oid": "619bbbb85a03fa69ead66cad"
+  },
+  "budget": [
+    {
+      "name": "test",
+      "code": "1",
+      "percent": 10
+    }
+  ],
+  "class": {
+    "$oid": "61aa7c36440c774f20a31317"
+  }
+},{
+  "_id": {
+    "$oid": "61af793459f25ecdc0188208"
+  },
+  "voter": {
+    "$oid": "61af78f059f25ecdc0188207"
+  },
+  "budget": [
+    {
+      "name": "Department of Agriculture",
+      "code": "1",
+      "percent": 5
+    },
+    {
+      "name": "Department of Defense",
+      "code": "2",
+      "percent": 1
+    },
+    {
+      "name": "Department of Energy",
+      "code": "3",
+      "percent": 1
+    },
+    {
+      "name": "Department of Education",
+      "code": "4",
+      "percent": 21
+    },
+    {
+      "name": "Department of Health and Human Services",
+      "code": "5",
+      "percent": 10
+    },
+    {
+      "name": "Department of the Interior",
+      "code": "6",
+      "percent": 1
+    },
+    {
+      "name": "Department of Labor",
+      "code": "7",
+      "percent": 10
+    },
+    {
+      "name": "Department of State",
+      "code": "8",
+      "percent": 1
+    },
+    {
+      "name": "Department of Transportation",
+      "code": "9",
+      "percent": 10
+    },
+    {
+      "name": "Department of Treasury",
+      "code": "10",
+      "percent": 1
+    },
+    {
+      "name": "Environmental Protection Agency",
+      "code": "11",
+      "percent": 1
+    },
+    {
+      "name": "Federal Communication Comission",
+      "code": "12",
+      "percent": 1
+    },
+    {
+      "name": "Federal Election Comission",
+      "code": "13",
+      "percent": 1
+    },
+    {
+      "name": "Federal Trade Comission",
+      "code": "14",
+      "percent": 1
+    },
+    {
+      "name": "Department of Housing and Urban Development",
+      "code": "15",
+      "percent": 10
+    },
+    {
+      "name": "Social Security Administration",
+      "code": "16",
+      "percent": 5
+    },
+    {
+      "name": "Department of Justice",
+      "code": "17",
+      "percent": 1
+    },
+    {
+      "name": "National Aeronautics and Space Administration",
+      "code": "18",
+      "percent": 10
+    },
+    {
+      "name": "Department of Veterans Affairs",
+      "code": "19",
+      "percent": 1
+    },
+    {
+      "name": "Equal Opportunity Employment Commission",
+      "code": "20",
+      "percent": 8
+    }
+  ],
+  "class": {
+    "$oid": "61aa7c36440c774f20a31317"
+  }
+},{
+  "_id": {
+    "$oid": "61ed991b79f1054bb7de4921"
+  },
+  "budget": [
+    {
+      "name": "test",
+      "code": "test",
+      "percent": 1
+    },
+    {
+      "name": "test",
+      "code": "test",
+      "percent": 1
+    }
+  ],
+  "voter": {
+    "_id": {
+      "$oid": "6196aa0893ea3a5f2d1b0134"
+    },
+    "email": "test@test.com",
+    "username": "test",
+    "password": "$2b$10$xikpJp22UmDouSEmPypznOexaJzzvdU6jG4z0GUIvo7tzfxlM5EbG",
+    "actions": [
+      {
+        "name": "Awesome Action",
+        "detail": "Worked on building a community garden",
+        "organization": "Neighborhood Gardening Club",
+        "length": 1.5
+      },
+      {
+        "jwt": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwczovL2xvY2FsaG9zdDo0MDAwLyI6e30sImlhdCI6MTYzODI4NzIzMywiZXhwIjoxNjM4MzczNjMzLCJzdWIiOiJ0ZXN0In0.MCg6AUXa15KSJ9meCUbnaEiVPH69aLgWv9W2gC0ARhc",
+        "name": "recycling",
+        "detail": "went and recycled some trash from the cuyahoga valley national park",
+        "organization": "sierra nevada",
+        "actionDate": {
+          "$date": "2021-10-21T04:00:00Z"
+        },
+        "length": 3
+      },
+      {
+        "name": "test",
+        "detail": "awesome test over here",
+        "organization": "sierra nevada",
+        "length": 1.5,
+        "action_date": {
+          "$date": "2021-12-03T20:21:10.941Z"
+        },
+        "contact": "awesome counselor"
+      }
+    ],
+    "educator": true,
+    "classes": [
+      {
+        "_id": {
+          "$oid": "61aa7b735d956a25df5ae01f"
+        },
+        "teacher": {
+          "$oid": "61a9367059f1854613bc578e"
+        },
+        "users": [
+          {
+            "$oid": "61af78f059f25ecdc0188207"
+          }
+        ],
+        "votes": [
+          {
+            "$oid": "61af793459f25ecdc0188208"
+          }
+        ],
+        "createdAt": {
+          "$date": "2021-12-03T20:17:55.068Z"
+        },
+        "class_code": "1234Ab7"
+      },
+      {
+        "_id": {
+          "$oid": "61aa7c36440c774f20a31317"
+        },
+        "teacher": {
+          "$oid": "61a9367059f1854613bc578e"
+        },
+        "users": [
+          {
+            "$oid": "61aa7ef3248804a10f7bfee0"
+          },
+          {
+            "$oid": "6196aa0893ea3a5f2d1b0134"
+          }
+        ],
+        "votes": [
+          {
+            "$oid": "61aa8e5ec3dec82b94eec159"
+          }
+        ],
+        "createdAt": {
+          "$date": "2021-12-03T20:21:10.941Z"
+        },
+        "class_code": "1234Ab10"
+      },
+      {
+        "_id": {
+          "$oid": "61aa7b735d956a25df5ae01f"
+        },
+        "votes": [
+          {
+            "$oid": "61af793459f25ecdc0188208"
+          }
+        ],
+        "createdAt": {
+          "$date": "2021-12-03T20:17:55.068Z"
+        },
+        "class_code": "1234Ab7",
+        "educator": {
+          "$oid": "61a9367059f1854613bc578e"
+        },
+        "learners": [
+          {
+            "$oid": "61af78f059f25ecdc0188207"
+          },
+          {
+            "email": "test@test.com",
+            "username": "test",
+            "_id": "6196aa0893ea3a5f2d1b0134"
+          }
+        ]
+      }
+    ],
+    "upsert": [
+      true
+    ]
+  }
+},{
+  "_id": {
+    "$oid": "61ed994b3147b0741df5c404"
+  },
+  "budget": [
+    {
+      "name": "test",
+      "code": "test",
+      "percent": 1
+    },
+    {
+      "name": "test",
+      "code": "test",
+      "percent": 1
+    }
+  ],
+  "voter": {
+    "_id": {
+      "$oid": "6196aa0893ea3a5f2d1b0134"
+    },
+    "email": "test@test.com",
+    "username": "test",
+    "password": "$2b$10$xikpJp22UmDouSEmPypznOexaJzzvdU6jG4z0GUIvo7tzfxlM5EbG",
+    "actions": [
+      {
+        "name": "Awesome Action",
+        "detail": "Worked on building a community garden",
+        "organization": "Neighborhood Gardening Club",
+        "length": 1.5
+      },
+      {
+        "jwt": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwczovL2xvY2FsaG9zdDo0MDAwLyI6e30sImlhdCI6MTYzODI4NzIzMywiZXhwIjoxNjM4MzczNjMzLCJzdWIiOiJ0ZXN0In0.MCg6AUXa15KSJ9meCUbnaEiVPH69aLgWv9W2gC0ARhc",
+        "name": "recycling",
+        "detail": "went and recycled some trash from the cuyahoga valley national park",
+        "organization": "sierra nevada",
+        "actionDate": {
+          "$date": "2021-10-21T04:00:00Z"
+        },
+        "length": 3
+      },
+      {
+        "name": "test",
+        "detail": "awesome test over here",
+        "organization": "sierra nevada",
+        "length": 1.5,
+        "action_date": {
+          "$date": "2021-12-03T20:21:10.941Z"
+        },
+        "contact": "awesome counselor"
+      }
+    ],
+    "educator": true,
+    "classes": [
+      {
+        "_id": {
+          "$oid": "61aa7b735d956a25df5ae01f"
+        },
+        "teacher": {
+          "$oid": "61a9367059f1854613bc578e"
+        },
+        "users": [
+          {
+            "$oid": "61af78f059f25ecdc0188207"
+          }
+        ],
+        "votes": [
+          {
+            "$oid": "61af793459f25ecdc0188208"
+          }
+        ],
+        "createdAt": {
+          "$date": "2021-12-03T20:17:55.068Z"
+        },
+        "class_code": "1234Ab7"
+      },
+      {
+        "_id": {
+          "$oid": "61aa7c36440c774f20a31317"
+        },
+        "teacher": {
+          "$oid": "61a9367059f1854613bc578e"
+        },
+        "users": [
+          {
+            "$oid": "61aa7ef3248804a10f7bfee0"
+          },
+          {
+            "$oid": "6196aa0893ea3a5f2d1b0134"
+          }
+        ],
+        "votes": [
+          {
+            "$oid": "61aa8e5ec3dec82b94eec159"
+          }
+        ],
+        "createdAt": {
+          "$date": "2021-12-03T20:21:10.941Z"
+        },
+        "class_code": "1234Ab10"
+      },
+      {
+        "_id": {
+          "$oid": "61aa7b735d956a25df5ae01f"
+        },
+        "votes": [
+          {
+            "$oid": "61af793459f25ecdc0188208"
+          }
+        ],
+        "createdAt": {
+          "$date": "2021-12-03T20:17:55.068Z"
+        },
+        "class_code": "1234Ab7",
+        "educator": {
+          "$oid": "61a9367059f1854613bc578e"
+        },
+        "learners": [
+          {
+            "$oid": "61af78f059f25ecdc0188207"
+          },
+          {
+            "email": "test@test.com",
+            "username": "test",
+            "_id": "6196aa0893ea3a5f2d1b0134"
+          }
+        ]
+      }
+    ],
+    "upsert": [
+      true
+    ]
+  }
+},{
+  "_id": {
+    "$oid": "61ed995f784347e3e71d48e6"
+  },
+  "budget": [
+    {
+      "name": "test",
+      "code": "test",
+      "percent": 1
+    },
+    {
+      "name": "test",
+      "code": "test",
+      "percent": 1
+    }
+  ],
+  "voter": {
+    "_id": {
+      "$oid": "6196aa0893ea3a5f2d1b0134"
+    },
+    "email": "test@test.com",
+    "username": "test",
+    "password": "$2b$10$xikpJp22UmDouSEmPypznOexaJzzvdU6jG4z0GUIvo7tzfxlM5EbG",
+    "actions": [
+      {
+        "name": "Awesome Action",
+        "detail": "Worked on building a community garden",
+        "organization": "Neighborhood Gardening Club",
+        "length": 1.5
+      },
+      {
+        "jwt": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwczovL2xvY2FsaG9zdDo0MDAwLyI6e30sImlhdCI6MTYzODI4NzIzMywiZXhwIjoxNjM4MzczNjMzLCJzdWIiOiJ0ZXN0In0.MCg6AUXa15KSJ9meCUbnaEiVPH69aLgWv9W2gC0ARhc",
+        "name": "recycling",
+        "detail": "went and recycled some trash from the cuyahoga valley national park",
+        "organization": "sierra nevada",
+        "actionDate": {
+          "$date": "2021-10-21T04:00:00Z"
+        },
+        "length": 3
+      },
+      {
+        "name": "test",
+        "detail": "awesome test over here",
+        "organization": "sierra nevada",
+        "length": 1.5,
+        "action_date": {
+          "$date": "2021-12-03T20:21:10.941Z"
+        },
+        "contact": "awesome counselor"
+      }
+    ],
+    "educator": true,
+    "classes": [
+      {
+        "_id": {
+          "$oid": "61aa7b735d956a25df5ae01f"
+        },
+        "teacher": {
+          "$oid": "61a9367059f1854613bc578e"
+        },
+        "users": [
+          {
+            "$oid": "61af78f059f25ecdc0188207"
+          }
+        ],
+        "votes": [
+          {
+            "$oid": "61af793459f25ecdc0188208"
+          }
+        ],
+        "createdAt": {
+          "$date": "2021-12-03T20:17:55.068Z"
+        },
+        "class_code": "1234Ab7"
+      },
+      {
+        "_id": {
+          "$oid": "61aa7c36440c774f20a31317"
+        },
+        "teacher": {
+          "$oid": "61a9367059f1854613bc578e"
+        },
+        "users": [
+          {
+            "$oid": "61aa7ef3248804a10f7bfee0"
+          },
+          {
+            "$oid": "6196aa0893ea3a5f2d1b0134"
+          }
+        ],
+        "votes": [
+          {
+            "$oid": "61aa8e5ec3dec82b94eec159"
+          }
+        ],
+        "createdAt": {
+          "$date": "2021-12-03T20:21:10.941Z"
+        },
+        "class_code": "1234Ab10"
+      },
+      {
+        "_id": {
+          "$oid": "61aa7b735d956a25df5ae01f"
+        },
+        "votes": [
+          {
+            "$oid": "61af793459f25ecdc0188208"
+          }
+        ],
+        "createdAt": {
+          "$date": "2021-12-03T20:17:55.068Z"
+        },
+        "class_code": "1234Ab7",
+        "educator": {
+          "$oid": "61a9367059f1854613bc578e"
+        },
+        "learners": [
+          {
+            "$oid": "61af78f059f25ecdc0188207"
+          },
+          {
+            "email": "test@test.com",
+            "username": "test",
+            "_id": "6196aa0893ea3a5f2d1b0134"
+          }
+        ]
+      }
+    ],
+    "upsert": [
+      true
+    ]
+  }
+},{
+  "_id": {
+    "$oid": "61ed998399f79a7c01f9fede"
+  },
+  "budget": [
+    {
+      "name": "test",
+      "code": "test",
+      "percent": 1
+    },
+    {
+      "name": "test",
+      "code": "test",
+      "percent": 1
+    }
+  ],
+  "voter": {
+    "_id": {
+      "$oid": "6196aa0893ea3a5f2d1b0134"
+    },
+    "email": "test@test.com",
+    "username": "test",
+    "password": "$2b$10$xikpJp22UmDouSEmPypznOexaJzzvdU6jG4z0GUIvo7tzfxlM5EbG",
+    "actions": [
+      {
+        "name": "Awesome Action",
+        "detail": "Worked on building a community garden",
+        "organization": "Neighborhood Gardening Club",
+        "length": 1.5
+      },
+      {
+        "jwt": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwczovL2xvY2FsaG9zdDo0MDAwLyI6e30sImlhdCI6MTYzODI4NzIzMywiZXhwIjoxNjM4MzczNjMzLCJzdWIiOiJ0ZXN0In0.MCg6AUXa15KSJ9meCUbnaEiVPH69aLgWv9W2gC0ARhc",
+        "name": "recycling",
+        "detail": "went and recycled some trash from the cuyahoga valley national park",
+        "organization": "sierra nevada",
+        "actionDate": {
+          "$date": "2021-10-21T04:00:00Z"
+        },
+        "length": 3
+      },
+      {
+        "name": "test",
+        "detail": "awesome test over here",
+        "organization": "sierra nevada",
+        "length": 1.5,
+        "action_date": {
+          "$date": "2021-12-03T20:21:10.941Z"
+        },
+        "contact": "awesome counselor"
+      }
+    ],
+    "educator": true,
+    "classes": [
+      {
+        "_id": {
+          "$oid": "61aa7b735d956a25df5ae01f"
+        },
+        "teacher": {
+          "$oid": "61a9367059f1854613bc578e"
+        },
+        "users": [
+          {
+            "$oid": "61af78f059f25ecdc0188207"
+          }
+        ],
+        "votes": [
+          {
+            "$oid": "61af793459f25ecdc0188208"
+          }
+        ],
+        "createdAt": {
+          "$date": "2021-12-03T20:17:55.068Z"
+        },
+        "class_code": "1234Ab7"
+      },
+      {
+        "_id": {
+          "$oid": "61aa7c36440c774f20a31317"
+        },
+        "teacher": {
+          "$oid": "61a9367059f1854613bc578e"
+        },
+        "users": [
+          {
+            "$oid": "61aa7ef3248804a10f7bfee0"
+          },
+          {
+            "$oid": "6196aa0893ea3a5f2d1b0134"
+          }
+        ],
+        "votes": [
+          {
+            "$oid": "61aa8e5ec3dec82b94eec159"
+          }
+        ],
+        "createdAt": {
+          "$date": "2021-12-03T20:21:10.941Z"
+        },
+        "class_code": "1234Ab10"
+      },
+      {
+        "_id": {
+          "$oid": "61aa7b735d956a25df5ae01f"
+        },
+        "votes": [
+          {
+            "$oid": "61af793459f25ecdc0188208"
+          }
+        ],
+        "createdAt": {
+          "$date": "2021-12-03T20:17:55.068Z"
+        },
+        "class_code": "1234Ab7",
+        "educator": {
+          "$oid": "61a9367059f1854613bc578e"
+        },
+        "learners": [
+          {
+            "$oid": "61af78f059f25ecdc0188207"
+          },
+          {
+            "email": "test@test.com",
+            "username": "test",
+            "_id": "6196aa0893ea3a5f2d1b0134"
+          }
+        ]
+      }
+    ],
+    "upsert": [
+      true
+    ]
+  }
+},{
+  "_id": {
+    "$oid": "61ed999e91fe32693a232715"
+  },
+  "budget": [
+    {
+      "name": "test",
+      "code": "test",
+      "percent": 1
+    },
+    {
+      "name": "test",
+      "code": "test",
+      "percent": 1
+    }
+  ],
+  "voter": {
+    "_id": {
+      "$oid": "6196aa0893ea3a5f2d1b0134"
+    },
+    "email": "test@test.com",
+    "username": "test",
+    "password": "$2b$10$xikpJp22UmDouSEmPypznOexaJzzvdU6jG4z0GUIvo7tzfxlM5EbG",
+    "actions": [
+      {
+        "name": "Awesome Action",
+        "detail": "Worked on building a community garden",
+        "organization": "Neighborhood Gardening Club",
+        "length": 1.5
+      },
+      {
+        "jwt": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwczovL2xvY2FsaG9zdDo0MDAwLyI6e30sImlhdCI6MTYzODI4NzIzMywiZXhwIjoxNjM4MzczNjMzLCJzdWIiOiJ0ZXN0In0.MCg6AUXa15KSJ9meCUbnaEiVPH69aLgWv9W2gC0ARhc",
+        "name": "recycling",
+        "detail": "went and recycled some trash from the cuyahoga valley national park",
+        "organization": "sierra nevada",
+        "actionDate": {
+          "$date": "2021-10-21T04:00:00Z"
+        },
+        "length": 3
+      },
+      {
+        "name": "test",
+        "detail": "awesome test over here",
+        "organization": "sierra nevada",
+        "length": 1.5,
+        "action_date": {
+          "$date": "2021-12-03T20:21:10.941Z"
+        },
+        "contact": "awesome counselor"
+      }
+    ],
+    "educator": true,
+    "classes": [
+      {
+        "_id": {
+          "$oid": "61aa7b735d956a25df5ae01f"
+        },
+        "teacher": {
+          "$oid": "61a9367059f1854613bc578e"
+        },
+        "users": [
+          {
+            "$oid": "61af78f059f25ecdc0188207"
+          }
+        ],
+        "votes": [
+          {
+            "$oid": "61af793459f25ecdc0188208"
+          }
+        ],
+        "createdAt": {
+          "$date": "2021-12-03T20:17:55.068Z"
+        },
+        "class_code": "1234Ab7"
+      },
+      {
+        "_id": {
+          "$oid": "61aa7c36440c774f20a31317"
+        },
+        "teacher": {
+          "$oid": "61a9367059f1854613bc578e"
+        },
+        "users": [
+          {
+            "$oid": "61aa7ef3248804a10f7bfee0"
+          },
+          {
+            "$oid": "6196aa0893ea3a5f2d1b0134"
+          }
+        ],
+        "votes": [
+          {
+            "$oid": "61aa8e5ec3dec82b94eec159"
+          }
+        ],
+        "createdAt": {
+          "$date": "2021-12-03T20:21:10.941Z"
+        },
+        "class_code": "1234Ab10"
+      },
+      {
+        "_id": {
+          "$oid": "61aa7b735d956a25df5ae01f"
+        },
+        "votes": [
+          {
+            "$oid": "61af793459f25ecdc0188208"
+          }
+        ],
+        "createdAt": {
+          "$date": "2021-12-03T20:17:55.068Z"
+        },
+        "class_code": "1234Ab7",
+        "educator": {
+          "$oid": "61a9367059f1854613bc578e"
+        },
+        "learners": [
+          {
+            "$oid": "61af78f059f25ecdc0188207"
+          },
+          {
+            "email": "test@test.com",
+            "username": "test",
+            "_id": "6196aa0893ea3a5f2d1b0134"
+          }
+        ]
+      }
+    ],
+    "upsert": [
+      true
+    ]
+  }
+},{
+  "_id": {
+    "$oid": "61ed9a1ffb4d917cfdb8edc3"
+  },
+  "budget": [
+    {
+      "name": "test",
+      "code": "test",
+      "percent": 1
+    },
+    {
+      "name": "test",
+      "code": "test",
+      "percent": 1
+    }
+  ],
+  "voter": {
+    "_id": {
+      "$oid": "6196aa0893ea3a5f2d1b0134"
+    },
+    "email": "test@test.com",
+    "username": "test",
+    "password": "$2b$10$xikpJp22UmDouSEmPypznOexaJzzvdU6jG4z0GUIvo7tzfxlM5EbG",
+    "actions": [
+      {
+        "name": "Awesome Action",
+        "detail": "Worked on building a community garden",
+        "organization": "Neighborhood Gardening Club",
+        "length": 1.5
+      },
+      {
+        "jwt": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwczovL2xvY2FsaG9zdDo0MDAwLyI6e30sImlhdCI6MTYzODI4NzIzMywiZXhwIjoxNjM4MzczNjMzLCJzdWIiOiJ0ZXN0In0.MCg6AUXa15KSJ9meCUbnaEiVPH69aLgWv9W2gC0ARhc",
+        "name": "recycling",
+        "detail": "went and recycled some trash from the cuyahoga valley national park",
+        "organization": "sierra nevada",
+        "actionDate": {
+          "$date": "2021-10-21T04:00:00Z"
+        },
+        "length": 3
+      },
+      {
+        "name": "test",
+        "detail": "awesome test over here",
+        "organization": "sierra nevada",
+        "length": 1.5,
+        "action_date": {
+          "$date": "2021-12-03T20:21:10.941Z"
+        },
+        "contact": "awesome counselor"
+      }
+    ],
+    "educator": true,
+    "classes": [
+      {
+        "_id": {
+          "$oid": "61aa7b735d956a25df5ae01f"
+        },
+        "teacher": {
+          "$oid": "61a9367059f1854613bc578e"
+        },
+        "users": [
+          {
+            "$oid": "61af78f059f25ecdc0188207"
+          }
+        ],
+        "votes": [
+          {
+            "$oid": "61af793459f25ecdc0188208"
+          }
+        ],
+        "createdAt": {
+          "$date": "2021-12-03T20:17:55.068Z"
+        },
+        "class_code": "1234Ab7"
+      },
+      {
+        "_id": {
+          "$oid": "61aa7c36440c774f20a31317"
+        },
+        "teacher": {
+          "$oid": "61a9367059f1854613bc578e"
+        },
+        "users": [
+          {
+            "$oid": "61aa7ef3248804a10f7bfee0"
+          },
+          {
+            "$oid": "6196aa0893ea3a5f2d1b0134"
+          }
+        ],
+        "votes": [
+          {
+            "$oid": "61aa8e5ec3dec82b94eec159"
+          }
+        ],
+        "createdAt": {
+          "$date": "2021-12-03T20:21:10.941Z"
+        },
+        "class_code": "1234Ab10"
+      },
+      {
+        "_id": {
+          "$oid": "61aa7b735d956a25df5ae01f"
+        },
+        "votes": [
+          {
+            "$oid": "61af793459f25ecdc0188208"
+          }
+        ],
+        "createdAt": {
+          "$date": "2021-12-03T20:17:55.068Z"
+        },
+        "class_code": "1234Ab7",
+        "educator": {
+          "$oid": "61a9367059f1854613bc578e"
+        },
+        "learners": [
+          {
+            "$oid": "61af78f059f25ecdc0188207"
+          },
+          {
+            "email": "test@test.com",
+            "username": "test",
+            "_id": "6196aa0893ea3a5f2d1b0134"
+          }
+        ]
+      }
+    ],
+    "upsert": [
+      true
+    ]
+  }
+},{
+  "_id": {
+    "$oid": "61ed9a8d85e2dd0ea46b2337"
+  },
+  "budget": [
+    {
+      "name": "test",
+      "code": "test",
+      "percent": 1
+    },
+    {
+      "name": "test",
+      "code": "test",
+      "percent": 1
+    }
+  ],
+  "voter": {
+    "_id": {
+      "$oid": "6196aa0893ea3a5f2d1b0134"
+    },
+    "email": "test@test.com",
+    "username": "test",
+    "password": "$2b$10$xikpJp22UmDouSEmPypznOexaJzzvdU6jG4z0GUIvo7tzfxlM5EbG",
+    "actions": [
+      {
+        "name": "Awesome Action",
+        "detail": "Worked on building a community garden",
+        "organization": "Neighborhood Gardening Club",
+        "length": 1.5
+      },
+      {
+        "jwt": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwczovL2xvY2FsaG9zdDo0MDAwLyI6e30sImlhdCI6MTYzODI4NzIzMywiZXhwIjoxNjM4MzczNjMzLCJzdWIiOiJ0ZXN0In0.MCg6AUXa15KSJ9meCUbnaEiVPH69aLgWv9W2gC0ARhc",
+        "name": "recycling",
+        "detail": "went and recycled some trash from the cuyahoga valley national park",
+        "organization": "sierra nevada",
+        "actionDate": {
+          "$date": "2021-10-21T04:00:00Z"
+        },
+        "length": 3
+      },
+      {
+        "name": "test",
+        "detail": "awesome test over here",
+        "organization": "sierra nevada",
+        "length": 1.5,
+        "action_date": {
+          "$date": "2021-12-03T20:21:10.941Z"
+        },
+        "contact": "awesome counselor"
+      }
+    ],
+    "educator": true,
+    "classes": [
+      {
+        "_id": {
+          "$oid": "61aa7b735d956a25df5ae01f"
+        },
+        "teacher": {
+          "$oid": "61a9367059f1854613bc578e"
+        },
+        "users": [
+          {
+            "$oid": "61af78f059f25ecdc0188207"
+          }
+        ],
+        "votes": [
+          {
+            "$oid": "61af793459f25ecdc0188208"
+          }
+        ],
+        "createdAt": {
+          "$date": "2021-12-03T20:17:55.068Z"
+        },
+        "class_code": "1234Ab7"
+      },
+      {
+        "_id": {
+          "$oid": "61aa7c36440c774f20a31317"
+        },
+        "teacher": {
+          "$oid": "61a9367059f1854613bc578e"
+        },
+        "users": [
+          {
+            "$oid": "61aa7ef3248804a10f7bfee0"
+          },
+          {
+            "$oid": "6196aa0893ea3a5f2d1b0134"
+          }
+        ],
+        "votes": [
+          {
+            "$oid": "61aa8e5ec3dec82b94eec159"
+          }
+        ],
+        "createdAt": {
+          "$date": "2021-12-03T20:21:10.941Z"
+        },
+        "class_code": "1234Ab10"
+      },
+      {
+        "_id": {
+          "$oid": "61aa7b735d956a25df5ae01f"
+        },
+        "votes": [
+          {
+            "$oid": "61af793459f25ecdc0188208"
+          }
+        ],
+        "createdAt": {
+          "$date": "2021-12-03T20:17:55.068Z"
+        },
+        "class_code": "1234Ab7",
+        "educator": {
+          "$oid": "61a9367059f1854613bc578e"
+        },
+        "learners": [
+          {
+            "$oid": "61af78f059f25ecdc0188207"
+          },
+          {
+            "email": "test@test.com",
+            "username": "test",
+            "_id": "6196aa0893ea3a5f2d1b0134"
+          }
+        ]
+      }
+    ],
+    "upsert": [
+      true
+    ]
+  }
+},{
+  "_id": {
+    "$oid": "61ed9b4e41b3accd168004ca"
+  },
+  "budget": [
+    {
+      "name": "test",
+      "code": "test",
+      "percent": 1
+    },
+    {
+      "name": "test",
+      "code": "test",
+      "percent": 1
+    }
+  ],
+  "voter": {
+    "_id": {
+      "$oid": "6196aa0893ea3a5f2d1b0134"
+    },
+    "email": "test@test.com",
+    "username": "test",
+    "password": "$2b$10$xikpJp22UmDouSEmPypznOexaJzzvdU6jG4z0GUIvo7tzfxlM5EbG",
+    "actions": [
+      {
+        "name": "Awesome Action",
+        "detail": "Worked on building a community garden",
+        "organization": "Neighborhood Gardening Club",
+        "length": 1.5
+      },
+      {
+        "jwt": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwczovL2xvY2FsaG9zdDo0MDAwLyI6e30sImlhdCI6MTYzODI4NzIzMywiZXhwIjoxNjM4MzczNjMzLCJzdWIiOiJ0ZXN0In0.MCg6AUXa15KSJ9meCUbnaEiVPH69aLgWv9W2gC0ARhc",
+        "name": "recycling",
+        "detail": "went and recycled some trash from the cuyahoga valley national park",
+        "organization": "sierra nevada",
+        "actionDate": {
+          "$date": "2021-10-21T04:00:00Z"
+        },
+        "length": 3
+      },
+      {
+        "name": "test",
+        "detail": "awesome test over here",
+        "organization": "sierra nevada",
+        "length": 1.5,
+        "action_date": {
+          "$date": "2021-12-03T20:21:10.941Z"
+        },
+        "contact": "awesome counselor"
+      }
+    ],
+    "educator": true,
+    "classes": [
+      {
+        "_id": {
+          "$oid": "61aa7b735d956a25df5ae01f"
+        },
+        "teacher": {
+          "$oid": "61a9367059f1854613bc578e"
+        },
+        "users": [
+          {
+            "$oid": "61af78f059f25ecdc0188207"
+          }
+        ],
+        "votes": [
+          {
+            "$oid": "61af793459f25ecdc0188208"
+          }
+        ],
+        "createdAt": {
+          "$date": "2021-12-03T20:17:55.068Z"
+        },
+        "class_code": "1234Ab7"
+      },
+      {
+        "_id": {
+          "$oid": "61aa7c36440c774f20a31317"
+        },
+        "teacher": {
+          "$oid": "61a9367059f1854613bc578e"
+        },
+        "users": [
+          {
+            "$oid": "61aa7ef3248804a10f7bfee0"
+          },
+          {
+            "$oid": "6196aa0893ea3a5f2d1b0134"
+          }
+        ],
+        "votes": [
+          {
+            "$oid": "61aa8e5ec3dec82b94eec159"
+          }
+        ],
+        "createdAt": {
+          "$date": "2021-12-03T20:21:10.941Z"
+        },
+        "class_code": "1234Ab10"
+      },
+      {
+        "_id": {
+          "$oid": "61aa7b735d956a25df5ae01f"
+        },
+        "votes": [
+          {
+            "$oid": "61af793459f25ecdc0188208"
+          }
+        ],
+        "createdAt": {
+          "$date": "2021-12-03T20:17:55.068Z"
+        },
+        "class_code": "1234Ab7",
+        "educator": {
+          "$oid": "61a9367059f1854613bc578e"
+        },
+        "learners": [
+          {
+            "$oid": "61af78f059f25ecdc0188207"
+          },
+          {
+            "email": "test@test.com",
+            "username": "test",
+            "_id": "6196aa0893ea3a5f2d1b0134"
+          }
+        ]
+      }
+    ],
+    "upsert": [
+      true
+    ]
+  }
+},{
+  "_id": {
+    "$oid": "61ed9b8fbf3f3b63413ecf54"
+  },
+  "budget": [
+    {
+      "name": "test",
+      "code": "test",
+      "percent": 1
+    },
+    {
+      "name": "test",
+      "code": "test",
+      "percent": 1
+    }
+  ],
+  "voter": {
+    "_id": {
+      "$oid": "6196aa0893ea3a5f2d1b0134"
+    },
+    "email": "test@test.com",
+    "username": "test",
+    "password": "$2b$10$xikpJp22UmDouSEmPypznOexaJzzvdU6jG4z0GUIvo7tzfxlM5EbG",
+    "actions": [
+      {
+        "name": "Awesome Action",
+        "detail": "Worked on building a community garden",
+        "organization": "Neighborhood Gardening Club",
+        "length": 1.5
+      },
+      {
+        "jwt": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwczovL2xvY2FsaG9zdDo0MDAwLyI6e30sImlhdCI6MTYzODI4NzIzMywiZXhwIjoxNjM4MzczNjMzLCJzdWIiOiJ0ZXN0In0.MCg6AUXa15KSJ9meCUbnaEiVPH69aLgWv9W2gC0ARhc",
+        "name": "recycling",
+        "detail": "went and recycled some trash from the cuyahoga valley national park",
+        "organization": "sierra nevada",
+        "actionDate": {
+          "$date": "2021-10-21T04:00:00Z"
+        },
+        "length": 3
+      },
+      {
+        "name": "test",
+        "detail": "awesome test over here",
+        "organization": "sierra nevada",
+        "length": 1.5,
+        "action_date": {
+          "$date": "2021-12-03T20:21:10.941Z"
+        },
+        "contact": "awesome counselor"
+      }
+    ],
+    "educator": true,
+    "classes": [
+      {
+        "_id": {
+          "$oid": "61aa7b735d956a25df5ae01f"
+        },
+        "teacher": {
+          "$oid": "61a9367059f1854613bc578e"
+        },
+        "users": [
+          {
+            "$oid": "61af78f059f25ecdc0188207"
+          }
+        ],
+        "votes": [
+          {
+            "$oid": "61af793459f25ecdc0188208"
+          }
+        ],
+        "createdAt": {
+          "$date": "2021-12-03T20:17:55.068Z"
+        },
+        "class_code": "1234Ab7"
+      },
+      {
+        "_id": {
+          "$oid": "61aa7c36440c774f20a31317"
+        },
+        "teacher": {
+          "$oid": "61a9367059f1854613bc578e"
+        },
+        "users": [
+          {
+            "$oid": "61aa7ef3248804a10f7bfee0"
+          },
+          {
+            "$oid": "6196aa0893ea3a5f2d1b0134"
+          }
+        ],
+        "votes": [
+          {
+            "$oid": "61aa8e5ec3dec82b94eec159"
+          }
+        ],
+        "createdAt": {
+          "$date": "2021-12-03T20:21:10.941Z"
+        },
+        "class_code": "1234Ab10"
+      },
+      {
+        "_id": {
+          "$oid": "61aa7b735d956a25df5ae01f"
+        },
+        "votes": [
+          {
+            "$oid": "61af793459f25ecdc0188208"
+          }
+        ],
+        "createdAt": {
+          "$date": "2021-12-03T20:17:55.068Z"
+        },
+        "class_code": "1234Ab7",
+        "educator": {
+          "$oid": "61a9367059f1854613bc578e"
+        },
+        "learners": [
+          {
+            "$oid": "61af78f059f25ecdc0188207"
+          },
+          {
+            "email": "test@test.com",
+            "username": "test",
+            "_id": "6196aa0893ea3a5f2d1b0134"
+          }
+        ]
+      }
+    ],
+    "upsert": [
+      true
+    ]
+  }
+},{
+  "_id": {
+    "$oid": "61ed9bd1f5611a048bf2eb2b"
+  },
+  "budget": [
+    {
+      "name": "test",
+      "code": "test",
+      "percent": 1
+    },
+    {
+      "name": "test",
+      "code": "test",
+      "percent": 1
+    }
+  ],
+  "voter": {
+    "_id": {
+      "$oid": "6196aa0893ea3a5f2d1b0134"
+    },
+    "email": "test@test.com",
+    "username": "test",
+    "password": "$2b$10$xikpJp22UmDouSEmPypznOexaJzzvdU6jG4z0GUIvo7tzfxlM5EbG",
+    "actions": [
+      {
+        "name": "Awesome Action",
+        "detail": "Worked on building a community garden",
+        "organization": "Neighborhood Gardening Club",
+        "length": 1.5
+      },
+      {
+        "jwt": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwczovL2xvY2FsaG9zdDo0MDAwLyI6e30sImlhdCI6MTYzODI4NzIzMywiZXhwIjoxNjM4MzczNjMzLCJzdWIiOiJ0ZXN0In0.MCg6AUXa15KSJ9meCUbnaEiVPH69aLgWv9W2gC0ARhc",
+        "name": "recycling",
+        "detail": "went and recycled some trash from the cuyahoga valley national park",
+        "organization": "sierra nevada",
+        "actionDate": {
+          "$date": "2021-10-21T04:00:00Z"
+        },
+        "length": 3
+      },
+      {
+        "name": "test",
+        "detail": "awesome test over here",
+        "organization": "sierra nevada",
+        "length": 1.5,
+        "action_date": {
+          "$date": "2021-12-03T20:21:10.941Z"
+        },
+        "contact": "awesome counselor"
+      }
+    ],
+    "educator": true,
+    "classes": [
+      {
+        "_id": {
+          "$oid": "61aa7b735d956a25df5ae01f"
+        },
+        "teacher": {
+          "$oid": "61a9367059f1854613bc578e"
+        },
+        "users": [
+          {
+            "$oid": "61af78f059f25ecdc0188207"
+          }
+        ],
+        "votes": [
+          {
+            "$oid": "61af793459f25ecdc0188208"
+          }
+        ],
+        "createdAt": {
+          "$date": "2021-12-03T20:17:55.068Z"
+        },
+        "class_code": "1234Ab7"
+      },
+      {
+        "_id": {
+          "$oid": "61aa7c36440c774f20a31317"
+        },
+        "teacher": {
+          "$oid": "61a9367059f1854613bc578e"
+        },
+        "users": [
+          {
+            "$oid": "61aa7ef3248804a10f7bfee0"
+          },
+          {
+            "$oid": "6196aa0893ea3a5f2d1b0134"
+          }
+        ],
+        "votes": [
+          {
+            "$oid": "61aa8e5ec3dec82b94eec159"
+          }
+        ],
+        "createdAt": {
+          "$date": "2021-12-03T20:21:10.941Z"
+        },
+        "class_code": "1234Ab10"
+      },
+      {
+        "_id": {
+          "$oid": "61aa7b735d956a25df5ae01f"
+        },
+        "votes": [
+          {
+            "$oid": "61af793459f25ecdc0188208"
+          }
+        ],
+        "createdAt": {
+          "$date": "2021-12-03T20:17:55.068Z"
+        },
+        "class_code": "1234Ab7",
+        "educator": {
+          "$oid": "61a9367059f1854613bc578e"
+        },
+        "learners": [
+          {
+            "$oid": "61af78f059f25ecdc0188207"
+          },
+          {
+            "email": "test@test.com",
+            "username": "test",
+            "_id": "6196aa0893ea3a5f2d1b0134"
+          }
+        ]
+      }
+    ],
+    "upsert": [
+      true
+    ]
+  }
+},{
+  "_id": {
+    "$oid": "61ed9c0a0f650fab2e478452"
+  },
+  "budget": [
+    {
+      "name": "test",
+      "code": "test",
+      "percent": 1
+    },
+    {
+      "name": "test",
+      "code": "test",
+      "percent": 1
+    }
+  ],
+  "voter": {
+    "_id": {
+      "$oid": "6196aa0893ea3a5f2d1b0134"
+    },
+    "email": "test@test.com",
+    "username": "test",
+    "password": "$2b$10$xikpJp22UmDouSEmPypznOexaJzzvdU6jG4z0GUIvo7tzfxlM5EbG",
+    "actions": [
+      {
+        "name": "Awesome Action",
+        "detail": "Worked on building a community garden",
+        "organization": "Neighborhood Gardening Club",
+        "length": 1.5
+      },
+      {
+        "jwt": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwczovL2xvY2FsaG9zdDo0MDAwLyI6e30sImlhdCI6MTYzODI4NzIzMywiZXhwIjoxNjM4MzczNjMzLCJzdWIiOiJ0ZXN0In0.MCg6AUXa15KSJ9meCUbnaEiVPH69aLgWv9W2gC0ARhc",
+        "name": "recycling",
+        "detail": "went and recycled some trash from the cuyahoga valley national park",
+        "organization": "sierra nevada",
+        "actionDate": {
+          "$date": "2021-10-21T04:00:00Z"
+        },
+        "length": 3
+      },
+      {
+        "name": "test",
+        "detail": "awesome test over here",
+        "organization": "sierra nevada",
+        "length": 1.5,
+        "action_date": {
+          "$date": "2021-12-03T20:21:10.941Z"
+        },
+        "contact": "awesome counselor"
+      }
+    ],
+    "educator": true,
+    "classes": [
+      {
+        "_id": {
+          "$oid": "61aa7b735d956a25df5ae01f"
+        },
+        "teacher": {
+          "$oid": "61a9367059f1854613bc578e"
+        },
+        "users": [
+          {
+            "$oid": "61af78f059f25ecdc0188207"
+          }
+        ],
+        "votes": [
+          {
+            "$oid": "61af793459f25ecdc0188208"
+          }
+        ],
+        "createdAt": {
+          "$date": "2021-12-03T20:17:55.068Z"
+        },
+        "class_code": "1234Ab7"
+      },
+      {
+        "_id": {
+          "$oid": "61aa7c36440c774f20a31317"
+        },
+        "teacher": {
+          "$oid": "61a9367059f1854613bc578e"
+        },
+        "users": [
+          {
+            "$oid": "61aa7ef3248804a10f7bfee0"
+          },
+          {
+            "$oid": "6196aa0893ea3a5f2d1b0134"
+          }
+        ],
+        "votes": [
+          {
+            "$oid": "61aa8e5ec3dec82b94eec159"
+          }
+        ],
+        "createdAt": {
+          "$date": "2021-12-03T20:21:10.941Z"
+        },
+        "class_code": "1234Ab10"
+      },
+      {
+        "_id": {
+          "$oid": "61aa7b735d956a25df5ae01f"
+        },
+        "votes": [
+          {
+            "$oid": "61af793459f25ecdc0188208"
+          }
+        ],
+        "createdAt": {
+          "$date": "2021-12-03T20:17:55.068Z"
+        },
+        "class_code": "1234Ab7",
+        "educator": {
+          "$oid": "61a9367059f1854613bc578e"
+        },
+        "learners": [
+          {
+            "$oid": "61af78f059f25ecdc0188207"
+          },
+          {
+            "email": "test@test.com",
+            "username": "test",
+            "_id": "6196aa0893ea3a5f2d1b0134"
+          }
+        ]
+      }
+    ],
+    "upsert": [
+      true
+    ]
+  }
+},{
+  "_id": {
+    "$oid": "61ed9c454b7c90a1ba459490"
+  },
+  "budget": [
+    {
+      "name": "test",
+      "code": "test",
+      "percent": 1
+    },
+    {
+      "name": "test",
+      "code": "test",
+      "percent": 1
+    }
+  ],
+  "voter": {
+    "_id": {
+      "$oid": "6196aa0893ea3a5f2d1b0134"
+    },
+    "email": "test@test.com",
+    "username": "test",
+    "password": "$2b$10$xikpJp22UmDouSEmPypznOexaJzzvdU6jG4z0GUIvo7tzfxlM5EbG",
+    "actions": [
+      {
+        "name": "Awesome Action",
+        "detail": "Worked on building a community garden",
+        "organization": "Neighborhood Gardening Club",
+        "length": 1.5
+      },
+      {
+        "jwt": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwczovL2xvY2FsaG9zdDo0MDAwLyI6e30sImlhdCI6MTYzODI4NzIzMywiZXhwIjoxNjM4MzczNjMzLCJzdWIiOiJ0ZXN0In0.MCg6AUXa15KSJ9meCUbnaEiVPH69aLgWv9W2gC0ARhc",
+        "name": "recycling",
+        "detail": "went and recycled some trash from the cuyahoga valley national park",
+        "organization": "sierra nevada",
+        "actionDate": {
+          "$date": "2021-10-21T04:00:00Z"
+        },
+        "length": 3
+      },
+      {
+        "name": "test",
+        "detail": "awesome test over here",
+        "organization": "sierra nevada",
+        "length": 1.5,
+        "action_date": {
+          "$date": "2021-12-03T20:21:10.941Z"
+        },
+        "contact": "awesome counselor"
+      }
+    ],
+    "educator": true,
+    "classes": [
+      {
+        "_id": {
+          "$oid": "61aa7b735d956a25df5ae01f"
+        },
+        "teacher": {
+          "$oid": "61a9367059f1854613bc578e"
+        },
+        "users": [
+          {
+            "$oid": "61af78f059f25ecdc0188207"
+          }
+        ],
+        "votes": [
+          {
+            "$oid": "61af793459f25ecdc0188208"
+          }
+        ],
+        "createdAt": {
+          "$date": "2021-12-03T20:17:55.068Z"
+        },
+        "class_code": "1234Ab7"
+      },
+      {
+        "_id": {
+          "$oid": "61aa7c36440c774f20a31317"
+        },
+        "teacher": {
+          "$oid": "61a9367059f1854613bc578e"
+        },
+        "users": [
+          {
+            "$oid": "61aa7ef3248804a10f7bfee0"
+          },
+          {
+            "$oid": "6196aa0893ea3a5f2d1b0134"
+          }
+        ],
+        "votes": [
+          {
+            "$oid": "61aa8e5ec3dec82b94eec159"
+          }
+        ],
+        "createdAt": {
+          "$date": "2021-12-03T20:21:10.941Z"
+        },
+        "class_code": "1234Ab10"
+      },
+      {
+        "_id": {
+          "$oid": "61aa7b735d956a25df5ae01f"
+        },
+        "votes": [
+          {
+            "$oid": "61af793459f25ecdc0188208"
+          }
+        ],
+        "createdAt": {
+          "$date": "2021-12-03T20:17:55.068Z"
+        },
+        "class_code": "1234Ab7",
+        "educator": {
+          "$oid": "61a9367059f1854613bc578e"
+        },
+        "learners": [
+          {
+            "$oid": "61af78f059f25ecdc0188207"
+          },
+          {
+            "email": "test@test.com",
+            "username": "test",
+            "_id": "6196aa0893ea3a5f2d1b0134"
+          }
+        ]
+      }
+    ],
+    "upsert": [
+      true
+    ]
+  }
+},{
+  "_id": {
+    "$oid": "61ed9e4313ab0104e01fd993"
+  },
+  "budget": [
+    {
+      "name": "test",
+      "code": "test",
+      "percent": 1
+    },
+    {
+      "name": "test",
+      "code": "test",
+      "percent": 1
+    }
+  ],
+  "voter": {
+    "_id": {
+      "$oid": "6196aa0893ea3a5f2d1b0134"
+    },
+    "email": "test@test.com",
+    "username": "test",
+    "password": "$2b$10$xikpJp22UmDouSEmPypznOexaJzzvdU6jG4z0GUIvo7tzfxlM5EbG",
+    "actions": [
+      {
+        "name": "Awesome Action",
+        "detail": "Worked on building a community garden",
+        "organization": "Neighborhood Gardening Club",
+        "length": 1.5
+      },
+      {
+        "jwt": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwczovL2xvY2FsaG9zdDo0MDAwLyI6e30sImlhdCI6MTYzODI4NzIzMywiZXhwIjoxNjM4MzczNjMzLCJzdWIiOiJ0ZXN0In0.MCg6AUXa15KSJ9meCUbnaEiVPH69aLgWv9W2gC0ARhc",
+        "name": "recycling",
+        "detail": "went and recycled some trash from the cuyahoga valley national park",
+        "organization": "sierra nevada",
+        "actionDate": {
+          "$date": "2021-10-21T04:00:00Z"
+        },
+        "length": 3
+      },
+      {
+        "name": "test",
+        "detail": "awesome test over here",
+        "organization": "sierra nevada",
+        "length": 1.5,
+        "action_date": {
+          "$date": "2021-12-03T20:21:10.941Z"
+        },
+        "contact": "awesome counselor"
+      }
+    ],
+    "educator": true,
+    "classes": [
+      {
+        "_id": {
+          "$oid": "61aa7b735d956a25df5ae01f"
+        },
+        "teacher": {
+          "$oid": "61a9367059f1854613bc578e"
+        },
+        "users": [
+          {
+            "$oid": "61af78f059f25ecdc0188207"
+          }
+        ],
+        "votes": [
+          {
+            "$oid": "61af793459f25ecdc0188208"
+          }
+        ],
+        "createdAt": {
+          "$date": "2021-12-03T20:17:55.068Z"
+        },
+        "class_code": "1234Ab7"
+      },
+      {
+        "_id": {
+          "$oid": "61aa7c36440c774f20a31317"
+        },
+        "teacher": {
+          "$oid": "61a9367059f1854613bc578e"
+        },
+        "users": [
+          {
+            "$oid": "61aa7ef3248804a10f7bfee0"
+          },
+          {
+            "$oid": "6196aa0893ea3a5f2d1b0134"
+          }
+        ],
+        "votes": [
+          {
+            "$oid": "61aa8e5ec3dec82b94eec159"
+          }
+        ],
+        "createdAt": {
+          "$date": "2021-12-03T20:21:10.941Z"
+        },
+        "class_code": "1234Ab10"
+      },
+      {
+        "_id": {
+          "$oid": "61aa7b735d956a25df5ae01f"
+        },
+        "votes": [
+          {
+            "$oid": "61af793459f25ecdc0188208"
+          }
+        ],
+        "createdAt": {
+          "$date": "2021-12-03T20:17:55.068Z"
+        },
+        "class_code": "1234Ab7",
+        "educator": {
+          "$oid": "61a9367059f1854613bc578e"
+        },
+        "learners": [
+          {
+            "$oid": "61af78f059f25ecdc0188207"
+          },
+          {
+            "email": "test@test.com",
+            "username": "test",
+            "_id": "6196aa0893ea3a5f2d1b0134"
+          }
+        ]
+      }
+    ],
+    "upsert": [
+      true
+    ]
+  }
+},{
+  "_id": {
+    "$oid": "61ed9e9813ab0104e01fd994"
+  },
+  "budget": [
+    {
+      "name": "test",
+      "code": "test",
+      "percent": 1
+    },
+    {
+      "name": "test",
+      "code": "test",
+      "percent": 1
+    }
+  ],
+  "voter": {
+    "_id": {
+      "$oid": "6196aa0893ea3a5f2d1b0134"
+    },
+    "email": "test@test.com",
+    "username": "test",
+    "password": "$2b$10$xikpJp22UmDouSEmPypznOexaJzzvdU6jG4z0GUIvo7tzfxlM5EbG",
+    "actions": [
+      {
+        "name": "Awesome Action",
+        "detail": "Worked on building a community garden",
+        "organization": "Neighborhood Gardening Club",
+        "length": 1.5
+      },
+      {
+        "jwt": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwczovL2xvY2FsaG9zdDo0MDAwLyI6e30sImlhdCI6MTYzODI4NzIzMywiZXhwIjoxNjM4MzczNjMzLCJzdWIiOiJ0ZXN0In0.MCg6AUXa15KSJ9meCUbnaEiVPH69aLgWv9W2gC0ARhc",
+        "name": "recycling",
+        "detail": "went and recycled some trash from the cuyahoga valley national park",
+        "organization": "sierra nevada",
+        "actionDate": {
+          "$date": "2021-10-21T04:00:00Z"
+        },
+        "length": 3
+      },
+      {
+        "name": "test",
+        "detail": "awesome test over here",
+        "organization": "sierra nevada",
+        "length": 1.5,
+        "action_date": {
+          "$date": "2021-12-03T20:21:10.941Z"
+        },
+        "contact": "awesome counselor"
+      }
+    ],
+    "educator": true,
+    "classes": [
+      {
+        "_id": {
+          "$oid": "61aa7b735d956a25df5ae01f"
+        },
+        "teacher": {
+          "$oid": "61a9367059f1854613bc578e"
+        },
+        "users": [
+          {
+            "$oid": "61af78f059f25ecdc0188207"
+          }
+        ],
+        "votes": [
+          {
+            "$oid": "61af793459f25ecdc0188208"
+          }
+        ],
+        "createdAt": {
+          "$date": "2021-12-03T20:17:55.068Z"
+        },
+        "class_code": "1234Ab7"
+      },
+      {
+        "_id": {
+          "$oid": "61aa7c36440c774f20a31317"
+        },
+        "teacher": {
+          "$oid": "61a9367059f1854613bc578e"
+        },
+        "users": [
+          {
+            "$oid": "61aa7ef3248804a10f7bfee0"
+          },
+          {
+            "$oid": "6196aa0893ea3a5f2d1b0134"
+          }
+        ],
+        "votes": [
+          {
+            "$oid": "61aa8e5ec3dec82b94eec159"
+          }
+        ],
+        "createdAt": {
+          "$date": "2021-12-03T20:21:10.941Z"
+        },
+        "class_code": "1234Ab10"
+      },
+      {
+        "_id": {
+          "$oid": "61aa7b735d956a25df5ae01f"
+        },
+        "votes": [
+          {
+            "$oid": "61af793459f25ecdc0188208"
+          }
+        ],
+        "createdAt": {
+          "$date": "2021-12-03T20:17:55.068Z"
+        },
+        "class_code": "1234Ab7",
+        "educator": {
+          "$oid": "61a9367059f1854613bc578e"
+        },
+        "learners": [
+          {
+            "$oid": "61af78f059f25ecdc0188207"
+          },
+          {
+            "email": "test@test.com",
+            "username": "test",
+            "_id": "6196aa0893ea3a5f2d1b0134"
+          }
+        ]
+      }
+    ],
+    "upsert": [
+      true
+    ]
+  }
+},{
+  "_id": {
+    "$oid": "61eda2e59afa6c016530e21d"
+  },
+  "budget": [
+    {
+      "name": "new",
+      "code": "test",
+      "percent": 10
+    }
+  ],
+  "voter": {
+    "_id": {
+      "$oid": "6196aa0893ea3a5f2d1b0134"
+    },
+    "email": "test@test.com",
+    "username": "test",
+    "password": "$2b$10$xikpJp22UmDouSEmPypznOexaJzzvdU6jG4z0GUIvo7tzfxlM5EbG",
+    "actions": [
+      {
+        "name": "Awesome Action",
+        "detail": "Worked on building a community garden",
+        "organization": "Neighborhood Gardening Club",
+        "length": 1.5
+      },
+      {
+        "jwt": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwczovL2xvY2FsaG9zdDo0MDAwLyI6e30sImlhdCI6MTYzODI4NzIzMywiZXhwIjoxNjM4MzczNjMzLCJzdWIiOiJ0ZXN0In0.MCg6AUXa15KSJ9meCUbnaEiVPH69aLgWv9W2gC0ARhc",
+        "name": "recycling",
+        "detail": "went and recycled some trash from the cuyahoga valley national park",
+        "organization": "sierra nevada",
+        "actionDate": {
+          "$date": "2021-10-21T04:00:00Z"
+        },
+        "length": 3
+      },
+      {
+        "name": "test",
+        "detail": "awesome test over here",
+        "organization": "sierra nevada",
+        "length": 1.5,
+        "action_date": {
+          "$date": "2021-12-03T20:21:10.941Z"
+        },
+        "contact": "awesome counselor"
+      },
+      {
+        "name": "new test",
+        "detail": "new test",
+        "organization": "new test",
+        "length": 1,
+        "action_date": {
+          "$date": "2021-12-03T20:21:10.941Z"
+        },
+        "contact": "new test"
+      }
+    ],
+    "educator": true,
+    "classes": [
+      {
+        "_id": {
+          "$oid": "61aa7b735d956a25df5ae01f"
+        },
+        "teacher": {
+          "$oid": "61a9367059f1854613bc578e"
+        },
+        "users": [
+          {
+            "$oid": "61af78f059f25ecdc0188207"
+          }
+        ],
+        "votes": [
+          {
+            "$oid": "61af793459f25ecdc0188208"
+          }
+        ],
+        "createdAt": {
+          "$date": "2021-12-03T20:17:55.068Z"
+        },
+        "class_code": "1234Ab7"
+      },
+      {
+        "_id": {
+          "$oid": "61aa7c36440c774f20a31317"
+        },
+        "teacher": {
+          "$oid": "61a9367059f1854613bc578e"
+        },
+        "users": [
+          {
+            "$oid": "61aa7ef3248804a10f7bfee0"
+          },
+          {
+            "$oid": "6196aa0893ea3a5f2d1b0134"
+          }
+        ],
+        "votes": [
+          {
+            "$oid": "61aa8e5ec3dec82b94eec159"
+          }
+        ],
+        "createdAt": {
+          "$date": "2021-12-03T20:21:10.941Z"
+        },
+        "class_code": "1234Ab10"
+      },
+      {
+        "_id": {
+          "$oid": "61aa7b735d956a25df5ae01f"
+        },
+        "votes": [
+          {
+            "$oid": "61af793459f25ecdc0188208"
+          }
+        ],
+        "createdAt": {
+          "$date": "2021-12-03T20:17:55.068Z"
+        },
+        "class_code": "1234Ab7",
+        "educator": {
+          "$oid": "61a9367059f1854613bc578e"
+        },
+        "learners": [
+          {
+            "$oid": "61af78f059f25ecdc0188207"
+          },
+          {
+            "email": "test@test.com",
+            "username": "test",
+            "_id": "6196aa0893ea3a5f2d1b0134"
+          }
+        ]
+      },
+      {
+        "$oid": "61ed9f3113ab0104e01fd996"
+      },
+      null,
+      {
+        "_id": {
+          "$oid": "61ed9f3113ab0104e01fd996"
+        },
+        "educator": {
+          "_id": {
+            "$oid": "6196aa0893ea3a5f2d1b0134"
+          },
+          "email": "test@test.com",
+          "username": "test",
+          "password": "$2b$10$xikpJp22UmDouSEmPypznOexaJzzvdU6jG4z0GUIvo7tzfxlM5EbG",
+          "actions": [
+            {
+              "name": "Awesome Action",
+              "detail": "Worked on building a community garden",
+              "organization": "Neighborhood Gardening Club",
+              "length": 1.5
+            },
+            {
+              "jwt": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwczovL2xvY2FsaG9zdDo0MDAwLyI6e30sImlhdCI6MTYzODI4NzIzMywiZXhwIjoxNjM4MzczNjMzLCJzdWIiOiJ0ZXN0In0.MCg6AUXa15KSJ9meCUbnaEiVPH69aLgWv9W2gC0ARhc",
+              "name": "recycling",
+              "detail": "went and recycled some trash from the cuyahoga valley national park",
+              "organization": "sierra nevada",
+              "actionDate": {
+                "$date": "2021-10-21T04:00:00Z"
+              },
+              "length": 3
+            },
+            {
+              "name": "test",
+              "detail": "awesome test over here",
+              "organization": "sierra nevada",
+              "length": 1.5,
+              "action_date": {
+                "$date": "2021-12-03T20:21:10.941Z"
+              },
+              "contact": "awesome counselor"
+            },
+            {
+              "name": "new test",
+              "detail": "new test",
+              "organization": "new test",
+              "length": 1,
+              "action_date": {
+                "$date": "2021-12-03T20:21:10.941Z"
+              },
+              "contact": "new test"
+            }
+          ],
+          "educator": true,
+          "classes": [
+            {
+              "_id": {
+                "$oid": "61aa7b735d956a25df5ae01f"
+              },
+              "teacher": {
+                "$oid": "61a9367059f1854613bc578e"
+              },
+              "users": [
+                {
+                  "$oid": "61af78f059f25ecdc0188207"
+                }
+              ],
+              "votes": [
+                {
+                  "$oid": "61af793459f25ecdc0188208"
+                }
+              ],
+              "createdAt": {
+                "$date": "2021-12-03T20:17:55.068Z"
+              },
+              "class_code": "1234Ab7"
+            },
+            {
+              "_id": {
+                "$oid": "61aa7c36440c774f20a31317"
+              },
+              "teacher": {
+                "$oid": "61a9367059f1854613bc578e"
+              },
+              "users": [
+                {
+                  "$oid": "61aa7ef3248804a10f7bfee0"
+                },
+                {
+                  "$oid": "6196aa0893ea3a5f2d1b0134"
+                }
+              ],
+              "votes": [
+                {
+                  "$oid": "61aa8e5ec3dec82b94eec159"
+                }
+              ],
+              "createdAt": {
+                "$date": "2021-12-03T20:21:10.941Z"
+              },
+              "class_code": "1234Ab10"
+            },
+            {
+              "_id": {
+                "$oid": "61aa7b735d956a25df5ae01f"
+              },
+              "votes": [
+                {
+                  "$oid": "61af793459f25ecdc0188208"
+                }
+              ],
+              "createdAt": {
+                "$date": "2021-12-03T20:17:55.068Z"
+              },
+              "class_code": "1234Ab7",
+              "educator": {
+                "$oid": "61a9367059f1854613bc578e"
+              },
+              "learners": [
+                {
+                  "$oid": "61af78f059f25ecdc0188207"
+                },
+                {
+                  "email": "test@test.com",
+                  "username": "test",
+                  "_id": "6196aa0893ea3a5f2d1b0134"
+                }
+              ]
+            }
+          ],
+          "upsert": [
+            true
+          ]
+        },
+        "learners": [],
+        "votes": [],
+        "class_code": "newTest"
+      },
+      {
+        "_id": {
+          "$oid": "61ed9f3113ab0104e01fd996"
+        },
+        "educator": {
+          "_id": {
+            "$oid": "6196aa0893ea3a5f2d1b0134"
+          },
+          "email": "test@test.com",
+          "username": "test",
+          "password": "$2b$10$xikpJp22UmDouSEmPypznOexaJzzvdU6jG4z0GUIvo7tzfxlM5EbG",
+          "actions": [
+            {
+              "name": "Awesome Action",
+              "detail": "Worked on building a community garden",
+              "organization": "Neighborhood Gardening Club",
+              "length": 1.5
+            },
+            {
+              "jwt": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwczovL2xvY2FsaG9zdDo0MDAwLyI6e30sImlhdCI6MTYzODI4NzIzMywiZXhwIjoxNjM4MzczNjMzLCJzdWIiOiJ0ZXN0In0.MCg6AUXa15KSJ9meCUbnaEiVPH69aLgWv9W2gC0ARhc",
+              "name": "recycling",
+              "detail": "went and recycled some trash from the cuyahoga valley national park",
+              "organization": "sierra nevada",
+              "actionDate": {
+                "$date": "2021-10-21T04:00:00Z"
+              },
+              "length": 3
+            },
+            {
+              "name": "test",
+              "detail": "awesome test over here",
+              "organization": "sierra nevada",
+              "length": 1.5,
+              "action_date": {
+                "$date": "2021-12-03T20:21:10.941Z"
+              },
+              "contact": "awesome counselor"
+            },
+            {
+              "name": "new test",
+              "detail": "new test",
+              "organization": "new test",
+              "length": 1,
+              "action_date": {
+                "$date": "2021-12-03T20:21:10.941Z"
+              },
+              "contact": "new test"
+            }
+          ],
+          "educator": true,
+          "classes": [
+            {
+              "_id": {
+                "$oid": "61aa7b735d956a25df5ae01f"
+              },
+              "teacher": {
+                "$oid": "61a9367059f1854613bc578e"
+              },
+              "users": [
+                {
+                  "$oid": "61af78f059f25ecdc0188207"
+                }
+              ],
+              "votes": [
+                {
+                  "$oid": "61af793459f25ecdc0188208"
+                }
+              ],
+              "createdAt": {
+                "$date": "2021-12-03T20:17:55.068Z"
+              },
+              "class_code": "1234Ab7"
+            },
+            {
+              "_id": {
+                "$oid": "61aa7c36440c774f20a31317"
+              },
+              "teacher": {
+                "$oid": "61a9367059f1854613bc578e"
+              },
+              "users": [
+                {
+                  "$oid": "61aa7ef3248804a10f7bfee0"
+                },
+                {
+                  "$oid": "6196aa0893ea3a5f2d1b0134"
+                }
+              ],
+              "votes": [
+                {
+                  "$oid": "61aa8e5ec3dec82b94eec159"
+                }
+              ],
+              "createdAt": {
+                "$date": "2021-12-03T20:21:10.941Z"
+              },
+              "class_code": "1234Ab10"
+            },
+            {
+              "_id": {
+                "$oid": "61aa7b735d956a25df5ae01f"
+              },
+              "votes": [
+                {
+                  "$oid": "61af793459f25ecdc0188208"
+                }
+              ],
+              "createdAt": {
+                "$date": "2021-12-03T20:17:55.068Z"
+              },
+              "class_code": "1234Ab7",
+              "educator": {
+                "$oid": "61a9367059f1854613bc578e"
+              },
+              "learners": [
+                {
+                  "$oid": "61af78f059f25ecdc0188207"
+                },
+                {
+                  "email": "test@test.com",
+                  "username": "test",
+                  "_id": "6196aa0893ea3a5f2d1b0134"
+                }
+              ]
+            }
+          ],
+          "upsert": [
+            true
+          ]
+        },
+        "learners": [
+          "6196aa0893ea3a5f2d1b0134"
+        ],
+        "votes": [],
+        "class_code": "newTest"
+      }
+    ],
+    "upsert": [
+      true
+    ]
+  }
+},{
+  "_id": {
+    "$oid": "61eda5179c9054a1d6575c82"
+  },
+  "budget": [
+    {
+      "name": "newter Test",
+      "code": "newter Test",
+      "percent": 10
+    }
+  ],
+  "voter": {
+    "$oid": "6196aa0893ea3a5f2d1b0134"
+  }
+},{
+  "_id": {
+    "$oid": "61eda5508960ca38ae745b32"
+  },
+  "budget": [
+    {
+      "name": "newter Test",
+      "code": "newter Test",
+      "percent": 10
+    }
+  ],
+  "voter": {
+    "$oid": "6196aa0893ea3a5f2d1b0134"
+  }
+},{
+  "_id": {
+    "$oid": "61eda5d8ae709f21235cdc23"
+  },
+  "budget": [
+    {
+      "name": "newter Test",
+      "code": "newter Test",
+      "percent": 10
+    }
+  ],
+  "voter": {
+    "$oid": "6196aa0893ea3a5f2d1b0134"
+  }
+},{
+  "_id": {
+    "$oid": "61f1a18d2ee7c711e4fa9433"
+  },
+  "budget": [
+    {
+      "name": "Department of Agriculture",
+      "code": "1",
+      "percent": 3
+    },
+    {
+      "name": "Department of Defense",
+      "code": "2",
+      "percent": 19
+    },
+    {
+      "name": "Department of Energy",
+      "code": "3",
+      "percent": 1
+    },
+    {
+      "name": "Department of Education",
+      "code": "4",
+      "percent": 1
+    },
+    {
+      "name": "Department of Health and Human Services",
+      "code": "5",
+      "percent": 28
+    },
+    {
+      "name": "Department of the Interior",
+      "code": "6",
+      "percent": 1
+    },
+    {
+      "name": "Department of Labor",
+      "code": "7",
+      "percent": 1
+    },
+    {
+      "name": "Department of State",
+      "code": "8",
+      "percent": 1
+    },
+    {
+      "name": "Department of Transportation",
+      "code": "9",
+      "percent": 2
+    },
+    {
+      "name": "Department of Treasury",
+      "code": "1",
+      "percent": 17
+    },
+    {
+      "name": "Environmental Protection Agency",
+      "code": "1",
+      "percent": 1
+    },
+    {
+      "name": "Federal Communication Comission",
+      "code": "1",
+      "percent": 1
+    },
+    {
+      "name": "Federal Election Comission",
+      "code": "1",
+      "percent": 1
+    },
+    {
+      "name": "Federal Trade Comission",
+      "code": "1",
+      "percent": 1
+    },
+    {
+      "name": "Department of Housing and Urban Development",
+      "code": "1",
+      "percent": 1
+    },
+    {
+      "name": "Social Security Administration",
+      "code": "1",
+      "percent": 10
+    },
+    {
+      "name": "Department of Justice",
+      "code": "1",
+      "percent": 2
+    },
+    {
+      "name": "National Aeronautics and Space Administration",
+      "code": "1",
+      "percent": 3
+    },
+    {
+      "name": "Department of Veterans Affairs",
+      "code": "1",
+      "percent": 2
+    },
+    {
+      "name": "Equal Opportunity Employment Commission",
+      "code": "2",
+      "percent": 1
+    }
+  ],
+  "voter": {
+    "$oid": "6196aa0893ea3a5f2d1b0134"
+  }
+},{
+  "_id": {
+    "$oid": "61f1a1992ee7c711e4fa9434"
+  },
+  "budget": [
+    {
+      "name": "Department of Agriculture",
+      "code": "1",
+      "percent": 3
+    },
+    {
+      "name": "Department of Defense",
+      "code": "2",
+      "percent": 19
+    },
+    {
+      "name": "Department of Energy",
+      "code": "3",
+      "percent": 1
+    },
+    {
+      "name": "Department of Education",
+      "code": "4",
+      "percent": 1
+    },
+    {
+      "name": "Department of Health and Human Services",
+      "code": "5",
+      "percent": 28
+    },
+    {
+      "name": "Department of the Interior",
+      "code": "6",
+      "percent": 1
+    },
+    {
+      "name": "Department of Labor",
+      "code": "7",
+      "percent": 1
+    },
+    {
+      "name": "Department of State",
+      "code": "8",
+      "percent": 1
+    },
+    {
+      "name": "Department of Transportation",
+      "code": "9",
+      "percent": 2
+    },
+    {
+      "name": "Department of Treasury",
+      "code": "1",
+      "percent": 17
+    },
+    {
+      "name": "Environmental Protection Agency",
+      "code": "1",
+      "percent": 1
+    },
+    {
+      "name": "Federal Communication Comission",
+      "code": "1",
+      "percent": 1
+    },
+    {
+      "name": "Federal Election Comission",
+      "code": "1",
+      "percent": 1
+    },
+    {
+      "name": "Federal Trade Comission",
+      "code": "1",
+      "percent": 1
+    },
+    {
+      "name": "Department of Housing and Urban Development",
+      "code": "1",
+      "percent": 1
+    },
+    {
+      "name": "Social Security Administration",
+      "code": "1",
+      "percent": 10
+    },
+    {
+      "name": "Department of Justice",
+      "code": "1",
+      "percent": 2
+    },
+    {
+      "name": "National Aeronautics and Space Administration",
+      "code": "1",
+      "percent": 3
+    },
+    {
+      "name": "Department of Veterans Affairs",
+      "code": "1",
+      "percent": 2
+    },
+    {
+      "name": "Equal Opportunity Employment Commission",
+      "code": "2",
+      "percent": 1
+    }
+  ],
+  "voter": {
+    "$oid": "6196aa0893ea3a5f2d1b0134"
+  }
+},{
+  "_id": {
+    "$oid": "61f1a1f84246145ea4218d0b"
+  },
+  "budget": [
+    {
+      "name": "Department of Agriculture",
+      "code": 1,
+      "percent": 3
+    },
+    {
+      "name": "Department of Defense",
+      "code": 2,
+      "percent": 19
+    },
+    {
+      "name": "Department of Energy",
+      "code": 3,
+      "percent": 1
+    },
+    {
+      "name": "Department of Education",
+      "code": 4,
+      "percent": 1
+    },
+    {
+      "name": "Department of Health and Human Services",
+      "code": 5,
+      "percent": 28
+    },
+    {
+      "name": "Department of the Interior",
+      "code": 6,
+      "percent": 1
+    },
+    {
+      "name": "Department of Labor",
+      "code": 7,
+      "percent": 1
+    },
+    {
+      "name": "Department of State",
+      "code": 8,
+      "percent": 1
+    },
+    {
+      "name": "Department of Transportation",
+      "code": 9,
+      "percent": 2
+    },
+    {
+      "name": "Department of Treasury",
+      "code": 10,
+      "percent": 17
+    },
+    {
+      "name": "Environmental Protection Agency",
+      "code": 11,
+      "percent": 1
+    },
+    {
+      "name": "Federal Communication Comission",
+      "code": 12,
+      "percent": 1
+    },
+    {
+      "name": "Federal Election Comission",
+      "code": 13,
+      "percent": 1
+    },
+    {
+      "name": "Federal Trade Comission",
+      "code": 14,
+      "percent": 1
+    },
+    {
+      "name": "Department of Housing and Urban Development",
+      "code": 15,
+      "percent": 1
+    },
+    {
+      "name": "Social Security Administration",
+      "code": 16,
+      "percent": 10
+    },
+    {
+      "name": "Department of Justice",
+      "code": 17,
+      "percent": 2
+    },
+    {
+      "name": "National Aeronautics and Space Administration",
+      "code": 18,
+      "percent": 3
+    },
+    {
+      "name": "Department of Veterans Affairs",
+      "code": 19,
+      "percent": 2
+    },
+    {
+      "name": "Equal Opportunity Employment Commission",
+      "code": 20,
+      "percent": 1
+    }
+  ],
+  "voter": {
+    "$oid": "6196aa0893ea3a5f2d1b0134"
+  }
+}]
