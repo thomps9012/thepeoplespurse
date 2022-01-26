@@ -4,13 +4,28 @@ import {
   ApolloClient,
   InMemoryCache,
   ApolloProvider,
-  useMutation,
+  createHttpLink,
   gql
 } from '@apollo/client'
+import { setContext } from '@apollo/client/link/context';
+
+const authLink = setContext((_, {headers}) => {
+  const token = localStorage.getItem('auth_token');
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? token : '',
+    }
+  }
+});
+
+const httpLink = createHttpLink({
+  uri: 'http://localhost:3001/',
+})
 
 const client = new ApolloClient({
   // development uri
-  uri: 'http://localhost:3001/',
+  link: authLink.concat(httpLink),
   cache: new InMemoryCache
 });
 
