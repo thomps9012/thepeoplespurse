@@ -70,12 +70,7 @@ export const resolvers = {
                 const expiration = '2h';
                 const user: any = jwt.verify(user_jwt, secret, { maxAge: expiration })
                 const userId = user.data._id;
-                if (user.data.educator) {
-                    return mongoDbProvider.classesCollection.find({ educator: new ObjectId(userId) });
-                }
-                else {
-                    throw new AuthenticationError('Not an Educator')
-                }
+                return mongoDbProvider.classesCollection.find({learners: new ObjectId(userId)}).toArray()
             } else {
                 throw new AuthenticationError('Not Logged In')
             }

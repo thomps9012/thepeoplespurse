@@ -45,7 +45,7 @@ type Dept{
 type Class{
     _id: ID
     class_code: String! 
-    learners: [User] 
+    learners: [ID] 
     votes: [ID] 
     educator: ID! 
     createdAt: DateTime

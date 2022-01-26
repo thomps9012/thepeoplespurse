@@ -27,7 +27,6 @@ exports.resolvers = {
                 throw new apollo_server_core_1.AuthenticationError('Not Logged In');
             }
         },
-        // need to do some modification here
         classActions: async (parent, args, context) => {
             const user_jwt = context.headers.authorization;
             if (user_jwt) {
@@ -78,12 +77,7 @@ exports.resolvers = {
                 const expiration = '2h';
                 const user = jsonwebtoken_1.default.verify(user_jwt, secret, { maxAge: expiration });
                 const userId = user.data._id;
-                if (user.data.educator) {
-                    return mongodb_provider_1.mongoDbProvider.classesCollection.find({ educator: new mongodb_1.ObjectId(userId) });
-                }
-                else {
-                    throw new apollo_server_core_1.AuthenticationError('Not an Educator');
-                }
+                return mongodb_provider_1.mongoDbProvider.classesCollection.find({ learners: new mongodb_1.ObjectId(userId) }).toArray();
             }
             else {
                 throw new apollo_server_core_1.AuthenticationError('Not Logged In');
