@@ -1,15 +1,7 @@
 import { useQuery, gql } from '@apollo/client';
 import { useRouter } from 'next/router';
 import styles from '../../styles/Home.module.css';
-// const CLASS_VOTES = gql`
-// query ClassVotes($classId: ID!) {
-//     classVotes(classID: $classId) {
-//       _id
-//       class_code
-//       voter
-//     }
-//   }
-// `;
+
 
 const CLASS_ACTIONS = gql`
 query ClassActions($classId: ID!) {
@@ -20,6 +12,7 @@ query ClassActions($classId: ID!) {
       actions {
         _id
         name
+        detail
       }
     }
   }
@@ -44,6 +37,7 @@ export default function ClassDetail() {
                 return (
                     <div className={styles.card} key={learner._id}>
                         <p>{learner.username}</p>
+                        {/* turn below into accordion see client attendance for details */}
                         {learner.actions.map((action: any) => {
                             return (
                                 <p key={action.name}>

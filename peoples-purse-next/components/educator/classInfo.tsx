@@ -2,7 +2,6 @@ import {
   useQuery,
   gql
 } from '@apollo/client'
-import Link from 'next/link';
 
 
 const GET_CLASSES = gql`
@@ -11,6 +10,7 @@ query Query {
     classes {
       _id
       class_code
+      votes
     }
   }
 }
@@ -32,6 +32,10 @@ export default function ClassInfo() {
             <p key={classDetail._id} id={classDetail._id} >
               {classDetail.class_code}
             </p>
+            <p>
+              Total Votes: {classDetail.votes.length}
+            </p>
+            <hr />
           </a>
         )
       })}
