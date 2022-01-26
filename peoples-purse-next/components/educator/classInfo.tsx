@@ -2,6 +2,7 @@ import {
   useQuery,
   gql
 } from '@apollo/client'
+import Link from 'next/link';
 
 
 const GET_CLASSES = gql`
@@ -27,9 +28,11 @@ export default function ClassInfo() {
       <p>Look at all the classes</p>
       {classes.map((classDetail: any) => {
         return (
-          <p key={classDetail._id} id={classDetail._id} >
-            {classDetail.class_code}
-          </p>
+          <a href={`/classDetail/${classDetail._id}`}>
+            <p key={classDetail._id} id={classDetail._id} >
+              {classDetail.class_code}
+            </p>
+          </a>
         )
       })}
     </>

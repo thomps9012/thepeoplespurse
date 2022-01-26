@@ -27,7 +27,7 @@ exports.resolvers = {
                 throw new apollo_server_core_1.AuthenticationError('Not Logged In');
             }
         },
-        classActions: async (parent, args, context) => {
+        classActions: async (parent, { classID }, context) => {
             const user_jwt = context.headers.authorization;
             if (user_jwt) {
                 const secret = 'secret';
@@ -36,13 +36,16 @@ exports.resolvers = {
                 const userId = user.data._id;
                 if (user.data.educator) {
                     const projection = { learners: 1 };
-                    const classInfo = await mongodb_provider_1.mongoDbProvider.classesCollection.find({ educator: new mongodb_1.ObjectId(userId) }).project(projection).toArray();
+                    const classInfo = await mongodb_provider_1.mongoDbProvider.classesCollection.find({ $and: [{ educator: new mongodb_1.ObjectId(userId) }, { _id: new mongodb_1.ObjectId(classID) }] }).project(projection).toArray();
                     let learnerIDs = classInfo[0].learners;
                     let learnerArr = [];
+                    console.log('ids', learnerIDs);
                     for (const item in learnerIDs) {
                         const learner = await mongodb_provider_1.mongoDbProvider.usersCollection.findOne({ _id: learnerIDs[item] });
                         learnerArr.push(learner);
+                        console.log('learner', learner);
                     }
+                    console.log(learnerArr);
                     return learnerArr;
                 }
                 else {

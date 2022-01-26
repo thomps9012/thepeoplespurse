@@ -22,7 +22,7 @@ export const resolvers = {
                 throw new AuthenticationError('Not Logged In')
             }
         },
-        classActions: async (parent: any, args: any, context: any) => {
+        classActions: async (parent: any, { classID }: { classID: string }, context: any) => {
             const user_jwt = context.headers.authorization;
             if (user_jwt) {
                 const secret = 'secret';
@@ -31,13 +31,16 @@ export const resolvers = {
                 const userId = user.data._id;
                 if (user.data.educator) {
                     const projection = { learners: 1 }
-                    const classInfo = await mongoDbProvider.classesCollection.find({ educator: new ObjectId(userId) }).project(projection).toArray();
+                    const classInfo = await mongoDbProvider.classesCollection.find({ $and: [{ educator: new ObjectId(userId) }, { _id: new ObjectId(classID) }] }).project(projection).toArray();
                     let learnerIDs = classInfo[0].learners
                     let learnerArr = [];
+                    console.log('ids', learnerIDs)
                     for (const item in learnerIDs) {
                         const learner = await mongoDbProvider.usersCollection.findOne({ _id: learnerIDs[item] })
                         learnerArr.push(learner)
+                        console.log('learner', learner)
                     }
+                    console.log(learnerArr)
                     return learnerArr
                 } else {
                     throw new AuthenticationError('Not an Educator')
@@ -70,7 +73,7 @@ export const resolvers = {
                 const expiration = '2h';
                 const user: any = jwt.verify(user_jwt, secret, { maxAge: expiration })
                 const userId = user.data._id;
-                return mongoDbProvider.classesCollection.find({learners: new ObjectId(userId)}).toArray()
+                return mongoDbProvider.classesCollection.find({ learners: new ObjectId(userId) }).toArray()
             } else {
                 throw new AuthenticationError('Not Logged In')
             }
