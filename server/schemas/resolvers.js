@@ -101,6 +101,8 @@ exports.resolvers = {
         },
         castVote: async (parent, { input }, context) => {
             const user_jwt = context.headers.authorization;
+            console.log(input);
+            console.log(user_jwt);
             if (user_jwt) {
                 const secret = 'secret';
                 const expiration = '2h';

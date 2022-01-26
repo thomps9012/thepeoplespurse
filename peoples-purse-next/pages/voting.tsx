@@ -25,21 +25,16 @@ mutation Mutation($input: CastVote!) {
 }
 `;
 export default function VotingPage() {
-  const [budget, setBudget] = useState([...depts])
-  const { loading, error, data } = useQuery(GET_CLASSES);
-  const [castVote, { }] = useMutation(CAST_VOTE);
+  const [budget, setBudget] = useState(depts)
+  const [classCode, setClass] = useState('')
+
+  const { loading, data } = useQuery(GET_CLASSES);
+  const [castVote, { error }] = useMutation(CAST_VOTE);
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :({JSON.stringify(error)}</p>;
   const userClasses = data.getUser.classes;
-  const resetBudget = () => {
-    window.location.reload();
-  }
 
-  
-  const updateBudget = () => {
-
-  }
-
+  const resetBudget = () => window.location.reload();
   const defenseFocused = () => setBudget(defenseDepts);
   const environFocused = () => setBudget(enviroDepts);
   const healthFocused = () => setBudget(healthDepts);
@@ -48,10 +43,11 @@ export default function VotingPage() {
   const evenDist = () => setBudget(evenDistribution);
 
 
-  console.log(budget)
+  console.log(classCode)
+  // console.log(budget)
   return (
     <>
-      <select>
+      <select onChange={(e: any) => setClass(e.target.value)}>
         {userClasses.map((classCode: any) => {
           return (
             <option key={classCode._id}>
@@ -67,12 +63,27 @@ export default function VotingPage() {
       <button onClick={developFocused}>Development Focused</button>
       <button onClick={environFocused}>Environmentally Focused</button>
       <button onClick={evenDist}>Even Distribution</button>
+      <button onClick={resetBudget}>Reset Budget</button>
+
       <DeptCards
         budget={budget}
-        updateBudget={updateBudget}
+        updateBudget={setBudget}
       />
-      {/* })} */}
-      <button onClick={() => castVote}>
+
+      <button onClick={(e: any) => {
+        e.preventDefault();
+        console.log(budget[0].code)
+        castVote({
+          variables: {
+            input: {
+              budget: budget,
+              class_code: classCode
+            }
+          }
+        })
+      }
+      }
+      >
         Cast Vote
       </button>
     </>

@@ -1,6 +1,5 @@
 export default function DeptCards({ budget, updateBudget }: any) {
-    console.log(budget)
-    // console.log(percent)
+    // console.log(budget)
     return (
         <>
             {budget.map((dept: any) => {

@@ -34,7 +34,7 @@ export type VoteInput = {
     class_code: String;
     budget: [
         {
-            code: String;
+            code: Number;
             name: String;
             percent: Number;
         }

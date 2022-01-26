@@ -37,7 +37,7 @@ type Action {
 }
 
 type Dept{
-    code: String! 
+    code: Int! 
     name: String! 
     percent: Float! 
 }
@@ -62,7 +62,7 @@ type Query {
 
 input DeptInput {
     name: String!
-    code: String!
+    code: Int!
     percent: Float!
 }
 
