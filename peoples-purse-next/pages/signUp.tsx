@@ -1,7 +1,41 @@
+import {
+    useMutation,
+    gql
+} from '@apollo/client';
+
+const SIGN_UP = gql`
+mutation Mutation($input: UserSignUpInput!) {
+    signUp(input: $input) {
+      token
+    }
+  }
+`
+
 export default function SignUp() {
+    const [signUp, { data, loading, error }] = useMutation(SIGN_UP);
+
+    if (loading) return 'Submitting...';
+    if (error) return `Submission error! ${error.message}`;
     return (
         <>
-            <div className="signupForm">
+            <form
+                onSubmit={(e): any => {
+                    e.preventDefault();
+                    console.log(e.target)
+                    signUp({
+                        variables: {
+                            input: {
+                                first_name: 'newter',
+                                last_name: 'tester',
+                                email: 'newts@tester.com',
+                                username: 'newts',
+                                password: 'test12345'
+                            }
+                        }
+                    })
+                }}
+                className="signupForm"
+                >
                 <h3>Personal Information</h3>
                 <label>First Name</label>
                 <input
@@ -33,12 +67,12 @@ export default function SignUp() {
                     name='password'
                     id='password'
                 />
-                <button 
+                <button
                     type='submit'
-                    >
-                        Sign Up
-                    </button>
-            </div>
+                >
+                    Sign Up
+                </button>
+            </form>
         </>
     )
 }
