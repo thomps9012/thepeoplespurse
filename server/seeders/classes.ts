@@ -44,3 +44,15 @@ const classes = [
         ]
     }
 ]
+// user must be an educator
+const classInput = [
+    {
+        "classCode": null
+    }
+]
+// user must be a learner
+const joinClassInput = [
+    {
+        "classCode": null
+    }
+]

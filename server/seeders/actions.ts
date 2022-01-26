@@ -389,3 +389,14 @@ const actions = [
         user: new ObjectId('')
     },
 ]
+
+const actionInput = [
+    {
+        "name": null,
+        "detail": null,
+        "organization": null,
+        "length": null,
+        "action_date": null,
+        "contact": null
+    }
+]

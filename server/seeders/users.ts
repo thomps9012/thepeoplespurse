@@ -487,3 +487,13 @@ const learners = [
         ],
     },
 ]
+
+const userInput = [
+    {
+        "first_name": null,
+        "last_name": null,
+        "email": null,
+        "username": null,
+        "password": null
+    }
+]

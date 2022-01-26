@@ -542,7 +542,7 @@ const educationVotes = [{
             percent: 1
         }
     ]
-},]
+}]
 const healthVotes = [{
     _id: new ObjectId(''),
     voter: new ObjectId(''),
@@ -649,4 +649,18 @@ const healthVotes = [{
             percent: 1
         }
     ]
-},]
+}]
+
+const voteInput = [
+    {
+        "budget": [
+            {
+                "name": null,
+                "code": null,
+                "percent": null
+            }
+            // repeat for 19 more departments
+        ],
+        "class_code": null
+    }
+]
