@@ -29,6 +29,9 @@ const Home: NextPage = () => {
           <a href="/budgetResults" className={styles.card}>
             <h2>Budget Results &rarr;</h2>
           </a>
+          <a href="/voting" className={styles.card}>
+            <h2>Voting Page &rarr;</h2>
+          </a>
 
 
         </div>
