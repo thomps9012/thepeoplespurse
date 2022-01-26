@@ -21,9 +21,9 @@ type User {
 
 type Vote {
     _id: ID 
-    voter: User! 
+    voter: ID! 
     budget: [Dept]! 
-    class: Class 
+    class_code: String 
     createdAt: DateTime
 }
 
