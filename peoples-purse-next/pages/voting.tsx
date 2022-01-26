@@ -2,10 +2,12 @@ import { useQuery, useMutation, gql } from '@apollo/client';
 import { useState } from 'react';
 import { depts } from '../../assets/deptVoting/depts'
 import DeptCards from '../components/deptCards';
-// import { depts } from '../../assets/deptVoting/depts'
-// import { depts } from '../../assets/deptVoting/depts'
-// import { depts } from '../../assets/deptVoting/depts'
-// import { depts } from '../../assets/deptVoting/depts'
+import { defenseDepts } from '../../assets/deptVoting/defenseDepts'
+import { developDepts } from '../../assets/deptVoting/developDepts'
+import { eduDepts } from '../../assets/deptVoting/eduDepts'
+import { enviroDepts } from '../../assets/deptVoting/enviroDepts'
+import { healthDepts } from '../../assets/deptVoting/healthDepts'
+import { evenDistribution } from '../../assets/deptVoting/evenDist'
 
 const GET_CLASSES = gql`
 query ClassInfo {
@@ -33,12 +35,19 @@ export default function VotingPage() {
     window.location.reload();
   }
 
-  const evenDist = () => {
-
-  }
+  
   const updateBudget = () => {
 
   }
+
+  const defenseFocused = () => setBudget(defenseDepts);
+  const environFocused = () => setBudget(enviroDepts);
+  const healthFocused = () => setBudget(healthDepts);
+  const developFocused = () => setBudget(developDepts);
+  const educationFocused = () => setBudget(eduDepts);
+  const evenDist = () => setBudget(evenDistribution);
+
+
   console.log(budget)
   return (
     <>
@@ -52,12 +61,16 @@ export default function VotingPage() {
         })}
         <option>No Class</option>
       </select>
-      {/* {budget.forEach((dept: any) => { */}
-        {/* // { console.log(dept) } */}
-          <DeptCards
-            budget={budget}
-            updateBudget={updateBudget}
-          />
+      <button onClick={defenseFocused}>Defense Focused</button>
+      <button onClick={educationFocused}>Education Focused</button>
+      <button onClick={healthFocused}>Health Focused</button>
+      <button onClick={developFocused}>Development Focused</button>
+      <button onClick={environFocused}>Environmentally Focused</button>
+      <button onClick={evenDist}>Even Distribution</button>
+      <DeptCards
+        budget={budget}
+        updateBudget={updateBudget}
+      />
       {/* })} */}
       <button onClick={() => castVote}>
         Cast Vote
