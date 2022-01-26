@@ -30,22 +30,6 @@ const client = new ApolloClient({
   cache: new InMemoryCache
 });
 
-client.query({
-  query: gql`
-  query Query {
-    allVotes {
-      _id
-      budget {
-        code
-        name
-        percent
-      }
-    }
-  }
-  `
-}).then(result => console.log(result))
-
-
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ApolloProvider client={client}>
