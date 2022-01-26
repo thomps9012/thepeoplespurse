@@ -60,15 +60,15 @@ export default function SignUp() {
                 <label>First Name</label>
                 <input
                     type='text'
-                    name='first-name'
-                    id='first-name'
+                    name='first_name'
+                    id='first_name'
                     onChange={handleChange}
                 />
                 <label>Last Name</label>
                 <input
                     type='text'
-                    name='last-name'
-                    id='last-name'
+                    name='last_name'
+                    id='last_name'
                     onChange={handleChange}
                 />
                 <label>Username</label>

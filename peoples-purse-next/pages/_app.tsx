@@ -19,6 +19,7 @@ const authLink = setContext((_, {headers}) => {
   }
 });
 
+// development uri
 const httpLink = createHttpLink({
   uri: 'http://localhost:3001/',
 })
