@@ -141,15 +141,17 @@ exports.resolvers = {
         },
         createClass: async (parent, input, context) => {
             const user_jwt = context.headers.authorization;
+            console.log(user_jwt);
             if (user_jwt) {
                 const secret = 'secret';
                 const expiration = '2h';
                 const user = jsonwebtoken_1.default.verify(user_jwt, secret, { maxAge: expiration });
+                console.log(user);
                 if (user.data.educator) {
                     const createdClass = await mongodb_provider_1.mongoDbProvider.classesCollection.insertOne(Object.assign(Object.assign({}, input), { educator: new mongodb_1.ObjectId(user.data._id), learners: [], votes: [], createdAt: Date.now }));
                     const updatedEducator = await mongodb_provider_1.mongoDbProvider.usersCollection.updateOne({ _id: new mongodb_1.ObjectId(user.data._id) }, {
                         $addToSet: {
-                            classes: Object.assign(Object.assign({}, input), { educator: new mongodb_1.ObjectId(user.data._id), learners: [], votes: [], createdAt: Date.now })
+                            classes: Object.assign(Object.assign({}, input), { _id: createdClass.insertedId, educator: new mongodb_1.ObjectId(user.data._id), learners: [], votes: [], createdAt: Date.now })
                         }
                     }, { upsert: true });
                     return createdClass.insertedId;
@@ -188,7 +190,7 @@ exports.resolvers = {
         login: async (parent, { input }) => {
             const username = input.username;
             const email = input.email;
-            const user = await mongodb_provider_1.mongoDbProvider.usersCollection.findOne({ $or: [{ email: email }, { username: username }] });
+            const user = await mongodb_provider_1.mongoDbProvider.usersCollection.findOne({ $and: [{ email: email }, { username: username }] });
             if (!user) {
                 throw new apollo_server_core_1.AuthenticationError('Incorrect Credentials');
             }

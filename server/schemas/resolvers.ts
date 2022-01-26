@@ -156,10 +156,12 @@ export const resolvers = {
         },
         createClass: async (parent: any, input: any, context: any) => {
             const user_jwt = context.headers.authorization;
+            console.log(user_jwt)
             if (user_jwt) {
                 const secret = 'secret';
                 const expiration = '2h';
                 const user: any = jwt.verify(user_jwt, secret, { maxAge: expiration })
+                console.log(user)
                 if (user.data.educator) {
                     const createdClass = await mongoDbProvider.classesCollection.insertOne({
                         ...input,
@@ -174,6 +176,7 @@ export const resolvers = {
                             $addToSet: {
                                 classes: {
                                     ...input,
+                                    _id: createdClass.insertedId,
                                     educator: new ObjectId(user.data._id),
                                     learners: [],
                                     votes: [],
@@ -226,7 +229,7 @@ export const resolvers = {
         login: async (parent: any, { input }: { input: UserLoginInput }) => {
             const username = input.username;
             const email = input.email;
-            const user = await mongoDbProvider.usersCollection.findOne({ $or: [{ email: email }, { username: username }] });
+            const user = await mongoDbProvider.usersCollection.findOne({ $and: [{ email: email }, { username: username }] });
             if (!user) {
                 throw new AuthenticationError('Incorrect Credentials');
             }
