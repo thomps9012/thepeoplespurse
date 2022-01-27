@@ -86,6 +86,9 @@ exports.resolvers = {
                 throw new apollo_server_core_1.AuthenticationError('Not Logged In');
             }
         },
+        allClasses: async (obj) => {
+            return mongodb_provider_1.mongoDbProvider.classesCollection.find({}).project({ 'class_code': 1 }).toArray();
+        },
     },
     Mutation: {
         signUp: async (parent, { input }) => {

@@ -78,8 +78,9 @@ export const resolvers = {
                 throw new AuthenticationError('Not Logged In')
             }
         },
-
-
+        allClasses: async (obj: any) => {
+            return mongoDbProvider.classesCollection.find({}).project({'class_code': 1}).toArray();
+        },
     },
     Mutation: {
         signUp: async (parent: any, { input }: { input: UserSignUpInput }) => {
