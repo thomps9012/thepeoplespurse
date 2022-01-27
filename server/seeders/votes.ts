@@ -20,7 +20,7 @@ const evenVoteInput = [
             { "name": "Department of Justice", "code": 17, "percent": 5 },
             { "name": "National Aeronatuics and Space Administration", "code": 18, "percent": 5 },
             { "name": "Department of Veterans Affairs", "code": 19, "percent": 5 },
-            { "name": "Equal Opportunity Employment Comission", "code": 20, "percent": 5 },
+            { "name": "Equal Opportunity Employment Comission", "code": 20, "percent": 5 }
         ],
         "class_code": null
     }
@@ -48,7 +48,7 @@ const defenseVoteInput = [
             { "name": "Department of Justice", "code": 17, "percent": 5 },
             { "name": "National Aeronatuics and Space Administration", "code": 18, "percent": 10 },
             { "name": "Department of Veterans Affairs", "code": 19, "percent": 20 },
-            { "name": "Equal Opportunity Employment Comission", "code": 20, "percent": 5 },
+            { "name": "Equal Opportunity Employment Comission", "code": 20, "percent": 5 }
         ],
         "class_code": null
     }
@@ -76,7 +76,7 @@ const healthVoteInput = [
             { "name": "Department of Justice", "code": 17, "percent": 1 },
             { "name": "National Aeronatuics and Space Administration", "code": 18, "percent": 1 },
             { "name": "Department of Veterans Affairs", "code": 19, "percent": 10 },
-            { "name": "Equal Opportunity Employment Comission", "code": 20, "percent": 5 },
+            { "name": "Equal Opportunity Employment Comission", "code": 20, "percent": 5 }
         ],
         "class_code": null
     }
@@ -104,7 +104,7 @@ const enviroVoteInput = [
             { "name": "Department of Justice", "code": 17, "percent": 1 },
             { "name": "National Aeronatuics and Space Administration", "code": 18, "percent": 5 },
             { "name": "Department of Veterans Affairs", "code": 19, "percent": 1 },
-            { "name": "Equal Opportunity Employment Comission", "code": 20, "percent": 5 },
+            { "name": "Equal Opportunity Employment Comission", "code": 20, "percent": 5 }
         ],
         "class_code": null
     }
@@ -132,7 +132,7 @@ const educationVoteInput = [
             { "name": "Department of Justice", "code": 17, "percent": 1 },
             { "name": "National Aeronatuics and Space Administration", "code": 18, "percent": 10 },
             { "name": "Department of Veterans Affairs", "code": 19, "percent": 1 },
-            { "name": "Equal Opportunity Employment Comission", "code": 20, "percent": 8 },
+            { "name": "Equal Opportunity Employment Comission", "code": 20, "percent": 8 }
         ],
         "class_code": null
     }
@@ -160,7 +160,7 @@ const developVoteInput = [
             { "name": "Department of Justice", "code": 17, "percent": 1 },
             { "name": "National Aeronatuics and Space Administration", "code": 18, "percent": 1 },
             { "name": "Department of Veterans Affairs", "code": 19, "percent": 1 },
-            { "name": "Equal Opportunity Employment Comission", "code": 20, "percent": 5 },
+            { "name": "Equal Opportunity Employment Comission", "code": 20, "percent": 5 }
         ],
         "class_code": null
     }

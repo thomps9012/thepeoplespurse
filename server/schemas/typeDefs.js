@@ -60,6 +60,7 @@ type Query {
     allVotes: [Vote]
     classInfo(classID: ID!): Class
     classes: [Class]
+    allClasses: [Class]
 }
 
 input DeptInput {

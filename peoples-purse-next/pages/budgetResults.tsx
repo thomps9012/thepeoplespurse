@@ -18,8 +18,9 @@ query Query {
 
 export default function BudgetResults() {
     const { loading, error, data } = useQuery(ALL_VOTES);
+    console.log(data)
     if (loading) return <p>Loading...</p>;
-    if (error) return <p>Error :(</p>;
+    if (error) return <p>Error :( {JSON.stringify(error)}</p>;
     return (
         data.allVotes.map(({ budget, _id }: any) => (
             <div key={_id}>
