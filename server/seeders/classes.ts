@@ -1,58 +1,48 @@
-import { ObjectId } from "mongodb";
-
-const classes = [
-    {
-        _id: new ObjectId(''),
-        createdAt: '2021-12-03T20:17:55.068+00:00',
-        class_code: "1234Ab7",
-        educator: new ObjectId(''),
-        learners: [
-            new ObjectId(''),
-            new ObjectId('')
-        ],
-        votes: [
-            new ObjectId(''),
-            new ObjectId('')
-        ]
-    },
-    {
-        _id: new ObjectId(''),
-        createdAt: '2021-12-03T20:17:55.068+00:00',
-        class_code: "1234Ab7",
-        educator: new ObjectId(''),
-        learners: [
-            new ObjectId(''),
-            new ObjectId('')
-        ],
-        votes: [
-            new ObjectId(''),
-            new ObjectId('')
-        ]
-    },
-    {
-        _id: new ObjectId(''),
-        createdAt: '2021-12-03T20:17:55.068+00:00',
-        class_code: "1234Ab7",
-        educator: new ObjectId(''),
-        learners: [
-            new ObjectId(''),
-            new ObjectId('')
-        ],
-        votes: [
-            new ObjectId(''),
-            new ObjectId('')
-        ]
-    }
-]
 // user must be an educator
 const classInput = [
     {
-        "classCode": null
+        "classCode": "Homeroom01"
+    },
+    {
+        "classCode": "5th Period U.S. History"
+    },
+    {
+        "classCode": "Civics 101"
+    },
+    {
+        "classCode": "AP History"
+    },
+    {
+        "classCode": "Roles of Government"
+    },
+    {
+        "classCode": "Civic Superstars"
+    },
+    {
+        "classCode": "2nd Period AP Hist"
     }
 ]
 // user must be a learner
 const joinClassInput = [
     {
-        "classCode": null
+        "classCode": "Homeroom01"
+    },
+    {
+        "classCode": "5th Period U.S. History"
+    },
+    {
+        "classCode": "Civics 101"
+    },
+    {
+        "classCode": "AP History"
+    },
+    {
+        "classCode": "Roles of Government"
+    },
+    {
+        "classCode": "Civic Superstars"
+    },
+    {
+        "classCode": "2nd Period AP Hist"
     }
 ]
