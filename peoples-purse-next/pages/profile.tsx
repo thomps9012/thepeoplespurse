@@ -2,6 +2,7 @@ import { gql, useQuery } from '@apollo/client'
 import ClassInfo from '../components/educator/classInfo';
 import CreateClass from '../components/educator/createClass';
 import TakeAction from '../components/learner/takeAction';
+import LoggedOut from '../components/loggedOut';
 
 const GET_USER = gql`
 query Query {
@@ -18,7 +19,10 @@ query Query {
 export default function ProfilePage() {
     const { loading, error, data } = useQuery(GET_USER);
     if (loading) return <p>Loading...</p>;
-    if (error) return <p>Error :({JSON.stringify(error)}</p>;
+    if (error) {
+        console.log(error)
+        return <LoggedOut />
+    }
     const user = data.getUser;
     console.log(user)
     return (

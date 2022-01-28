@@ -29,7 +29,7 @@ export default function ClassDetail() {
     });
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error :({JSON.stringify(error)}</p>;
-    let classData = data.classActions;
+    const classData = data.classActions;
     return (
         <>
             {classData.map((learner: any) => {
