@@ -1,15 +1,28 @@
 export default function DeptCards({ budget, updateBudget }: any) {
-    console.log(updateBudget)
+    let update = ((code: number, value: any) => {
+        let percent = 'percent'
+        if (value === '') { value = 0 } else { value = JSON.parse(value) }
+        console.log(budget[code])
+        let tempArr = budget.slice();
+        tempArr[code - 1][percent] = value;
+        updateBudget(tempArr)
+    })
     return (
         <>
             {budget.map((dept: any) => {
                 return (
-                    <div key={dept.code}>
+                    <div key={dept.id}>
                         <p>{dept.name}</p>
-                        <input onChange={updateBudget} type="number" min="1" max="100" value={dept.percent} />
-                    </div>
-                )
+                        <input
+                            type="number" min="0" max="100"
+                            id={dept.id}
+                            name={dept.name}
+                            value={dept.value}
+                            onChange={(e: any) => update(e.target.id, e.target.value)}
+                        />
+                    </div>)
             })}
         </>
     )
+
 }
