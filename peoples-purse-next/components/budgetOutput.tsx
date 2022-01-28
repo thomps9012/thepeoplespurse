@@ -12,11 +12,11 @@ export default function BudgetOutput(budget: any) {
         )
     } else if (totalBudget > 100) {
         return(
-            <p>You're over by {100-totalBudget} points</p>
+            <p>You're over by {totalBudget-100} points</p>
         )
     } else {
         return(
-            <p>You still have {totalBudget-100} budget points remaining</p>
+            <p>You still have {100-totalBudget} budget points remaining</p>
         )
     }
 }
