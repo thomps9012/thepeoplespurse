@@ -39,14 +39,7 @@ export default function VotingPage() {
   if (!data) { return <LoggedOut /> }
 
   const userClasses = data.getUser.classes;
-  let budgetArr = []
-  for (let key in budget) {
-    // console.log(key);
-    const dept = key;
-    // console.log(budget[key]);
-    const percent = budget[key];
-    budgetArr.push({ [dept]: percent })
-  }
+ 
   const resetBudget = () => window.location.reload();
   const defenseFocused = () => setBudget(defenseDepts);
   const environFocused = () => setBudget(enviroDepts);
@@ -55,8 +48,6 @@ export default function VotingPage() {
   const educationFocused = () => setBudget(eduDepts);
   const evenDist = () => setBudget(evenDistribution);
 
-  // console.log(budget)
-  // budget.forEach(dept => totalBudget += dept.percent)
   return (
     <>
       {/* <select onChange={(e: any) => setClass(e.target.value)}>
