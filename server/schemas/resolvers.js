@@ -68,7 +68,12 @@ exports.resolvers = {
             return voteArr;
         },
         allVotes: async (obj) => {
-            return mongodb_provider_1.mongoDbProvider.votesCollection.find({}).toArray();
+            const totalVotes = await mongodb_provider_1.mongoDbProvider.votesCollection.countDocuments();
+            const aggVotes = await mongodb_provider_1.mongoDbProvider.votesCollection.aggregate([
+                { $unwind: "$budget" },
+                { $group: { _id: "$budget.name", percent: { $sum: "$budget.percent" } } },
+            ]).toArray();
+            return { aggVotes, totalVotes };
         },
         classInfo: async (obj, { classID }) => {
             return await mongodb_provider_1.mongoDbProvider.classesCollection.findOne({ _id: new mongodb_1.ObjectId(classID) });

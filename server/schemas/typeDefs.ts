@@ -51,11 +51,22 @@ type Class{
     createdAt: DateTime
 }
 
+type Department {
+    _id: Int
+    dept: String
+    percent: Int
+}
+
+type AllVotes {
+    aggVotes: [Department]
+    totalVotes: Int
+}
+
 type Query {
     getUser: User
     classActions(classID: ID!): [User]
     classVotes(classID: ID!): [Vote]
-    allVotes: [Vote]
+    allVotes: AllVotes
     classInfo(classID: ID!): Class
     classes: [Class]
     allClasses: [Class]

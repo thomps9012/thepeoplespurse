@@ -61,7 +61,12 @@ export const resolvers = {
             return voteArr
         },
         allVotes: async (obj: any) => {
-            return mongoDbProvider.votesCollection.find({}).toArray();
+            const totalVotes = await mongoDbProvider.votesCollection.countDocuments()
+            const aggVotes = await mongoDbProvider.votesCollection.aggregate([
+                { $unwind: "$budget" },
+                { $group: { _id: "$budget.name", percent: { $sum: "$budget.percent" } } },
+            ]).toArray()
+            return { aggVotes, totalVotes }
         },
         classInfo: async (obj: any, { classID }: { classID: string }) => {
             return await mongoDbProvider.classesCollection.findOne({ _id: new ObjectId(classID) });
@@ -79,7 +84,7 @@ export const resolvers = {
             }
         },
         allClasses: async (obj: any) => {
-            return mongoDbProvider.classesCollection.find({}).project({'class_code': 1}).toArray();
+            return mongoDbProvider.classesCollection.find({}).project({ 'class_code': 1 }).toArray();
         },
     },
     Mutation: {
