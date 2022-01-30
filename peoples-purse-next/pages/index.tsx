@@ -32,6 +32,9 @@ const Home: NextPage = () => {
           <a href="/voting" className={styles.card}>
             <h2>Voting Page &rarr;</h2>
           </a>
+          <a href="/information" className={styles.card}>
+            <h2>Information Page &rarr;</h2>
+          </a>
 
 
         </div>

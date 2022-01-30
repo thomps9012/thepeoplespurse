@@ -1,6 +1,5 @@
 import { useQuery, useMutation, gql } from '@apollo/client';
 import { useState } from 'react';
-import { depts } from '../../assets/deptVoting/depts'
 import DeptCards from '../components/deptCards';
 import { defenseDepts } from '../../assets/deptVoting/defenseDepts'
 import { developDepts } from '../../assets/deptVoting/developDepts'

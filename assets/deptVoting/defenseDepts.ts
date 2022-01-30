@@ -1,67 +1,47 @@
 export const defenseDepts = [
-    // Department_of_Agriculture: 3,
-    // Department_of_Defense: 19,
-    // Department_of_Energy: 1,
-    // Department_of_Education: 1,
-    // Department_of_Health_and_Human_Services: 28,
-    // Department_of_the_Interior: 1,
-    // Department_of_Labor: 1,
-    // Department_of_State: 1,
-    // Department_of_Transportation: 2,
-    // Department_of_Treasury: 17,
-    // Environmental_Protection_Agency: 1,
-    // Federal_Communication_Comission: 1,
-    // Federal_Election_Comission: 1,
-    // Federal_Trade_Comission: 1,
-    // Department_of_Housing_and_Urban_Development: 1,
-    // Social_Security_Administration: 10,
-    // Department_of_Justice: 2,
-    // National_Aeronautics_and_Space_Administration: 3,
-    // Department_of_Veterans_Affairs: 2,
-    // Equal_Opportunity_Employment_Commission: 1
     {
-        id: 1
-        , name: "Department of Agriculture",
+        id: 1,
+        name: "Department of Agriculture",
         percent: 1,
     },
     {
-        id: 2
-        , name: "Department of Defense",
+        id: 2,
+        name: "Department of Defense",
         percent: 20,
     },
     {
-        id: 3
-        , name: "Department of Energy",
+        id: 3,
+        name: "Department of Energy",
         percent: 1,
     },
     {
-        id: 4
-        , name: "Department of Education",
+        id: 4,
+        name: "Department of Education",
         percent: 1,
     },
     {
-        id: 5
-        , name: "Department of Health and Human Services",
+        id: 5,
+        name: "Department of Health and Human Services",
         percent: 8,
     },
     {
-        id: 6
-        , name: "Department of the Interior",
+        id: 6,
+        name: "Department of the Interior",
         percent: 1,
     },
     {
-        id: 7
-        , name: "Department of Labor",
+        id: 7,
+        name: "Department of Labor",
         percent: 1,
     },
     {
-        id: 8
-        , name: "Department of State",
+        id: 8,
+        name: "Department of State",
         percent: 10,
     },
     {
-        id: 9
-        , name: "Department of Transportation",
+        id: 9,
+        name: "Department of Transportation",
         percent: 1,
     },
     {
