@@ -1,6 +1,7 @@
 import { gql, useQuery } from '@apollo/client'
 import ClassInfo from '../components/educator/classInfo';
 import CreateClass from '../components/educator/createClass';
+import JoinClass from '../components/learner/joinClass';
 import TakeAction from '../components/learner/takeAction';
 import LoggedOut from '../components/loggedOut';
 
@@ -38,6 +39,7 @@ export default function ProfilePage() {
                 </> :
                 <>
                     <h3>You're not an educator</h3>
+                    <JoinClass />
                     <TakeAction />
                 </>}
         </>
