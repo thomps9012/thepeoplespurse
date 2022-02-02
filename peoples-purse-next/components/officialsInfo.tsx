@@ -8,7 +8,7 @@ export default function ElectedOfficials() {
 
 }
 
-// export const getServerSideProps: GetServerSideProps(){
+// export function getServerSideProps: GetServerSideProps(){
 //     return {
 //         props: 
 //     }

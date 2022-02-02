@@ -73,6 +73,7 @@ exports.resolvers = {
                 { $unwind: "$budget" },
                 { $group: { _id: "$budget.name", percent: { $sum: "$budget.percent" } } },
             ]).toArray();
+            console.log({ aggVotes, totalVotes });
             return { aggVotes, totalVotes };
         },
         classInfo: async (obj, { classID }) => {

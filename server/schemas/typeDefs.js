@@ -60,8 +60,13 @@ type Department {
     percent: Int
 }
 
+type AggDept {
+    _id: String
+    percent: Int
+}
+
 type AllVotes {
-    aggVotes: [Department]
+    aggVotes: [AggDept]
     totalVotes: Int
 }
 
