@@ -11,14 +11,12 @@ import LoggedOut from '../components/loggedOut';
 import BudgetOutput from '../components/budgetOutput';
 
 const GET_CLASSES = gql`
-query ClassInfo {
-    getUser {
-      classes {
-        class_code
-        _id
-      }
-    }
-  }`;
+query Query {
+  classes {
+    _id
+    class_code
+  }
+}`;
 
 const CAST_VOTE = gql`
 mutation Mutation($input: CastVote!) {
@@ -37,7 +35,7 @@ export default function VotingPage() {
   console.log(data)
   if (!data) { return <LoggedOut /> }
 
-  const userClasses = data.getUser.classes;
+  const userClasses = data.classes;
  
   const resetBudget = () => window.location.reload();
   const defenseFocused = () => setBudget(defenseDepts);
@@ -49,7 +47,7 @@ export default function VotingPage() {
 
   return (
     <>
-      {/* <select onChange={(e: any) => setClass(e.target.value)}>
+      <select onChange={(e: any) => setClass(e.target.value)}>
         {userClasses.map((classCode: any) => {
           return (
             <option key={classCode._id}>
@@ -58,7 +56,7 @@ export default function VotingPage() {
           )
         })}
         <option>No Class</option>
-      </select> */}
+      </select>
       <button onClick={defenseFocused}>Defense Focused</button>
       <button onClick={educationFocused}>Education Focused</button>
       <button onClick={healthFocused}>Health Focused</button>
