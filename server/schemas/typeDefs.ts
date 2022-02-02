@@ -32,7 +32,7 @@ type Action {
     name: String! 
     detail: String! 
     length: Float!
-    date: DateTime!
+    action_date: DateTime!
     affiliated_org: String
     sign_off: String! 
 }

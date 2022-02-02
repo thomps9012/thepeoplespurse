@@ -1,9 +1,5 @@
-import { generateKeyPair } from "crypto"
-import { GetServerSideProps } from "next"
 import { useState } from "react"
-import { States } from '../../assets/states'
-
-const API_KEY = "AIzaSyDsCAsDVamr-9rGO6DwtlXHcZL-8Tx5oeA"
+const API_KEY="AIzaSyDsCAsDVamr-9rGO6DwtlXHcZL-8Tx5oeA"
 
 export default function ElectedOfficials () {
     const [location, setLocation] = useState('');
