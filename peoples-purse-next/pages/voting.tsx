@@ -7,6 +7,7 @@ import { eduDepts } from '../../assets/deptVoting/eduDepts'
 import { enviroDepts } from '../../assets/deptVoting/enviroDepts'
 import { healthDepts } from '../../assets/deptVoting/healthDepts'
 import { evenDistribution } from '../../assets/deptVoting/evenDist'
+import { baseBudget } from '../../assets/deptVoting/baseBudget';
 import LoggedOut from '../components/loggedOut';
 import BudgetOutput from '../components/budgetOutput';
 
@@ -24,7 +25,7 @@ mutation Mutation($input: CastVote!) {
 }
 `;
 export default function VotingPage() {
-  const [budget, setBudget] = useState(defenseDepts)
+  const [budget, setBudget] = useState(baseBudget)
 
   const [classCode, setClass] = useState('')
 
@@ -36,7 +37,7 @@ export default function VotingPage() {
   if (!data) { return <LoggedOut /> }
 
   const userClasses = data.classes;
- 
+
   const resetBudget = () => window.location.reload();
   const defenseFocused = () => setBudget(defenseDepts);
   const environFocused = () => setBudget(enviroDepts);
@@ -57,20 +58,20 @@ export default function VotingPage() {
         })}
         <option>No Class</option>
       </select>
-      <button onClick={defenseFocused}>Defense Focused</button>
+      {/* <button onClick={defenseFocused}>Defense Focused</button>
       <button onClick={educationFocused}>Education Focused</button>
       <button onClick={healthFocused}>Health Focused</button>
       <button onClick={developFocused}>Development Focused</button>
       <button onClick={environFocused}>Environmentally Focused</button>
       <button onClick={evenDist}>Even Distribution</button>
-      <button onClick={resetBudget}>Reset Budget</button>
+      <button onClick={resetBudget}>Reset Budget</button> */}
 
-      {/* compartmentalize */}
       <BudgetOutput budget={budget} />
-          <DeptCards
-            budget={budget}
-            updateBudget={setBudget}
-          />
+      <DeptCards
+        budget={budget}
+        updateBudget={setBudget}
+      />
+
       <button onClick={(e: any) => {
         e.preventDefault();
         castVote({
