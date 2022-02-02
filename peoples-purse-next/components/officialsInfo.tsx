@@ -13,7 +13,16 @@ export default function ElectedOfficials () {
         setLocation(address)
     }
 
-    const onSubmit = async () => {
+    const nationalLvl =async () => {
+        fetch(`https://civicinfo.googleapis.com/civicinfo/v2/representatives?address=${location}&includeOffices=true&levels=country&key=${API_KEY}`)
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(data) {
+                console.log(data)
+            })
+    }
+    const stateLvl =async () => {
         fetch(`https://civicinfo.googleapis.com/civicinfo/v2/representatives?address=${location}&includeOffices=true&levels=administrativeArea1&key=${API_KEY}`)
             .then(function(response) {
                 return response.json();
@@ -21,13 +30,27 @@ export default function ElectedOfficials () {
             .then(function(data) {
                 console.log(data)
             })
-
+    }
+    const localLvl =async () => {
+        fetch(`https://civicinfo.googleapis.com/civicinfo/v2/representatives?address=${location}&includeOffices=true&levels=administrativeArea2&levels=locality&key=${API_KEY}`)
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(data) {
+                console.log(data)
+            })
     }
     return (
         <>
         <input type="text" onChange={getAddress} />
-        <button onClick={onSubmit}>
-            Search
+        <button onClick={nationalLvl}>
+            National
+        </button>
+        <button onClick={stateLvl}>
+            State
+        </button>
+        <button onClick={localLvl}>
+            Local
         </button>
 
         </>
