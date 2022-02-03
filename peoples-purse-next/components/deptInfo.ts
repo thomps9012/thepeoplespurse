@@ -1,22 +1,24 @@
-const DOS = '/components/deptImgs/deptOfState.png'
-const DOD = '/deptImgs/Defense.png'
-const DOE = '/deptImgs/DeptOfEnergy.png'
-const DOL = '/deptImgs/deptOfLabor.png'
-const DOA = '/deptImgs/usda-symbol.svg'
-const DOHS = '/deptImgs/homelandSecurity.png'
-const DOT = '/deptImgs/transportation.png'
-const DOED = '/deptImgs/deptOfEdu.png'
-const DOHHS = '/deptImgs/deptOfHealth.png'
-const HUD = '/deptImgs/housingUrbanDevelopment.png'
-const DOJ = '/deptImgs/justice.png'
-const EPA = '/deptImgs/epa.png'
-const DOI = '/deptImgs/deptOfInt.png'
-const FCC = '/deptImgs/fcc.png'
-const FEC = '/deptImgs/fec.png'
-const EEOC = '/deptImgs/equalEmployment.png'
-const SSA = '/deptImgs/socialSecurity.png'
-const FTC = '/deptImgs/ftc.png'
-const DO$ = '/deptImgs/treasury.png'
+const DOA = '/deptImgs/usda.svg';
+const DOD = '/deptImgs/defense.png';
+const DOE = '/deptImgs/energy.png';
+const DOED = '/deptImgs/education.png';
+const DOHHS = '/deptImgs/health.png';
+const DOI = '/deptImgs/interior.png';
+const DOL = '/deptImgs/labor.png';
+const DOS = '/deptImgs/state.png';
+const DOT = '/deptImgs/transportation.png';
+const DO$ = '/deptImgs/treasury.png';
+const EPA = '/deptImgs/epa.png';
+const FEC = '/deptImgs/fec.png';
+const FTC = '/deptImgs/ftc.png';
+const FCC = '/deptImgs/fcc.png';
+const HUD = '/deptImgs/hud.png';
+const SSA = '/deptImgs/socialSecurity.png';
+const DOJ = '/deptImgs/justice.png';
+const NASA = '/deptImgs/nasa.png';
+const VA = '/deptImgs/veterans.png';
+const EEOC = '/deptImgs/equalEmployment.png';
+const DOHS = '/deptImgs/homelandSecurity.png';
 
 export const DeptInfo = [
   // dept of state info
@@ -29,6 +31,27 @@ export const DeptInfo = [
     mission: 'The Departments mission is to shape and sustain a peaceful, prosperous, just, and democratic world and foster conditions for stability and progress for the benefit of the American people and people everywhere.This mission is shared with the USAID, ensuring we have a common path forward in partnership as we invest in the shared security and prosperity that will ultimately better prepare us for the challenges of tomorrow.',
     website: 'https://www.state.gov/',
     code: "019",
+  },
+  {
+    value: 'National Aeronautics and Space Administration',
+    name: 'National Aeronautics and Space Administration',
+    year: '2020',
+    abbr: 'NASA',
+    icon: NASA,
+    mission: "Lead an innovative and sustainable program of exploration with commercial and international partners to enable human expansion across the solar system and bring new knowledge and opportunities back to Earth. Support growth of the nation's economy in space and aeronautics, increase understanding of the universe and our place in it, work with industry to improve America's aerospace technologies and advance American leadership.",
+    website: 'https://www.nasa.gov/',
+    code: '9121'
+
+  },
+  {
+    value: 'Department of Veterans Affairs',
+    name: 'Department of Veterans Affairs',
+    year: '2020',
+    abbr: 'VA',
+    icon: VA,
+    mission: "To fulfill President Lincoln's promise “To care for him who shall have borne the battle, and for his widow, and his orphan” by serving and honoring the men and women who are America's veterans.",
+    website: 'https://www.va.gov/',
+    code: '9121'
   },
   //   dept of defense info
   {

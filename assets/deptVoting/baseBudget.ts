@@ -103,5 +103,10 @@ export const baseBudget = [
         name: "Equal Opportunity Employment Commission",
         percent: 0,
         id: 20
+    },
+    {
+        name: "Department of Homeland Security",
+        percent: 0,
+        id: 21
     }
 ]

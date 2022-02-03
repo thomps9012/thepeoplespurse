@@ -10,7 +10,6 @@ export default function ElectedOfficials() {
         const address = (e.target as HTMLInputElement).value;
         setLocation(address)
     }
-
     const nationalLvl = async () => {
         fetch(`https://civicinfo.googleapis.com/civicinfo/v2/representatives?address=${location}&includeOffices=true&levels=country&key=${API_KEY}`)
             .then(function (response) {
@@ -47,7 +46,7 @@ export default function ElectedOfficials() {
                 setOfficials(officials)
             })
     }
-
+    // possible modualrization opportunity
     const displayOfficials = (office: any) => {
         const officeOfficials = office.officialIndices;
         const officialDiv = document.getElementById('officialInfo')
