@@ -50,35 +50,42 @@ export default function ElectedOfficials() {
 
     const displayOfficials = (office: any) => {
         const officeOfficials = office.officialIndices;
-        console.log(officeOfficials)
+        console.log(office)
+        const officialDiv = document.getElementById(office.roles[0])
+        officialDiv != null ? officialDiv.innerHTML ='' : '';
         officeOfficials.map((officeIndex: number) => {
-            console.log(officials[officeIndex])
+            const lvlOfficial: any  = officials[officeIndex];
+            console.log(lvlOfficial)
+            document.getElementById(office.roles[0])?.append(lvlOfficial.name)
+
         })
     }
 
-return (
-    <>
-        <input type="text" onChange={getAddress} />
-        <button onClick={nationalLvl}>
-            National
-        </button>
-        <button onClick={stateLvl}>
-            State
-        </button>
-        <button onClick={localLvl}>
-            Local
-        </button>
-        {/* can compartmentalize this */}
-        <h1>Offices</h1>
-        {offices?.map((office: any) => {
-            return (
-                <>
-                    {/* can compartmentalize this */}
-                    <h2 key={office.name} onClick={() => displayOfficials(office)}>{office.name}</h2>
-                </>
-            )
-        })}
-    </>
-)
+    return (
+        <>
+            <input type="text" onChange={getAddress} />
+            <button onClick={nationalLvl}>
+                National
+            </button>
+            <button onClick={stateLvl}>
+                State
+            </button>
+            <button onClick={localLvl}>
+                Local
+            </button>
+            {/* can compartmentalize this */}
+            <h1>Offices</h1>
+            {offices?.map((office: any) => {
+                console.log(office)
+                return (
+                    <>
+                        {/* can compartmentalize this */}
+                        <h2 key={office.name} onClick={() => displayOfficials(office)}>{office.name}</h2>
+                        <div key={office.roles[0]} id={office.roles[0]}></div>
+                    </>
+                )
+            })}
+        </>
+    )
 
 }
