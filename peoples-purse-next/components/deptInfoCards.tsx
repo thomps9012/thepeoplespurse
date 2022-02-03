@@ -39,7 +39,7 @@ export default function DeptInfoCards() {
                 />
                 <h3>{singleDept.name}</h3>
                 <p>{singleDept.mission}</p>
-                <a href={singleDept.website} target={'_blank'}>Visit Website</a>
+                <a href={singleDept.website} target={'_blank'}>Visit Department Website</a>
             </div>
         </>
     )

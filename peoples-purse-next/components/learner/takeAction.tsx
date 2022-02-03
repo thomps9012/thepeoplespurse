@@ -1,4 +1,4 @@
-import { useMutation, gql } from "@apollo/client"
+import { useQuery, useMutation, gql } from "@apollo/client"
 import { useState } from "react";
 
 const TAKE_ACTION = gql`
@@ -7,8 +7,10 @@ mutation Mutation($input: TakeAction!) {
   }
 `;
 
+
 export default function TakeAction() {
     const [takeAction, { loading, error }] = useMutation(TAKE_ACTION);
+    if (loading) return <p>Loading...</p>
     const [formState, setFormState] = useState({
         name: '',
         detail: '',
@@ -17,7 +19,6 @@ export default function TakeAction() {
         action_date: new Date(),
         contact: ''
     })
-    if (loading) return <p>Loading...</p>
     if (error) return <p>Error: {JSON.stringify(error)}</p>
 
     const handleChange = (e: any) => {

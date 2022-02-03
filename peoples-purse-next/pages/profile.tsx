@@ -13,6 +13,9 @@ query Query {
       last_name
       educator
       username
+      actions {
+          name
+      }
     }
   }
 `;
@@ -38,7 +41,7 @@ export default function ProfilePage() {
                     <CreateClass />
                 </> :
                 <>
-                    <h3>You're not an educator</h3>
+                    <h3>{user.actions.length} Taken</h3>
                     <JoinClass />
                     <TakeAction />
                 </>}

@@ -71,7 +71,7 @@ export default function ElectedOfficials() {
 
     return (
         <>
-            <input type="text" onChange={getAddress} />
+            <input type="text" onChange={getAddress} placeholder="Enter Your Address Here"/>
             <button onClick={nationalLvl}>
                 National
             </button>
@@ -82,7 +82,7 @@ export default function ElectedOfficials() {
                 Local
             </button>
             {/* can compartmentalize this */}
-            <h1>Offices</h1>
+            <h5>Offices</h5>
             {offices?.map((office: any) => {
                 console.log(office)
                 return (
