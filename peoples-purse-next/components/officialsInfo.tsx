@@ -50,13 +50,22 @@ export default function ElectedOfficials() {
 
     const displayOfficials = (office: any) => {
         const officeOfficials = office.officialIndices;
-        console.log(office)
-        const officialDiv = document.getElementById(office.roles[0])
+        const officialDiv = document.getElementById('officialInfo')
         officialDiv != null ? officialDiv.innerHTML ='' : '';
         officeOfficials.map((officeIndex: number) => {
-            const lvlOfficial: any  = officials[officeIndex];
-            console.log(lvlOfficial)
-            document.getElementById(office.roles[0])?.append(lvlOfficial.name)
+            const lvlOfficial: any  = officials[officeIndex]; 
+            const lvlOfficialEl = ` <h5>${lvlOfficial.name}</h5>
+                                    <p>${lvlOfficial.party}</p>
+                                    <p>${lvlOfficial.address[0].line1}</p>
+                                    <p>${lvlOfficial.address[0].city}</p>
+                                    <p>${lvlOfficial.address[0].state}</p>
+                                    <p>${lvlOfficial.address[0].zip}</p>
+                                    <a href=${lvlOfficial.urls[0] 
+                                        ? lvlOfficial.urls[0]
+                                        : `https://www.google.com/search?q=${lvlOfficial.name}`} 
+                                        target='_blank'>Official Website</a>
+                                    `
+            officialDiv != null ? officialDiv.innerHTML += lvlOfficialEl : '';
 
         })
     }
@@ -80,11 +89,11 @@ export default function ElectedOfficials() {
                 return (
                     <>
                         {/* can compartmentalize this */}
-                        <h2 key={office.name} onClick={() => displayOfficials(office)}>{office.name}</h2>
-                        <div key={office.roles[0]} id={office.roles[0]}></div>
+                        <p key={office.name} onClick={() => displayOfficials(office)}>{office.name}</p>
                     </>
                 )
             })}
+            <div id='officialInfo'></div>
         </>
     )
 
