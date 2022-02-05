@@ -1,4 +1,4 @@
-import { useQuery, useMutation, gql } from "@apollo/client"
+import { useMutation, gql } from "@apollo/client"
 import { useState } from "react";
 
 const TAKE_ACTION = gql`

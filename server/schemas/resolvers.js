@@ -201,6 +201,28 @@ exports.resolvers = {
             }
             throw new apollo_server_core_1.AuthenticationError('Not Logged In');
         },
+        removeClass: async (parent, { classID }, context) => {
+            const user_jwt = context.headers.authorization;
+            if (user_jwt) {
+                const secret = 'secret';
+                const expiration = '2h';
+                const user = jsonwebtoken_1.default.verify(user_jwt, secret, { maxAge: expiration });
+                console.log(user);
+                const userId = user.data._id;
+                const updatedClass = await mongodb_provider_1.mongoDbProvider.classesCollection.updateOne({ _id: new mongodb_1.ObjectId(classID) }, { $pull: { learners: new mongodb_1.ObjectId(userId) } });
+                const updatedUser = await mongodb_provider_1.mongoDbProvider.usersCollection.updateOne({ _id: new mongodb_1.ObjectId(userId) }, { $pull: { classes: new mongodb_1.ObjectId(classID) } });
+                console.log(updatedClass, updatedUser);
+                if (updatedClass.acknowledged) {
+                    return user;
+                }
+                else {
+                    throw new apollo_server_core_1.AuthenticationError('Class Not Found');
+                }
+            }
+            else {
+                throw new apollo_server_core_1.AuthenticationError("Not Logged In");
+            }
+        },
         login: async (parent, { input }) => {
             const username = input.username;
             const email = input.email;

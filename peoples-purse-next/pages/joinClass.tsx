@@ -1,15 +1,6 @@
-import { useQuery, useMutation, gql } from "@apollo/client"
+import { useMutation, gql } from "@apollo/client"
 import { useState } from "react";
-import LoggedOut from "../loggedOut";
 
-const GET_CLASSES = gql`
-query Query {
-    classes {
-      _id
-      class_code
-    }
-  }
-`;
 
 const JOIN_CLASS = gql`
 mutation Mutation($classCode: String!) {
@@ -20,27 +11,13 @@ mutation Mutation($classCode: String!) {
 `;
 
 export default function JoinClass() {
-    const { loading, data } = useQuery(GET_CLASSES);
-    const [joinClass, { error }] = useMutation(JOIN_CLASS)
+    const [joinClass, { loading, error }] = useMutation(JOIN_CLASS)
     const [classCode, setClassCode] = useState('')
     if (loading) return <p>Loading...</p>;
-    if (error) {
-        console.log(error)
-        return <LoggedOut />
-    }
-    console.log(data)
-    const classes = data.classes;
+    if (error) return JSON.stringify(error)
+   
     return (
         <>
-            <p>Your Classes</p>
-            <ul>
-                {classes.map((classDetail: any) => {
-                    return (
-                        <li key={classDetail._id}>{classDetail.class_code}</li>
-                    )
-                })}
-            </ul>
-
             <form
                 onSubmit={async (e: any) => {
                     e.preventDefault();

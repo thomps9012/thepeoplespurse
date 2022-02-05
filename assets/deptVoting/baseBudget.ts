@@ -7,7 +7,6 @@ export const baseBudget = [
     {
         name: "Department of Defense",
         percent: 0,
-
         id: 2
     },
     {

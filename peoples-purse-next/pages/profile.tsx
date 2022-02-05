@@ -1,7 +1,7 @@
 import { gql, useQuery } from '@apollo/client'
 import ClassInfo from '../components/educator/classInfo';
 import CreateClass from '../components/educator/createClass';
-import JoinClass from '../components/learner/joinClass';
+import LearnerClasses from '../components/learner/learnerClasses';
 import TakeAction from '../components/learner/takeAction';
 import LoggedOut from '../components/loggedOut';
 
@@ -28,7 +28,6 @@ export default function ProfilePage() {
         return <LoggedOut />
     }
     const user = data.getUser;
-    console.log(user)
     return (
         <>
             <p>{user.first_name}</p>
@@ -41,8 +40,8 @@ export default function ProfilePage() {
                     <CreateClass />
                 </> :
                 <>
-                    <h3>{user.actions.length} Taken</h3>
-                    <JoinClass />
+                    <LearnerClasses />
+                    <h3>{user.actions.length} Actions Taken</h3>
                     <TakeAction />
                 </>}
         </>

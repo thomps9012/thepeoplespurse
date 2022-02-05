@@ -238,6 +238,32 @@ export const resolvers = {
             }
             throw new AuthenticationError('Not Logged In')
         },
+        removeClass: async (parent: any, { classID }: { classID: string }, context: any) => {
+            const user_jwt = context.headers.authorization;
+            if (user_jwt) {
+                const secret = 'secret';
+                const expiration = '2h';
+                const user: any = jwt.verify(user_jwt, secret, { maxAge: expiration });
+                console.log(user)
+                const userId = user.data._id
+                const updatedClass = await mongoDbProvider.classesCollection.updateOne(
+                    { _id: new ObjectId(classID) },
+                    { $pull: { learners: new ObjectId(userId) } }
+                );
+                const updatedUser = await mongoDbProvider.usersCollection.updateOne(
+                    { _id: new ObjectId(userId) },
+                    { $pull: { classes: new ObjectId(classID) } }
+                );
+                console.log(updatedClass, updatedUser)
+                if (updatedClass.acknowledged) {
+                    return user
+                } else {
+                    throw new AuthenticationError('Class Not Found')
+                }
+            } else {
+                throw new AuthenticationError("Not Logged In")
+            }
+        },
         login: async (parent: any, { input }: { input: UserLoginInput }) => {
             const username = input.username;
             const email = input.email;

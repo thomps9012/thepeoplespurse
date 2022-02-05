@@ -31,19 +31,18 @@ export default function VotingPage() {
   if (!data) { return <LoggedOut /> }
   const userClasses = data.classes;
   const resetBudget = () => window.location.reload();
-
   return (
     <>
       <select onChange={(e: any) => setClass(e.target.value)}>
         {userClasses ?
-        userClasses.map((classCode: any) => {
-          return (
-            <option key={classCode._id}>
-              {classCode.class_code}
-            </option>
-          )
-        }) : 
-        <option value=''>No Joined Classes</option>
+          userClasses.map((classCode: any) => {
+            return (
+              <option key={classCode._id}>
+                {classCode.class_code}
+              </option>
+            )
+          }) :
+          <option value=''>No Joined Classes</option>
         }
       </select>
       <button onClick={resetBudget}>Reset Budget</button>
@@ -54,18 +53,21 @@ export default function VotingPage() {
         updateBudget={setBudget}
       />
 
-      <button onClick={(e: any) => {
-        e.preventDefault();
-        castVote({
-          variables: {
-            input: {
-              budget: budget,
-              class_code: classCode
+      <button
+        id="voteSubmit"
+        onClick={async(e: any) => {
+          e.preventDefault();
+          const voteResponse = await castVote({
+            variables: {
+              input: {
+                budget: budget,
+                class_code: classCode
+              }
             }
-          }
-        })
-      }
-      }
+          })
+          console.log(voteResponse)
+        }
+        }
       >
         Cast Vote
       </button>

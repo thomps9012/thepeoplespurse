@@ -5,6 +5,7 @@ export default function Navbar() {
             <a className="button" href="/information" title='Information Center'><p>Information Center</p></a>
             <a className="button" href="/voting" title='Voting'><p>Voting Page</p></a>
             <a className="button" href="/budgetResults" title='Budget Results'><p>Budget Results</p></a>
+            <a className="button" href="/profile" title='Profile Page'><p>Profile Page</p></a>
         </>
     )
 }

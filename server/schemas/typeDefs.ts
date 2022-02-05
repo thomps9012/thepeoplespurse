@@ -80,7 +80,7 @@ type Query {
 
 input DeptInput {
     name: String!
-    code: Int!
+    id: Int!
     percent: Float!
 }
 
@@ -129,5 +129,6 @@ type Mutation {
     createClass(class_code: String!): ID
     joinClass(class_code: String!): Class 
     login(input: LoginInput!): Auth
+    removeClass(classID: ID!): User
 }
 `;
