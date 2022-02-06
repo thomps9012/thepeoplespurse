@@ -1,17 +1,17 @@
 import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import {AppProps} from 'next/app';
 import {
   ApolloClient,
   InMemoryCache,
   ApolloProvider,
-  createHttpLink,
-  gql
-} from '@apollo/client'
+  createHttpLink
+} from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import Footer from '../components/footer';
 import Navbar from '../components/navbar';
+import 'materialize-css/dist/css/materialize.min.css';
 
-const authLink = setContext((_, {headers}) => {
+const authLink = setContext((_, { headers }) => {
   const token = localStorage.getItem('auth_token');
   return {
     headers: {

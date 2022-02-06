@@ -1,12 +1,19 @@
 export default function Footer() {
     return (
-        <div className="footer">
-            <div id="copyright">
-                <p>People's Purse Copyright © 2021</p>
+        <footer className="page-footer">
+            <div className="container">
+                <div className="row">
+
+                    <div className="col">
+                        People's Purse Copyright © 2021
+                    </div>
+                    <div className="col">
+                        <a className="white-text" href="https://vote.gov/" target="_blank" rel="noopener noreferrer">
+                            Are you resgistered to vote?
+                        </a>
+                    </div>
+                </div>
             </div>
-            <a href="https://vote.gov/" target="_blank" rel="noopener noreferrer">
-                <h3>Are you resgistered to vote?</h3>
-            </a>
-        </div>
+        </footer>
     )
 }

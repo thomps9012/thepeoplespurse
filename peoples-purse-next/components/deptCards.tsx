@@ -11,7 +11,7 @@ export default function DeptCards({ budget, updateBudget }: any) {
         <>
             {budget.map((dept: any) => {
                 return (
-                    <div key={dept.id}>
+                    <div key={dept.id} className="card hoverable teal lighten-2">
                         <p>{dept.name}</p>
                         <input
                             type="number" min="0" max="100"
@@ -20,7 +20,8 @@ export default function DeptCards({ budget, updateBudget }: any) {
                             value={dept.value}
                             onChange={(e: any) => update(e.target.id, e.target.value)}
                         />
-                    </div>)
+                    </div>
+                    )
             })}
         </>
     )

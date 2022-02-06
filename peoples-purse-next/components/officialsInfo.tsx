@@ -71,6 +71,7 @@ export default function ElectedOfficials() {
 
     return (
         <>
+        <h1>Learn Who Your Elected Officials Are</h1>
             <input type="text" onChange={getAddress} placeholder="Enter Your Address Here"/>
             <button onClick={nationalLvl}>
                 National
