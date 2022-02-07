@@ -1,11 +1,10 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function Navbar() {
-    let userJWT = '';
-    if(typeof window != 'undefined'){
-        userJWT = localStorage.getItem('auth_token') || '';
-    }
+    const [userJWT, setUserJWT] = useState('')
+    
     useEffect(() => {
+        setUserJWT(localStorage.getItem('auth_token') || '');
         const init = async () => {
             const M = await import('materialize-css');
             const elems = document.querySelectorAll('.sidenav');
