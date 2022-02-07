@@ -42,7 +42,6 @@ export default function Navbar() {
             </nav>
 
             <ul className="sidenav" id="mobile-demo">
-                {console.log('in func', userJWT)}
                 {userJWT != '' ?
                     <>
                         <li><a href="/profile">Profile</a></li>

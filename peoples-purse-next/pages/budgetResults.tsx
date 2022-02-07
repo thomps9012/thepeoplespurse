@@ -2,6 +2,7 @@ import {
   useQuery,
   gql
 } from '@apollo/client';
+import AllVotesCharts from '../components/allVotesChart';
 // import ClassSelect from '../components/classSelect';
 
 const ALL_VOTES = gql`
@@ -27,7 +28,7 @@ export default function BudgetResults() {
   return (
     <>
       <div id='chart'>
-        <p>test</p>
+        <AllVotesCharts />
       </div>
     </>
   )

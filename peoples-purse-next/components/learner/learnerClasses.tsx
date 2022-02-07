@@ -40,18 +40,22 @@ export default function LearnerClasses() {
     const classes = data.classes;
     return (
         <>
-            <p>Your Classes</p>
-            <ul>
+            <h5 style={{textAlign: 'center'}}>Your Classes</h5>
+            <div style={{display: 'flex', justifyContent: 'space-around'}}>
                 {classes.map((classDetail: any) => {
                     return (
                         <div key={classDetail._id}>
-                            <li>{classDetail.class_code}</li>
-                            <button onClick={removeClass} id={classDetail._id}>Remove Class</button>
+                            <h6>
+                                {classDetail.class_code}
+                                <a style={{ margin: 10, marginTop: 5 }} className="btn-floating btn-small waves-effect waves-light red" onClick={removeClass} id={classDetail._id}><i className='material-icons'>clear</i>Remove Class</a>
+                            </h6>
                         </div>
                     )
                 })}
-            </ul>
-            <a href='/joinClass'>Join a New Class</a>
+            </div>
+            <div style={{textAlign: 'center'}}>
+                <a className='waves-effect indigo darken-4 btn' href='/joinClass'><i className='material-icons left'>school</i>Join a New Class</a>
+            </div>
         </>
     )
 }

@@ -23,12 +23,12 @@ export default function TakeAction() {
 
     const handleChange = (e: any) => {
         const { name, value } = e.target;
-        if(name === 'length'){
+        if (name === 'length') {
             setFormState({
                 ...formState,
                 [name]: parseFloat(value)
             })
-        } else if (name === 'action_date'){
+        } else if (name === 'action_date') {
             setFormState({
                 ...formState,
                 [name]: new Date(value)
@@ -41,55 +41,62 @@ export default function TakeAction() {
         }
     }
 
+    const submitAction = async (e: any) => {
+        e.preventDefault();
+        const actionResponse = await takeAction({
+            variables: {
+                input: {
+                    name: formState.name,
+                    detail: formState.detail,
+                    organization: formState.organization,
+                    length: formState.length,
+                    action_date: formState.action_date,
+                    contact: formState.contact
+                }
+            }
+        })
+        const actionID = actionResponse.data.takeAction
+        console.log(actionID)
+        if (actionID) {
+            alert("Your action has been recorded successfully")
+            window.location.reload()
+        }
+    }
+
     return (
         <>
-            <h5>Time to Take Action</h5>
-
             <form
-                onSubmit={async(e: any) => {
-                    e.preventDefault();
-                    const actionResponse = await takeAction({
-                        variables: {
-                            input: {
-                                name: formState.name,
-                                detail: formState.detail,
-                                organization: formState.organization,
-                                length: formState.length,
-                                action_date: formState.action_date,
-                                contact: formState.contact
-                            }
-                        }
-                    })
-                    const actionID = actionResponse.data.takeAction
-                    console.log(actionID)
-                    if(actionID){
-                        alert("Your action has been recorded successfully")
-                        window.location.reload()}
-                }}
                 className="actionForm"
             >
                 <div className="actionForm">
-                    <label>Action Description</label>
-                    <input
-                        type='text'
-                        name='name'
-                        id='name'
-                        onChange={handleChange}
-                    />
-                    <label>Action Detail</label>
-                    <input
-                        type='text'
-                        name='detail'
-                        id='detail'
-                        onChange={handleChange}
-                    />
-                    <label>Length of Action</label>
-                    <input
-                        type='float'
-                        name='length'
-                        id='length'
-                        onChange={handleChange}
-                    />
+                    <div className="input-field">
+
+                        <label>Action Description</label>
+                        <input
+                            type='text'
+                            name='name'
+                            id='name'
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <div className="input-field">
+                        <label>Action Detail</label>
+                        <textarea
+                            className="materialize-textarea"
+                            name='detail'
+                            id='detail'
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <div className="input-field">
+                        <label>Length of Action</label>
+                        <input
+                            type='number'
+                            name='length'
+                            id='length'
+                            onChange={handleChange}
+                        />
+                    </div>
                     <label>Action Date</label>
                     <input
                         type='date'
@@ -97,25 +104,38 @@ export default function TakeAction() {
                         id='action_date'
                         onChange={handleChange}
                     />
-                    <label>Affiliated Organization</label>
-                    <input
-                        type='string'
-                        name='organization'
-                        id='organization'
-                        onChange={handleChange}
-                    />
-                    <label>Contact at Organization</label>
-                    <input
-                        type='string'
-                        name='contact'
-                        id='contact'
-                        onChange={handleChange}
-                    />
+                    <div className="row">
+                        <div className="input-field col s6">
+                            <label>Affiliated Organization</label>
+                            <input
+                                type='text'
+                                name='organization'
+                                id='organization'
+                                onChange={handleChange}
+                            />
+                        </div>
+                        <div className="input-field col s6">
+                            <label>Contact at Organization</label>
+                            <input
+                                type='text'
+                                name='contact'
+                                id='contact'
+                                onChange={handleChange}
+                            />
+                        </div>
+                    </div>
                 </div>
-                <button type="submit">
-                    Record Civic Action
-                </button>
             </form>
+            <div style={{ marginBottom: 10, display: 'flex', justifyContent: 'center' }}>
+
+                <a
+                    className='waves-effect indigo darken-4 btn'
+                    onClick={submitAction}
+                >
+                    <i className='material-icons left'>done</i>
+                    Record Civic Action
+                </a>
+            </div>
         </>
     )
 }

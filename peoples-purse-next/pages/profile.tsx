@@ -37,18 +37,18 @@ export default function ProfilePage() {
                 <link rel="icon" href="/favicon.ico" />
                 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
             </Head>
-            <p>{user.first_name}</p>
-            <p>{user.last_name}</p>
-            <p>{user.username}</p>
+            <div style={{ display: 'flex', justifyContent: 'space-evenly', marginTop: 15 }}>
+                <h5>{user.first_name}</h5>
+                <h5>{user.last_name}</h5>
+            </div>
             {user.educator ?
                 <>
-                    <h3>You're an educator</h3>
                     <ClassInfo />
                     <CreateClass />
                 </> :
                 <>
                     <LearnerClasses />
-                    <h3>{user.actions.length} Actions Taken</h3>
+                    <h5>{user.actions.length} Actions Taken</h5>
                     <TakeAction />
                 </>}
         </div>
