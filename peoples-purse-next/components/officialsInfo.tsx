@@ -91,10 +91,10 @@ export default function ElectedOfficials() {
 
     return (
         <>
-            <h5>Learn Who Your Elected Officials Are</h5>
+            <h5>Your Elected Officials Are</h5>
             <div className="row">
                 <label>Address Input</label>
-                <input type="text" onChange={getAddress} placeholder="Enter Your Address Here" />
+                <input type="text" onChange={getAddress} placeholder="Enter Address First" />
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-around' }}>
                 <a className="waves-effect indigo darken-4 btn" onClick={nationalLvl}>

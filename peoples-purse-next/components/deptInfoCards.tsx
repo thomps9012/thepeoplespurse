@@ -28,7 +28,7 @@ export default function DeptInfoCards() {
     });
     return (
         <>
-            <h5>Learn About Your Governmental Departments</h5>
+            <h5>Learn About Governmental Departments</h5>
             <label>Department Select</label>
             <select onChange={handleChange}>
                 {DeptInfo.map((dept: any) => {
@@ -48,6 +48,7 @@ export default function DeptInfoCards() {
                 />
             </div>
             <h6>{singleDept.name}</h6>
+            <p>Mission</p>
             <p>{singleDept.mission}</p>
             <a href={singleDept.website} target={'_blank'}>Visit Department Website</a>
 

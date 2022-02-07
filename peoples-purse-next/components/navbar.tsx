@@ -2,8 +2,10 @@ import { useEffect } from "react";
 
 export default function Navbar() {
     let userJWT = '';
-    useEffect(() => {
+    if(typeof window != 'undefined'){
         userJWT = localStorage.getItem('auth_token') || '';
+    }
+    useEffect(() => {
         const init = async () => {
             const M = await import('materialize-css');
             const elems = document.querySelectorAll('.sidenav');
@@ -41,6 +43,7 @@ export default function Navbar() {
             </nav>
 
             <ul className="sidenav" id="mobile-demo">
+                {console.log('in func', userJWT)}
                 {userJWT != '' ?
                     <>
                         <li><a href="/profile">Profile</a></li>

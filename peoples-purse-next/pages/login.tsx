@@ -27,6 +27,23 @@ export default function Login() {
             [name]: value,
         });
     };
+    const loginFunc = async (e: any) => {
+        e.preventDefault();
+        const loginResponse = await login({
+            variables: {
+                input: {
+                    email: formState.email,
+                    username: formState.username,
+                    password: formState.password
+                }
+            }
+        })
+        const token = loginResponse.data.login.token
+        if (token) {
+            localStorage.setItem('auth_token', token)
+            window.location.assign('/profile')
+        }
+    }
     return (
         <div className='container'>
             <Head>
@@ -36,23 +53,6 @@ export default function Login() {
                 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
             </Head>
             <form
-                onSubmit={async (e: any) => {
-                    e.preventDefault();
-                    const loginResponse = await login({
-                        variables: {
-                            input: {
-                                email: formState.email,
-                                username: formState.username,
-                                password: formState.password
-                            }
-                        }
-                    })
-                    const token = loginResponse.data.login.token
-                    if (token) {
-                        localStorage.setItem('auth_token', token)
-                        window.location.assign('/profile')
-                    }
-                }}
                 className="loginForm"
             >
                 <div className="loginForm">
@@ -90,21 +90,21 @@ export default function Login() {
                         />
                     </div>
                 </div>
-            </form>
-            <div style={{ display: 'flex', justifyContent: 'space-around', marginBottom: 10 }}>
-                <a
-                    className='waves-effect indigo darken-4 btn-large'
-                    type='submit'
-                >
-                    <i className='material-icons right'>login</i>
-                    Login
-                </a>
-                <h6>
-                    <a href='/signUp'>
-                        New User?
+                <div style={{ display: 'flex', justifyContent: 'space-around', marginBottom: 10 }}>
+                    <a
+                        className='waves-effect indigo darken-4 btn-large'
+                        onClick={loginFunc}
+                    >
+                        <i className='material-icons right'>login</i>
+                        Login
                     </a>
-                </h6>
-            </div>
+                    <h6>
+                        <a href='/signUp'>
+                            New User?
+                        </a>
+                    </h6>
+                </div>
+            </form>
         </div>
     )
 }

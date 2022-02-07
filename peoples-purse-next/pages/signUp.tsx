@@ -31,6 +31,26 @@ export default function SignUp() {
         });
     };
 
+    const signUpFunc = async (e: any) => {
+        e.preventDefault();
+        const signUpResponse = await signUp({
+            variables: {
+                input: {
+                    first_name: formState.first_name,
+                    last_name: formState.last_name,
+                    email: formState.email,
+                    username: formState.username,
+                    password: formState.password
+                }
+            }
+        })
+        const token = signUpResponse.data.signUp.token
+        if (token) {
+            localStorage.setItem('auth_token', token)
+            window.location.assign('/profile')
+        }
+    }
+
     if (loading) return 'Submitting...';
     if (error) return `Submission error! ${error.message}`;
     return (
@@ -42,25 +62,6 @@ export default function SignUp() {
                 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
             </Head>
             <form
-                onSubmit={async (e: any) => {
-                    e.preventDefault();
-                    const signUpResponse = await signUp({
-                        variables: {
-                            input: {
-                                first_name: formState.first_name,
-                                last_name: formState.last_name,
-                                email: formState.email,
-                                username: formState.username,
-                                password: formState.password
-                            }
-                        }
-                    })
-                    const token = signUpResponse.data.signUp.token
-                    if (token) {
-                        localStorage.setItem('auth_token', token)
-                        window.location.assign('/profile')
-                    }
-                }}
                 className="signupForm"
             >
                 <div className='input-field col s6'>
@@ -123,7 +124,7 @@ export default function SignUp() {
                     Sign Up
                 </a>
                 <h6>
-                <a href='/login'>Returning User?</a>
+                    <a href='/login'>Returning User?</a>
                 </h6>
             </div>
         </div>
