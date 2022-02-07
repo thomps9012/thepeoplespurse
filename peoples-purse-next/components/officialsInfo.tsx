@@ -97,13 +97,13 @@ export default function ElectedOfficials() {
                 <input type="text" onChange={getAddress} placeholder="Enter Your Address Here" />
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-                <a className="waves-effect waves-light btn" onClick={nationalLvl}>
+                <a className="waves-effect indigo darken-4 btn" onClick={nationalLvl}>
                     National
                 </a>
-                <a className="waves-effect waves-light btn" onClick={stateLvl}>
+                <a className="waves-effect indigo darken-4 btn" onClick={stateLvl}>
                     State
                 </a>
-                <a className="waves-effect waves-light btn" onClick={localLvl}>
+                <a className="waves-effect indigo darken-4 btn" onClick={localLvl}>
                     Local
                 </a>
             </div>
