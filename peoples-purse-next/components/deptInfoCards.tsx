@@ -51,7 +51,6 @@ export default function DeptInfoCards() {
             <p>Mission</p>
             <p>{singleDept.mission}</p>
             <a href={singleDept.website} target={'_blank'}>Visit Department Website</a>
-
         </>
     )
 }

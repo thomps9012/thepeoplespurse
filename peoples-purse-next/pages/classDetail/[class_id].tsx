@@ -2,7 +2,6 @@ import { useQuery, gql } from '@apollo/client';
 import { useRouter } from 'next/router';
 import styles from '../../styles/Home.module.css';
 
-
 const CLASS_ACTIONS = gql`
 query ClassActions($classId: ID!) {
     classActions(classID: $classId) {
@@ -19,7 +18,6 @@ query ClassActions($classId: ID!) {
     }
   }
 `;
-
 
 export default function ClassDetail() {
     const router = useRouter();

@@ -11,9 +11,10 @@ export default function DeptCards({ budget, updateBudget }: any) {
         <>
             {budget.map((dept: any) => {
                 return (
-                    <div key={dept.id} className="card hoverable teal lighten-2">
+                    <div key={dept.id} id='deptVoteCard' className="card hoverable teal lighten-2">
                         <p>{dept.name}</p>
                         <input
+                            className="center-align"
                             type="number" min="0" max="100"
                             id={dept.id}
                             name={dept.name}

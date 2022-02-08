@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 const API_KEY = "AIzaSyDsCAsDVamr-9rGO6DwtlXHcZL-8Tx5oeA"
 
 export default function ElectedOfficials() {
@@ -10,6 +10,17 @@ export default function ElectedOfficials() {
         const address = (e.target as HTMLInputElement).value;
         setLocation(address)
     }
+    useEffect(() => {
+        if (location === '') {
+            document.getElementById('govtSearch1')?.setAttribute('disabled', 'true')
+            document.getElementById('govtSearch2')?.setAttribute('disabled', 'true')
+            document.getElementById('govtSearch3')?.setAttribute('disabled', 'true')
+        } else {
+            document.getElementById('govtSearch1')?.removeAttribute('disabled')
+            document.getElementById('govtSearch2')?.removeAttribute('disabled')
+            document.getElementById('govtSearch3')?.removeAttribute('disabled')
+        }
+    })
     const nationalLvl = async () => {
         fetch(`https://civicinfo.googleapis.com/civicinfo/v2/representatives?address=${location}&includeOffices=true&levels=country&key=${API_KEY}`)
             .then(function (response) {
@@ -69,8 +80,8 @@ export default function ElectedOfficials() {
                                 </div>
                                 <div class="card-action">
                                 <a href=${lvlOfficial.urls[0]
-                                    ? lvlOfficial.urls[0]
-                                    : `https://www.google.com/search?q=${lvlOfficial.name}`} 
+                    ? lvlOfficial.urls[0]
+                    : `https://www.google.com/search?q=${lvlOfficial.name}`} 
                                 target='_blank'>Website</a>
                                 </div>
                                     <div class="card-reveal">
@@ -97,13 +108,13 @@ export default function ElectedOfficials() {
                 <input type="text" onChange={getAddress} placeholder="Enter Address First" />
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-                <a className="waves-effect indigo darken-4 btn" onClick={nationalLvl}>
+                <a id='govtSearch1' className="waves-effect indigo darken-4 btn" onClick={nationalLvl}>
                     National
                 </a>
-                <a className="waves-effect indigo darken-4 btn" onClick={stateLvl}>
+                <a id='govtSearch2' className="waves-effect indigo darken-4 btn" onClick={stateLvl}>
                     State
                 </a>
-                <a className="waves-effect indigo darken-4 btn" onClick={localLvl}>
+                <a id='govtSearch3' className="waves-effect indigo darken-4 btn" onClick={localLvl}>
                     Local
                 </a>
             </div>

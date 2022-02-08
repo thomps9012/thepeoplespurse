@@ -1,5 +1,5 @@
 import '../styles/globals.css'
-import {AppProps} from 'next/app';
+import { AppProps } from 'next/app';
 import {
   ApolloClient,
   InMemoryCache,
@@ -7,9 +7,10 @@ import {
   createHttpLink
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-import Footer from '../components/footer';
-import Navbar from '../components/navbar';
+import DefaultHeader from '../components/defaultHeader';
 import 'materialize-css/dist/css/materialize.min.css';
+import Navbar from '../components/navbar';
+import Footer from '../components/footer';
 
 const authLink = setContext((_, { headers }) => {
   const token = localStorage.getItem('auth_token');
@@ -36,6 +37,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ApolloProvider client={client}>
       <Navbar />
+      <DefaultHeader />
       <Component {...pageProps} />
       <Footer />
     </ApolloProvider>

@@ -76,6 +76,7 @@ export default function TakeAction() {
                             type='text'
                             name='name'
                             id='name'
+                            required
                             onChange={handleChange}
                         />
                     </div>
@@ -85,6 +86,7 @@ export default function TakeAction() {
                             className="materialize-textarea"
                             name='detail'
                             id='detail'
+                            required
                             onChange={handleChange}
                         />
                     </div>
@@ -94,6 +96,7 @@ export default function TakeAction() {
                             type='number'
                             name='length'
                             id='length'
+                            required
                             onChange={handleChange}
                         />
                     </div>
@@ -102,6 +105,7 @@ export default function TakeAction() {
                         type='date'
                         name='action_date'
                         id='action_date'
+                        required
                         onChange={handleChange}
                     />
                     <div className="row">
@@ -111,6 +115,7 @@ export default function TakeAction() {
                                 type='text'
                                 name='organization'
                                 id='organization'
+                                required
                                 onChange={handleChange}
                             />
                         </div>
@@ -120,6 +125,7 @@ export default function TakeAction() {
                                 type='text'
                                 name='contact'
                                 id='contact'
+                                required
                                 onChange={handleChange}
                             />
                         </div>

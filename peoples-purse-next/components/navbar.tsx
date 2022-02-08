@@ -45,7 +45,7 @@ export default function Navbar() {
                 {userJWT != '' ?
                     <>
                         <li><a href="/profile">Profile</a></li>
-                        <li onClick={logout}><a>Logout</a></li>
+                        <li><a onClick={logout}>Logout</a></li>
                         <li><a href="/voting">Voting</a></li>
                     </>
                     :
