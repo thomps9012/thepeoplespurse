@@ -2,7 +2,7 @@ import {
     useMutation,
     gql
 } from '@apollo/client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { checkPassword, validateEmail } from '../utils/helpers';
 
 const LOGIN = gql`
@@ -28,36 +28,41 @@ export default function Login() {
             [name]: value,
         });
     };
+    useEffect(() => {
+        if (!validateEmail(formState.email)) {
+            setErrorMsg('Please enter your Email');
+            return;
+        } else if (!formState.username) {
+            setErrorMsg('Please enter your Username');
+            return;
+        } else if (!checkPassword(formState.password)) {
+            setErrorMsg('Please enter your Password');
+            return;
+        } else {
+            setErrorMsg('')
+        }
+    })
     const loginFunc = async (e: any) => {
         e.preventDefault();
-        if(!validateEmail(formState.email)){
-            setErrorMsg('Please enter your Email');
-            M.toast({html: errorMsg, classes: 'rounded'})
-            return;
-        }else if(!formState.username){
-            setErrorMsg('Please enter your Username');
-            M.toast({html: errorMsg, classes: 'rounded'})
-            return;
-        }else if(!checkPassword(formState.password)){
-            setErrorMsg('Please enter your Password');
-            M.toast({html: errorMsg, classes: 'rounded'})
-            return;
-        }else {
+        if (errorMsg != '') {
+            M.toast({ html: errorMsg, classes: 'rounded' })
+
+        } else {
             const loginResponse = await login({
                 variables: {
                     input: {
                         email: formState.email,
                         username: formState.username,
-                    password: formState.password
+                        password: formState.password
+                    }
                 }
+            })
+            const token = loginResponse.data.login.token
+            if (token) {
+                localStorage.setItem('auth_token', token)
+                window.location.assign('/profile')
             }
-        })
-        const token = loginResponse.data.login.token
-        if (token) {
-            localStorage.setItem('auth_token', token)
-            window.location.assign('/profile')
         }
-    }
     }
     return (
         <div className='container'>

@@ -2,7 +2,7 @@ import {
     useMutation,
     gql
 } from '@apollo/client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { checkPassword, validateEmail } from '../utils/helpers';
 
 const SIGN_UP = gql`
@@ -32,28 +32,31 @@ export default function SignUp() {
         });
     };
 
-    const signUpFunc = async (e: any) => {
-        e.preventDefault();
-        if (!validateEmail(formState.email)) {
-            setErrorMsg('Please enter a valid Email');
-            M.toast({html: errorMsg, classes: 'rounded'})
-            return;
-        } else if (!formState.username) {
-            setErrorMsg('Please enter a valid Username');
-            M.toast({html: errorMsg, classes: 'rounded'})
-            return;
-        } else if (!formState.first_name) {
+    useEffect(() => {
+        if (!formState.first_name) {
             setErrorMsg("Don't forget to enter your First Name");
-            M.toast({html: errorMsg, classes: 'rounded'})
             return;
         } else if (!formState.last_name) {
             setErrorMsg("Don't forget to enter your Last Name");
-            M.toast({html: errorMsg, classes: 'rounded'})
+            return;
+        } else if (!formState.username) {
+            setErrorMsg('Please enter a valid Username');
+            return;
+        } else if (!validateEmail(formState.email)) {
+            setErrorMsg('Please enter a valid Email');
             return;
         } else if (!checkPassword(formState.password)) {
             setErrorMsg('Please choose a more secure password for your account');
-            M.toast({html: errorMsg, classes: 'rounded'})
             return;
+        } else {
+            setErrorMsg('');
+        }
+    })
+
+    const signUpFunc = async (e: any) => {
+        e.preventDefault();
+        if (errorMsg != '') {
+            M.toast({ html: errorMsg, classes: 'rounded' })
         } else {
             const signUpResponse = await signUp({
                 variables: {

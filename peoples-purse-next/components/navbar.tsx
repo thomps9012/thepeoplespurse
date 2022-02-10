@@ -15,6 +15,7 @@ export default function Navbar() {
     
     const logout = () => {
         localStorage.clear();
+        window.location.replace('/')
     }
     return (
         <>
