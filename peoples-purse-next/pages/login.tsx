@@ -3,6 +3,7 @@ import {
     gql
 } from '@apollo/client';
 import { useState } from 'react';
+import { checkPassword, validateEmail } from '../utils/helpers';
 
 const LOGIN = gql`
 mutation CreateClass($input: LoginInput!) {
@@ -18,6 +19,7 @@ export default function Login() {
         username: '',
         password: ''
     })
+    const [errorMsg, setErrorMsg] = useState('');
 
     const handleChange = (e: any) => {
         const { name, value } = e.target;
@@ -28,11 +30,24 @@ export default function Login() {
     };
     const loginFunc = async (e: any) => {
         e.preventDefault();
-        const loginResponse = await login({
-            variables: {
-                input: {
-                    email: formState.email,
-                    username: formState.username,
+        if(!validateEmail(formState.email)){
+            setErrorMsg('Please enter your Email');
+            M.toast({html: errorMsg, classes: 'rounded'})
+            return;
+        }else if(!formState.username){
+            setErrorMsg('Please enter your Username');
+            M.toast({html: errorMsg, classes: 'rounded'})
+            return;
+        }else if(!checkPassword(formState.password)){
+            setErrorMsg('Please enter your Password');
+            M.toast({html: errorMsg, classes: 'rounded'})
+            return;
+        }else {
+            const loginResponse = await login({
+                variables: {
+                    input: {
+                        email: formState.email,
+                        username: formState.username,
                     password: formState.password
                 }
             }
@@ -42,6 +57,7 @@ export default function Login() {
             localStorage.setItem('auth_token', token)
             window.location.assign('/profile')
         }
+    }
     }
     return (
         <div className='container'>

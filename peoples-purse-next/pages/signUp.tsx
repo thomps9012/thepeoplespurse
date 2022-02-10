@@ -3,6 +3,7 @@ import {
     gql
 } from '@apollo/client';
 import { useState } from 'react';
+import { checkPassword, validateEmail } from '../utils/helpers';
 
 const SIGN_UP = gql`
 mutation Mutation($input: UserSignUpInput!) {
@@ -20,7 +21,8 @@ export default function SignUp() {
         email: '',
         username: '',
         password: ''
-    })
+    });
+    const [errorMsg, setErrorMsg] = useState('');
 
     const handleChange = (e: any) => {
         const { name, value } = e.target;
@@ -32,21 +34,43 @@ export default function SignUp() {
 
     const signUpFunc = async (e: any) => {
         e.preventDefault();
-        const signUpResponse = await signUp({
-            variables: {
-                input: {
-                    first_name: formState.first_name,
-                    last_name: formState.last_name,
-                    email: formState.email,
-                    username: formState.username,
-                    password: formState.password
+        if (!validateEmail(formState.email)) {
+            setErrorMsg('Please enter a valid Email');
+            M.toast({html: errorMsg, classes: 'rounded'})
+            return;
+        } else if (!formState.username) {
+            setErrorMsg('Please enter a valid Username');
+            M.toast({html: errorMsg, classes: 'rounded'})
+            return;
+        } else if (!formState.first_name) {
+            setErrorMsg("Don't forget to enter your First Name");
+            M.toast({html: errorMsg, classes: 'rounded'})
+            return;
+        } else if (!formState.last_name) {
+            setErrorMsg("Don't forget to enter your Last Name");
+            M.toast({html: errorMsg, classes: 'rounded'})
+            return;
+        } else if (!checkPassword(formState.password)) {
+            setErrorMsg('Please choose a more secure password for your account');
+            M.toast({html: errorMsg, classes: 'rounded'})
+            return;
+        } else {
+            const signUpResponse = await signUp({
+                variables: {
+                    input: {
+                        first_name: formState.first_name,
+                        last_name: formState.last_name,
+                        email: formState.email,
+                        username: formState.username,
+                        password: formState.password
+                    }
                 }
+            })
+            const token = signUpResponse.data.signUp.token
+            if (token) {
+                localStorage.setItem('auth_token', token)
+                window.location.assign('/profile')
             }
-        })
-        const token = signUpResponse.data.signUp.token
-        if (token) {
-            localStorage.setItem('auth_token', token)
-            window.location.assign('/profile')
         }
     }
 

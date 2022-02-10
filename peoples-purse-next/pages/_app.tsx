@@ -24,7 +24,7 @@ const authLink = setContext((_, { headers }) => {
 
 // development uri
 const httpLink = createHttpLink({
-  uri: 'http://localhost:3001/',
+  uri: 'https://lit-meadow-50865.herokuapp.com/',
 })
 
 const client = new ApolloClient({
