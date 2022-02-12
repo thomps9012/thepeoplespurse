@@ -101,7 +101,7 @@ export default function ElectedOfficials() {
     }
 
     return (
-        <>
+        <div className="container">
             <h5>Your Elected Officials Are</h5>
             <div className="row">
                 <label>Address Input</label>
@@ -132,7 +132,7 @@ export default function ElectedOfficials() {
                 })}
             </div>
             <div id='officialInfo'></div>
-        </>
+        </div>
     )
 
 }

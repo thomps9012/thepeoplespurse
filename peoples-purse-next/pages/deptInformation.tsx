@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
-import { DeptInfo } from './deptInfo'
+import { DeptInfo } from '../components/deptInfo'
 import Image from 'next/image'
 
-export default function DeptInfoCards() {
+export default function DeptInformation() {
     console.log(DeptInfo)
     const [singleDept, setDept] = useState({
         name: DeptInfo[0].name,
@@ -14,7 +14,7 @@ export default function DeptInfoCards() {
     })
     let handleChange = (e: any) => {
         const code = e.target.value
-        const newDept = DeptInfo.find(({ abbr }) => abbr === code)
+        const newDept = DeptInfo.find(({ abbr }: any) => abbr === code)
         if (newDept != undefined) setDept(newDept)
         document.getElementById('deptSeal')?.setAttribute('key', '../deptImgs/Defense.png')
     }
@@ -27,7 +27,7 @@ export default function DeptInfoCards() {
         init();
     });
     return (
-        <>
+        <div className='container'>
             <h5>Learn About Governmental Departments</h5>
             <label>Department Select</label>
             <select onChange={handleChange}>
@@ -51,6 +51,7 @@ export default function DeptInfoCards() {
             <p>Mission</p>
             <p>{singleDept.mission}</p>
             <a href={singleDept.website} target={'_blank'}>Visit Department Website</a>
-        </>
+        </div>
     )
 }
+

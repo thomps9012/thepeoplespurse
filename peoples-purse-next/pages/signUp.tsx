@@ -84,56 +84,56 @@ export default function SignUp() {
             <form>
                 <div className='input-field col s6'>
                     <i className='material-icons prefix'>account_circle</i>
-                    <label>First Name</label>
                     <input
                         type='text'
                         name='first_name'
                         id='first_name'
                         required
+                        placeholder='First Name'
                         onChange={handleChange}
                     />
                 </div>
                 <div className='input-field col s6'>
                     <i className='material-icons prefix'>account_circle</i>
-                    <label>Last Name</label>
                     <input
                         type='text'
                         name='last_name'
                         id='last_name'
                         required
+                        placeholder='Last Name'
                         onChange={handleChange}
                     />
                 </div>
                 <div className='input-field col s6'>
                     <i className='material-icons prefix'>account_circle</i>
-                    <label>Username</label>
                     <input
                         type='text'
                         name='username'
                         id='username'
                         required
+                        placeholder='Username'
                         onChange={handleChange}
                     />
                 </div>
                 <div className='input-field col s6'>
                     <i className='material-icons prefix'>email</i>
-                    <label>Email</label>
                     <input
                         type='email'
                         name='email'
                         id='email'
                         required
+                        placeholder='Email Address'
                         size={30}
                         onChange={handleChange}
                     />
                 </div>
                 <div className='input-field col s6'>
                     <i className='material-icons prefix'>lock</i>
-                    <label>Password (8 character minimum)</label>
                     <input
                         type='password'
                         name='password'
                         id='password'
+                        placeholder='Password (8 character minimum with either a number or special character)'
                         minLength={8}
                         onChange={handleChange}
                         required

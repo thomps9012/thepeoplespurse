@@ -72,8 +72,9 @@ export default function Login() {
                 <div className="loginForm">
                     <div className='input-field col s6'>
                         <i className='material-icons prefix'>account_circle</i>
-                        <label>Username</label>
+
                         <input
+                            placeholder='Username'
                             className='validate'
                             type='text'
                             name='username'
@@ -84,20 +85,20 @@ export default function Login() {
                     </div>
                     <div className='input-field col s6'>
                         <i className='material-icons prefix'>email</i>
-                        <label>Email</label>
                         <input
                             className='validate'
                             type='text'
                             name='email'
                             id='email'
                             required
+                            placeholder='Email Address'
                             onChange={handleChange}
                         />
                     </div>
                     <div className='input-field col s6'>
                         <i className='material-icons prefix'>lock_open</i>
-                        <label>Password</label>
                         <input
+                            placeholder='Your Password'
                             className='validate'
                             type='password'
                             name='password'

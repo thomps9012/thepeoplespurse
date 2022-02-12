@@ -18,26 +18,27 @@ export default function Navbar() {
         window.location.replace('/')
     }
     return (
-        <>
-            <nav className="nav-extended indigo darken-4">
+        <div>
+            <nav className="navbar-fixed transparent z-depth-0">
                 <div className="nav-wrapper">
-                    <a href="/" className="brand-logo">Logo</a>
-                    <a href="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
-                    <ul id="nav-mobile" className="right hide-on-med-and-down">
+                    <a href="/" className="brand-logo indigo-text text-darken-4">Logo</a>
+                    <a href="#" data-target="mobile-demo" className="sidenav-trigger indigo-text text-darken-4"><i className="material-icons">menu</i></a>
+                    <ul id="nav-mobile" className="right hide-on-med-and-down indigo-text">
                         {userJWT != '' ?
                             <>
-                                <li><a href="/profile">Profile</a></li>
-                                <li onClick={logout}><a>Logout</a></li>
-                                <li><a href="/voting" className="tab">Voting</a></li>
+                                <li><a href="/profile" className="indigo-text text-darken-4">Profile</a></li>
+                                <li onClick={logout}><a className="indigo-text text-darken-4">Logout</a></li>
+                                <li><a href="/voting" className="tab indigo-text text-darken-4">Voting</a></li>
                             </>
                             :
                             <>
-                                <li><a href="/signUp">Sign Up</a></li>
-                                <li><a href="/login">Login</a></li>
+                                <li><a href="/signUp" className="indigo-text text-darken-4">Sign Up</a></li>
+                                <li><a href="/login" className="indigo-text text-darken-4">Login</a></li>
                             </>
                         }
-                        <li><a href="/information" className="tab">Information Center</a></li>
-                        <li><a href="/budgetResults" className="tab">Budget Results</a></li>
+                        <li><a href="/deptInformation" className="tab indigo-text text-darken-4">Department Information</a></li>
+                        <li><a href="/electedOfficials" className="tab indigo-text text-darken-4">Learn Your Elected Officials</a></li>
+                        <li><a href="/budgetResults" className="tab indigo-text text-darken-4">Budget Results</a></li>
                     </ul>
                 </div>
             </nav>
@@ -45,19 +46,20 @@ export default function Navbar() {
             <ul className="sidenav" id="mobile-demo">
                 {userJWT != '' ?
                     <>
-                        <li><a href="/profile">Profile</a></li>
-                        <li><a onClick={logout}>Logout</a></li>
-                        <li><a href="/voting">Voting</a></li>
+                        <li><a href="/profile"  className="indigo-text text-darken-4">Profile</a></li>
+                        <li><a onClick={logout} className="indigo-text text-darken-4">Logout</a></li>
+                        <li><a href="/voting" className="indigo-text text-darken-4">Voting</a></li>
                     </>
                     :
                     <>
-                        <li><a href="/signUp">Sign Up</a></li>
-                        <li><a href="/login">Login</a></li>
+                        <li><a href="/signUp" className="indigo-text text-darken-4">Sign Up</a></li>
+                        <li><a href="/login" className="indigo-text text-darken-4">Login</a></li>
                     </>
                 }
-                <li><a href="/information">Information Center</a></li>
-                <li><a href="/budgetResults">Budget Results</a></li>
+                <li><a href="/deptInformation" className="tab indigo-text text-darken-4">Department Information</a></li>
+                        <li><a href="/electedOfficials" className="tab indigo-text text-darken-4">Learn Your Elected Officials</a></li>
+                <li><a href="/budgetResults" className="indigo-text text-darken-4">Budget Results</a></li>
             </ul>
-        </>
+        </div>
     )
 }
