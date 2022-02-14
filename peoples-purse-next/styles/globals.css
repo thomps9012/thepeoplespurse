@@ -136,3 +136,14 @@ select {
 .joinClassContainer {
   height: 65vh;
 }
+
+.deptInputCard{
+  text-decoration: none;
+  margin: 20px;
+}
+
+.dept-card-content{
+  min-height: 157px;
+  max-height: 157px;
+  margin-bottom: 10px;
+}

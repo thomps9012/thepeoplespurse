@@ -11,15 +11,15 @@ export default function BudgetOutput(budget: any) {
     if(totalBudget === 100){
         document.getElementById('voteSubmit')?.removeAttribute('disabled')
         return(
-            <h2 className="flow-text">Your Budget is Perfect</h2>
+            <h2 className="flow-text" style={{fontWeight: 'bold'}}>Your Budget is Perfect</h2>
         )
     } else if (totalBudget > 100) {
         return(
-            <h2 className="flow-text">Over Budget by {totalBudget-100} Points</h2>
+            <h2 className="flow-text" style={{fontWeight: 'bold'}}>Over Budget by {totalBudget-100} Points</h2>
             )
         } else {
         return(
-            <h2 className="flow-text">{100-totalBudget} Budget Points Remaining</h2>
+            <h2 className="flow-text" style={{fontWeight: 'bold'}}>{100-totalBudget} Budget Points Remaining</h2>
         )
     }
 }

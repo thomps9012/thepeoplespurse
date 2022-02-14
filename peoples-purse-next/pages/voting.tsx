@@ -1,5 +1,5 @@
 import { useQuery, useMutation, gql } from '@apollo/client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import DeptCards from '../components/deptCards';
 import { baseBudget } from '../../assets/deptVoting/baseBudget';
 import LoggedOut from '../components/loggedOut';
@@ -24,15 +24,37 @@ export default function VotingPage() {
 
   const { loading, data } = useQuery(GET_CLASSES);
   const [castVote, { error }] = useMutation(CAST_VOTE);
-
+  useEffect(() => {
+    const init = async () => {
+      const M = await import('materialize-css');
+      const elems = document.querySelectorAll('select');
+      const instances = M.FormSelect.init(elems);
+    };
+    init();
+  });
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :({JSON.stringify(error)}</p>;
 
   if (!data) { return <LoggedOut /> }
   const userClasses = data.classes;
   const resetBudget = () => window.location.reload();
+
+
   return (
     <div className='container'>
+
+      <div style={{ display: 'flex', flexWrap: 'wrap-reverse', justifyContent: 'space-evenly', marginTop: 10 }}>
+        <BudgetOutput budget={budget} />
+        <a id='resetBtn' className="waves-effect waves-light indigo btn-large" onClick={resetBudget}><i className="material-icons left">restart_alt</i>Reset Budget</a>
+      </div>
+      <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', margin: 20 }}>
+        <DeptCards
+          style={{ display: 'flex-wrap' }}
+          budget={budget}
+          updateBudget={setBudget}
+        />
+      </div>
+      <label>Class Select</label>
       <select onChange={(e: any) => setClass(e.target.value)}>
         {userClasses ?
           userClasses.map((classCode: any) => {
@@ -45,21 +67,10 @@ export default function VotingPage() {
           <option value=''>No Joined Classes</option>
         }
       </select>
-      <div style={{ display: 'flex', flexWrap: 'wrap-reverse', justifyContent: 'space-evenly', marginTop: 10 }}>
-        <BudgetOutput budget={budget} />
-        <a id='resetBtn' className="waves-effect waves-light btn-large" onClick={resetBudget}><i className="material-icons left">restart_alt</i>Reset Budget</a>
-      </div>
-      <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', margin: 20}}>
-        <DeptCards
-          style={{ display: 'flex-wrap' }}
-          budget={budget}
-          updateBudget={setBudget}
-        />
-      </div>
-      <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 10 }}>
+      <div style={{ display: 'flex', justifyContent: 'center', margin: 30 }}>
 
         <a
-          className='waves-effect waves-light btn-large'
+          className='waves-effect waves-light indigo btn-large'
           id="voteSubmit"
           onClick={async (e: any) => {
             e.preventDefault();
