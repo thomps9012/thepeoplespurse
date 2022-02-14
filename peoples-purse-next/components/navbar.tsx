@@ -46,19 +46,19 @@ export default function Navbar() {
             <ul className="sidenav" id="mobile-demo">
                 {userJWT != '' ?
                     <>
-                        <li><a href="/profile"  className="indigo-text text-darken-4">Profile</a></li>
-                        <li><a onClick={logout} className="indigo-text text-darken-4">Logout</a></li>
-                        <li><a href="/voting" className="indigo-text text-darken-4">Voting</a></li>
+                        <li><a href="/profile"  className="grey-text text-darken-1"><i className='material-icons left'>account_box</i>Profile</a></li>
+                        <li><a onClick={logout} className="grey-text text-darken-1"><i className='material-icons left'>logout</i>Logout</a></li>
+                        <li><a href="/voting" className="grey-text text-darken-1"><i className='material-icons left'>how_to_vote</i>Voting</a></li>
                     </>
                     :
                     <>
-                        <li><a href="/signUp" className="indigo-text text-darken-4">Sign Up</a></li>
-                        <li><a href="/login" className="indigo-text text-darken-4">Login</a></li>
+                        <li><a href="/signUp" className="grey-text text-darken-1"><i className='material-icons left'>person_add</i>Sign Up</a></li>
+                        <li><a href="/login" className="grey-text text-darken-1"><i className='material-icons left'>login</i>Login</a></li>
                     </>
                 }
-                <li><a href="/deptInformation" className="tab indigo-text text-darken-4">Department Information</a></li>
-                        <li><a href="/electedOfficials" className="tab indigo-text text-darken-4">Learn Your Elected Officials</a></li>
-                <li><a href="/budgetResults" className="indigo-text text-darken-4">Budget Results</a></li>
+                <li><a href="/deptInformation" className="tab grey-text text-darken-1"><i className='material-icons left'>balance</i>Department Information</a></li>
+                        <li><a href="/electedOfficials" className="tab grey-text text-darken-1"><i className='material-icons left'>contact_phone</i>Learn Your Elected Officials</a></li>
+                <li><a href="/budgetResults" className="grey-text text-darken-1"><i className='material-icons left'>analytics</i>Budget Results</a></li>
             </ul>
         </div>
     )
