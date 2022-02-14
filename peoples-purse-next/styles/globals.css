@@ -101,3 +101,26 @@ select {
   padding: 25px;
   /* text-align: center; */
 }
+
+.addressInput {
+  font-size: x-large;
+}
+
+.addressLabel{
+  font-size: large;
+}
+
+#officialCard{
+  max-width: 40vh;
+  min-width: 40vh;
+  margin: 20px;
+  padding: 10px;
+  /* font-weight: bold; */
+  font-size: large;
+}
+
+#officialInfo{
+  flex-direction: row;
+  display: flex;
+  justify-content: space-around;
+}

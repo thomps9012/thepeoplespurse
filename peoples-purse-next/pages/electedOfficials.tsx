@@ -72,27 +72,25 @@ export default function ElectedOfficials() {
             const lvlOfficial: any = officials[officeIndex];
             console.log(lvlOfficial)
             const lvlOfficialEl = ` 
-                                    <div class="card blue-grey darken-1">
-                                <div class="card-content white-text">
-                                <span class="card-title activator">${lvlOfficial.name}</span>
-                                <p>Party: ${lvlOfficial.party}</p>
-                                
-                                </div>
-                                <div class="card-action">
-                                <a href=${lvlOfficial.urls[0]
-                    ? lvlOfficial.urls[0]
-                    : `https://www.google.com/search?q=${lvlOfficial.name}`} 
-                                target='_blank'>Website</a>
-                                </div>
-                                    <div class="card-reveal">
-                                        <span class="card-title grey-text text-darken-4">${lvlOfficial.name}<i class="material-icons right">close</i></span>
+                                    <div class="card blue darken-4" id='officialCard'>
+                                        <div class="card-content white-text">
+                                            <span class="card-title activator">${lvlOfficial.name}</span>
+                                             <p>Party: ${lvlOfficial.party}</p>
+                                        </div>
+                                        <div class="card-action">
+                                            <a href=${lvlOfficial.urls
+                                            ? lvlOfficial.urls[0]
+                                            : `https://www.google.com/search?q=${lvlOfficial.name}`} 
+                                            target='_blank'>Website</a>
+                                        </div>
+                                        <div class="card-reveal">
+                                            <span class="card-title grey-text text-darken-4">${lvlOfficial.name}<i class="material-icons right">close</i></span>
                                             <p> Address: ${lvlOfficial.address[0].line1},
                                             ${lvlOfficial.address[0].city},
                                             ${lvlOfficial.address[0].state},
                                               ${lvlOfficial.address[0].zip}
                                               </p>
-                                              <p>Phone: ${lvlOfficial.phones[0]}</p>
-                                              
+                                              <p>Phone: ${lvlOfficial.phones[0]}</p>    
                                         </div>
                                     </div>
                                     `
@@ -102,30 +100,30 @@ export default function ElectedOfficials() {
 
     return (
         <div className="container">
-            <h5>Your Elected Officials Are</h5>
-            <div className="row">
-                <label>Address Input</label>
+            <div className="row addressInput">
+                <label className="addressLabel">Address Input</label>
                 <input type="text" onChange={getAddress} placeholder="Enter Address First" />
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-                <a id='govtSearch1' className="waves-effect indigo darken-4 btn" onClick={nationalLvl}>
+                <a id='govtSearch1' className="waves-effect indigo darken-4 btn-large" onClick={nationalLvl}>
                     National
                 </a>
-                <a id='govtSearch2' className="waves-effect indigo darken-4 btn" onClick={stateLvl}>
+                <a id='govtSearch2' className="waves-effect indigo darken-4 btn-large" onClick={stateLvl}>
                     State
                 </a>
-                <a id='govtSearch3' className="waves-effect indigo darken-4 btn" onClick={localLvl}>
+                <a id='govtSearch3' className="waves-effect indigo darken-4 btn-large" onClick={localLvl}>
                     Local
                 </a>
             </div>
             <br />
-            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around' }}>
+            <h4 style={{textAlign: 'center'}}>Your Elected Offices Are</h4>
+            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
                 {offices?.map((office: any) => {
                     console.log(office)
                     return (
                         <>
                             {/* can compartmentalize this */}
-                            <h6 style={{ margin: 10, padding: 10 }} key={office.name} onClick={() => displayOfficials(office)}>{office.name}</h6>
+                            <h6 style={{ margin: 10, padding: 10, fontSize: 'large', fontWeight: 'bold' }} key={office.name} onClick={() => displayOfficials(office)}>{office.name}</h6>
                             <br />
                         </>
                     )
