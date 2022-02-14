@@ -132,3 +132,7 @@ select {
 #voteLink {
   color: white;
 }
+
+.joinClassContainer {
+  height: 65vh;
+}

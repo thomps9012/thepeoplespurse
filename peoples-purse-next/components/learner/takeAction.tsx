@@ -58,13 +58,20 @@ export default function TakeAction() {
         const actionID = actionResponse.data.takeAction
         console.log(actionID)
         if (actionID) {
-            alert("Your action has been recorded successfully")
-            window.location.reload()
+            M.toast({ html: "Your action has been recorded successfully", classes: 'rounded' })
+            setFormState({
+                name: '',
+                detail: '',
+                organization: '',
+                length: 0.0,
+                action_date: new Date(),
+                contact: ''
+            })
         }
     }
 
     return (
-        <>
+        <div style={{marginTop: 20}}>
             <form
                 className="actionForm"
             >
@@ -132,16 +139,16 @@ export default function TakeAction() {
                     </div>
                 </div>
             </form>
-            <div style={{ marginBottom: 10, display: 'flex', justifyContent: 'center' }}>
+            <div style={{ margin: 30, display: 'flex', justifyContent: 'center' }}>
 
                 <a
-                    className='waves-effect indigo darken-4 btn'
+                    className='waves-effect indigo darken-4 btn-large'
                     onClick={submitAction}
                 >
                     <i className='material-icons left'>done</i>
                     Record Civic Action
                 </a>
             </div>
-        </>
+        </div>
     )
 }

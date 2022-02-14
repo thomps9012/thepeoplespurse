@@ -25,16 +25,15 @@ export default function JoinClass() {
     const { loading, data, error } = useQuery(GET_CLASSES);
 
     const joinClassSubmit = async () => {
-        await joinClass({
+        const joinClassReponse = await joinClass({
             variables: {
                 classCode: classCode
             }
         })
-        // build in conditional logic for successful submission
-        // if () {
-        // alert(`You've successfully joined class: ${classCode}`)
-        // window.location.reload();
-        // }
+        let joinedClassId = joinClassReponse.data.joinClass._id
+        if(joinedClassId != null){
+            window.location.assign('/profile')
+        }
     }
 
     const handleChange = (e: any) => {
@@ -54,13 +53,13 @@ export default function JoinClass() {
     const classes = data.allClasses;
     console.log(classes)
     return (
-        <div className="container" style={{ marginTop: 50, marginBottom: 50, padding: 10, textAlign: "center" }}>
+        <div className="joinClassContainer" style={{ marginTop: 50, marginBottom: 50, padding: 10, textAlign: "center" }}>
             <h5>Select Your Class from the List Below</h5>
-            <div>
+            <div style={{padding: 50}}>
                 <select onChange={handleChange}>
                     {classes.map((classInfo: any) => {
                         return (
-                            <option key={classInfo._id} value={classInfo._id}>{classInfo.class_code}</option>
+                            <option key={classInfo._id} value={classInfo.class_code}>{classInfo.class_code}</option>
                         )
                     })}
                 </select>

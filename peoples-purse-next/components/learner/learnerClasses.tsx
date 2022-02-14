@@ -29,25 +29,26 @@ export default function LearnerClasses() {
     }
     console.log(data)
     const removeClass = async (e: any) => {
-        const { id } = e.target;
+        const classID = e.target.id;
+        console.log(classID)
         await deleteClass({
             variables: {
-                classId: id
+                classId: classID
             }
         })
         window.location.reload();
     }
     const classes = data.classes;
     return (
-        <>
+        <div>
             <h5 style={{textAlign: 'center'}}>Your Classes</h5>
-            <div style={{display: 'flex', justifyContent: 'space-around'}}>
+            <div style={{display: 'flex', justifyContent: 'space-around', padding: 10, margin: 10}}>
                 {classes.map((classDetail: any) => {
                     return (
                         <div key={classDetail._id}>
                             <h6>
                                 {classDetail.class_code}
-                                <a style={{ margin: 10, marginTop: 5 }} className="btn-floating btn-small waves-effect waves-light red" onClick={removeClass} id={classDetail._id}><i className='material-icons'>clear</i>Remove Class</a>
+                                <a style={{ margin: 5, marginTop: 5 }} className="btn-floating btn-small waves-effect waves-light red" onClick={removeClass}><i id={classDetail._id} className='material-icons'>clear</i>Remove Class</a>
                             </h6>
                         </div>
                     )
@@ -56,6 +57,6 @@ export default function LearnerClasses() {
             <div style={{textAlign: 'center'}}>
                 <a className='waves-effect indigo darken-4 btn' href='/joinClass'><i className='material-icons left'>school</i>Join a New Class</a>
             </div>
-        </>
+        </div>
     )
 }

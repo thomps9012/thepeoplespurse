@@ -30,8 +30,8 @@ export default function ProfilePage() {
     const user = data.getUser;
     return (
         <div className='container'>
-            <div style={{ display: 'flex', justifyContent: 'space-evenly', marginTop: 15 }}>
-                <h5>{user.first_name}</h5>
+            <div style={{ display: 'flex', marginTop: 15 }}>
+                <h5 style={{marginRight: 10}}>{user.first_name}</h5>
                 <h5>{user.last_name}</h5>
             </div>
             {user.educator ?
@@ -41,7 +41,7 @@ export default function ProfilePage() {
                 </> :
                 <>
                     <LearnerClasses />
-                    <h5>{user.actions.length} Actions Taken</h5>
+                    <h5 style={{textAlign: 'center', margin: 40}}>{user.actions.length} Actions Taken</h5>
                     <TakeAction />
                 </>}
         </div>
