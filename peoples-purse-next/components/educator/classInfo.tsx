@@ -24,21 +24,24 @@ export default function ClassInfo() {
   const classes = data.getUser.classes;
   console.log(classes)
   return (
-    <>
-      <p>Look at all the classes</p>
-      {classes.map((classDetail: any) => {
-        return (
-          <a href={`/classDetail/${classDetail._id}`}>
-            <p key={classDetail._id} id={classDetail._id} >
-              {classDetail.class_code}
-            </p>
-            <p>
-              Total Votes: {classDetail.votes.length}
-            </p>
-            <hr />
-          </a>
-        )
-      })}
-    </>
+    <div style={{ margin: 20, padding: 20 }}>
+      <h5>Your Classes:</h5>
+      <div style={{ display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap'}}>
+        {classes.map((classDetail: any) => {
+          return (
+            <div className='card hoverable' style={{margin: 20, padding: 20, maxWidth: 200, minWidth: 200, textAlign: 'center'}}>
+              <a href={`/classDetail/${classDetail._id}`} className='classSelectA'>
+                <p key={classDetail._id} id={classDetail._id} style={{ fontSize: 'large', fontWeight: 'bold' }} >
+                  {classDetail.class_code}
+                </p>
+                <p style={{ fontSize: 'medium', fontWeight: 'bold' }}>
+                  Total Votes: {classDetail.votes.length}
+                </p>
+              </a>
+            </div>
+          )
+        })}
+      </div>
+    </div>
   )
 }

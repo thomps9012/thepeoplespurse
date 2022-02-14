@@ -147,3 +147,11 @@ select {
   max-height: 157px;
   margin-bottom: 10px;
 }
+
+.classSelectA {
+  color: #1a237e;
+}
+
+.classSelectA:hover {
+  color: #2196f3;
+}
