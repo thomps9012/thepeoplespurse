@@ -74,15 +74,29 @@ export default function VotingPage() {
           id="voteSubmit"
           onClick={async (e: any) => {
             e.preventDefault();
+            console.log(budget, classCode)
+            const cleanedBudget = budget.map(dept => {
+              const { id, name, percent } = dept;
+              const cleanDept = {
+                id: id,
+                name: name,
+                percent: percent
+              }
+              return cleanDept
+            })
             const voteResponse = await castVote({
               variables: {
                 input: {
-                  budget: budget,
+                  budget: cleanedBudget,
                   class_code: classCode
                 }
               }
             })
-            console.log(voteResponse)
+            if(voteResponse.data.castVote != '' || null){
+              window.location.assign('budgetResults')
+            } else {
+              M.toast({html: 'There Seems to Hav been an Error Processing Your Vote'})
+            }
           }
           }
         >
