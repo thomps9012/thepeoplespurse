@@ -27,9 +27,9 @@ export default function DeptInformation() {
         init();
     });
     return (
-        <div className='container'>
-            <h5>Learn About Governmental Departments</h5>
-            <label>Department Select</label>
+        <div className='deptContainer'>
+            <h5 style={{textAlign: 'center', marginBottom: 20}}>Department Select</h5>
+            <label></label>
             <select onChange={handleChange}>
                 {DeptInfo.map((dept: any) => {
                     return (
@@ -37,7 +37,7 @@ export default function DeptInformation() {
                     )
                 })}
             </select>
-            <div id='deptDetail' key={singleDept.code} style={{ display: 'flex', justifyContent: 'center' }}>
+            <div id='deptDetail' key={singleDept.code} style={{ display: 'flex', justifyContent: 'center', marginTop: 25 }}>
                 <Image
                     id='deptSeal'
                     src={singleDept.icon}
@@ -47,10 +47,10 @@ export default function DeptInformation() {
                     height={200}
                 />
             </div>
-            <h6>{singleDept.name}</h6>
-            <p>Mission</p>
-            <p>{singleDept.mission}</p>
-            <a href={singleDept.website} target={'_blank'}>Visit Department Website</a>
+            <h6 className='deptName'>{singleDept.name}</h6>
+            <p className='missionTitle'>Mission</p>
+            <p className='deptMission'>{singleDept.mission}</p>
+            <a className='deptWebsite' href={singleDept.website} target={'_blank'}>Visit Department Website</a>
         </div>
     )
 }

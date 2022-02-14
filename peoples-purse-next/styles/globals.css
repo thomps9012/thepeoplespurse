@@ -63,5 +63,41 @@ select {
 }
 
 .toggleLink:hover{
-  color: #2196f3 ;
+  color: #2196f3;
+}
+
+.deptContainer {
+  margin: 5vh;
+  padding: 20px;
+}
+
+.deptWebsite {
+  font-size: x-large;
+  margin: 0px 0px 0px 25px;
+  padding: 0px 0px 0px 25px;
+  color: #1a237e;
+}
+
+.deptWebsite:hover{
+  color: #2196f3;
+}
+
+.missionTitle{
+  font-size: x-large;
+  margin: 0px 0px 0px 25px;
+  padding: 0px 0px 0px 25px;
+}
+
+.deptName{
+  font-size: xx-large;
+  text-align: center;
+  margin-bottom: 25px;
+  margin-top: 25px;
+}
+
+.deptMission{
+  font-size: large;
+  margin: 25px;
+  padding: 25px;
+  /* text-align: center; */
 }
