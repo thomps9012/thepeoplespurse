@@ -124,3 +124,11 @@ select {
   display: flex;
   justify-content: space-around;
 }
+
+#voteLink:hover {
+  color: gold;
+}
+
+#voteLink {
+  color: white;
+}
