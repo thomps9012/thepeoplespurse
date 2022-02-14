@@ -116,8 +116,8 @@ export default function Login() {
                         <i className='material-icons right'>login</i>
                         Login
                     </a>
-                    <h6>
-                        <a href='/signUp'>
+                    <h6 className='signupLoginToggle'>
+                        <a href='/signUp' className='toggleLink'>
                             New User?
                         </a>
                     </h6>

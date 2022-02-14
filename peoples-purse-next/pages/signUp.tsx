@@ -148,8 +148,8 @@ export default function SignUp() {
                     <i className='material-icons right'>login</i>
                     Sign Up
                 </a>
-                <h6>
-                    <a href='/login'>Returning User?</a>
+                <h6 className='signupLoginToggle'>
+                    <a href='/login' className='toggleLink'>Returning User?</a>
                 </h6>
             </div>
         </div>
