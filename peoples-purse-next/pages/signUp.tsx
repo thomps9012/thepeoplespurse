@@ -80,8 +80,8 @@ export default function SignUp() {
     if (loading) return 'Submitting...';
     if (error) return `Submission error! ${error.message}`;
     return (
-        <div className='container'>
-            <form>
+        <div className='signUpContainer'>
+            <form className='signUpForm'>
                 <div className='input-field col s6'>
                     <i className='material-icons prefix'>account_circle</i>
                     <input
