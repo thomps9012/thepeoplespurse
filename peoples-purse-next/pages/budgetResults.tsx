@@ -1,33 +1,14 @@
-import {
-  useQuery,
-  gql
-} from '@apollo/client';
 import AllVotesCharts from '../components/allVotesChart';
-// import ClassSelect from '../components/classSelect';
+import ClassSelect from '../components/classSelect';
 
-const ALL_VOTES = gql`
-query Query {
-  allVotes {
-    totalVotes
-    aggVotes {
-      _id
-      percent
-    }
-  }
-}
-`
+
 
 export default function BudgetResults() {
-  const { loading, error, data } = useQuery(ALL_VOTES);
-  if (data) {
-    const allVotes = data.allVotes
-    console.log(allVotes)
-  }
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error :( {JSON.stringify(error)}</p>;
   return (
     <>
+      {/* <ClassSelect /> */}
       <div id='chart'>
+        <h5 style={{textAlign: 'center', margin: 10}}>Average of All Votes</h5>
         <AllVotesCharts />
       </div>
     </>

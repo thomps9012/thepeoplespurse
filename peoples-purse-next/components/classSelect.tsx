@@ -12,7 +12,7 @@ query Query {
 export default function ClassSelect() {
     const { loading, error, data } = useQuery(GET_USER_CLASSES)
     if (loading) return <p>Loading...</p>;
-    if (error) return <p>Error :( {JSON.stringify(error)}</p>;
+    if (error) return <p style={{textAlign: 'center'}}>You need to login to view your class results</p>;
 
     const userClasses = data.classes
     console.log(userClasses)

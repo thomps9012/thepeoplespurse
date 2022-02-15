@@ -9,7 +9,7 @@ export class FooterComponent implements OnInit {
 
   constructor() { }
 
-  userLoggedIn = localStorage.getItem('USER_ID') || localStorage.getItem('TEACHER_ID')
+  userLoggedIn = sessionStorage.getItem('USER_ID') || sessionStorage.getItem('TEACHER_ID')
 
   ngOnInit(): void {
   }

@@ -59,7 +59,7 @@ export default function Login() {
             })
             const token = loginResponse.data.login.token
             if (token) {
-                localStorage.setItem('auth_token', token)
+                sessionStorage.setItem('auth_token', token)
                 window.location.assign('/profile')
             }
         }

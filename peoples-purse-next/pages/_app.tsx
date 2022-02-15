@@ -13,7 +13,7 @@ import Navbar from '../components/navbar';
 import Footer from '../components/footer';
 
 const authLink = setContext((_, { headers }) => {
-  const token = localStorage.getItem('auth_token');
+  const token = sessionStorage.getItem('auth_token');
   return {
     headers: {
       ...headers,

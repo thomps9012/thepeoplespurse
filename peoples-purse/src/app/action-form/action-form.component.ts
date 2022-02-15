@@ -54,7 +54,7 @@ export class ActionFormComponent implements OnInit {
 
   submitAction(event: Event) {
     event.preventDefault();
-    const userId = localStorage.getItem('USER_ID')
+    const userId = sessionStorage.getItem('USER_ID')
     console.log(userId)
     this.apollo.mutate({
       mutation: TAKE_ACTION,

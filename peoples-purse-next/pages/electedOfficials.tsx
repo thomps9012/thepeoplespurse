@@ -99,7 +99,7 @@ export default function ElectedOfficials() {
     }
 
     return (
-        <div className="container">
+        <div className="officialContainer">
             <div className="row addressInput">
                 <label className="addressLabel">Address Input</label>
                 <input type="text" onChange={getAddress} placeholder="Enter Address First" />

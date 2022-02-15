@@ -67,7 +67,7 @@ export class ClassCreateComponent implements OnInit {
       variables: {
         input: {
           classCode: this.classCode,
-          teacher: localStorage.getItem('TEACHER_ID')
+          teacher: sessionStorage.getItem('TEACHER_ID')
         }
       }
     }).subscribe(({ data }: any) => {

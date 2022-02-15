@@ -4,7 +4,7 @@ export default function Navbar() {
     const [userJWT, setUserJWT] = useState('')
     
     useEffect(() => {
-        setUserJWT(localStorage.getItem('auth_token') || '');
+        setUserJWT(sessionStorage.getItem('auth_token') || '');
         const init = async () => {
             const M = await import('materialize-css');
             const elems = document.querySelectorAll('.sidenav');
@@ -14,7 +14,7 @@ export default function Navbar() {
     }, []);
     
     const logout = () => {
-        localStorage.clear();
+        sessionStorage.clear();
         window.location.replace('/')
     }
     return (

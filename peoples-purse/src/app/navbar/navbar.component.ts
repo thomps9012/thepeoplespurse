@@ -29,16 +29,16 @@ export class NavbarComponent implements OnInit {
   constructor(private apollo: Apollo) { }
 
   logout() {
-    localStorage.removeItem('USER_ID')
-    localStorage.removeItem('USER')
-    localStorage.removeItem('TEACHER_ID')
-    localStorage.removeItem('TEACHER')
-    localStorage.removeItem('AUTH_TOKEN')
-    localStorage.removeItem('CLASS_CODE')
+    sessionStorage.removeItem('USER_ID')
+    sessionStorage.removeItem('USER')
+    sessionStorage.removeItem('TEACHER_ID')
+    sessionStorage.removeItem('TEACHER')
+    sessionStorage.removeItem('AUTH_TOKEN')
+    sessionStorage.removeItem('CLASS_CODE')
     window.location.replace('/');
   }
-  userId = localStorage.getItem('USER_ID')
-  teacherId = localStorage.getItem('TEACHER_ID')
+  userId = sessionStorage.getItem('USER_ID')
+  teacherId = sessionStorage.getItem('TEACHER_ID')
 
   ngOnInit() {
     if (this.userId != null) {
