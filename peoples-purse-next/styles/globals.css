@@ -262,3 +262,12 @@ hr:after {
   position: relative;
   top: -30px;
 }
+
+.indexContainer {
+  padding: 1rem;
+  width: 100%;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
