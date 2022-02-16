@@ -214,3 +214,19 @@ select {
   background-color: white;
 }
 
+.classDetailContainer {
+  height: 65vh;
+  padding: 1rem;
+  width: 100%;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+ol {
+  list-style: none;
+}
+ol li::marker {
+  content: "👏";
+  font-size: 2rem;
+}

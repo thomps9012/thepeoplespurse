@@ -41,17 +41,17 @@ export default function ClassDetail() {
     const classData = data.classActions;
     console.log(classData)
     return (
-        <>
-            <h1 style={{ margin: 20, padding: 20, textAlign: 'center' }}>Learners and Action History</h1>
-            <div style={{ width: '75%', justifyContent: 'center', marginLeft: '14%' }}>
+        <div className='classDetailContainer'>
+            <h2 style={{marginTop: -125, marginBottom: 75}}>Learner and Action History</h2>
+            <div style={{ width: '75%'}}>
                 {classData.length === 0 ?
-                    <h5>No learners have joined your class yet</h5>
+                    <h3 style={{textAlign: 'center'}}>No learners have joined this class yet</h3>
                     :
                     <ul className='collapsible'>
                         {classData.map((learner: any) => {
                             const { _id, first_name, actions, last_name } = learner;
                             return (
-                                <li className='collapsible-header' key={_id}>
+                                <li className='collapsible-header' id='btn' key={_id}>
                                     <h5 id={_id}>{first_name} {last_name}</h5>
                                     <ol className='collapsible-body' id={learner._id + 'List'} style={{ display: 'none' }}>
                                         {actions.map((action: any) => {
@@ -62,9 +62,9 @@ export default function ClassDetail() {
                                             let formattedDate = `${month}/${day}/${year}`;
                                             return (
                                                 <li key={action_date}>
-                                                    <p>{name}</p>
+                                                    <h5>{name}</h5>
+                                                    <h6>{formattedDate}</h6>
                                                     <p>{detail}</p>
-                                                    <p>{formattedDate}</p>
                                                 </li>
                                             )
                                         })}
@@ -75,6 +75,6 @@ export default function ClassDetail() {
                     </ul>
                 }
             </div>
-        </>
+        </div>
     )
 }
