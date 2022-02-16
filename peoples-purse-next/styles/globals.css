@@ -233,3 +233,32 @@ ol li::marker {
   content: "👏";
   font-size: 2rem;
 }
+
+.officialContainer {
+  min-height: 65vh;
+  height: 100%;
+  width: 100%;
+}
+
+#govtSearch1, 
+#govtSearch2, #govtSearch3 {
+  margin: 10px;
+}
+
+hr {
+    border: none;
+    border-top: 10px double #FFE184;
+    color: #FFE184;
+    overflow: visible;
+    text-align: center;
+    height: 10px;
+}
+
+hr:after {
+  background: #fff;
+  content: '֎';
+  font-size: 2rem;
+  padding: 0 5px;
+  position: relative;
+  top: -30px;
+}
