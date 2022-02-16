@@ -237,7 +237,6 @@ ol li::marker {
 .officialContainer {
   min-height: 65vh;
   height: 100%;
-  width: 100%;
 }
 
 #govtSearch1, 
@@ -252,6 +251,7 @@ hr {
     overflow: visible;
     text-align: center;
     height: 10px;
+    width: 100%;
 }
 
 hr:after {
