@@ -55,7 +55,7 @@ export default function LearnerClasses() {
                 })}
             </div>
             <div style={{textAlign: 'center'}}>
-                <a className='waves-effect indigo darken-4 btn' href='/joinClass'><i className='material-icons left'>school</i>Join a New Class</a>
+                <a id='btn' className='waves-effect btn' href='/joinClass'><i className='material-icons left'>school</i>Join a New Class</a>
             </div>
         </div>
     )

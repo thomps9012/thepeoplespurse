@@ -24,43 +24,55 @@ export default function ElectedOfficials() {
     const nationalLvl = async () => {
         fetch(`https://civicinfo.googleapis.com/civicinfo/v2/representatives?address=${location}&includeOffices=true&levels=country&key=${API_KEY}`)
             .then(function (response) {
-                return response.json();
+                if(response.status === 200){
+                    return response.json();
+                } else {
+                    M.toast({ html: 'Please enter a valid address.' })
+                }
             })
             .then(function (data) {
-                const officialDiv = document.getElementById('officialInfo')
-                officialDiv != null ? officialDiv.innerHTML = '' : '';
-                const offices = data.offices;
-                setOffices(offices)
-                const officials = data.officials;
-                setOfficials(officials)
+                    const officialDiv = document.getElementById('officialInfo')
+                    officialDiv != null ? officialDiv.innerHTML = '' : '';
+                    const offices = data.offices;
+                    setOffices(offices)
+                    const officials = data.officials;
+                    setOfficials(officials)
             })
     }
     const stateLvl = async () => {
         fetch(`https://civicinfo.googleapis.com/civicinfo/v2/representatives?address=${location}&includeOffices=true&levels=administrativeArea1&key=${API_KEY}`)
             .then(function (response) {
-                return response.json();
+                if(response.status === 200){
+                    return response.json();
+                } else {
+                    M.toast({ html: 'Please enter a valid address.' })
+                }
             })
             .then(function (data) {
-                const officialDiv = document.getElementById('officialInfo')
-                officialDiv != null ? officialDiv.innerHTML = '' : '';
-                const offices = data.offices;
-                setOffices(offices)
-                const officials = data.officials;
-                setOfficials(officials)
+                    const officialDiv = document.getElementById('officialInfo')
+                    officialDiv != null ? officialDiv.innerHTML = '' : '';
+                    const offices = data.offices;
+                    setOffices(offices)
+                    const officials = data.officials;
+                    setOfficials(officials)
             })
     }
     const localLvl = async () => {
         fetch(`https://civicinfo.googleapis.com/civicinfo/v2/representatives?address=${location}&includeOffices=true&levels=administrativeArea2&levels=locality&key=${API_KEY}`)
             .then(function (response) {
-                return response.json();
+                if(response.status === 200){
+                    return response.json();
+                } else {
+                    M.toast({ html: 'Please enter a valid address.' })
+                }
             })
             .then(function (data) {
-                const officialDiv = document.getElementById('officialInfo')
-                officialDiv != null ? officialDiv.innerHTML = '' : '';
-                const offices = data.offices;
-                setOffices(offices)
-                const officials = data.officials;
-                setOfficials(officials)
+                    const officialDiv = document.getElementById('officialInfo')
+                    officialDiv != null ? officialDiv.innerHTML = '' : '';
+                    const offices = data.offices;
+                    setOffices(offices)
+                    const officials = data.officials;
+                    setOfficials(officials)
             })
     }
     // possible modualrization opportunity
@@ -72,25 +84,25 @@ export default function ElectedOfficials() {
             const lvlOfficial: any = officials[officeIndex];
             console.log(lvlOfficial)
             const lvlOfficialEl = ` 
-                                    <div class="card blue darken-4" id='officialCard'>
+                                    <div class="card" id='officialCard'>
                                         <div class="card-content white-text">
                                             <span class="card-title activator">${lvlOfficial.name}</span>
                                              <p>Party: ${lvlOfficial.party}</p>
                                         </div>
-                                        <div class="card-action">
+                                        <div class="card-action" id='officialLink' >
                                             <a href=${lvlOfficial.urls
-                                            ? lvlOfficial.urls[0]
-                                            : `https://www.google.com/search?q=${lvlOfficial.name}`} 
+                    ? lvlOfficial.urls[0]
+                    : `https://www.google.com/search?q=${lvlOfficial.name}`} 
                                             target='_blank'>Website</a>
                                         </div>
                                         <div class="card-reveal">
                                             <span class="card-title grey-text text-darken-4">${lvlOfficial.name}<i class="material-icons right">close</i></span>
-                                            <p> Address: ${lvlOfficial.address[0].line1},
+                                            <p id='officialAdr'> Address: ${lvlOfficial.address[0].line1},
                                             ${lvlOfficial.address[0].city},
                                             ${lvlOfficial.address[0].state},
                                               ${lvlOfficial.address[0].zip}
                                               </p>
-                                              <p>Phone: ${lvlOfficial.phones[0]}</p>    
+                                              <p id='officialPhone' >Phone: ${lvlOfficial.phones[0]}</p>    
                                         </div>
                                     </div>
                                     `
@@ -99,24 +111,24 @@ export default function ElectedOfficials() {
     }
 
     return (
-        <div className="officialContainer">
+        <div className="container" style={{marginBottom: 85}}>
             <div className="row addressInput">
-                <label className="addressLabel">Address Input</label>
+                <label className="addressLabel" style={{ color: '#e57373' }}>Address Input</label>
                 <input type="text" onChange={getAddress} placeholder="Enter Address First" />
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-                <a id='govtSearch1' className="waves-effect indigo darken-4 btn-large" onClick={nationalLvl}>
+                <a id='govtSearch1' className="waves-effect btn-large" onClick={nationalLvl}>
                     National
                 </a>
-                <a id='govtSearch2' className="waves-effect indigo darken-4 btn-large" onClick={stateLvl}>
+                <a id='govtSearch2' className="waves-effect btn-large" onClick={stateLvl}>
                     State
                 </a>
-                <a id='govtSearch3' className="waves-effect indigo darken-4 btn-large" onClick={localLvl}>
+                <a id='govtSearch3' className="waves-effect btn-large" onClick={localLvl}>
                     Local
                 </a>
             </div>
             <br />
-            <h4 style={{textAlign: 'center'}}>Your Elected Offices Are</h4>
+            <h4 style={{ textAlign: 'center' }}>Your Elected Officials Are</h4>
             <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
                 {offices?.map((office: any) => {
                     console.log(office)
@@ -128,8 +140,8 @@ export default function ElectedOfficials() {
                         </>
                     )
                 })}
-            </div>
             <div id='officialInfo'></div>
+            </div>
         </div>
     )
 

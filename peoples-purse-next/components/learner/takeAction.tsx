@@ -141,8 +141,8 @@ export default function TakeAction() {
             </form>
             <div style={{ margin: 30, display: 'flex', justifyContent: 'center' }}>
 
-                <a
-                    className='waves-effect indigo darken-4 btn-large'
+                <a  id='btn'
+                    className='waves-effect btn-large'
                     onClick={submitAction}
                 >
                     <i className='material-icons left'>done</i>

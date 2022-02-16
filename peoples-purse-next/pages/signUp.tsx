@@ -141,8 +141,8 @@ export default function SignUp() {
                 </div>
             </form>
             <div style={{ display: 'flex', justifyContent: 'space-around', marginBottom: 10 }}>
-                <a
-                    className='waves-effect indigo darken-4 btn-large'
+                <a  id='btn'
+                    className='waves-effect btn-large'
                     onClick={signUpFunc}
                 >
                     <i className='material-icons right'>login</i>

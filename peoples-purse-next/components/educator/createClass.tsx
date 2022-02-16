@@ -25,7 +25,9 @@ export default function CreateClass() {
             </div>
             <div className='col s6'>
 
-                <a className='waves-effect indigo darken-4 btn-large'
+                <a
+                    id='btn'
+                    className='waves-effect btn-large'
                     onClick={(e: any) => {
                         e.preventDefault();
                         createClass({
@@ -33,11 +35,11 @@ export default function CreateClass() {
                                 classCode: classCode
                             }
                         }).then(data => {
-                            if(data.data.createClass != '' || null){
-                                M.toast({html: 'Successfully Created Class'})
+                            if (data.data.createClass != '' || null) {
+                                M.toast({ html: 'Successfully Created Class' })
                                 window.location.reload();
                             } else {
-                                M.toast({html: 'Error Creating Class'})
+                                M.toast({ html: 'Error Creating Class' })
                             }
                         })
                     }}>

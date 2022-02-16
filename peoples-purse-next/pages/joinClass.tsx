@@ -65,7 +65,7 @@ export default function JoinClass() {
                 </select>
             </div>
             <div style={{ marginBottom: 10, display: 'flex', justifyContent: 'center' }}>
-                <a className="waves-effect indigo darken-4 btn"
+                <a className="waves-effect btn"
                     onClick={joinClassSubmit}
                     type="submit">
                     Join Class
