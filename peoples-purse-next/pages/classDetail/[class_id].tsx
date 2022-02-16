@@ -42,7 +42,7 @@ export default function ClassDetail() {
     console.log(classData)
     return (
         <div className='classDetailContainer'>
-            <h2 style={{marginTop: -125, marginBottom: 75}}>Learner and Action History</h2>
+            <h2 style={{marginTop: -125, marginBottom: 75, color: '#e57373'}}>Learner and Action History</h2>
             <div style={{ width: '75%'}}>
                 {classData.length === 0 ?
                     <h3 style={{textAlign: 'center'}}>No learners have joined this class yet</h3>

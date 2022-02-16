@@ -182,6 +182,8 @@ select {
   }
 }
 
+
+
 #footer {
   background-color: #174c4f;
   color: #FFE184;
@@ -209,9 +211,10 @@ select {
   color: #e57373;
 }
 
-.nav-item h5:hover {
+#nav-mobile a:hover {
   color: #e57373;
   background-color: white;
+  fill: white;
 }
 
 .classDetailContainer {

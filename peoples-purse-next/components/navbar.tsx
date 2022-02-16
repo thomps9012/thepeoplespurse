@@ -34,7 +34,7 @@ export default function Navbar() {
                         />
                     </a>
                     <a href="#" data-target="mobile-demo" className="sidenav-trigger nav-item"><i className="material-icons">menu</i></a>
-                    <ul id="nav-mobile" className="right hide-on-med-and-down indigo-text">
+                    <ul id="nav-mobile" className="right hide-on-med-and-down">
                         {userJWT != '' ?
                             <>
                                 <li><a href="/profile" className="nav-item"><h5>Profile</h5></a></li>
