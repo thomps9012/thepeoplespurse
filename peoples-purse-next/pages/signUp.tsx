@@ -139,19 +139,19 @@ export default function SignUp() {
                         required
                     />
                 </div>
+                <div style={{ display: 'flex', justifyContent: 'space-around', marginBottom: 10 }}>
+                    <a id='btn'
+                        className='waves-effect btn-large'
+                        onClick={signUpFunc}
+                    >
+                        <i className='material-icons right'>login</i>
+                        Sign Up
+                    </a>
+                    <h6 className='signupLoginToggle'>
+                        <a href='/login' className='toggleLink'>Returning User?</a>
+                    </h6>
+                </div>
             </form>
-            <div style={{ display: 'flex', justifyContent: 'space-around', marginBottom: 10 }}>
-                <a  id='btn'
-                    className='waves-effect btn-large'
-                    onClick={signUpFunc}
-                >
-                    <i className='material-icons right'>login</i>
-                    Sign Up
-                </a>
-                <h6 className='signupLoginToggle'>
-                    <a href='/login' className='toggleLink'>Returning User?</a>
-                </h6>
-            </div>
         </div>
     )
 }

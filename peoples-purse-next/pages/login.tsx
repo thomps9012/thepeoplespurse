@@ -69,7 +69,7 @@ export default function Login() {
             <form
                 className="loginForm"
             >
-                <div className="loginForm">
+                <div className="loginInputs">
                     <div className='input-field col s6'>
                         <i className='material-icons prefix'>account_circle</i>
 
