@@ -101,7 +101,6 @@ select {
   font-size: large;
   margin: 0px 25px 25px 25px;
   padding: 25px;
-  /* text-align: center; */
 }
 
 .addressInput {
@@ -117,7 +116,6 @@ select {
   min-width: 40vh;
   margin: 20px;
   padding: 10px;
-  /* font-weight: bold; */
   font-size: large;
 }
 
@@ -169,11 +167,13 @@ select {
   margin: 20px;
 }
 
-@media (max-width: 425px) {
-  #chart {
-    max-height: 10vh;
-    margin: 75px 20px -125px 20px;
-    /* display: flex; */
+@media (max-width: 1025px) {
+  #nav-mobile {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: right;
+    width: 75%;
   }
 }
 
@@ -203,3 +203,9 @@ select {
 #officialPhone {
   color: #e57373;
 }
+
+.nav-item h5:hover {
+  color: #e57373;
+  background-color: white;
+}
+

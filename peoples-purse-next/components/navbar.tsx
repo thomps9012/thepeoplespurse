@@ -24,7 +24,7 @@ export default function Navbar() {
             <nav className="navbar-fixed transparent z-depth-0">
                 <div className="nav-wrapper">
                     <a href="/"
-                        style={{ display: 'flex', marginTop: -80}}
+                        style={{ display: 'flex', marginTop: -80 }}
                         className="brand-logo nav-item">
                         <Image
                             src={mixedLogo}
@@ -37,25 +37,25 @@ export default function Navbar() {
                     <ul id="nav-mobile" className="right hide-on-med-and-down indigo-text">
                         {userJWT != '' ?
                             <>
-                                <li><a href="/profile" className="nav-item">Profile</a></li>
-                                <li onClick={logout}><a className="nav-item">Logout</a></li>
-                                <li><a href="/voting" className="tab nav-item">Voting</a></li>
+                                <li><a href="/profile" className="nav-item"><h5>Profile</h5></a></li>
+                                <li onClick={logout}><a className="nav-item"><h5>Logout</h5></a></li>
+                                <li><a href="/voting" className="tab nav-item"><h5>Voting</h5></a></li>
                             </>
                             :
                             <>
-                                <li><a href="/signUp" className="nav-item">Sign Up</a></li>
-                                <li><a href="/login" className="nav-item">Login</a></li>
+                                <li><a href="/signUp" className="nav-item"><h5>Sign Up</h5></a></li>
+                                <li><a href="/login" className="nav-item"><h5>Login</h5></a></li>
                             </>
                         }
-                        <li><a href="/deptInformation" className="tab nav-item">Department Information</a></li>
-                        <li><a href="/electedOfficials" className="tab nav-item">Learn Your Elected Officials</a></li>
-                        <li><a href="/budgetResults" className="tab nav-item">Budget Results</a></li>
-                    </ul>
-                </div>
-            </nav>
+                        <li><a href="/deptInformation" className="tab nav-item"><h5>Department Information</h5 ></a></li>
+                        <li><a href="/electedOfficials" className="tab nav-item"><h5>Learn Who Represents You</h5 ></a></li>
+                        <li><a href="/budgetResults" className="tab nav-item"><h5>Budget Results</h5 ></a></li>
+                    </ul >
+                </div >
+            </nav >
 
             <ul className="sidenav" id="mobile-demo">
-                <a href="/" style={{display: 'flex', justifyContent: 'center'}}>
+                <a href="/" style={{ display: 'flex', justifyContent: 'center' }}>
                     <Image
                         src={mixedLogo}
                         layout="fixed"
@@ -76,9 +76,9 @@ export default function Navbar() {
                     </>
                 }
                 <li><a href="/deptInformation" className="tab nav-item"><i className='material-icons left'>balance</i>Department Information</a></li>
-                <li><a href="/electedOfficials" className="tab nav-item"><i className='material-icons left'>contact_phone</i>Learn Your Elected Officials</a></li>
+                <li><a href="/electedOfficials" className="tab nav-item"><i className='material-icons left'>contact_phone</i>Learn Who Represents You</a></li>
                 <li><a href="/budgetResults" className="nav-item"><i className='material-icons left'>analytics</i>Budget Results</a></li>
             </ul>
-        </div>
+        </div >
     )
 }
