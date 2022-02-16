@@ -45,7 +45,7 @@ export default function VotingPage() {
 
       <div style={{ display: 'flex', flexWrap: 'wrap-reverse', justifyContent: 'space-evenly', marginTop: 10 }}>
         <BudgetOutput budget={budget} />
-        <a id='resetBtn' className="waves-effect waves-light indigo btn-large" onClick={resetBudget}><i className="material-icons left">restart_alt</i>Reset Budget</a>
+        <a id='resetBtn' className="waves-effect waves-light red lighten-2 btn-large" onClick={resetBudget}><i className="material-icons left">restart_alt</i>Reset Budget</a>
       </div>
       <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', margin: 20 }}>
         <DeptCards
@@ -70,7 +70,7 @@ export default function VotingPage() {
       <div style={{ display: 'flex', justifyContent: 'center', margin: 30 }}>
 
         <a
-          className='waves-effect waves-light indigo btn-large'
+          className='waves-effect waves-light btn-large'
           id="voteSubmit"
           onClick={async (e: any) => {
             e.preventDefault();

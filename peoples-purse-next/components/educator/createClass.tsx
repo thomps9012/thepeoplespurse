@@ -18,12 +18,12 @@ export default function CreateClass() {
         `Submission error! ${error.message}`;
     </>
     return (
-        <div style={{ margin: 10, justifyContent: 'center' }}>
+        <div style={{ margin: 15, justifyContent: 'center', display: 'flex', flexDirection: 'column' }}>
             <div className='col s6'>
                 <label>Class Code</label>
                 <input onChange={(e: any) => setClassCode(e.target.value)} />
             </div>
-            <div className='col s6'>
+            <div style={{ justifyContent: 'center', display: 'flex', margin: 5}}>
 
                 <a
                     id='btn'

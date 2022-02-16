@@ -152,7 +152,12 @@ select {
   color: #174c4f;
 }
 
-.classSelectA:hover {
+.classSelect {
+  color: #FFE184;
+}
+
+.classSelectA:hover,
+.classSelect:hover {
   color: #e57373;
 }
 
