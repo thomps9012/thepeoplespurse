@@ -31,7 +31,7 @@ export default function JoinClass() {
             }
         })
         let joinedClassId = joinClassReponse.data.joinClass._id
-        if(joinedClassId != null){
+        if (joinedClassId != null) {
             window.location.assign('/profile')
         }
     }
@@ -55,7 +55,7 @@ export default function JoinClass() {
     return (
         <div className="joinClassContainer" style={{ marginTop: 50, marginBottom: 50, padding: 10, textAlign: "center" }}>
             <h5>Select Your Class from the List Below</h5>
-            <div style={{padding: 50}}>
+            <div style={{ padding: 50 }}>
                 <select onChange={handleChange}>
                     {classes.map((classInfo: any) => {
                         return (
@@ -65,7 +65,8 @@ export default function JoinClass() {
                 </select>
             </div>
             <div style={{ marginBottom: 10, display: 'flex', justifyContent: 'center' }}>
-                <a className="waves-effect btn"
+                <a id='btn'
+                    className="waves-effect btn-large"
                     onClick={joinClassSubmit}
                     type="submit">
                     Join Class

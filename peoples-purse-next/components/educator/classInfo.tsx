@@ -19,7 +19,7 @@ query Query {
 export default function ClassInfo() {
   const { loading, error, data } = useQuery(GET_CLASSES);
   if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error :({JSON.stringify(error)}</p>;
+  if (error) return <h3 style={{textAlign: 'center', margin: 30, padding: 20}}>You Haven't Created Any Classes Yet</h3>;
   console.log(data)
   const classes = data.getUser.classes;
   console.log(classes)
