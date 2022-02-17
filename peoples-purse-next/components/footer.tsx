@@ -5,7 +5,7 @@ export default function Footer() {
         <footer className="page-footer" id='footer' style={{ padding: 20 }}>
             <div className="container" style={{ marginTop: 10, marginBottom: -10 }}>
                 <div className="row">
-                    <Link href='/about'>
+                    <Link href='/about' passHref>
                         <div id='voteLink' className="col s6" style={{ fontSize: 'large', marginLeft: -30, marginRight: 30 }}>
                             {"People's Purse Copyright © 2021"}
                         </div>
