@@ -59,7 +59,7 @@ export default function TakeAction() {
         } else {
             setErrorMsg('')
         }
-    })
+    }, [formState])
 
     const submitAction = async (e: any) => {
         e.preventDefault();
@@ -94,7 +94,7 @@ export default function TakeAction() {
             }
         }
     }
-    if (loading) return <h1 style={{ margin: 35, padding: 35, textAlign: 'center' }}>🛠 Give us just a minute here to record your awesome action... 🛠 </h1>;
+    if (loading) return <h1 id='loading' style={{ margin: 35, padding: 35, textAlign: 'center' }}>🛠 Give us just a minute here to record your awesome action... 🛠 </h1>;
     return (
         <div style={{ marginTop: 20 }}>
             <form

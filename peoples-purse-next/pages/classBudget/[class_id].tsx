@@ -1,5 +1,6 @@
 import { useQuery, gql } from '@apollo/client';
 import { useRouter } from 'next/router';
+import LoggedOut from '../../components/loggedOut';
 
 const CLASS_VOTES = gql`
 query ClassVotes($classId: ID!) {
@@ -24,8 +25,11 @@ export default function ClassBudget() {
     });
     console.log(data.classVotes);
     const classVotes = data.classVotes;
-    if (loading) return <p>Loading...</p>;
-    if (error) return <p>Error :( {JSON.stringify(error)}</p>;
+    if (loading) return <h1 id='loading' style={{margin: 35, padding: 35, textAlign: 'center'}}>🛠 Give us just a minute here... 🛠 </h1>;
+    if (error) {
+        console.log(error)
+        return <LoggedOut />
+    }
     return (
         classVotes.map(({ budget, _id }: any) => (
             <div key={_id}>

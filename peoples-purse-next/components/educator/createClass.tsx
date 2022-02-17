@@ -11,12 +11,10 @@ mutation CreateClass($classCode: String!) {
 export default function CreateClass() {
     const [createClass, { loading, error }] = useMutation(CREATE_CLASS);
     const [classCode, setClassCode] = useState('')
-    if (loading) return <>
-        'Submitting...';
-    </>
-    if (error) return <>
-        `Submission error! ${error.message}`;
-    </>
+    if (loading) return <h1 id='loading' style={{ margin: 35, padding: 35, textAlign: 'center'}}>🛠 Give us just a minute here... 🛠 </h1>;
+    if (error) return <h1 style={{ margin: 35, padding: 35, textAlign: 'center'}}>
+        Submission error! {error.message};
+    </h1>
     return (
         <div style={{ margin: 15, justifyContent: 'center', display: 'flex', flexDirection: 'column' }}>
             <div className='col s6'>

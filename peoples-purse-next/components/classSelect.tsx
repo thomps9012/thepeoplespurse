@@ -11,7 +11,7 @@ query Query {
 
 export default function ClassSelect() {
     const { loading, error, data } = useQuery(GET_USER_CLASSES)
-    if (loading) return <h1 style={{margin: 77, padding: 77, textAlign: 'center'}}>🛠 Give us just a minute here... 🛠</h1>;
+    if (loading) return <h1 id='loading' style={{margin: 77, padding: 77, textAlign: 'center'}}>🛠 Give us just a minute here... 🛠</h1>;
     if (error) return <p style={{textAlign: 'center'}}>You need to login to view your class results</p>;
 
     const userClasses = data.classes

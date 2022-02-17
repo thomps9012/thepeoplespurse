@@ -37,7 +37,7 @@ select {
 }
 
 .loginForm {
-  width: 527px;
+  max-width: 527px;
 }
 
 .signUpContainer {
@@ -51,7 +51,7 @@ select {
 }
 
 .signUpForm {
-  width: 527px;
+  max-width: 527px;
 }
 
 .signupLoginToggle{
@@ -60,11 +60,11 @@ select {
   padding: 10px;
   text-decoration: none;
 }
-.toggleLink {
+#toggleLink a {
   color: #174c4f;
 }
 
-.toggleLink:hover{
+#toggleLink:hover{
   color: #e57373;
 }
 
@@ -196,6 +196,8 @@ select {
 .nav-item {
   color: #174c4f;
   text-align: center;
+  margin: 5px;
+  padding: 5px;
 }
 
 #btn {
@@ -216,10 +218,9 @@ select {
   color: #e57373;
 }
 
-#nav-mobile a:hover {
+#nav-mobile:hover,
+.nav-item:hover {
   color: #e57373;
-  background-color: white;
-  fill: white;
 }
 
 .classDetailContainer {
@@ -291,5 +292,19 @@ hr:after {
 @media (max-width: 801px) {
   #landingTitle {
     margin-top: 0px;
+  }
+}
+
+.loading {
+	animation: fadeOut 2s;
+  	opacity: 0;
+}
+
+@keyframes fadeOut {
+  from {
+  	opacity: 1;
+  }
+  to {
+ 	opacity: 0;
   }
 }
