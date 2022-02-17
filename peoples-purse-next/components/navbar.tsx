@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import mixedLogo from '../public/mixedLogo.png';
 import Image from 'next/image'
 import Link from "next/link";
 
@@ -32,10 +31,11 @@ export default function Navbar() {
                     <div style={{ display: 'flex', marginTop: -80 }} className="brand-logo nav-item">
                         <Link href="/" passHref>
                             <Image
-                                src={mixedLogo}
+                                src='/mixedLogo.png'
                                 layout="fixed"
                                 width={300}
                                 height={300}
+                                priority
                                 alt={"People's Purse Logo"}
                             />
                         </Link>
@@ -65,7 +65,7 @@ export default function Navbar() {
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
                     <Link href="/" passHref>
                         <Image
-                            src={mixedLogo}
+                            src='/mixedLogo.png'
                             layout="fixed"
                             width={200}
                             height={200}
