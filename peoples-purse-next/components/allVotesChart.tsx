@@ -103,8 +103,8 @@ const AllVotesCharts = () => {
             }
         }
     }
-    if (loading) return <p>Loading...</p>;
-    if (error) return <p>Error :( {JSON.stringify(error)}</p>;
+    if (loading) return <h1 style={{margin: 35, padding: 35, textAlign: 'center'}}>🛠 Give us just a minute here... 🛠 </h1>;
+    if (error) return <h1 style={{margin: 35, padding: 35, textAlign: 'center'}}>Error :( {JSON.stringify(error)}</h1>;
 
     const options = {
         indexAxis: 'y' as const,

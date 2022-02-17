@@ -1,7 +1,5 @@
 import AllVotesCharts from '../components/allVotesChart';
-import ClassSelect from '../components/classSelect';
-
-
+// import ClassSelect from '../components/classSelect';
 
 export default function BudgetResults() {
   return (

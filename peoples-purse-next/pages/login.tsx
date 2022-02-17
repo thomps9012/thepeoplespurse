@@ -68,6 +68,7 @@ export default function Login() {
             }
         }
     }
+    if(loading) return <h1 style={{margin: 35, padding: 35, textAlign: 'center'}}>🛠 Give us just a minute here... 🛠 </h1>;
     return (
         <div className='loginContainer'>
             <form
