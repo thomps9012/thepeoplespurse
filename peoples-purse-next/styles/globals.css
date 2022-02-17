@@ -129,6 +129,10 @@ select {
   color: #e57373 ;
 }
 
+#aboutLink:hover {
+  color: #e57373 ;
+}
+
 #voteLink {
   color: #FFE184;
 }
@@ -191,6 +195,7 @@ select {
 
 .nav-item {
   color: #174c4f;
+  text-align: center;
 }
 
 #btn {
@@ -265,9 +270,26 @@ hr:after {
 
 .indexContainer {
   padding: 1rem;
-  width: 100%;
   display: inline-flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.founderImg {
+  border-radius: 10% 30% 10% 70%;
+}
+
+.volunteerImg {
+  border-radius: 50% 20% / 10% 40%;
+}
+
+#landingTitle {
+  margin-top: 70px;
+}
+
+@media (max-width: 801px) {
+  #landingTitle {
+    margin-top: 0px;
+  }
 }
