@@ -25,14 +25,19 @@ export default function JoinClass() {
     const { loading, data, error } = useQuery(GET_CLASSES);
 
     const joinClassSubmit = async () => {
-        const joinClassReponse = await joinClass({
-            variables: {
-                classCode: classCode
+        try{
+
+            const joinClassReponse = await joinClass({
+                variables: {
+                    classCode: classCode
+                }
+            })
+            let joinedClassId = joinClassReponse.data.joinClass._id
+            if (joinedClassId != null) {
+                window.location.assign('/profile')
             }
-        })
-        let joinedClassId = joinClassReponse.data.joinClass._id
-        if (joinedClassId != null) {
-            window.location.assign('/profile')
+        } catch {
+            M.toast({ html: error?.message})
         }
     }
 
@@ -47,11 +52,7 @@ export default function JoinClass() {
         };
         init();
     });
-    if (loading) return <p>Loading...</p>;
-    if (error) return JSON.stringify(error)
-    console.log(data)
     const classes = data.allClasses;
-    console.log(classes)
     return (
         <div className="joinClassContainer" style={{ marginTop: 50, marginBottom: 50, padding: 10, textAlign: "center" }}>
             <h5>Select Your Class from the List Below</h5>
