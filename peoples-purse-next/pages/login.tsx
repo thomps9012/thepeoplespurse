@@ -70,7 +70,7 @@ export default function Login() {
     }
     if (loading) {
         return (
-            <div style={{ margin: 77, padding: 77, textAlign: 'center' }}>
+            <div style={{ margin: 37, padding: 47, textAlign: 'center' }}>
                 <h1 >Something seems to have gone wrong here... </h1>
                 <a
                     id='btn'
