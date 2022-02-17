@@ -12,15 +12,16 @@ export default function DeptCards({ budget, updateBudget }: any) {
     return (
         <>
             {budget.map((dept: any) => {
+                const {name, icon, id, value} = dept;
                 return (
-                    <div key={dept.id} id='deptVoteCard' className="card hoverable">
+                    <div key={id} id='deptVoteCard' className="card hoverable">
                         <div className='dept-card-content'>
-                            <p style={{marginBottom: 10, padding: 5}}>{dept.name}</p>
+                            <p style={{marginBottom: 10, padding: 5}}>{name}</p>
                             <Image
-                                alt={dept.name + ' icon'}
+                                alt={name + ' icon'}
                                 height={75}
                                 width={75}
-                                src={dept.icon}
+                                src={icon}
                                 objectPosition={'center bottom'}
                             />
                         </div>
@@ -29,9 +30,9 @@ export default function DeptCards({ budget, updateBudget }: any) {
                                 style={{ width: 100 }}
                                 className="center-align"
                                 type="number" min="0" max="100"
-                                id={dept.id}
-                                name={dept.name}
-                                value={dept.value}
+                                id={id}
+                                name={name}
+                                value={value}
                                 onChange={(e: any) => update(e.target.id, e.target.value)}
                             />
                         </div>

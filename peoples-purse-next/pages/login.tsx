@@ -35,9 +35,6 @@ export default function Login() {
         } else if (!formState.username) {
             setErrorMsg('Please enter your Username');
             return;
-        } else if (!checkPassword(formState.password)) {
-            setErrorMsg('Please enter your Password');
-            return;
         } else {
             setErrorMsg('')
         }
@@ -47,7 +44,7 @@ export default function Login() {
         if (errorMsg != '') {
             M.toast({ html: errorMsg, classes: 'rounded' })
         } else {
-            try{
+            try {
 
                 const loginResponse = await login({
                     variables: {
@@ -64,11 +61,27 @@ export default function Login() {
                     window.location.assign('/profile')
                 }
             } catch {
-                M.toast({ html: error?.message})
+                if(error){
+                    const errorAlert = error?.message 
+                    M.toast({ html: errorAlert })
+                }
             }
         }
     }
-    if(loading) return <h1 style={{margin: 35, padding: 35, textAlign: 'center'}}>🛠 Give us just a minute here... 🛠 </h1>;
+    if (loading) {
+        return (
+            <div style={{ margin: 77, padding: 77, textAlign: 'center' }}>
+                <h1 >Something seems to have gone wrong here... </h1>
+                <a
+                    id='btn'
+                    className='waves-effect btn-large'
+                    onClick={() => window.location.reload()}
+                >
+                    Login Again
+                </a>
+            </div>
+        )
+    }
     return (
         <div className='loginContainer'>
             <form
