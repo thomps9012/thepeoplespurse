@@ -1,5 +1,7 @@
 export default function LoggedOut(){
     return(
-        <p>Need to login / signup to view this page</p>
+        <div style={{margin: 30, padding: 25, textAlign: 'center'}}>
+        <h1>You need to Login or Signup to View this Page</h1>
+        </div>
     )
 }

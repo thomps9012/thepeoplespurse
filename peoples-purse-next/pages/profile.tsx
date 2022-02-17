@@ -22,7 +22,7 @@ query Query {
 
 export default function ProfilePage() {
     const { loading, error, data } = useQuery(GET_USER);
-    if (loading) return <p>Loading...</p>;
+    if (loading) return <h1>Loading...</h1>;
     if (error) {
         console.log(error)
         return <LoggedOut />
