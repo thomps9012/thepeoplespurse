@@ -36,8 +36,17 @@ select {
   align-items: center;
 }
 
-.loginForm {
-  max-width: 527px;
+.loginForm,
+.signUpForm {
+  min-width: 527px;
+}
+
+@media (max-width: 576px) {
+  .loginForm,
+  .signUpForm {
+    min-width: 0px;
+  }
+  
 }
 
 .signUpContainer {
@@ -50,21 +59,18 @@ select {
   align-items: center;
 }
 
-.signUpForm {
-  max-width: 527px;
-}
+
 
 .signupLoginToggle{
   font-weight: bolder;
   font-size: large;
-  padding: 10px;
   text-decoration: none;
 }
 #toggleLink a {
   color: #174c4f;
 }
 
-#toggleLink:hover{
+#toggleLink a:hover{
   color: #e57373;
 }
 

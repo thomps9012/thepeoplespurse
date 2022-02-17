@@ -121,6 +121,7 @@ export default function SignUp() {
                         id='username'
                         required
                         placeholder='Username'
+                        autoComplete='username'
                         onChange={handleChange}
                     />
                 </div>
@@ -132,6 +133,7 @@ export default function SignUp() {
                         id='email'
                         required
                         placeholder='Email Address'
+                        autoComplete='current-email'
                         size={30}
                         onChange={handleChange}
                     />
@@ -144,13 +146,14 @@ export default function SignUp() {
                         id='password'
                         placeholder='Min length 8 with one special char'
                         minLength={8}
+                        autoComplete='current-password'
                         onChange={handleChange}
                         required
                         />
                 </div>
-                <div style={{ display: 'flex', justifyContent: 'space-around', marginBottom: 10 }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 10 }}>
                     <a id='btn'
-                        className='waves-effect btn-large'
+                        className='waves-effect btn'
                         onClick={signUpFunc}
                     >
                         <i className='material-icons right'>login</i>

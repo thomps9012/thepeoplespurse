@@ -128,10 +128,10 @@ export default function Login() {
                         />
                     </div>
                 </div>
-                <div style={{ display: 'flex', justifyContent: 'space-around', marginBottom: 10 }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 10 }}>
                     <a
                         id='btn'
-                        className='waves-effect btn-large'
+                        className='waves-effect btn'
                         onClick={loginFunc}
                     >
                         <i className='material-icons right'>login</i>

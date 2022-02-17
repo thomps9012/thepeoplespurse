@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import mixedLogo from '../public/mixedLogo.png';
 import Image from 'next/image'
 import Link from "next/link";
-import { Sidenav } from "materialize-css";
 
 export default function Navbar() {
     const [userJWT, setUserJWT] = useState('')
