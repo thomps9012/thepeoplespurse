@@ -3,10 +3,10 @@ a {
     margin: 15px;
 }
 
-.row {
-    background: url(../../assets/bg-books.png);
+ .row { 
+    background: url(../../assets/bg-dc.png);
+    background-size: cover;
     padding: 120px 100px 220px 100px;
-    height: auto;
 }
 
 .col {
@@ -19,7 +19,7 @@ a {
 }
 
 .showHide:hover {
-    color: black;
+    color: white;
     transform: translateY(-3px);
     text-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
 }
@@ -109,7 +109,7 @@ select {
 
 #deptInfo {
     margin-top: 2.5vh;
-    color: white;
+    color: black;
     font-size: x-large;
 }
 

@@ -15,13 +15,9 @@
   padding: 1%;
   background-color: #101851;
   color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  flex-grow: 1;
+  flex: 1 1 1;
   border-radius: 2vh;
-  justify-content: space-evenly;
-  align-content: space-between;
+  max-width: 350px;
   }
   
   h3 {
@@ -62,6 +58,8 @@
 
   .cardContainer {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
 
   

@@ -1,21 +1,30 @@
 form {
     align-content: center;
-    margin: 10px;
     padding: auto;
+    height: 79%;
     display: flex;
-    margin: 82px auto 32px;
-    padding: 0 16px;
-    max-width: 960px;
     flex-direction: column;
     align-items: center;
+    background: url(../../assets/bg-dc.png);
+    background-size: cover;
 }
 
-input {
-    align-content: center;
-    flex: auto;
-    margin: 15px;
-    justify-content: center;
+h1 {
+    color: white;
+    margin-top: 10%;
 }
+
+
+input[type=text] {
+    width: 50vh;
+    padding: 12px;
+    margin: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+
 button {
     margin: 25px;
     all: unset;
@@ -34,7 +43,8 @@ button {
 }
 
 button:hover {
-    color: #101851;
+    color: white;
+    background-color: #101851;
     text-decoration: none;
     transform: translateY(-3px);
     box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
@@ -46,7 +56,19 @@ a {
 }
 
 a:hover {
-    color: #67a621;
+    color: white;
     text-decoration: none;
     transform: translateY(-3px);
+}
+
+.row{
+    text-decoration: none;
+    color: white;
+    font-size: larger;
+    margin: 12px;
+}
+
+.row:hover {
+    color: black;
+    text-decoration: none;
 }

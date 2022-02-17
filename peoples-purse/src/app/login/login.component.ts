@@ -56,10 +56,10 @@ export class LoginComponent implements OnInit {
       const userId = data.login.user.id;
       const token = data.login.token;
       const classID = data.login.user.class;
-      localStorage.setItem('USER', username)
-      localStorage.setItem('USER_ID', userId)
-      localStorage.setItem('AUTH_TOKEN', token)
-      localStorage.setItem('CLASS_CODE', classID)
+      sessionStorage.setItem('USER', username)
+      sessionStorage.setItem('USER_ID', userId)
+      sessionStorage.setItem('AUTH_TOKEN', token)
+      sessionStorage.setItem('CLASS_CODE', classID)
       // load to profile page
       window.location.replace('/profile')
     }, (error) => {

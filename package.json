@@ -7,9 +7,10 @@
         "npm": "6.14.8"
       },
     "scripts": {
-        "build": "cd ./peoples-purse && yarn run build",
-        "start": "concurrently \"cd ./peoples-purse && yarn run start\" \"cd ./server && yarn run start\"",
-        "heroku-postbuild": "cd ./peoples-purse && yarn run heroku-postbuild"
+        "build": "cd ./peoples-purse-next && yarn run build",
+        "dev": "concurrently \"cd ./peoples-purse-next && yarn run dev\" \"cd ./server && yarn run start\"",
+        "start": "concurrently \"cd ./peoples-purse-next && yarn run start\" \"cd ./server && yarn run start\"",
+        "heroku-postbuild": "cd ./peoples-purse-next && yarn run heroku-postbuild"
     },
     "keywords": [],
     "author": {

@@ -9,6 +9,8 @@ export class FooterComponent implements OnInit {
 
   constructor() { }
 
+  userLoggedIn = sessionStorage.getItem('USER_ID') || sessionStorage.getItem('TEACHER_ID')
+
   ngOnInit(): void {
   }
 

@@ -26,7 +26,8 @@ export class ClassCreateComponent implements OnInit {
     this.classCode = (event.target as HTMLInputElement).value;
   }
 
-  randomClass() {
+  randomClass(event: Event) {
+    event.preventDefault();
     const pool = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
     let pwd = '';
 
@@ -46,8 +47,18 @@ export class ClassCreateComponent implements OnInit {
       pwd += pool[randomNumber(62)]
     }
     const codeDiv = document.getElementById('generatedCode') as HTMLElement
-    codeDiv.innerHTML = `Class Code: ${pwd}`
+    codeDiv.innerHTML = `<h1 id="codeTitle"> Class Code</h1> 
+                              <hr />
+                              <h1>${pwd}</h1>`
     this.classCode = pwd;
+    const sheet = document.createElement('style')
+    sheet.innerHTML += `
+    #codeTitle {
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+  }`
+  codeDiv.append(sheet)
   }
 
   saveClass() {
@@ -56,7 +67,7 @@ export class ClassCreateComponent implements OnInit {
       variables: {
         input: {
           classCode: this.classCode,
-          teacher: localStorage.getItem('TEACHER_ID')
+          teacher: sessionStorage.getItem('TEACHER_ID')
         }
       }
     }).subscribe(({ data }: any) => {

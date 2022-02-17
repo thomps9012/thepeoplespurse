@@ -4,7 +4,7 @@ import { depts } from './depts';
 import { eduDepts } from './eduDepts';
 import { enviroDepts } from './enviroDepts';
 import { healthDepts } from './healthDepts';
-import { transpoDepts } from './transpoDepts';
+import { developDepts } from './developDepts';
 import { Apollo, gql } from 'apollo-angular';
 
 const VOTE = gql`
@@ -24,6 +24,7 @@ export class VotingComponent implements OnInit {
 
   depts = depts
   totalDept = 0
+  userLoggedIn = localStorage.getItem('USER_ID')
 
 
   ngOnInit() {
@@ -127,7 +128,7 @@ export class VotingComponent implements OnInit {
     this.depts = defenseDepts;
   }
 
-  transportDist() {
+  developDist() {
     this.totalDept = 100;
     let totalArea = document.getElementById("totalBudget")
     let budgetAlert = <HTMLElement>document.getElementById('budgetAlert')
@@ -136,7 +137,7 @@ export class VotingComponent implements OnInit {
     dangerAlert.innerHTML += "You're perfect!";
     budgetAlert.innerHTML = "";
     budgetAlert?.append(dangerAlert);
-    this.depts = transpoDepts;
+    this.depts = developDepts;
   }
 
   resetBudget() {
@@ -179,7 +180,7 @@ export class VotingComponent implements OnInit {
         window.location.replace('/results')
       }, (error) => {
         console.log('there was an error sending the mutation', error);
-        alert('You need to be logged in to case a vote.')
+        alert('You need to be logged in to cast a vote.')
       });
     }
   }

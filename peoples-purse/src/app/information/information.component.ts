@@ -41,13 +41,12 @@ export class InformationComponent implements OnInit {
             a {
               text-decoration: none;
               color: black;
-              font-size: x-large;
-              font-weight: 600;
+              size: large;
             }
 
             a:hover {
               transform: translateY(-3px);
-              color: goldenrod;
+              color: white;
               text-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
             }
               `;
@@ -64,10 +63,10 @@ export class InformationComponent implements OnInit {
         website.target = '_blank';
         website.append('Visit Department Website');
 
-        deptInfoDiv?.append(seal)
-        deptInfoDiv?.append(name)
         deptInfoDiv?.append(website)
+        deptInfoDiv?.append(name)
         deptInfoDiv?.append(mission)
+        deptInfoDiv?.append(seal)
       }
     }
 
@@ -109,23 +108,23 @@ export class InformationComponent implements OnInit {
         const nationalTitle = document.createElement('h1')
         nationalTitle.append('National Level')
         const nationalTable = document.createElement('table')
-        nationalTable.setAttribute('class', 'mystyles')
+        nationalTitle.setAttribute('class', 'mystyles')
 
         const stateTitle = document.createElement('h1')
         stateTitle.append('State Level')
         const stateTable = document.createElement('table')
-        stateTable.setAttribute('class', 'mystyles')
+        stateTitle.setAttribute('class', 'mystyles')
 
         const countyTitle = document.createElement('h1')
         countyTitle.append('County Level')
         const countyTable = document.createElement('table')
-        countyTable.setAttribute('class', 'mystyles')
+        countyTitle.setAttribute('class', 'mystyles')
 
         const officeHeaders = `
         <thead>
         <tr>
         <th> Office </th>
-        <th> Name / Website </th>
+        <th> Official </th>
         <th> Party </th>
         <th> Address </th>
         <th> Phone </th>
@@ -269,6 +268,13 @@ export class InformationComponent implements OnInit {
 
         officialDiv?.append(countyTitle)
         officialDiv?.append(countyTable)
+        
+        const attribution = document.createElement('p')
+        attribution.innerHTML +=(`Information provided by 
+        <a href="https://developers.google.com/civic-information" target="_blank">Google Civic Information API </a> 
+        in association with the 
+        <a href="https://www.votinginfoproject.org" target="_blank">Voting Information Project</a>`)
+        officialDiv?.append(attribution)
 
         const sheet = document.createElement('style');
         sheet.innerHTML = `
@@ -277,15 +283,23 @@ export class InformationComponent implements OnInit {
           border-radius(5px);
           font-family: Roboto, "Helvetica Neue", sans-serif;
       }
+
+      .mystyles {
+        color: black;
+        border-solid: 1px;
+      }
       
       thead {
           background-color: #333;
           color: #fff;
+          font-size: x-large;
+          font-weight: lighter;
       }
       
       td, th {
           border: 1px solid #999;
           padding: 0.5rem;
+          font-size: large;
         }
       
       tbody tr:nth-child(odd) {
@@ -297,7 +311,7 @@ export class InformationComponent implements OnInit {
         }
 
         tbody tr:hover {
-          background: #101851;
+          background: goldenrod;
           color: white;
         }
 
@@ -308,13 +322,21 @@ export class InformationComponent implements OnInit {
 
       a {
         text-decoration: none;
-        color: #67a621;
+        color: black;
       }
 
       a:hover {
         transform: translateY(-3px);
-        color: goldenrod;
+        color: white;
         text-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+      }
+
+      p{
+        font-size: 15px;
+      }
+
+      table {
+        width: 100%;
       }
         `;
         document.body.appendChild(sheet)

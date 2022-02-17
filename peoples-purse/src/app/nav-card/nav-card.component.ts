@@ -8,7 +8,7 @@ import { navcards } from './navcards';
 })
 export class NavCardComponent implements OnInit {
   navcards = navcards
-  
+  userLoggedIn = sessionStorage.getItem('USER_ID') || sessionStorage.getItem('TEACHER_ID')
   constructor() { }
 
   ngOnInit(): void {

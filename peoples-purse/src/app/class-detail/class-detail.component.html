@@ -1,44 +1,47 @@
-<h1 *ngIf="!data">
-    No Data Found for that Class
-</h1>
-<div *ngIf="class">
+<div class="container">
+
+    <h1 *ngIf="!data">
+        No Data Found for that Class
+    </h1>
+    <div *ngIf="class">
         <h1>
             Class Information for {{class.classCode}}
         </h1>
-    <h3>Total Class Vote Count: {{(class.votes).length}}</h3>
-    <div *ngIf="studentDetails">
-
-        <h2>Student and Action List</h2>
-        <ol>
-            <li *ngFor="let student of studentDetails">
-                <h3 [title]="student.username + 'details'">
-                    {{student.username}}
-                </h3>
-                <h3>
-                    {{student.email}}
-                </h3>
-                <div *ngIf="student.actions.length >0">
-                Actions
-                <hr />
-
-                    <ul *ngFor="let action of student.actions">
-                        <li>
-                            Action: {{action.name}}
-                            <br />
-                            {{action.detail}}
-                            <br />
-                            Organization: {{action.organization}}
-                            <br />
-                            Length: {{action.length}}
-                            <br />
-                            {{action.actionDate || 'N/A'}}
-                        </li>
-                    </ul>
-                </div>
-                <div *ngIf="student.actions.length === 0">
-                    No Actions Yet
-                </div>
-            </li>
-        </ol>
+        <div *ngIf="studentDetails">
+            
+            <h2>Student and Action List</h2>
+            <ol>
+                <li *ngFor="let student of studentDetails">
+                    <h3 [title]="student.username + 'details'">
+                        {{student.username}}
+                    </h3>
+                    <h3>
+                        {{student.email}}
+                    </h3>
+                    <div *ngIf="student.actions.length >0">
+                        Actions
+                        <hr />
+                        
+                        <ul *ngFor="let action of student.actions">
+                            <li>
+                                Action: {{action.name}}
+                                <br />
+                                {{action.detail}}
+                                <br />
+                                Organization: {{action.organization}}
+                                <br />
+                                Length: {{action.length}}
+                                <br />
+                                {{action.actionDate || 'N/A'}}
+                            </li>
+                        </ul>
+                    </div>
+                    <div *ngIf="student.actions.length === 0">
+                        No Actions Yet
+                    </div>
+                </li>
+            </ol>
+            <h2>Total Class Vote Count: {{(class.votes).length}}</h2>
+        </div>
     </div>
 </div>
