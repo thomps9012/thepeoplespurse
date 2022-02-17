@@ -46,21 +46,25 @@ export default function Login() {
         e.preventDefault();
         if (errorMsg != '') {
             M.toast({ html: errorMsg, classes: 'rounded' })
-
         } else {
-            const loginResponse = await login({
-                variables: {
-                    input: {
-                        email: formState.email,
-                        username: formState.username,
-                        password: formState.password
+            try{
+
+                const loginResponse = await login({
+                    variables: {
+                        input: {
+                            email: formState.email,
+                            username: formState.username,
+                            password: formState.password
+                        }
                     }
+                })
+                const token = loginResponse.data.login.token
+                if (token) {
+                    sessionStorage.setItem('auth_token', token)
+                    window.location.assign('/profile')
                 }
-            })
-            const token = loginResponse.data.login.token
-            if (token) {
-                sessionStorage.setItem('auth_token', token)
-                window.location.assign('/profile')
+            } catch {
+                M.toast({ html: error?.message})
             }
         }
     }
