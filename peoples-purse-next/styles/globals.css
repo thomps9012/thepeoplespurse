@@ -200,6 +200,17 @@ select {
   padding: 5px;
 }
 
+.side-nav-item {
+  color: #174c4f;
+  text-align: center;
+  margin: 5px 20px 10px 40px;
+  padding: 0px 20px 5px 5px;
+}
+
+#sideIcon {
+  margin-top: 10px;
+}
+
 #btn {
   background-color: #174c4f;
   color: #FFE184;

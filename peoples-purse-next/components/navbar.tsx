@@ -76,19 +76,19 @@ export default function Navbar() {
                 </div>
                 {userJWT != '' ?
                     <>
-                        <Link href="/profile" passHref><li className="nav-item"><i className='material-icons left'>account_box</i>Profile</li></Link>
-                        <li className="nav-item" onClick={logout}><i className='material-icons left'>logout</i>Logout</li>
-                        <Link href="/voting" passHref><li className="nav-item"><i className='material-icons left'>how_to_vote</i>Voting</li></Link>
+                        <Link href="/profile" passHref><li className="side-nav-item"><i className='material-icons left' id='sideIcon'>account_box</i>Profile</li></Link>
+                        <li className="side-nav-item" onClick={logout}><i className='material-icons left' id='sideIcon'>logout</i>Logout</li>
+                        <Link href="/voting" passHref><li className="side-nav-item"><i className='material-icons left' id='sideIcon'>how_to_vote</i>Voting</li></Link>
                     </>
                     :
                     <>
-                        <Link href="/signUp" passHref><li className="nav-item"><i className='material-icons left'>person_add</i>Sign Up</li></Link>
-                        <Link href="/login" passHref><li className="nav-item"><i className='material-icons left'>login</i>Login</li></Link>
+                        <Link href="/signUp" passHref><li className="side-nav-item"><i className='material-icons left' id='sideIcon'>person_add</i>Sign Up</li></Link>
+                        <Link href="/login" passHref><li className="side-nav-item"><i className='material-icons left' id='sideIcon'>login</i>Login</li></Link>
                     </>
                 }
-                <Link href="/deptInformation" passHref><li className="tab nav-item"><i className='material-icons left'>balance</i>Department Information</li></Link>
-                <Link href="/electedOfficials" passHref><li className="tab nav-item"><i className='material-icons left'>contact_phone</i>Learn Who Represents You</li></Link>
-                <Link href="/budgetResults" passHref><li className="nav-item"><i className='material-icons left'>analytics</i>Budget Results</li></Link>
+                <Link href="/deptInformation" passHref><li className="tab side-nav-item"><i className='material-icons left' id='sideIcon'>balance</i>Department Information</li></Link>
+                <Link href="/electedOfficials" passHref><li className="tab side-nav-item"><i className='material-icons left' id='sideIcon'>contact_phone</i>Learn Who Represents You</li></Link>
+                <Link href="/budgetResults" passHref><li className="side-nav-item"><i className='material-icons left' id='sideIcon'>analytics</i>Budget Results</li></Link>
             </ul>
         </div >
     )
