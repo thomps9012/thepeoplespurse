@@ -15,7 +15,6 @@ const Home: NextPage = () => {
             src='/volunteers.jpg'
             width={509}
             height={339}
-            // layout='responsive'
             className='volunteerImg'
           />
         </div>

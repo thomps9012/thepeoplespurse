@@ -46,7 +46,7 @@ export default function SignUp() {
             setErrorMsg('Please enter a valid Email');
             return;
         } else if (!checkPassword(formState.password)) {
-            setErrorMsg('Please choose a more secure password for your account');
+            setErrorMsg(`Don't Forget a secure password for your account`);
             return;
         } else {
             setErrorMsg('');
@@ -58,27 +58,34 @@ export default function SignUp() {
         if (errorMsg != '') {
             M.toast({ html: errorMsg, classes: 'rounded' })
         } else {
-            const signUpResponse = await signUp({
-                variables: {
-                    input: {
-                        first_name: formState.first_name,
-                        last_name: formState.last_name,
-                        email: formState.email,
-                        username: formState.username,
-                        password: formState.password
+            try{
+
+                const signUpResponse = await signUp({
+                    variables: {
+                        input: {
+                            first_name: formState.first_name,
+                            last_name: formState.last_name,
+                            email: formState.email,
+                            username: formState.username,
+                            password: formState.password
+                        }
                     }
+                })
+                const token = signUpResponse.data.signUp.token
+                if (token) {
+                    sessionStorage.setItem('auth_token', token)
+                    window.location.assign('/profile')
                 }
-            })
-            const token = signUpResponse.data.signUp.token
-            if (token) {
-                sessionStorage.setItem('auth_token', token)
-                window.location.assign('/profile')
+            } catch {
+                if(error){
+                    const errorAlert = error?.message 
+                    M.toast({ html: errorAlert })
+                }
             }
         }
     }
 
-    if (loading) return 'Submitting...';
-    if (error) return `Submission error! ${error.message}`;
+    if (loading) return <h1 style={{margin: 35, padding: 35, textAlign: 'center'}}>🛠 Give us just a minute here... 🛠 </h1>;
     return (
         <div className='signUpContainer'>
             <form className='signUpForm'>
@@ -133,7 +140,7 @@ export default function SignUp() {
                         type='password'
                         name='password'
                         id='password'
-                        placeholder='Password (8 character minimum with either a number or special character)'
+                        placeholder='Password (8 char min with either a number or special character)'
                         minLength={8}
                         onChange={handleChange}
                         required
