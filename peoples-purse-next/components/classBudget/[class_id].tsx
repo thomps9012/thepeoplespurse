@@ -1,6 +1,6 @@
 import { useQuery, gql } from '@apollo/client';
 import { useRouter } from 'next/router';
-import LoggedOut from '../../components/loggedOut';
+import LoggedOut from '../loggedOut';
 
 const CLASS_VOTES = gql`
 query ClassVotes($classId: ID!) {
