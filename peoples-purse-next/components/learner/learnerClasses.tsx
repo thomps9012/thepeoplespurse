@@ -21,13 +21,11 @@ mutation Mutation($classId: ID!) {
 export default function LearnerClasses() {
     const { loading, data, error } = useQuery(GET_CLASSES);
     const [deleteClass] = useMutation(REMOVE_CLASS);
-
-    if (loading) return <p>Loading...</p>;
+    if (loading) return <h1 style={{ margin: 35, padding: 35, textAlign: 'center' }}>🛠 Give us just a minute here... 🛠 </h1>;
     if (error) {
         console.log(error)
         return <LoggedOut />
     }
-    console.log(data)
     const removeClass = async (e: any) => {
         const classID = e.target.id;
         console.log(classID)

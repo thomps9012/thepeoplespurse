@@ -3,7 +3,7 @@ import {
     gql
 } from '@apollo/client';
 import { useEffect, useState } from 'react';
-import { checkPassword, validateEmail } from '../utils/helpers';
+import { validateEmail } from '../utils/helpers';
 
 const LOGIN = gql`
 mutation CreateClass($input: LoginInput!) {

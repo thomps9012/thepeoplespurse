@@ -1,5 +1,5 @@
 import { useMutation, gql } from "@apollo/client"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const TAKE_ACTION = gql`
 mutation Mutation($input: TakeAction!) {
@@ -10,7 +10,6 @@ mutation Mutation($input: TakeAction!) {
 
 export default function TakeAction() {
     const [takeAction, { loading, error }] = useMutation(TAKE_ACTION);
-    if (loading) return <p>Loading...</p>
     const [formState, setFormState] = useState({
         name: '',
         detail: '',
@@ -19,7 +18,7 @@ export default function TakeAction() {
         action_date: new Date(),
         contact: ''
     })
-    if (error) return <p>Error: {JSON.stringify(error)}</p>
+    const [errorMsg, setErrorMsg] = useState('');
 
     const handleChange = (e: any) => {
         const { name, value } = e.target;
@@ -40,38 +39,64 @@ export default function TakeAction() {
             })
         }
     }
+    useEffect(() => {
+        const { name, detail, organization, length, contact } = formState;
+        if (name === '') {
+            setErrorMsg('Please Name Your Action');
+            return;
+        } else if (detail === '') {
+            setErrorMsg('Please enter details about your action');
+            return;
+        } else if (organization === '') {
+            setErrorMsg(`Please enter an organization you worked with or 'None'`);
+            return;
+        } else if (length === 0.0) {
+            setErrorMsg('Please enter the length of your action');
+            return;
+        } else if (contact === '') {
+            setErrorMsg('Please enter a contact person to verify your action');
+            return;
+        } else {
+            setErrorMsg('')
+        }
+    })
 
     const submitAction = async (e: any) => {
         e.preventDefault();
-        const actionResponse = await takeAction({
-            variables: {
-                input: {
-                    name: formState.name,
-                    detail: formState.detail,
-                    organization: formState.organization,
-                    length: formState.length,
-                    action_date: formState.action_date,
-                    contact: formState.contact
+        if (errorMsg != '') {
+            M.toast({ html: errorMsg, classes: 'rounded' })
+        } else {
+            try {
+                const actionResponse = await takeAction({
+                    variables: {
+                        input: {
+                            name: formState.name,
+                            detail: formState.detail,
+                            organization: formState.organization,
+                            length: formState.length,
+                            action_date: formState.action_date,
+                            contact: formState.contact
+                        }
+                    }
+                })
+                const actionID = actionResponse.data.takeAction
+                console.log(actionID)
+                if (actionID) {
+                    M.toast({ html: "Your action has been recorded successfully", classes: 'rounded' })
+                    window.location.reload()
                 }
             }
-        })
-        const actionID = actionResponse.data.takeAction
-        console.log(actionID)
-        if (actionID) {
-            M.toast({ html: "Your action has been recorded successfully", classes: 'rounded' })
-            setFormState({
-                name: '',
-                detail: '',
-                organization: '',
-                length: 0.0,
-                action_date: new Date(),
-                contact: ''
-            })
+            catch {
+                if(error){
+                    const errorAlert = error?.message 
+                    M.toast({ html: errorAlert })
+                }
+            }
         }
     }
-
+    if (loading) return <h1 style={{ margin: 35, padding: 35, textAlign: 'center' }}>🛠 Give us just a minute here to record your awesome action... 🛠 </h1>;
     return (
-        <div style={{marginTop: 20}}>
+        <div style={{ marginTop: 20 }}>
             <form
                 className="actionForm"
             >
@@ -141,7 +166,7 @@ export default function TakeAction() {
             </form>
             <div style={{ margin: 30, display: 'flex', justifyContent: 'center' }}>
 
-                <a  id='btn'
+                <a id='btn'
                     className='waves-effect btn-large'
                     onClick={submitAction}
                 >
