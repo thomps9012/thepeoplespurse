@@ -13,8 +13,8 @@ mutation Mutation($classCode: String!) {
 const GET_CLASSES = gql`
 query Query {
     allClasses {
-      _id
-      class_code
+        class_code
+        _id
     }
   }
 `
@@ -25,7 +25,7 @@ export default function JoinClass() {
     const { loading, data, error } = useQuery(GET_CLASSES);
 
     const joinClassSubmit = async () => {
-        try{
+        try {
 
             const joinClassReponse = await joinClass({
                 variables: {
@@ -37,7 +37,7 @@ export default function JoinClass() {
                 window.location.assign('/profile')
             }
         } catch {
-            M.toast({ html: error?.message})
+            M.toast({ html: error?.message })
         }
     }
 
@@ -52,15 +52,18 @@ export default function JoinClass() {
         };
         init();
     });
+    if (loading) return <h1 style={{ margin: 77, padding: 77, textAlign: 'center' }}>🛠 Give us just a minute here... 🛠</h1>;
+    console.log(data)
     const classes = data.allClasses;
     return (
         <div className="joinClassContainer" style={{ marginTop: 50, marginBottom: 50, padding: 10, textAlign: "center" }}>
-            <h5>Select Your Class from the List Below</h5>
+            <h5>Select a Class to Join from the List Below</h5>
             <div style={{ padding: 50 }}>
                 <select onChange={handleChange}>
                     {classes.map((classInfo: any) => {
+                        const { _id, class_code } = classInfo;
                         return (
-                            <option key={classInfo._id} value={classInfo.class_code}>{classInfo.class_code}</option>
+                            <option key={_id} value={class_code}>{class_code}</option>
                         )
                     })}
                 </select>
