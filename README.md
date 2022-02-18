@@ -1,38 +1,48 @@
 # The People's Purse
+![Alt text](./assets/peoplesPurseScreenShot.png?raw=true "Peoples Purse Landing Page")
+#### A full stack application utilizing the MGNT stack (MongoDb, GraphQL, Node, Next.js/TypeScript). 
 
-## Project Name & Pitch
+## Project Description
+The People's Purse is dedicated to educating and inspiring future citizens to take meaningful civic action in their communities. 
 
-A MERN stack, non-profit application dedicated to collecting data about how individuals would spend their tax dollars. The app features an educational component about the governments different departments in addition to a data visualization piece.
+### Features include: 
+1. A general educational component about the government's different departments with links to foster independent research
+2. Location specific information regarding elected officials based off the user's input
+3. The chance for users to 'vote' on a government budget via budget percentage points
+4. Action recording functionality for learners to record civic actions taken in their communities
+5. Class creation capabilities for educators only
+6. Class overview and detail pages where educators can view total class votes and actions taken in the community
+7. A budget overview page where users can view the aggregate of all votes across the application 
 
-## Project Status
+## Technologies Used
+1. Apollo GraphQL (Application Program Interface 'API' routing)
+2. Next.js (Lighweight Frontend Routing and Framework)
+3. TypeScript (Typesafe Functional JavaScript)
+4. Chart.js (Visualization of Budget Results)
+5. Materialize-CSS (General CSS Functionality and Styling)
+6. Custom CSS (Mobile Responsive Capabilities)
+7. ReactChart.js (React Based Components for Chart.js)
 
-This project is currently in development to being a hosted application that will be used in the classroom. Functionality is being adding in as well based on educator feedback (limiting the amount of votes, data manipulation, etc.). The People's Purse can still be cloned, downloaded and run locally while in this phase.
-
-## Project Screen Shot
-![Alt text](./client/src/assets/images/peoplespurse.png?raw=true "Peoples Purse Landing Page")
+## Project Notes
+This project is currently hosted on an Azure Web Application with a seperatly hosted backend. in development to being a hosted application that will be used in the classroom. Functionality is being adding in as well based on educator feedback (limiting the amount of votes, data manipulation, etc.). The People's Purse can still be cloned, downloaded and run locally while in this phase.
 
 ## Installation and Setup Instructions
+In order to clone this repository you'll need `node` installed on your machine. Once you've cloned the repository you can run the following commands for usage:
 
-Clone down this repository. You will need `node` and `npm` installed globally on your machine.  
+1. Installation:
+    `npm install` or `yarn`
 
-Installation:
+2. To Start the Application in Development Mode:
+    `npm run dev` or `yarn dev`  
 
-`npm install`  
+3. To Visit the Application:
+    `http://localhost:3000/`
 
-To Run Test Suite:  
+4. To Build the Application:
+    `npm run build` or `yarn build`
 
-`npm test`  
+5. To Start the Optimized Build:
+    `npm run start` or `yarn start`
 
-To Start Server:
-
-`npm start`  
-
-To Visit App:
-
-`http://localhost:3000/`
-
-Your app should now be running on your local host and the Express server should intercept any AJAX requests from the client.
-
-## Reflection
-
-To deploy, simply add and commit your changes, and push to Heroku. As is, the NPM scripts should take care of the rest.
+## License
+This project is licensed under the Apache License, Version 2.0
