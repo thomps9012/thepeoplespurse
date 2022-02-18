@@ -52,7 +52,7 @@ export default function JoinClass() {
         };
         init();
     });
-    if (loading) return <h1 style={{ margin: 77, padding: 77, textAlign: 'center' }}>🛠 Give us just a minute here... 🛠</h1>;
+    if (loading) return <h1 id='loading' style={{ margin: 77, padding: 77, textAlign: 'center' }}>🛠 Give us just a minute here... 🛠</h1>;
     console.log(data)
     const classes = data.allClasses;
     return (

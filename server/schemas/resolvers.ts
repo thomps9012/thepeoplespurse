@@ -6,6 +6,8 @@ import { UserLoginInput, UserSignUpInput, ActionInput, VoteInput } from '../type
 import { mongoDbProvider } from '../config/mongodb.provider';
 const { signToken } = require('../utils/auth');
 import bcrypt from 'bcrypt'
+import * as dotenv from 'dotenv';
+dotenv.config()
 
 export const resolvers = {
     DateTime: DateTimeResolver,
@@ -13,11 +15,13 @@ export const resolvers = {
         getUser: async (obj: any, args: any, context: any) => {
             const user_jwt = context.headers.authorization;
             if (user_jwt) {
-                const secret = 'secret';
-                const expiration = '2h';
-                const user: any = jwt.verify(user_jwt, secret, { maxAge: expiration })
-                const userId = user.data._id;
-                return await mongoDbProvider.usersCollection.findOne({ _id: new ObjectId(userId) });
+                if (process.env.JWT_SECRET != 'undefined') {
+                    const secret = process.env.JWT_SECRET;
+                    const expiration = process.env.JWT_EXP;
+                    const user: any = jwt.verify(user_jwt, secret, { maxAge: expiration })
+                    const userId = user.data._id;
+                    return await mongoDbProvider.usersCollection.findOne({ _id: new ObjectId(userId) });
+                }
             } else {
                 throw new AuthenticationError('Not Logged In')
             }
@@ -25,8 +29,8 @@ export const resolvers = {
         classActions: async (parent: any, { classID }: { classID: string }, context: any) => {
             const user_jwt = context.headers.authorization;
             if (user_jwt) {
-                const secret = 'secret';
-                const expiration = '2h';
+                const secret = process.env.JWT_SECRET;
+                const expiration = process.env.JWT_EXP;
                 const user: any = jwt.verify(user_jwt, secret, { maxAge: expiration })
                 const userId = user.data._id;
                 if (user.data.educator) {
@@ -75,8 +79,8 @@ export const resolvers = {
         classes: async (obj: any, args: any, context: any) => {
             const user_jwt = context.headers.authorization;
             if (user_jwt) {
-                const secret = 'secret';
-                const expiration = '2h';
+                const secret = process.env.JWT_SECRET;
+                const expiration = process.env.JWT_EXP;
                 const user: any = jwt.verify(user_jwt, secret, { maxAge: expiration })
                 const userId = user.data._id;
                 return mongoDbProvider.classesCollection.find({ learners: new ObjectId(userId) }).toArray()
@@ -112,8 +116,8 @@ export const resolvers = {
             console.log(input)
             console.log(user_jwt)
             if (user_jwt) {
-                const secret = 'secret';
-                const expiration = '2h';
+                const secret = process.env.JWT_SECRET;
+                const expiration = process.env.JWT_EXP;
                 const user: any = jwt.verify(user_jwt, secret, { maxAge: expiration })
                 const userId = user.data._id;
 
@@ -142,8 +146,8 @@ export const resolvers = {
         takeAction: async (parent: any, { input }: { input: ActionInput }, context: any) => {
             const user_jwt = context.headers.authorization;
             if (user_jwt) {
-                const secret = 'secret';
-                const expiration = '2h';
+                const secret = process.env.JWT_SECRET;
+                const expiration = process.env.JWT_EXP;
                 const user: any = jwt.verify(user_jwt, secret, { maxAge: expiration })
                 const action = await mongoDbProvider.actionsCollection.insertOne({
                     ...input,
@@ -170,8 +174,8 @@ export const resolvers = {
             const user_jwt = context.headers.authorization;
             console.log(user_jwt)
             if (user_jwt) {
-                const secret = 'secret';
-                const expiration = '2h';
+                const secret = process.env.JWT_SECRET;
+                const expiration = process.env.JWT_EXP;
                 const user: any = jwt.verify(user_jwt, secret, { maxAge: expiration })
                 console.log(user)
                 if (user.data.educator) {
@@ -207,8 +211,8 @@ export const resolvers = {
         joinClass: async (parent: any, class_code: any, context: any) => {
             const user_jwt = context.headers.authorization;
             if (user_jwt) {
-                const secret = 'secret';
-                const expiration = '2h';
+                const secret = process.env.JWT_SECRET;
+                const expiration = process.env.JWT_EXP;
                 const user: any = jwt.verify(user_jwt, secret, { maxAge: expiration })
                 const classCode = class_code.class_code
                 const joinedClass = await mongoDbProvider.classesCollection.findOne({ class_code: classCode });
@@ -241,8 +245,8 @@ export const resolvers = {
         removeClass: async (parent: any, { classID }: { classID: string }, context: any) => {
             const user_jwt = context.headers.authorization;
             if (user_jwt) {
-                const secret = 'secret';
-                const expiration = '2h';
+                const secret = process.env.JWT_SECRET;
+                const expiration = process.env.JWT_EXP;
                 const user: any = jwt.verify(user_jwt, secret, { maxAge: expiration });
                 console.log(user)
                 const userId = user.data._id

@@ -2,6 +2,7 @@ import {
     useMutation,
     gql
 } from '@apollo/client';
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { checkPassword, validateEmail } from '../utils/helpers';
 
@@ -33,25 +34,26 @@ export default function SignUp() {
     };
 
     useEffect(() => {
-        if (!formState.first_name) {
+        const {first_name, last_name, username, email, password} = formState
+        if (!first_name) {
             setErrorMsg("Don't forget to enter your First Name");
             return;
-        } else if (!formState.last_name) {
+        } else if (!last_name) {
             setErrorMsg("Don't forget to enter your Last Name");
             return;
-        } else if (!formState.username) {
+        } else if (!username) {
             setErrorMsg('Please enter a valid Username');
             return;
-        } else if (!validateEmail(formState.email)) {
+        } else if (!validateEmail(email)) {
             setErrorMsg('Please enter a valid Email');
             return;
-        } else if (!checkPassword(formState.password)) {
+        } else if (!checkPassword(password)) {
             setErrorMsg(`Don't Forget a secure password for your account`);
             return;
         } else {
             setErrorMsg('');
         }
-    })
+    }, [formState])
 
     const signUpFunc = async (e: any) => {
         e.preventDefault();
@@ -85,7 +87,7 @@ export default function SignUp() {
         }
     }
 
-    if (loading) return <h1 style={{margin: 35, padding: 35, textAlign: 'center'}}>🛠 Give us just a minute here... 🛠 </h1>;
+    if (loading) return <h1 id='loading' style={{margin: 35, padding: 35, textAlign: 'center'}}>🛠 Give us just a minute here... 🛠 </h1>;
     return (
         <div className='signUpContainer'>
             <form className='signUpForm'>
@@ -119,6 +121,7 @@ export default function SignUp() {
                         id='username'
                         required
                         placeholder='Username'
+                        autoComplete='username'
                         onChange={handleChange}
                     />
                 </div>
@@ -130,6 +133,7 @@ export default function SignUp() {
                         id='email'
                         required
                         placeholder='Email Address'
+                        autoComplete='current-email'
                         size={30}
                         onChange={handleChange}
                     />
@@ -140,22 +144,23 @@ export default function SignUp() {
                         type='password'
                         name='password'
                         id='password'
-                        placeholder='Password (8 char min with either a number or special character)'
+                        placeholder='Min length 8 with one special char'
                         minLength={8}
+                        autoComplete='current-password'
                         onChange={handleChange}
                         required
-                    />
+                        />
                 </div>
-                <div style={{ display: 'flex', justifyContent: 'space-around', marginBottom: 10 }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 10 }}>
                     <a id='btn'
-                        className='waves-effect btn-large'
+                        className='waves-effect btn'
                         onClick={signUpFunc}
                     >
                         <i className='material-icons right'>login</i>
                         Sign Up
                     </a>
-                    <h6 className='signupLoginToggle'>
-                        <a href='/login' className='toggleLink'>Returning User?</a>
+                    <h6 className='signupLoginToggle' id='toggleLink'>
+                        <Link href='/login'>Returning User?</Link>
                     </h6>
                 </div>
             </form>

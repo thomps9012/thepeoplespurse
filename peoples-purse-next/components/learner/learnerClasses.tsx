@@ -1,4 +1,5 @@
 import { useQuery, useMutation, gql } from "@apollo/client"
+import Link from "next/link";
 import LoggedOut from "../loggedOut";
 
 const GET_CLASSES = gql`
@@ -21,7 +22,7 @@ mutation Mutation($classId: ID!) {
 export default function LearnerClasses() {
     const { loading, data, error } = useQuery(GET_CLASSES);
     const [deleteClass] = useMutation(REMOVE_CLASS);
-    if (loading) return <h1 style={{ margin: 35, padding: 35, textAlign: 'center' }}>🛠 Give us just a minute here... 🛠 </h1>;
+    if (loading) return <h1 id='loading' style={{ margin: 35, padding: 35, textAlign: 'center' }}>🛠 Give us just a minute here... 🛠 </h1>;
     if (error) {
         console.log(error)
         return <LoggedOut />
@@ -53,7 +54,9 @@ export default function LearnerClasses() {
                 })}
             </div>
             <div style={{textAlign: 'center'}}>
-                <a id='btn' className='waves-effect btn' href='/joinClass'><i className='material-icons left'>school</i>Join a New Class</a>
+                <Link href='/joinClass' passHref>
+                <div id='btn' className='waves-effect btn'><i className='material-icons left'>school</i>Join a New Class</div>
+                </Link>
             </div>
         </div>
     )

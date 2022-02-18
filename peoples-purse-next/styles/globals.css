@@ -36,8 +36,17 @@ select {
   align-items: center;
 }
 
-.loginForm {
-  width: 527px;
+.loginForm,
+.signUpForm {
+  min-width: 527px;
+}
+
+@media (max-width: 576px) {
+  .loginForm,
+  .signUpForm {
+    min-width: 0px;
+  }
+  
 }
 
 .signUpContainer {
@@ -50,21 +59,18 @@ select {
   align-items: center;
 }
 
-.signUpForm {
-  width: 527px;
-}
+
 
 .signupLoginToggle{
   font-weight: bolder;
   font-size: large;
-  padding: 10px;
   text-decoration: none;
 }
-.toggleLink {
+#toggleLink a {
   color: #174c4f;
 }
 
-.toggleLink:hover{
+#toggleLink a:hover{
   color: #e57373;
 }
 
@@ -196,6 +202,19 @@ select {
 .nav-item {
   color: #174c4f;
   text-align: center;
+  margin: 5px;
+  padding: 5px;
+}
+
+.side-nav-item {
+  color: #174c4f;
+  text-align: center;
+  margin: 5px 20px 10px 40px;
+  padding: 0px 20px 5px 5px;
+}
+
+#sideIcon {
+  margin-top: 10px;
 }
 
 #btn {
@@ -216,10 +235,9 @@ select {
   color: #e57373;
 }
 
-#nav-mobile a:hover {
+#nav-mobile:hover,
+.nav-item:hover {
   color: #e57373;
-  background-color: white;
-  fill: white;
 }
 
 .classDetailContainer {
@@ -291,5 +309,19 @@ hr:after {
 @media (max-width: 801px) {
   #landingTitle {
     margin-top: 0px;
+  }
+}
+
+.loading {
+	animation: fadeOut 2s;
+  	opacity: 0;
+}
+
+@keyframes fadeOut {
+  from {
+  	opacity: 1;
+  }
+  to {
+ 	opacity: 0;
   }
 }

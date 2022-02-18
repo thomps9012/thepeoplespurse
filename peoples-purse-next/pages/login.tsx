@@ -2,6 +2,7 @@ import {
     useMutation,
     gql
 } from '@apollo/client';
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { validateEmail } from '../utils/helpers';
 
@@ -29,16 +30,17 @@ export default function Login() {
         });
     };
     useEffect(() => {
-        if (!validateEmail(formState.email)) {
+        const {email, username} = formState;
+        if (!validateEmail(email)) {
             setErrorMsg('Please enter your Email');
             return;
-        } else if (!formState.username) {
+        } else if (!username) {
             setErrorMsg('Please enter your Username');
             return;
         } else {
             setErrorMsg('')
         }
-    })
+    }, [formState])
     const loginFunc = async (e: any) => {
         e.preventDefault();
         if (errorMsg != '') {
@@ -126,19 +128,19 @@ export default function Login() {
                         />
                     </div>
                 </div>
-                <div style={{ display: 'flex', justifyContent: 'space-around', marginBottom: 10 }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 10 }}>
                     <a
                         id='btn'
-                        className='waves-effect btn-large'
+                        className='waves-effect btn'
                         onClick={loginFunc}
                     >
                         <i className='material-icons right'>login</i>
                         Login
                     </a>
-                    <h6 className='signupLoginToggle'>
-                        <a href='/signUp' className='toggleLink'>
+                    <h6 className='signupLoginToggle' id='toggleLink'>
+                        <Link href='/signUp'>
                             New User?
-                        </a>
+                        </Link>
                     </h6>
                 </div>
             </form>

@@ -50,7 +50,8 @@ export default function DeptInformation() {
             <h6 className='deptName'>{singleDept.name}</h6>
             <p className='missionTitle'>Mission</p>
             <p className='deptMission'>{singleDept.mission}</p>
-            <a className='deptWebsite' href={singleDept.website} target={'_blank'}>Visit Department Website</a>
+            {/* linting issue here */}
+            <a className='deptWebsite' href={singleDept.website} target={'_blank'} rel='noreferrer'>Visit Department Website</a>
         </div>
     )
 }
