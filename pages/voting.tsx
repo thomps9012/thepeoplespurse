@@ -1,7 +1,7 @@
 import { useQuery, useMutation, gql } from '@apollo/client';
 import { useEffect, useState } from 'react';
 import DeptCards from '../components/deptCards';
-import { baseBudget } from '../../assets/deptVoting/baseBudget';
+import { baseBudget } from '../assets/deptVoting/baseBudget';
 import LoggedOut from '../components/loggedOut';
 import BudgetOutput from '../components/budgetOutput';
 
