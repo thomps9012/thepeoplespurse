@@ -131,7 +131,7 @@ export default function Login() {
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 10 }}>
                     <a
                         id='btn'
-                        className='waves-effect btn'
+                        className='waves-effect btn-large'
                         onClick={loginFunc}
                     >
                         <i className='material-icons right'>login</i>

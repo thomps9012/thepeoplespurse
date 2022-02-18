@@ -325,3 +325,17 @@ hr:after {
  	opacity: 0;
   }
 }
+
+#volunteerLink {
+  color:#174c4f;
+  text-align: center;
+  margin: 15px;
+}
+
+#volunteerLink:hover {
+  color:#e57373;
+}
+
+#volunteerIcon {
+  margin: 0px -20px 0px -20px;
+}

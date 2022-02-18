@@ -153,7 +153,7 @@ export default function SignUp() {
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 10 }}>
                     <a id='btn'
-                        className='waves-effect btn'
+                        className='waves-effect btn-large'
                         onClick={signUpFunc}
                     >
                         <i className='material-icons right'>login</i>
