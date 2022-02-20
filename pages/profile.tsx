@@ -24,24 +24,24 @@ export default function ProfilePage() {
     const { loading, error, data } = useQuery(GET_USER);
     if (loading) return <h1 id='loading' style={{ margin: 77, padding: 77, textAlign: 'center' }}>🛠 Give us just a minute here... 🛠</h1>;
     if (error) {
-        console.log(error)
         return <LoggedOut />
     }
     const user = data.getUser;
+    const {first_name, last_name, educator, actions} = user;
     return (
         <div className='container'>
             <div style={{ display: 'flex', marginTop: 15 }}>
-                <h5 style={{ marginRight: 10 }}>{user.first_name}</h5>
-                <h5>{user.last_name}</h5>
+                <h5 style={{ marginRight: 10 }}>{first_name}</h5>
+                <h5>{last_name}</h5>
             </div>
-            {user.educator ?
+            {educator ?
                 <>
                     <ClassInfo />
                     <CreateClass />
                 </> :
                 <>
                     <LearnerClasses />
-                    <h5 style={{ textAlign: 'center', margin: 40 }}>{user.actions.length} Actions Taken</h5>
+                    <h5 style={{ textAlign: 'center', margin: 40 }}>{actions.length} Actions Taken</h5>
                     <TakeAction />
                     <a id='volunteerLink' href="https://www.volunteermatch.org/" target="_blank" rel="noopener noreferrer">
                         <h5><i id='volunteerIcon' className='material-icons left'>volunteer_activism</i>

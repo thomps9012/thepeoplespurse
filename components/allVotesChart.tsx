@@ -30,7 +30,6 @@ const AllVotesCharts = () => {
     let deptNames = [];
     if (data) {
         const allVotes = data.allVotes
-        console.log(allVotes)
         for (const item in allVotes.aggVotes) {
             const { aggVotes, totalVotes } = allVotes;
             avgVotes.push(aggVotes[item].percent / totalVotes)

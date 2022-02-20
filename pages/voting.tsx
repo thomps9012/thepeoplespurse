@@ -74,7 +74,6 @@ export default function VotingPage() {
           id="voteSubmit"
           onClick={async (e: any) => {
             e.preventDefault();
-            console.log(budget, classCode)
             const cleanedBudget = budget.map(dept => {
               const { id, name, percent } = dept;
               const cleanDept = {

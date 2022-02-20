@@ -136,7 +136,6 @@ export default function ElectedOfficials() {
             <hr></hr>
             <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
                 {offices?.map((office: any) => {
-                    console.log(office)
                     return (
                         <>
                             {/* can compartmentalize this */}

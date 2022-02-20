@@ -53,7 +53,6 @@ export default function JoinClass() {
         init();
     });
     if (loading) return <h1 id='loading' style={{ margin: 77, padding: 77, textAlign: 'center' }}>🛠 Give us just a minute here... 🛠</h1>;
-    console.log(data)
     const classes = data.allClasses;
     return (
         <div className="joinClassContainer" style={{ marginTop: 50, marginBottom: 50, padding: 10, textAlign: "center" }}>

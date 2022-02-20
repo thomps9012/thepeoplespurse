@@ -140,7 +140,7 @@ select {
   color: #e57373 ;
 }
 
-#voteLink {
+#voteLink, #aboutLink {
   color: #FFE184;
 }
 
