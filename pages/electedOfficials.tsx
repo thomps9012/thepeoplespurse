@@ -82,30 +82,30 @@ export default function ElectedOfficials() {
         officialDiv != null ? officialDiv.innerHTML = '' : '';
         officeOfficials.map((officeIndex: number) => {
             const lvlOfficial: any = officials[officeIndex];
-            console.log(lvlOfficial)
+            const {name, party, urls, address, phones} = lvlOfficial;
             const lvlOfficialEl = ` 
                                     <div class="card" id='officialCard'>
                                         <div class="card-content white-text">
-                                            <span class="card-title activator">${lvlOfficial.name}</span>
-                                             <p>Party: ${lvlOfficial.party}</p>
+                                            <span class="card-title activator">${name}</span>
+                                             <p>Party: ${party}</p>
                                         </div>
                                         <div class="card-action" id='officialLink' >
-                                            <a href=${lvlOfficial.urls
-                    ? lvlOfficial.urls[0]
-                    : `https://www.google.com/search?q=${lvlOfficial.name}`} 
+                                            <a href=${urls
+                    ? urls[0]
+                    : `https://www.google.com/search?q=${encodeURI(name)}`} 
                                             target='_blank'>Website</a>
                                         </div>
                                         <div class="card-reveal">
-                                            <span class="card-title grey-text text-darken-4">${lvlOfficial.name}<i class="material-icons right">close</i></span>
-                                            ${lvlOfficial.address ? 
-                                            `<p id='officialAdr'> Address: ${lvlOfficial.address[0].line1},
-                                            ${lvlOfficial.address[0].city},
-                                            ${lvlOfficial.address[0].state},
-                                              ${lvlOfficial.address[0].zip}
+                                            <span class="card-title grey-text text-darken-4">${name}<i class="material-icons right">close</i></span>
+                                            ${address ? 
+                                            `<p id='officialAdr'> Address: ${address[0].line1},
+                                            ${address[0].city},
+                                            ${address[0].state},
+                                              ${address[0].zip}
                                               </p>`:
                                               `Address Information Unavailable`}
-                                              ${lvlOfficial.phones ? 
-                                              `<p id='officialPhone' >Phone: ${lvlOfficial.phones[0]}</p>`:
+                                              ${phones ? 
+                                              `<p id='officialPhone' >Phone: ${phones[0]}</p>`:
                                               `Phone Information Unavailable`}    
                                         </div>
                                     </div>
