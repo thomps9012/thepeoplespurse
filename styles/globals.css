@@ -242,7 +242,7 @@ select {
 }
 
 .classDetailContainer {
-  height: 65vh;
+  min-height: 65vh;
   padding: 1rem;
   width: 100%;
   display: inline-flex;
