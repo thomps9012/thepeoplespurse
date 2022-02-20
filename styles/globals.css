@@ -129,6 +129,7 @@ select {
   flex-direction: row;
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 #voteLink:hover {
