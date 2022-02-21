@@ -17,6 +17,8 @@ const Home: NextPage = () => {
             height={339}
             className='volunteerImg'
             alt='Volunteers'
+            placeholder='blur'
+            priority
           />
         </div>
       </div>

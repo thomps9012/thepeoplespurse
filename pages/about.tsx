@@ -13,6 +13,8 @@ export default function AboutUs() {
                             height={300}
                             width={300}
                             alt='Founder Photo'
+                            placeholder="blur"
+                            priority
                         />
                     </div>
                     <div className="col m6">

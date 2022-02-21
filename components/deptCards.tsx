@@ -23,6 +23,7 @@ export default function DeptCards({ budget, updateBudget }: any) {
                                 width={75}
                                 src={icon}
                                 objectPosition={'center bottom'}
+                                placeholder='blur'
                             />
                         </div>
                         <div className='card-action'>

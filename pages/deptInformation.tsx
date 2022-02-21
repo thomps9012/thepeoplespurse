@@ -45,6 +45,7 @@ export default function DeptInformation() {
                     alt='Department Seal'
                     width={200}
                     height={200}
+                    placeholder='blur'
                 />
             </div>
             <h6 className='deptName'>{singleDept.name}</h6>
