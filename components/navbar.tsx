@@ -25,16 +25,16 @@ export default function Navbar() {
         instance.close()
     }
     return (
-        <div style={{ marginBottom: 100 }}>
+        <div style={{ marginBottom: 50 }}>
             <nav className="navbar-fixed transparent z-depth-0">
                 <div className="nav-wrapper">
-                    <div style={{ display: 'flex', marginTop: -80 }} className="brand-logo nav-item">
+                    <div className="brand-logo nav-item" style={{ marginTop: 10 }}>
                         <Link href="/" passHref>
                             <Image
                                 src='/mixedLogo.png'
-                                layout="fixed"
-                                width={300}
-                                height={300}
+                                layout="intrinsic"
+                                width={340}
+                                height={107}
                                 priority
                                 alt={"People's Purse Logo"}
                             />
@@ -62,13 +62,13 @@ export default function Navbar() {
             </nav >
 
             <ul className="sidenav" id="mobile-demo" onMouseUp={hideNav}>
-                <div style={{ display: 'flex', justifyContent: 'center' }}>
+                <div style={{ display: 'flex', justifyContent: 'center', marginTop: 10 }}>
                     <Link href="/" passHref>
                         <Image
                             src='/mixedLogo.png'
-                            layout="fixed"
-                            width={200}
-                            height={200}
+                            layout="intrinsic"
+                            width={340}
+                            height={107}
                             alt='Sidebar Logo'
                         />
                     </Link>

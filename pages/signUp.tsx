@@ -34,7 +34,7 @@ export default function SignUp() {
     };
 
     useEffect(() => {
-        const {first_name, last_name, username, email, password} = formState
+        const { first_name, last_name, username, email, password } = formState
         if (!first_name) {
             setErrorMsg("Don't forget to enter your First Name");
             return;
@@ -60,7 +60,7 @@ export default function SignUp() {
         if (errorMsg != '') {
             M.toast({ html: errorMsg, classes: 'rounded' })
         } else {
-            try{
+            try {
 
                 const signUpResponse = await signUp({
                     variables: {
@@ -79,15 +79,15 @@ export default function SignUp() {
                     window.location.assign('/profile')
                 }
             } catch {
-                if(error){
-                    const errorAlert = error?.message 
+                if (error) {
+                    const errorAlert = error?.message
                     M.toast({ html: errorAlert })
                 }
             }
         }
     }
 
-    if (loading) return <h1 id='loading' style={{margin: 35, padding: 35, textAlign: 'center'}}>🛠 Give us just a minute here... 🛠 </h1>;
+    if (loading) return <h1 id='loading' style={{ margin: 35, padding: 35, textAlign: 'center' }}>🛠 Give us just a minute here... 🛠 </h1>;
     return (
         <div className='signUpContainer'>
             <form className='signUpForm'>
@@ -149,17 +149,18 @@ export default function SignUp() {
                         autoComplete='current-password'
                         onChange={handleChange}
                         required
-                        />
+                    />
                 </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 10 }}>
+                <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 10, flexDirection: 'column' }}>
                     <a id='btn'
+                        style={{ marginLeft: 42 }}
                         className='waves-effect btn-large'
                         onClick={signUpFunc}
                     >
                         <i className='material-icons right'>login</i>
                         Sign Up
                     </a>
-                    <h6 className='signupLoginToggle' id='toggleLink'>
+                    <h6 className='signupLoginToggle' id='toggleLink' style={{textAlign: 'center' }}>
                         <Link href='/login'>Returning User?</Link>
                     </h6>
                 </div>

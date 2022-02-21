@@ -27,7 +27,7 @@ export default function ProfilePage() {
         return <LoggedOut />
     }
     const user = data.getUser;
-    const {first_name, last_name, educator, actions} = user;
+    const { first_name, last_name, educator, actions } = user;
     return (
         <div className='container'>
             <div style={{ display: 'flex', marginTop: 15 }}>
@@ -43,12 +43,15 @@ export default function ProfilePage() {
                     <LearnerClasses />
                     <h5 style={{ textAlign: 'center', margin: 40 }}>{actions.length} Actions Taken</h5>
                     <TakeAction />
-                    <a id='volunteerLink' href="https://www.volunteermatch.org/" target="_blank" rel="noopener noreferrer">
-                        <h5><i id='volunteerIcon' className='material-icons left'>volunteer_activism</i>
-                            Looking for Volunteer Opportunities and Ideas?
-                            <i id='volunteerIcon' className='material-icons right'>volunteer_activism</i>
+                    {/* double check this */}
+                    <div>
+                        <a id='volunteerLink' href="https://www.volunteermatch.org/" target="_blank" rel="noopener noreferrer">
+                            <h5>
+                                Looking for Volunteer Opportunities and Ideas?
                             </h5>
-                    </a>
+                            <i id='volunteerIcon' className='material-icons'>volunteer_activism</i>
+                        </a>
+                    </div>
                 </>}
         </div>
     )

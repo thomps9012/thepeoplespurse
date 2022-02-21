@@ -189,7 +189,7 @@ select {
     flex-direction: row;
     justify-content: flex-end;
     align-items: right;
-    width: 75%;
+    width: 55%;
   }
 }
 
@@ -210,8 +210,9 @@ select {
 .side-nav-item {
   color: #174c4f;
   text-align: center;
-  margin: 5px 20px 10px 40px;
-  padding: 0px 20px 5px 5px;
+  font-size: large;
+  margin: 15px 10px 15px 10px;
+  padding: 0px 10px 5px 5px;
 }
 
 #sideIcon {
@@ -330,13 +331,23 @@ hr:after {
 #volunteerLink {
   color:#174c4f;
   text-align: center;
-  margin: 15px;
+  margin: 10px;
 }
 
-#volunteerLink:hover {
+#volunteerLink:hover,
+#officialOffice:hover {
   color:#e57373;
 }
 
 #volunteerIcon {
-  margin: 0px -20px 0px -20px;
+display: flex;
+justify-content: center;
+margin: 5px;
+padding: 5px;
+}
+
+#officialOffice {
+  text-decoration: none;
+  color: #174c4f;
+  text-align: center;
 }

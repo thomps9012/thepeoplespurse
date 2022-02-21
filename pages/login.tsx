@@ -128,8 +128,9 @@ export default function Login() {
                         />
                     </div>
                 </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 10 }}>
+                <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 10, flexDirection: 'column' }}>
                     <a
+                        style={{marginLeft: 42}}
                         id='btn'
                         className='waves-effect btn-large'
                         onClick={loginFunc}
@@ -137,7 +138,7 @@ export default function Login() {
                         <i className='material-icons right'>login</i>
                         Login
                     </a>
-                    <h6 className='signupLoginToggle' id='toggleLink'>
+                    <h6 className='signupLoginToggle' id='toggleLink' style={{textAlign: 'center' }}>
                         <Link href='/signUp'>
                             New User?
                         </Link>

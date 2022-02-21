@@ -51,7 +51,7 @@ export const DeptInfo = [
     icon: VA,
     mission: "To fulfill President Lincoln's promise “To care for him who shall have borne the battle, and for his widow, and his orphan” by serving and honoring the men and women who are America's veterans.",
     website: 'https://www.va.gov/',
-    code: '9121'
+    code: '911'
   },
   //   dept of defense info
   {

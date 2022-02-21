@@ -139,7 +139,9 @@ export default function ElectedOfficials() {
                     return (
                         <>
                             {/* can compartmentalize this */}
+                            <a href='#officialInfo' id='officialOffice'>
                             <h3 style={{ margin: 10, padding: 10}} key={office.name} onClick={() => displayOfficials(office)}>{office.name}</h3>
+                            </a>
                             <br />
                         </>
                     )
