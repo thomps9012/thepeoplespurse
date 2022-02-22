@@ -11,11 +11,6 @@ export default function DeptInformation() {
         website: DeptInfo[0].website,
         code: DeptInfo[0].code
     })
-    let handleChange = (e: any) => {
-        const selected = e.target.value
-        const newDept = DeptInfo.find(({ abbr }: any) => abbr === selected)
-        if (newDept != undefined) setDept(newDept)
-    }
     useEffect(() => {
         const init = async () => {
             const M = await import('materialize-css');
@@ -24,17 +19,22 @@ export default function DeptInformation() {
         };
         init();
     });
+    let handleChange = (e: any) => {
+        const selected = e.target.value
+        const newDept = DeptInfo.find(({ abbr }: any) => abbr === selected)
+        if (newDept != undefined) setDept(newDept)
+    }
     return (
         <div className='deptContainer'>
             <h5 style={{ textAlign: 'center', marginBottom: 20 }}>Department Select</h5>
-            <select onChange={handleChange}>
-                {DeptInfo.map((dept: any) => {
-                    const { abbr, code, name } = dept;
-                    return (
-                        <option value={abbr} key={code}>{name}</option>
-                    )
-                })}
-            </select>
+                <select onChange={handleChange} className='icons'>
+                    {DeptInfo.map((dept: any) => {
+                        const { abbr, code, name, icon } = dept;
+                        return (
+                            <option value={abbr} key={code} data-icon={icon}>{name}</option>
+                        )
+                    })}
+                </select>
             <div id='deptDetail' key={singleDept.code} style={{ display: 'flex', justifyContent: 'center', marginTop: 25 }}>
                 <Image
                     id='deptSeal'
