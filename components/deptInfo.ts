@@ -30,7 +30,7 @@ export const DeptInfo = [
     icon: DOS,
     mission: 'To shape and sustain a peaceful, prosperous, just, and democratic world and foster conditions for stability and progress for the benefit of the American people and people everywhere.This mission is shared with the USAID, ensuring we have a common path forward in partnership as we invest in the shared security and prosperity that will ultimately better prepare us for the challenges of tomorrow.',
     website: 'https://www.state.gov/',
-    code: "019",
+    code: 1,
   },
   {
     value: 'National Aeronautics and Space Administration',
@@ -40,7 +40,7 @@ export const DeptInfo = [
     icon: NASA,
     mission: "Lead an innovative and sustainable program of exploration with commercial and international partners to enable human expansion across the solar system and bring new knowledge and opportunities back to Earth. Support growth of the nation's economy in space and aeronautics, increase understanding of the universe and our place in it, work with industry to improve America's aerospace technologies and advance American leadership.",
     website: 'https://www.nasa.gov/',
-    code: '9121'
+    code: 2
 
   },
   {
@@ -51,7 +51,7 @@ export const DeptInfo = [
     icon: VA,
     mission: "To fulfill President Lincoln's promise “To care for him who shall have borne the battle, and for his widow, and his orphan” by serving and honoring the men and women who are America's veterans.",
     website: 'https://www.va.gov/',
-    code: '911'
+    code: 3
   },
   //   dept of defense info
   {
@@ -62,7 +62,7 @@ export const DeptInfo = [
     icon: DOD,
     mission: 'To provide combat-credible military forces needed to deter war and protect the security of our nation.',
     website: 'https://www.defense.gov/',
-    code: "097",
+    code: 4,
   },
   //   dept of energy
   {
@@ -73,7 +73,7 @@ export const DeptInfo = [
     icon: DOE,
     mission: "To ensure America's security and prosperity by addressing it's energy, environmental, and nuclear challenges through transformative science and technology based solutions.",
     website: 'https://www.defense.gov/',
-    code: "089",
+    code: 5,
   },
   // dept of labor
   {
@@ -84,7 +84,7 @@ export const DeptInfo = [
     icon: DOL,
     mission: 'To foster, promote, and develop the welfare of the wage earners, job seekers, and retirees of the United States; improve working conditions; advance opportunities for profitable employment, and assure work-related benefits and rights.',
     website: 'https://www.dol.gov/',
-    code: "1601",
+    code: 6,
   },
   // dept of agriculture
   {
@@ -95,7 +95,7 @@ export const DeptInfo = [
     icon: DOA,
     mission: 'Provide leadership on food, agriculture, natural resources, rural development, nutrition, and related issues based on sound public policy, the best available science, and efficient management.',
     website: 'https://www.usda.gov/',
-    code: "012",
+    code: 7,
   },
   // dept of homeland security
   {
@@ -106,7 +106,7 @@ export const DeptInfo = [
     icon: DOHS,
     mission: 'To secure the nation from the many threats we face. This requires the dedication of more than 240,000 employees in jobs that range from aviation and border security to emergency response, from cybersecurity analyst to chemical facility inspectors.',
     website: 'https://www.dhs.gov/',
-    code: "070",
+    code: 8,
   },
   // dept of transportation
   {
@@ -117,7 +117,7 @@ export const DeptInfo = [
     icon: DOT,
     mission: 'To ensure America has the safest, most efficient, and modern transportation system in the world, which boosts our economic productivity and global competitiveness and enchances the queality of life in communities both rural and urban.',
     website: 'https://www.transportation.gov/',
-    code: "069",
+    code: 9,
   },
   // dept of education
   {
@@ -128,7 +128,7 @@ export const DeptInfo = [
     icon: DOED,
     mission: "To promote student achievement and prepation for global competitiveness by fostering educational excellence and ensuring equal access to educational resources.",
     website: 'https://www2.ed.gov/',
-    code: "091",
+    code: 10,
   },
   // dept of health and human services
   {
@@ -139,7 +139,7 @@ export const DeptInfo = [
     icon: DOHHS,
     mission: 'To enhance the health and well-being of all Americans, by providing effective health and human services and fostering sound, sustained advances in the sciences underlying medicine, public health, and social services.',
     website: 'https://www.hhs.gov/',
-    code: "075",
+    code: 11,
   },
   // dept of housing and urban development
   {
@@ -150,7 +150,7 @@ export const DeptInfo = [
     icon: HUD,
     mission: 'To create strong, sustainable, inclusive communitites and quality affordable homes for all.',
     website: 'https://www.hud.gov/',
-    code: "086",
+    code: 12,
   },
   // dept of justice
   {
@@ -161,7 +161,7 @@ export const DeptInfo = [
     icon: DOJ,
     mission: 'To enforce the law and defend the interests of the United States according to the law; to ensure public safety against threats both foreign and domestic; to provide federal leadership in preventing and controlling crime; to seek just punishment for those guilty of unlawful behavior; and to ensure fair and impartial administration of justice for all Americans.',
     website: 'https://www.justice.gov/',
-    code: "015",
+    code: 13,
   },
   // dept of the interior
   {
@@ -172,7 +172,7 @@ export const DeptInfo = [
   icon: DOI,
       mission: "Conserve and manage the Nation's natural resources and cultural heritage for the benefit and enjoyment of the American people, provides scientific and other information about natural resources and natural hazards to address societal challenges and create opportunitites for the American people",
       website: 'https://www.doi.gov/',
-      code: "014",
+      code: 14,
     },
   // dept of the treasury
   {
@@ -183,7 +183,7 @@ export const DeptInfo = [
     icon: DO$,
     mission: "Maintain a strong economy and create economic and job opportunities by promoting the conditions that enable economic growth and stability at home and abroad, strengthen national security by combating threats and protecting the integrity of the financial systems, and manage the U.S. Government's finances and resources effectively.",
     website: 'https://www.treasury.gov/',
-    code: "020",
+    code: 16,
   },
   // environmental protection agency
   {
@@ -194,7 +194,7 @@ export const DeptInfo = [
     icon: EPA,
     mission: 'To protect human health and the environment. Ensure that all Americans have clean air, land, and water. Create Nationwide efforts to reduce encironmental risks based on the best available scientific information. Clean up contaminated lands and toxic sites and review chemicals in the marketplace for safety.',
     website: 'https://www.epa.gov/',
-    code: "068",
+    code: 17,
   },
   // federal communication comission
   {
@@ -205,7 +205,7 @@ export const DeptInfo = [
     icon: FCC,
     mission: "To ensure that the American people have available, without discrimination on the basis of race, color, religion, national origin, or sex, a rapid, efficient, Nationwide, and worldwide wire and radio communicaiton service with adequate facilites at reasonable charges.",
     website: 'https://www.fcc.gov/',
-    code: "027",
+    code: 18,
   },
   // federal election comission
   {
@@ -216,7 +216,7 @@ export const DeptInfo = [
     icon: FEC,
     mission: 'To protect the integrity of the campaign finance process by providing transparent and fairly enforced federal campaign finance laws. The FEC reflects a belief that democracy works best when voters can make informed decisions in the political process.',
     website: 'https://www.fec.gov/',
-    code: "360",
+    code: 19,
   },
   // federal trade comission
   {
@@ -227,7 +227,7 @@ export const DeptInfo = [
     icon: FTC,
     mission: 'To prevent business practices that are anticompetitve, deceptive, or unfair to consumers; to enhance informed consumer choice and public understanding of the competitive process; and to accomplish this without unduly burdening legitimate business activity.',
     website: 'https://www.ftc.gov/',
-    code: "029",
+    code: 20,
   },
   // equal employment opportunity comission
   {
@@ -238,7 +238,7 @@ export const DeptInfo = [
     icon: EEOC,
     mission: 'To stop and remedy unlawful employment discrimination in the workplace by enforcing Federal laws that prohibit employment discrimination. We do this primarily through investigation, conciliation, mediation, and litigation, or otherwise resolving charges of discrimination against private sector employers, employment agencies, labor unions, and the Federal Government. We also investigate charges of discrimination against State and local governments and provide recommendations to the Department of Justice for further action. ',
     website: 'https://www.eeoc.gov/',
-    code: "045",
+    code: 21,
   },
   // social security
   {
@@ -249,6 +249,6 @@ export const DeptInfo = [
     icon: SSA,
     mission: "Committed to helping maintain the basic well-being and protection of the people we serve. We pay benefits to about 64 million people including retirees, children, widows, and widowers. From birth, to marriage, and into retirement, we are there to provide support throughout life's journey",
     website: 'https://www.ssa.gov/',
-    code: "028",
+    code: 22,
   },
 ]

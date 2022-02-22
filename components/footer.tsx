@@ -10,10 +10,10 @@ export default function Footer() {
                             {"People's Purse Copyright © 2021"}
                         </div>
                     </Link>
-                    <div className="col s6" style={{ textAlign: 'right', fontSize: 'large' }}>
+                    <div className="col s6" style={{ textAlign: 'right', fontSize: 'large', marginRight: -30, marginLeft: 30 }}>
                         <a id='voteLink' href="https://vote.gov/" target="_blank" rel="noopener noreferrer">
-                            <i className="material-icons right">how_to_reg</i>
                             Are you registered to vote?
+                            <i className="material-icons right">how_to_reg</i>
                         </a>
                     </div>
                 </div>

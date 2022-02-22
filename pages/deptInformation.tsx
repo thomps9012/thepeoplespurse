@@ -12,10 +12,9 @@ export default function DeptInformation() {
         code: DeptInfo[0].code
     })
     let handleChange = (e: any) => {
-        const code = e.target.value
-        const newDept = DeptInfo.find(({ abbr }: any) => abbr === code)
+        const selected = e.target.value
+        const newDept = DeptInfo.find(({ abbr }: any) => abbr === selected)
         if (newDept != undefined) setDept(newDept)
-        document.getElementById('deptSeal')?.setAttribute('key', '../deptImgs/Defense.png')
     }
     useEffect(() => {
         const init = async () => {
@@ -28,7 +27,6 @@ export default function DeptInformation() {
     return (
         <div className='deptContainer'>
             <h5 style={{ textAlign: 'center', marginBottom: 20 }}>Department Select</h5>
-            <label></label>
             <select onChange={handleChange}>
                 {DeptInfo.map((dept: any) => {
                     const { abbr, code, name } = dept;
@@ -45,14 +43,14 @@ export default function DeptInformation() {
                     alt='Department Seal'
                     width={200}
                     height={200}
-                    placeholder='blur'
+
                 />
             </div>
             <h6 className='deptName'>{singleDept.name}</h6>
             <p className='missionTitle'>Mission</p>
             <p className='deptMission'>{singleDept.mission}</p>
-            <div style={{textAlign: 'center'}}>
-            <a className='deptWebsite' href={singleDept.website} target={'_blank'} rel='noreferrer' >Visit Department Website</a>
+            <div style={{ textAlign: 'center' }}>
+                <a className='deptWebsite' href={singleDept.website} target={'_blank'} rel='noreferrer' >Visit Department Website</a>
             </div>
         </div>
     )
