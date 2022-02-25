@@ -1,8 +1,9 @@
 import { gql, useQuery } from '@apollo/client'
+import Link from 'next/link';
 import ClassInfo from '../components/educator/classInfo';
 import CreateClass from '../components/educator/createClass';
 import LearnerClasses from '../components/learner/learnerClasses';
-import TakeAction from '../components/learner/takeAction';
+import TakeAction from './takeAction';
 import LoggedOut from '../components/loggedOut';
 
 const GET_USER = gql`
@@ -39,20 +40,30 @@ export default function ProfilePage() {
                     <ClassInfo />
                     <CreateClass />
                 </> :
-                <>
-                    <LearnerClasses />
+                <div className='learnerProfile'>
                     <h5 style={{ textAlign: 'center', margin: 40 }}>{actions.length} Actions Taken</h5>
-                    <TakeAction />
-                    {/* double check this */}
-                    <div>
-                        <a id='volunteerLink' href="https://www.volunteermatch.org/" target="_blank" rel="noopener noreferrer">
-                            <h5>
-                                Looking for Volunteer Opportunities and Ideas?
-                            </h5>
-                            <i id='volunteerIcon' className='material-icons'>volunteer_activism</i>
-                        </a>
+                    <LearnerClasses />
+                    <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap' }}>
+                        {/* join a class */}
+                        <div style={{ textAlign: 'center', margin: 20 }}>
+                            <Link href='/joinClass' passHref>
+                                <div id='btn' className='waves-effect btn'><i className='material-icons left'>school</i>Join a New Class</div>
+                            </Link>
+                        </div>
+                        {/* take an action */}
+                        <div style={{ textAlign: 'center', margin: 20 }}>
+                            <Link href='/takeAction' passHref>
+                                <div id='btn' className='waves-effect btn'><i className='material-icons left'>task_alt</i>Take a Civic Action</div>
+                            </Link>
+                        </div>
+                        {/* vote */}
+                        <div style={{ textAlign: 'center', margin: 20 }}>
+                            <Link href='/voting' passHref>
+                                <div id='btn' className='waves-effect btn'><i className='material-icons left'>addchart</i>Craft a Federal Budget</div>
+                            </Link>
+                        </div>
                     </div>
-                </>}
+                </div>}
         </div>
     )
 }

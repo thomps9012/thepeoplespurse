@@ -87,8 +87,8 @@ export default function TakeAction() {
                 }
             }
             catch {
-                if(error){
-                    const errorAlert = error?.message 
+                if (error) {
+                    const errorAlert = error?.message
                     M.toast({ html: errorAlert })
                 }
             }
@@ -97,6 +97,14 @@ export default function TakeAction() {
     if (loading) return <h1 id='loading' style={{ margin: 35, padding: 35, textAlign: 'center' }}>🛠 Give us just a minute here to record your awesome action... 🛠 </h1>;
     return (
         <div style={{ marginTop: 20 }}>
+            <div>
+                <a id='volunteerLink' href="https://www.volunteermatch.org/" target="_blank" rel="noopener noreferrer">
+                    <h5>
+                        Looking for Volunteer Opportunities and Ideas?
+                    </h5>
+                    <i id='volunteerIcon' className='material-icons'>volunteer_activism</i>
+                </a>
+            </div>
             <form
                 className="actionForm"
             >

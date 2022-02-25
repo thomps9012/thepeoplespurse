@@ -259,7 +259,7 @@ ol li::marker {
   font-size: 2rem;
 }
 
-.officialContainer {
+.officialContainer, .learnerProfile {
   min-height: 65vh;
   height: 100%;
 }

@@ -41,7 +41,7 @@ export default function LearnerClasses() {
     return (
         <div>
             <h5 style={{textAlign: 'center'}}>Your Classes</h5>
-            <div style={{display: 'flex', justifyContent: 'space-around', padding: 10, margin: 10}}>
+            <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around', padding: 10, margin: 10}}>
                 {classes.map((classDetail: any) => {
                     return (
                         <div key={classDetail._id}>
@@ -52,11 +52,6 @@ export default function LearnerClasses() {
                         </div>
                     )
                 })}
-            </div>
-            <div style={{textAlign: 'center'}}>
-                <Link href='/joinClass' passHref>
-                <div id='btn' className='waves-effect btn'><i className='material-icons left'>school</i>Join a New Class</div>
-                </Link>
             </div>
         </div>
     )
