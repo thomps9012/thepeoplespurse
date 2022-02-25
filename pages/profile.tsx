@@ -47,19 +47,19 @@ export default function ProfilePage() {
                         {/* join a class */}
                         <div style={{ textAlign: 'center', margin: 20 }}>
                             <Link href='/joinClass' passHref>
-                                <div id='btn' className='waves-effect btn'><i className='material-icons left'>school</i>Join a New Class</div>
+                                <div id='btn' className='waves-effect btn-large'><i className='material-icons left'>school</i>Join a New Class</div>
                             </Link>
                         </div>
                         {/* take an action */}
                         <div style={{ textAlign: 'center', margin: 20 }}>
                             <Link href='/takeAction' passHref>
-                                <div id='btn' className='waves-effect btn'><i className='material-icons left'>task_alt</i>Take a Civic Action</div>
+                                <div id='btn' className='waves-effect btn-large'><i className='material-icons left'>task_alt</i>Take a Civic Action</div>
                             </Link>
                         </div>
                         {/* vote */}
                         <div style={{ textAlign: 'center', margin: 20 }}>
                             <Link href='/voting' passHref>
-                                <div id='btn' className='waves-effect btn'><i className='material-icons left'>addchart</i>Craft a Federal Budget</div>
+                                <div id='btn' className='waves-effect btn-large'><i className='material-icons left'>addchart</i>Craft a Federal Budget</div>
                             </Link>
                         </div>
                     </div>
