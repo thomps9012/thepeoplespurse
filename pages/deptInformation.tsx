@@ -1,6 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { DeptInfo } from '../components/deptInfo'
 import Image from 'next/image'
+import M from 'materialize-css';
+
 
 export default function DeptInformation() {
     const [singleDept, setDept] = useState({
@@ -11,14 +13,8 @@ export default function DeptInformation() {
         website: DeptInfo[0].website,
         code: DeptInfo[0].code
     })
-    useEffect(() => {
-        const init = async () => {
-            const M = await import('materialize-css');
-            const elems = document.querySelectorAll('select');
-            const instances = M.FormSelect.init(elems);
-        };
-        init();
-    });
+//   possibly replace with own select to avoid issues
+    M.AutoInit();
     let handleChange = (e: any) => {
         const selected = e.target.value
         const newDept = DeptInfo.find(({ abbr }: any) => abbr === selected)
@@ -26,12 +22,12 @@ export default function DeptInformation() {
     }
     return (
         <div className='deptContainer'>
-            <h5 style={{ textAlign: 'center', marginBottom: 20 }}>Department Select</h5>
-                <select onChange={handleChange} className='icons'>
+            <h5 style={{ textAlign: 'center', marginBottom: 20 }}>Select a Department Below to Learn About</h5>
+                <select onChange={handleChange}>
                     {DeptInfo.map((dept: any) => {
                         const { abbr, code, name, icon } = dept;
                         return (
-                            <option value={abbr} key={code} data-icon={icon}>{name}</option>
+                            <option style={{margin: 5}} value={abbr} key={code} data-icon={icon}>{name}</option>
                         )
                     })}
                 </select>

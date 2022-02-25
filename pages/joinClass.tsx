@@ -1,5 +1,6 @@
 import { useMutation, useQuery, gql } from "@apollo/client"
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import M from 'materialize-css';
 
 
 const JOIN_CLASS = gql`
@@ -44,14 +45,7 @@ export default function JoinClass() {
     const handleChange = (e: any) => {
         setClassCode(e.target.value)
     }
-    useEffect(() => {
-        const init = async () => {
-            const M = await import('materialize-css');
-            const elems = document.querySelectorAll('select');
-            const instances = M.FormSelect.init(elems);
-        };
-        init();
-    });
+    M.AutoInit();
     if (loading) return <h1 id='loading' style={{ margin: 77, padding: 77, textAlign: 'center' }}>🛠 Give us just a minute here... 🛠</h1>;
     const classes = data.allClasses;
     return (

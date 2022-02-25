@@ -7,8 +7,11 @@ const Home: NextPage = () => {
       <div className='row' style={{ display: 'flex', flexWrap: 'wrap-reverse' }}>
         <div className='col m6' style={{ textAlign: 'center' }}>
           <h1 id='landingTitle'>
-           {"Welcome to the People's Purse!"}
+            {"Welcome to the People's Purse!"}
           </h1>
+          <h5 id='sideNavInstructions' style={{ margin: 25, padding: 15, textAlign: 'center' }}>
+            Use the Side NavBar above to Sign Up or Login and Experience the Full Functionality of the Application
+          </h5>
         </div>
         <div className='col m6' id='landingImg'>
           <Image
@@ -17,7 +20,7 @@ const Home: NextPage = () => {
             height={339}
             className='volunteerImg'
             alt='Volunteers'
-            
+
             priority
           />
         </div>

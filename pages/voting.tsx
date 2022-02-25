@@ -1,9 +1,11 @@
 import { useQuery, useMutation, gql } from '@apollo/client';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import DeptCards from '../components/deptCards';
 import { baseBudget } from '../assets/deptVoting/baseBudget';
 import LoggedOut from '../components/loggedOut';
 import BudgetOutput from '../components/budgetOutput';
+import M from 'materialize-css';
+
 
 const GET_CLASSES = gql`
 query Query {
@@ -24,16 +26,9 @@ export default function VotingPage() {
 
   const { loading, data } = useQuery(GET_CLASSES);
   const [castVote, { error }] = useMutation(CAST_VOTE);
-  useEffect(() => {
-    const init = async () => {
-      const M = await import('materialize-css');
-      const elems = document.querySelectorAll('select');
-      const instances = M.FormSelect.init(elems);
-    };
-    init();
-  });
-  if(loading) return <h1 style={{margin: 35, padding: 35, textAlign: 'center'}}>🛠 Give us just a minute here... 🛠 </h1>;
-  if (error) return <h1 style={{margin: 35, padding: 35, textAlign: 'center'}}>Error :({JSON.stringify(error)}</h1>;
+  M.AutoInit();
+  if (loading) return <h1 style={{ margin: 35, padding: 35, textAlign: 'center' }}>🛠 Give us just a minute here... 🛠 </h1>;
+  if (error) return <h1 style={{ margin: 35, padding: 35, textAlign: 'center' }}>Error :({JSON.stringify(error)}</h1>;
 
   if (!data) { return <LoggedOut /> }
   const userClasses = data.classes;
@@ -91,10 +86,10 @@ export default function VotingPage() {
                 }
               }
             })
-            if(voteResponse.data.castVote != '' || null){
+            if (voteResponse.data.castVote != '' || null) {
               window.location.assign('budgetResults')
             } else {
-              M.toast({html: 'There Seems to Hav been an Error Processing Your Vote'})
+              M.toast({ html: 'There Seems to Hav been an Error Processing Your Vote' })
             }
           }
           }

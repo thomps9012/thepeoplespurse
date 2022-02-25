@@ -351,3 +351,13 @@ padding: 5px;
   color: #174c4f;
   text-align: center;
 }
+
+#sideNavInstructions {
+  display: none;
+}
+@media (max-width: 992px) {
+  #sideNavInstructions {
+    display: block;
+  }
+  
+}
