@@ -43,7 +43,7 @@ export default function ProfilePage() {
                 <div className='learnerProfile'>
                     <h5 style={{ textAlign: 'center', margin: 40 }}>{actions.length} Actions Taken</h5>
                     <LearnerClasses />
-                    <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap' }}>
+                    <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap' }}>
                         {/* join a class */}
                         <div style={{ textAlign: 'center', margin: 20 }}>
                             <Link href='/joinClass' passHref>
