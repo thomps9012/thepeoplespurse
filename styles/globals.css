@@ -361,3 +361,13 @@ padding: 5px;
   }
   
 }
+
+.createClassContainer {
+  height: 72vh;
+  padding: 3rem;
+  width: 100%;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+}

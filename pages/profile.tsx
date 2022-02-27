@@ -36,10 +36,18 @@ export default function ProfilePage() {
                 <h5>{last_name}</h5>
             </div>
             {educator ?
-                <>
+                <div className='container'>
                     <ClassInfo />
-                    <CreateClass />
-                </> :
+                    <div style={{ display: 'flex', justifyContent: 'center' }}>
+                        <div style={{ textAlign: 'center', margin: 20 }}>
+                            <Link href='/createClass' passHref>
+                                <a id='btn' className='waves-effect btn-large'>
+                                    Create a New Class
+                                </a>
+                            </Link>
+                        </div>
+                    </div>
+                </div> :
                 <div className='learnerProfile'>
                     <h5 style={{ textAlign: 'center', margin: 40 }}>{actions.length} Actions Taken</h5>
                     <LearnerClasses />
