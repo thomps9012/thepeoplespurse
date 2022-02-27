@@ -83,7 +83,7 @@ export default function TakeAction() {
                 console.log(actionID)
                 if (actionID) {
                     M.toast({ html: "Your action has been recorded successfully", classes: 'rounded' })
-                    window.location.reload()
+                    window.location.assign('/profile')
                 }
             }
             catch {
@@ -96,7 +96,7 @@ export default function TakeAction() {
     }
     if (loading) return <h1 id='loading' style={{ margin: 35, padding: 35, textAlign: 'center' }}>🛠 Give us just a minute here to record your awesome action... 🛠 </h1>;
     return (
-        <div style={{ marginTop: 20 }}>
+        <div style={{ marginTop: 20 }} className='container'>
             <div>
                 <a id='volunteerLink' href="https://www.volunteermatch.org/" target="_blank" rel="noopener noreferrer">
                     <h5>

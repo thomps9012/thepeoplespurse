@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { DeptInfo } from '../components/deptInfo'
 import Image from 'next/image'
 import M from 'materialize-css';
@@ -13,8 +13,10 @@ export default function DeptInformation() {
         website: DeptInfo[0].website,
         code: DeptInfo[0].code
     })
-//   possibly replace with own select to avoid issues
-    M.AutoInit();
+    //   possibly replace with own select to avoid issues
+    useEffect(() => {
+        M.AutoInit();
+    })
     let handleChange = (e: any) => {
         const selected = e.target.value
         const newDept = DeptInfo.find(({ abbr }: any) => abbr === selected)
@@ -23,14 +25,14 @@ export default function DeptInformation() {
     return (
         <div className='deptContainer'>
             <h5 style={{ textAlign: 'center', marginBottom: 20 }}>Select a Department Below to Learn About</h5>
-                <select onChange={handleChange}>
-                    {DeptInfo.map((dept: any) => {
-                        const { abbr, code, name, icon } = dept;
-                        return (
-                            <option style={{margin: 5}} value={abbr} key={code} data-icon={icon}>{name}</option>
-                        )
-                    })}
-                </select>
+            <select onChange={handleChange}>
+                {DeptInfo.map((dept: any) => {
+                    const { abbr, code, name, icon } = dept;
+                    return (
+                        <option style={{ margin: 5 }} value={abbr} key={code} data-icon={icon}>{name}</option>
+                    )
+                })}
+            </select>
             <div id='deptDetail' key={singleDept.code} style={{ display: 'flex', justifyContent: 'center', marginTop: 25 }}>
                 <Image
                     id='deptSeal'

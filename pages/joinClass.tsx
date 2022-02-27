@@ -1,5 +1,5 @@
 import { useMutation, useQuery, gql } from "@apollo/client"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import M from 'materialize-css';
 
 
@@ -35,7 +35,7 @@ export default function JoinClass() {
             })
             let joinedClassId = joinClassReponse.data.joinClass._id
             if (joinedClassId != null) {
-                window.location.assign('/profile')
+                window.location.replace('/profile')
             }
         } catch {
             M.toast({ html: error?.message })
@@ -45,7 +45,9 @@ export default function JoinClass() {
     const handleChange = (e: any) => {
         setClassCode(e.target.value)
     }
-    M.AutoInit();
+    useEffect(() => {
+        M.AutoInit();
+    })
     if (loading) return <h1 id='loading' style={{ margin: 77, padding: 77, textAlign: 'center' }}>🛠 Give us just a minute here... 🛠</h1>;
     const classes = data.allClasses;
     return (

@@ -1,6 +1,7 @@
 import { useQuery, gql } from '@apollo/client';
 import { useRouter } from 'next/router';
 import M from 'materialize-css';
+import { useEffect } from 'react';
 
 const CLASS_ACTIONS = gql`
 query ClassActions($classId: ID!) {
@@ -28,17 +29,19 @@ export default function ClassDetail() {
             classId: classID
         }
     });
-    M.AutoInit();
-    if (loading) return <h1 style={{margin: 35, padding: 35, textAlign: 'center'}}>🛠 Give us just a minute here... 🛠</h1>;
-    if (error) return <h1 style={{margin: 35, padding: 35, textAlign: 'center'}}>Error :({JSON.stringify(error)}</h1>;
+    useEffect(() => {
+        M.AutoInit();
+    })
+    if (loading) return <h1 style={{ margin: 35, padding: 35, textAlign: 'center' }}>🛠 Give us just a minute here... 🛠</h1>;
+    if (error) return <h1 style={{ margin: 35, padding: 35, textAlign: 'center' }}>Error :({JSON.stringify(error)}</h1>;
     const classData = data.classActions;
     console.log(classData)
     return (
         <div className='classDetailContainer'>
-            <h2 style={{marginTop: -125, marginBottom: 75, color: '#e57373'}}>Learner and Action History</h2>
-            <div style={{ width: '75%'}}>
+            <h2 style={{ marginTop: -125, marginBottom: 75, color: '#e57373' }}>Learner and Action History</h2>
+            <div style={{ width: '75%' }}>
                 {classData.length === 0 ?
-                    <h3 style={{textAlign: 'center'}}>No learners have joined this class yet</h3>
+                    <h3 style={{ textAlign: 'center' }}>No learners have joined this class yet</h3>
                     :
                     <ul className='collapsible'>
                         {classData.map((learner: any) => {
