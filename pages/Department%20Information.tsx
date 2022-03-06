@@ -1,6 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { DeptInfo } from '../components/deptInfo'
 import Image from 'next/image'
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
+import InputLabel from '@mui/material/InputLabel';
+import FormControl from '@mui/material/FormControl';
 
 
 export default function DeptInformation() {
@@ -20,15 +24,18 @@ export default function DeptInformation() {
     }
     return (
         <div className='deptContainer'>
-            <h5 style={{ textAlign: 'center', marginBottom: 20 }}>Select a Department Below to Learn About</h5>
-            <select onChange={handleChange}>
-                {DeptInfo.map((dept: any) => {
-                    const { abbr, code, name, icon } = dept;
-                    return (
-                        <option style={{ margin: 5 }} value={abbr} key={code} data-icon={icon}>{name}</option>
-                    )
-                })}
-            </select>
+            <h3 style={{ textAlign: 'center', marginBottom: 20 }}>Select a Department Below to Learn About</h3>
+            <FormControl fullWidth>
+                <InputLabel>Department</InputLabel>
+                <Select onChange={handleChange} label='Department'>
+                    {DeptInfo.map((dept: any) => {
+                        const { abbr, code, name } = dept;
+                        return (
+                            <MenuItem value={abbr} key={code}>{name}</MenuItem>
+                        )
+                    })}
+                </Select>
+            </FormControl>
             <div id='deptDetail' key={singleDept.code} style={{ display: 'flex', justifyContent: 'center', marginTop: 25 }}>
                 <Image
                     id='deptSeal'
