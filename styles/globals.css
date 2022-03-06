@@ -1,272 +1,287 @@
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family: 'Source Sans Pro', sans-serif;
-  color: #174c4f;
+    padding: 0;
+    margin: 0;
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #174c4f;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+    color: inherit;
+    text-decoration: none;
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 #deptVoteCard {
-  width: 150px;
-  margin: 10px;
-  text-align: center;
-  font-weight: bold;
+    width: 150px;
+    margin: 10px;
+    text-align: center;
+    font-weight: bold;
 }
 
 select {
-  background-color: '#1a237e'
+    background-color: '#1a237e'
 }
 
 .loginContainer {
-  height: 70vh;
-  padding: 1rem;
-  width: 100%;
-  display: inline-flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+    height: 70vh;
+    padding: 1rem;
+    width: 100%;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .loginForm,
 .signUpForm {
-  min-width: 527px;
+    min-width: 527px;
+    display: flex;
+    flex-direction: column;
 }
 
 @media (max-width: 576px) {
-  .loginForm,
-  .signUpForm {
-    min-width: 0px;
-  }
-  
+    .loginForm,
+    .signUpForm {
+        min-width: 0px;
+    }
 }
 
 .signUpContainer {
-  height: 70vh;
-  padding: 1rem;
-  width: 100%;
-  display: inline-flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+    min-height: 70vh;
+    padding: 1rem;
+    width: 100%;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-
-
-.signupLoginToggle{
-  font-weight: bolder;
-  font-size: large;
-  text-decoration: none;
+.signupLoginToggle {
+    font-weight: bolder;
+    font-size: large;
+    text-decoration: none;
 }
+
 #toggleLink a {
-  color: #174c4f;
+    color: #174c4f;
 }
 
-#toggleLink a:hover{
-  color: #e57373;
+#toggleLink a:hover {
+    color: #e57373;
 }
 
 .deptContainer {
-  margin: 5vh;
-  padding: 20px;
+    margin: 5vh;
+    padding: 20px;
 }
 
 .deptWebsite {
-  font-size: x-large;
-  margin: 0px 0px 0px 25px;
-  padding: 0px 0px 0px 25px;
-  color: #174c4f;
+    font-size: x-large;
+    margin: 0px 0px 0px 25px;
+    padding: 0px 0px 0px 25px;
+    color: #174c4f;
 }
 
-.deptWebsite:hover{
-  color: #e57373;
+.deptWebsite:hover {
+    color: #e57373;
 }
 
-.missionTitle{
-  font-size: x-large;
-  margin: 0px 0px 0px 25px;
-  padding: 0px 0px 0px 25px;
+.missionTitle {
+    font-size: x-large;
+    margin: 0px 0px 0px 25px;
+    padding: 0px 0px 0px 25px;
 }
 
-.deptName{
-  font-size: xx-large;
-  text-align: center;
-  margin-bottom: 25px;
-  margin-top: 25px;
+.deptName {
+    font-size: xx-large;
+    text-align: center;
+    margin-bottom: 25px;
+    margin-top: 25px;
 }
 
-.deptMission{
-  font-size: large;
-  margin: 0px 25px 25px 25px;
-  padding: 25px;
+.deptMission {
+    font-size: large;
+    margin: 0px 25px 25px 25px;
+    padding: 25px;
 }
 
 .addressInput {
-  font-size: x-large;
+    font-size: x-large;
 }
 
-.addressLabel{
-  font-size: large;
+.addressLabel {
+    font-size: large;
 }
 
-#officialCard{
-  max-width: 40vh;
-  min-width: 40vh;
-  margin: 20px;
-  padding: 10px;
-  font-size: large;
+#officialCard {
+    max-width: 40vh;
+    min-width: 40vh;
+    margin: 20px;
+    padding: 10px;
+    font-size: large;
 }
 
-#officialInfo{
-  flex-direction: row;
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
+#officialInfo {
+    flex-direction: row;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 #voteLink:hover {
-  color: #e57373 ;
+    color: #e57373;
 }
 
 #aboutLink:hover {
-  color: #e57373 ;
+    color: #e57373;
 }
 
-#voteLink, #aboutLink {
-  color: #FFE184;
+#voteLink,
+#aboutLink {
+    color: #FFE184;
 }
 
 .joinClassContainer {
-  height: 65vh;
+    height: 65vh;
 }
 
-.deptInputCard{
-  text-decoration: none;
-  margin: 20px;
+.deptInputCard {
+    text-decoration: none;
+    margin: 20px;
 }
 
-.dept-card-content{
-  min-height: 157px;
-  max-height: 157px;
-  margin-bottom: 10px;
+.dept-card-content {
+    min-height: 157px;
+    max-height: 157px;
+    margin-bottom: 10px;
 }
 
 .classSelectA {
-  color: #174c4f;
+    color: #174c4f;
 }
 
 .classSelect {
-  color: #FFE184;
+    color: #FFE184;
 }
 
 .classSelectA:hover,
 .classSelect:hover {
-  color: #e57373;
+    color: #e57373;
 }
 
 .officialContainer {
-  margin: 35px;
-  padding: 25px;
-  height: 69vh;
+    margin: 35px;
+    padding: 25px;
+    height: 69vh;
 }
 
 #chart {
-  min-height: 75vh;
-  margin: 20px;
+    min-height: 75vh;
+    margin: 20px;
 }
 
 @media (max-width: 1025px) {
-  #nav-mobile {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: right;
-    width: 55%;
-  }
+    #nav-mobile {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: right;
+        width: 55%;
+    }
 }
 
-
-
 #footer {
-  background-color: #174c4f;
-  color: #FFE184;
+    background-color: #174c4f;
+    color: #FFE184;
 }
 
 .nav-item {
-  color: #174c4f;
-  text-align: center;
-  margin: 5px;
-  padding: 5px;
+    color: #174c4f;
+    text-align: center;
+    margin: 5px;
+    padding: 5px;
 }
 
 .side-nav-item {
-  color: #174c4f;
-  text-align: center;
-  font-size: large;
-  margin: 15px 10px 15px 10px;
-  padding: 0px 10px 5px 5px;
+    color: #174c4f;
+    text-align: center;
+    font-size: large;
+    margin: 15px 10px 15px 10px;
+    padding: 0px 10px 5px 5px;
 }
 
 #sideIcon {
-  margin-top: 10px;
+    margin-top: 10px;
 }
 
 #btn {
-  background-color: #174c4f;
-  color: #FFE184;
+    background-color: #174c4f;
+    color: #FFE184;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: larger;
 }
-#voteSubmit, #govtSearch1, 
-#govtSearch2, #govtSearch3, 
-#officialLink, #officialCard {
-  background-color: #174c4f;
-  color: #FFE184;
+
+#btn:hover {
+    background-color: #e57373;
+    color: #174c4f;
+}
+
+#voteSubmit,
+#govtSearch1,
+#govtSearch2,
+#govtSearch3,
+#officialLink,
+#officialCard {
+    background-color: #174c4f;
+    color: #FFE184;
 }
 
 #officialAdr {
-  color: #174c4f;
+    color: #174c4f;
 }
+
 #officialPhone {
-  color: #e57373;
+    color: #e57373;
 }
 
 #nav-mobile:hover,
 .nav-item:hover {
-  color: #e57373;
+    color: #e57373;
 }
 
 .classDetailContainer {
-  min-height: 65vh;
-  padding: 1rem;
-  width: 100%;
-  display: inline-flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+    min-height: 65vh;
+    padding: 1rem;
+    width: 100%;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
+
 ol {
-  list-style: none;
+    list-style: none;
 }
+
 ol li::marker {
-  content: "👏";
-  font-size: 2rem;
+    content: "👏";
+    font-size: 2rem;
 }
 
-.officialContainer, .learnerProfile {
-  min-height: 65vh;
-  height: 100%;
+.officialContainer,
+.learnerProfile {
+    min-height: 65vh;
+    height: 100%;
 }
 
-#govtSearch1, 
-#govtSearch2, #govtSearch3 {
-  margin: 10px;
+#govtSearch1,
+#govtSearch2,
+#govtSearch3 {
+    margin: 10px;
 }
 
 hr {
@@ -280,94 +295,94 @@ hr {
 }
 
 hr:after {
-  background: #fff;
-  content: '֎';
-  font-size: 2rem;
-  padding: 0 5px;
-  position: relative;
-  top: -30px;
+    background: #fff;
+    content: '֎';
+    font-size: 2rem;
+    padding: 0 5px;
+    position: relative;
+    top: -30px;
 }
 
 .indexContainer {
-  padding: 1rem;
-  display: inline-flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+    padding: 1rem;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .founderImg {
-  border-radius: 10% 30% 10% 70%;
+    border-radius: 10% 30% 10% 70%;
 }
 
 .volunteerImg {
-  border-radius: 50% 20% / 10% 40%;
+    border-radius: 50% 20% / 10% 40%;
 }
 
 #landingTitle {
-  margin-top: 70px;
+    margin-top: 70px;
 }
 
 @media (max-width: 801px) {
-  #landingTitle {
-    margin-top: 0px;
-  }
+    #landingTitle {
+        margin-top: 0px;
+    }
 }
 
 .loading {
-	animation: fadeOut 2s;
-  	opacity: 0;
+    animation: fadeOut 2s;
+    opacity: 0;
 }
 
 @keyframes fadeOut {
-  from {
-  	opacity: 1;
-  }
-  to {
- 	opacity: 0;
-  }
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
 }
 
 #volunteerLink {
-  color:#174c4f;
-  text-align: center;
-  margin: 10px;
+    color: #174c4f;
+    text-align: center;
+    margin: 10px;
 }
 
 #volunteerLink:hover,
 #officialOffice:hover {
-  color:#e57373;
+    color: #e57373;
 }
 
 #volunteerIcon {
-display: flex;
-justify-content: center;
-margin: 5px;
-padding: 5px;
+    display: flex;
+    justify-content: center;
+    margin: 5px;
+    padding: 5px;
 }
 
 #officialOffice {
-  text-decoration: none;
-  color: #174c4f;
-  text-align: center;
+    text-decoration: none;
+    color: #174c4f;
+    text-align: center;
 }
 
 #sideNavInstructions {
-  display: none;
+    display: none;
 }
+
 @media (max-width: 992px) {
-  #sideNavInstructions {
-    display: block;
-  }
-  
+    #sideNavInstructions {
+        display: block;
+    }
 }
 
 .createClassContainer {
-  height: 72vh;
-  padding: 3rem;
-  width: 100%;
-  display: inline-flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: stretch;
+    height: 72vh;
+    padding: 3rem;
+    width: 100%;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
 }

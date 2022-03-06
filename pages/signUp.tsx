@@ -2,9 +2,15 @@ import {
     useMutation,
     gql
 } from '@apollo/client';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { checkPassword, validateEmail } from '../utils/helpers';
+import InputAdornment from '@mui/material/InputAdornment';
+import Lock from '@mui/icons-material/Lock';
+import Email from '@mui/icons-material/Email';
+import AccountCircle from '@mui/icons-material/AccountCircle';
 
 const SIGN_UP = gql`
 mutation Mutation($input: UserSignUpInput!) {
@@ -21,8 +27,16 @@ export default function SignUp() {
         last_name: '',
         email: '',
         username: '',
-        password: ''
+        password: '',
+        showPassword: false
     });
+
+    const ShowPassword = () => {
+        setFormState({ ...formState, showPassword: !formState.showPassword })
+    }
+    const MouseDownPW = (e: any) => {
+        e.preventDefault();
+    }
     const [errorMsg, setErrorMsg] = useState('');
 
     const handleChange = (e: any) => {
@@ -91,80 +105,105 @@ export default function SignUp() {
     return (
         <div className='signUpContainer'>
             <form className='signUpForm'>
-                <div className='input-field col s6'>
-                    <i className='material-icons prefix'>account_circle</i>
-                    <input
-                        type='text'
-                        name='first_name'
-                        id='first_name'
-                        required
-                        placeholder='First Name'
-                        onChange={handleChange}
-                    />
-                </div>
-                <div className='input-field col s6'>
-                    <i className='material-icons prefix'>account_circle</i>
-                    <input
-                        type='text'
-                        name='last_name'
-                        id='last_name'
-                        required
-                        placeholder='Last Name'
-                        onChange={handleChange}
-                    />
-                </div>
-                <div className='input-field col s6'>
-                    <i className='material-icons prefix'>account_circle</i>
-                    <input
-                        type='text'
-                        name='username'
-                        id='username'
-                        required
-                        placeholder='Username'
-                        autoComplete='username'
-                        onChange={handleChange}
-                    />
-                </div>
-                <div className='input-field col s6'>
-                    <i className='material-icons prefix'>email</i>
-                    <input
-                        type='email'
-                        name='email'
-                        id='email'
-                        required
-                        placeholder='Email Address'
-                        autoComplete='current-email'
-                        size={30}
-                        onChange={handleChange}
-                    />
-                </div>
-                <div className='input-field col s6'>
-                    <i className='material-icons prefix'>lock</i>
-                    <input
-                        type='password'
-                        name='password'
-                        id='password'
-                        placeholder='Min length 8 with one special char'
-                        minLength={8}
-                        autoComplete='current-password'
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 10, flexDirection: 'column' }}>
-                    <a id='btn'
-                        style={{ marginLeft: 42 }}
-                        className='waves-effect btn-large'
-                        onClick={signUpFunc}
-                    >
-                        <i className='material-icons right'>login</i>
+                <TextField
+                    name='first_name'
+                    id="outlined-basic"
+                    label="First Name"
+                    required
+                    placeholder='First Name'
+                    variant='outlined'
+                    margin='normal'
+                    onChange={handleChange}
+                    InputProps={{
+                        endAdornment: (
+                            <InputAdornment position='end'>
+                                <AccountCircle />
+                            </InputAdornment>
+                        )
+                    }}
+                />
+                <TextField
+                    name='last_name'
+                    id="outlined-basic"
+                    label="Last Name"
+                    required
+                    placeholder='Last Name'
+                    variant='outlined'
+                    margin='normal'
+                    onChange={handleChange}
+                    InputProps={{
+                        endAdornment: (
+                            <InputAdornment position='end'>
+                                <AccountCircle />
+                            </InputAdornment>
+                        )
+                    }}
+                />
+                <TextField
+                    name='username'
+                    id="outlined-basic"
+                    label="Username"
+                    required
+                    placeholder='Username'
+                    variant='outlined'
+                    margin='normal'
+                    onChange={handleChange}
+                    InputProps={{
+                        endAdornment: (
+                            <InputAdornment position='end'>
+                                <AccountCircle />
+                            </InputAdornment>
+                        )
+                    }}
+                />
+                <TextField
+                    name='email'
+                    id="outlined-basic"
+                    label="Email Address"
+                    required
+                    placeholder='Email Address'
+                    variant='outlined'
+                    margin='normal'
+                    onChange={handleChange}
+                    InputProps={{
+                        endAdornment: (
+                            <InputAdornment position='end'>
+                                <Email />
+                            </InputAdornment>
+                        )
+                    }}
+                />
+                <TextField
+                    name='password'
+                    id="outlined-basic"
+                    label="Password"
+                    required
+                    placeholder='********'
+                    variant='outlined'
+                    margin='normal'
+                    type={formState.showPassword ? 'text' : 'password'}
+                    onChange={handleChange}
+                    InputProps={{
+                        endAdornment: (
+                            <InputAdornment position='end'>
+                                <Lock onClick={ShowPassword} onMouseDown={MouseDownPW} />
+                            </InputAdornment>
+                        )
+                    }}
+                />
+                <label style={{ textAlign: 'center' }}>Minimum length 8 characters with one special character</label>
+                <div style={{ display: 'flex', justifyContent: 'center', margin: 20, padding: 10, flexDirection: 'column' }}>
+                    <Button id='btn' onClick={signUpFunc} size='large'>
                         Sign Up
-                    </a>
-                    <h6 className='signupLoginToggle' id='toggleLink' style={{ textAlign: 'center' }}>
-                        <Link href='/login'>Returning User?</Link>
-                    </h6>
+                    </Button>
+                    <h2 style={{textAlign: 'center'}}> - or - </h2>
+                    <Link href='/login'>
+                        <Button id='btn' className='signupLoginToggle'>
+                            Returning User?
+                        </Button>
+                    </Link>
                 </div>
-            </form>
-        </div>
+            </form >
+        </div >
     )
 }

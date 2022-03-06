@@ -8,7 +8,6 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import DefaultHeader from '../components/defaultHeader';
-import 'materialize-css/dist/css/materialize.min.css';
 import Navbar from '../components/navbar';
 import Footer from '../components/footer';
 
