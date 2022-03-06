@@ -14,7 +14,7 @@ const OfficialCards = ({ office, officials }: any) => {
                 const { name, party, urls, address, phones } = lvlOfficial;
                 console.log(lvlOfficial)
                 return (
-                    <Card style={{ margin: 10, padding: 10 }}>
+                    <Card style={{ margin: 10, padding: 10 }} id='officialCard' key={name}>
                         <CardContent>
                             <Typography variant='h5' component='div'>
                                 {name}
@@ -22,17 +22,19 @@ const OfficialCards = ({ office, officials }: any) => {
                             <Typography sx={{ mb: 1.5 }} color="text.secondary">
                                 {party}
                             </Typography>
-                            <Typography variant="body2">
-                                Address: {address[0].line1},
+                            <Typography variant="body2"> 
+                                <br />
+                                {address[0].line1},
                                 {address[0].city},
                                 {address[0].state},
                                 {address[0].zip}
                                 <br />
-                                Phone: {phones[0]}
+                                <br />
+                                {phones[0]}
                             </Typography>
                         </CardContent>
                         <CardActions>
-                            <Button size="small" href={urls
+                            <Button size="small" id='nav-btn' href={urls
                                 ? urls[0]
                                 : `https://www.google.com/search?q=${encodeURI(name)}`}
                                 target='_blank'>

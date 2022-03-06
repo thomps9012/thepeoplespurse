@@ -141,9 +141,9 @@ export default function Navbar() {
                     </Box>
                     {/* profile settings */}
                     <Box sx={{ flexGrow: 0 }}>
-                        <Tooltip title='Open settings'>
+                        <Tooltip title='Profile Options'>
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                <Avatar alt='Profile Picture' src='/icon-about.png' />
+                                <Avatar alt='Profile Picture' src='/profile.png' />
                             </IconButton>
                         </Tooltip>
                         <Menu

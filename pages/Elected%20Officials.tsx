@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import OfficialCards from "../components/officialCards";
+import FormControl from "@mui/material/FormControl";
 
 const API_KEY = "AIzaSyDsCAsDVamr-9rGO6DwtlXHcZL-8Tx5oeA"
 
@@ -87,7 +88,9 @@ export default function ElectedOfficials() {
     return (
         <div className="officialContainer">
             <div className="addressInput">
-                <TextField placeholder='Address Input' variant='outlined' onChange={getAddress} label='Enter Address First' />
+                <FormControl fullWidth>
+                <TextField placeholder='Address Input' variant='outlined' onChange={getAddress} label='Enter Address First' helperText='Street Address, City, State, Zip' />
+                </FormControl>
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap' }}>
                 <Button id='govtSearch1' className="btn-large" onClick={nationalLvl}>
@@ -101,7 +104,7 @@ export default function ElectedOfficials() {
                 </Button>
             </div>
             <br />
-            <h3 style={{ textAlign: 'center' }}>Your Elected Officials Are</h3>
+            <h1 style={{ textAlign: 'center' }}>Your Elected Officials Are</h1>
             <hr></hr>
             <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
                 {offices?.map((office: any) => {
@@ -114,11 +117,11 @@ export default function ElectedOfficials() {
                         </>
                     )
                 })}
-                <div id='officialInfo' style={{ rowGap: 20 }}>
-                    <OfficialCards office={office} officials={officials} />
-                </div>
-
             </div>
+            <div id='officialInfo' style={{ rowGap: 10, margin: 30 }}>
+                <OfficialCards office={office} officials={officials} />
+            </div>
+
         </div>
     )
 

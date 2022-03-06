@@ -66,8 +66,7 @@ export default function VotingPage() {
 
   return (
     <div className='voteContainer'>
-
-      <div style={{ display: 'flex', flexWrap: 'wrap-reverse', justifyContent: 'space-evenly', marginTop: 10 }}>
+      <div style={{ display: 'flex', flexWrap: 'wrap-reverse', justifyContent: 'space-evenly', margin: 10 }}>
         <BudgetOutput budget={budget} />
         <Button id='btn' onClick={resetBudget}>
           <i className="material-icons left">restart_alt</i>Reset Budget

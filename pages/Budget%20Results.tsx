@@ -6,7 +6,7 @@ export default function BudgetResults() {
     <>
       {/* <ClassSelect /> */}
       <div id='chart'>
-        <h5 style={{textAlign: 'center', margin: 10}}>Average of All Votes</h5>
+        <h1 style={{textAlign: 'center', margin: 10}}>Average of All Votes</h1>
         <AllVotesCharts />
       </div>
     </>

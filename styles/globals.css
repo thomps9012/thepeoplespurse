@@ -111,8 +111,6 @@ select {
 
 .addressInput {
     font-size: x-large;
-    display: flex;
-    justify-content: center;
     margin: 20px;
     padding: 20px;
 }
@@ -248,13 +246,12 @@ select {
 #govtSearch1,
 #govtSearch2,
 #govtSearch3,
-#officialLink,
-#officialCard {
+#officialLink {
     background-color: #174c4f;
     color: #FFE184;
 }
 
-#officialAdr {
+#officialCard {
     color: #174c4f;
 }
 
