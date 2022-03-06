@@ -190,6 +190,7 @@ select {
     background-color: transparent;
     box-shadow: none;
     margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 .nav-item {
@@ -311,13 +312,11 @@ hr:after {
 }
 
 #landingTitle {
-    margin-top: 70px;
-}
-
-@media (max-width: 801px) {
-    #landingTitle {
-        margin-top: 0px;
-    }
+    margin: 20px;
+    font-size: 50px;
+    text-align: center;
+    vertical-align: middle;
+    display: table-cell;
 }
 
 .loading {
@@ -362,7 +361,7 @@ hr:after {
     display: none;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 900px) {
     #sideNavInstructions {
         display: block;
     }
