@@ -132,11 +132,8 @@ select {
     flex-wrap: wrap;
 }
 
+#aboutLink:hover,
 #voteLink:hover {
-    color: #e57373;
-}
-
-#aboutLink:hover {
     color: #e57373;
 }
 
@@ -184,19 +181,15 @@ select {
     margin: 20px;
 }
 
-@media (max-width: 1025px) {
-    #nav-mobile {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-end;
-        align-items: right;
-        width: 55%;
-    }
-}
-
 #footer {
     background-color: #174c4f;
-    color: #FFE184;
+}
+
+#navBar {
+    color: #174c4f;
+    background-color: transparent;
+    box-shadow: none;
+    margin-bottom: 10px;
 }
 
 .nav-item {
@@ -206,16 +199,14 @@ select {
     padding: 5px;
 }
 
-.side-nav-item {
+#nav-btn {
     color: #174c4f;
-    text-align: center;
-    font-size: large;
-    margin: 15px 10px 15px 10px;
-    padding: 0px 10px 5px 5px;
+    font-family: 'Source Sans Pro', sans-serif;
+    margin: 5px;
 }
 
-#sideIcon {
-    margin-top: 10px;
+#nav-btn:hover {
+    background-color: #FFE184;
 }
 
 #btn {
@@ -223,6 +214,11 @@ select {
     color: #FFE184;
     font-family: 'Source Sans Pro', sans-serif;
     font-size: larger;
+}
+
+.footerBtn {
+    margin: 10px;
+    padding: 10px;
 }
 
 #btn:hover {
@@ -245,11 +241,6 @@ select {
 }
 
 #officialPhone {
-    color: #e57373;
-}
-
-#nav-mobile:hover,
-.nav-item:hover {
     color: #e57373;
 }
 

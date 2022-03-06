@@ -1,9 +1,7 @@
 import { gql, useQuery } from '@apollo/client'
 import Link from 'next/link';
 import ClassInfo from '../components/educator/classInfo';
-import CreateClass from '../components/educator/createClass';
 import LearnerClasses from '../components/learner/learnerClasses';
-import TakeAction from './takeAction';
 import LoggedOut from '../components/loggedOut';
 
 const GET_USER = gql`

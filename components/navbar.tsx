@@ -1,23 +1,67 @@
 import { useEffect, useState } from "react";
 import Image from 'next/image'
 import Link from "next/link";
+import Button from '@mui/material/Button';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import AppBar from '@mui/material/AppBar';
+import MenuIcon from '@mui/icons-material/Menu';
+import Toolbar from '@mui/material/Toolbar';
+import Container from '@mui/material/Container';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
+import IconButton from '@mui/material/IconButton';
+import Tooltip from '@mui/material/Tooltip';
+import Avatar from '@mui/material/Avatar';
+
+const pages = ['Home', 'Department Information', 'Elected Officials', 'Budget Results'];
+const loggedInSettings = ['Profile', 'Logout', 'Take Action', 'Craft Budget'];
+const loggedOutSettings = ['Sign Up', 'Login']
 
 export default function Navbar() {
     const [userJWT, setUserJWT] = useState('')
+    const [anchorElNav, setAnchorElNav] = useState(null);
+    const [anchorElUser, setAnchorElUser] = useState(null);
+
+    const handleOpenNavMenu = (event: any) => {
+        setAnchorElNav(event.currentTarget);
+    };
+    const handleOpenUserMenu = (event: any) => {
+        setAnchorElUser(event.currentTarget);
+    };
+    const handleCloseNavMenu = () => {
+        setAnchorElNav(null)
+    }
+    const handleNav = (page: string) => {
+        setAnchorElNav(null);
+        if (page === 'Logout') {
+            sessionStorage.clear();
+            window.location.assign('/')
+        } else if (page === 'Home') {
+            window.location.assign('/')
+        } else { window.location.assign(`/${page}`) }
+    };
+
+    const handleCloseUserMenu = () => {
+        setAnchorElUser(null);
+    };
 
     useEffect(() => {
         setUserJWT(sessionStorage.getItem('auth_token') || '');
     }, []);
 
-    const logout = () => {
-        sessionStorage.clear();
-        window.location.replace('/')
-    }
+
     return (
-        <div style={{ marginBottom: 50 }}>
-            <nav className="navbar-fixed transparent z-depth-0">
-                <div className="nav-wrapper">
-                    <div className="brand-logo nav-item" style={{ marginTop: 10 }}>
+        <AppBar position='static' id='navBar'>
+            <Container maxWidth='xl'>
+                <Toolbar disableGutters>
+                    {/* side nav */}
+                    <Typography
+                        variant="h6"
+                        noWrap
+                        component="div"
+                        sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
+                    >
                         <Link href="/" passHref>
                             <Image
                                 src='/mixedLogo.png'
@@ -28,56 +72,112 @@ export default function Navbar() {
                                 alt={"People's Purse Logo"}
                             />
                         </Link>
-                    </div>
-                    <a href="#" data-target="mobile-demo" className="sidenav-trigger nav-item"><i className="material-icons">menu</i></a>
-                    <ul id="nav-mobile" className="right hide-on-med-and-down">
-                        {userJWT != '' ?
-                            <>
-                                <Link href="/profile" passHref><li className="nav-item"><h5>Profile</h5></li></Link>
-                                <li className="nav-item" onClick={logout}><h5>Logout</h5></li>
-                                <Link href="/voting" passHref><li className="tab nav-item"><h5>Voting</h5></li></Link>
-                            </>
-                            :
-                            <>
-                                <Link href="/signUp" passHref><li className="nav-item"><h5>Sign Up</h5></li></Link>
-                                <Link href="/login" passHref><li className="nav-item"><h5>Login</h5></li></Link>
-                            </>
-                        }
-                        <Link href="/deptInformation" passHref><li className="tab nav-item"><h5>Department Information</h5 ></li></Link>
-                        <Link href="/electedOfficials" passHref><li className="tab nav-item"><h5>Learn Who Represents You</h5 ></li></Link>
-                        <Link href="/budgetResults" passHref><li className="tab nav-item"><h5>Budget Results</h5 ></li></Link>
-                    </ul >
-                </div >
-            </nav >
+                    </Typography>
 
-            <ul className="sidenav" id="mobile-demo">
-                <div style={{ display: 'flex', justifyContent: 'center', marginTop: 10 }}>
-                    <Link href="/" passHref>
-                        <Image
-                            src='/mixedLogo.png'
-                            layout="intrinsic"
-                            width={340}
-                            height={107}
-                            alt='Sidebar Logo'
-                        />
-                    </Link>
-                </div>
-                {userJWT != '' ?
-                    <>
-                        <Link href="/profile" passHref><li className="side-nav-item"><i className='material-icons left' id='sideIcon'>account_box</i>Profile</li></Link>
-                        <li className="side-nav-item" onClick={logout}><i className='material-icons left' id='sideIcon'>logout</i>Logout</li>
-                        <Link href="/voting" passHref><li className="side-nav-item"><i className='material-icons left' id='sideIcon'>how_to_vote</i>Voting</li></Link>
-                    </>
-                    :
-                    <>
-                        <Link href="/signUp" passHref><li className="side-nav-item"><i className='material-icons left' id='sideIcon'>person_add</i>Sign Up</li></Link>
-                        <Link href="/login" passHref><li className="side-nav-item"><i className='material-icons left' id='sideIcon'>login</i>Login</li></Link>
-                    </>
-                }
-                <Link href="/deptInformation" passHref><li className="tab side-nav-item"><i className='material-icons left' id='sideIcon'>balance</i>Department Information</li></Link>
-                <Link href="/electedOfficials" passHref><li className="tab side-nav-item"><i className='material-icons left' id='sideIcon'>contact_phone</i>Learn Who Represents You</li></Link>
-                <Link href="/budgetResults" passHref><li className="side-nav-item"><i className='material-icons left' id='sideIcon'>analytics</i>Budget Results</li></Link>
-            </ul>
-        </div >
+                    <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+                        <IconButton
+                            size="large"
+                            aria-label="account of current user"
+                            aria-controls="menu-appbar"
+                            aria-haspopup="true"
+                            onClick={handleOpenNavMenu}
+                            color="inherit"
+                        >
+                            <MenuIcon />
+                        </IconButton>
+                        <Menu
+                            id='menu-appbar'
+                            anchorEl={anchorElNav}
+                            anchorOrigin={{
+                                vertical: 'bottom',
+                                horizontal: 'left',
+                            }}
+                            keepMounted
+                            transformOrigin={{
+                                vertical: 'top',
+                                horizontal: 'left',
+                            }}
+                            open={Boolean(anchorElNav)}
+                            onClose={handleCloseNavMenu}
+                            sx={{
+                                display: { xs: 'block', md: 'none' },
+                            }}
+                        > {pages.map((page) => (
+                            <MenuItem className='nav-item' key={page} onClick={() => handleNav(page)}>
+                                <Typography textAlign="center">{page}</Typography>
+                            </MenuItem>
+                        ))}
+                        </Menu>
+                    </Box>
+                    {/* base navbar */}
+                    <Typography
+                        variant="h6"
+                        noWrap
+                        component="div"
+                        sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
+                    >
+                        <Link href="/" passHref>
+                            <Image
+                                src='/mixedLogo.png'
+                                layout="intrinsic"
+                                width={340}
+                                height={107}
+                                priority
+                                alt={"People's Purse Logo"}
+                            />
+                        </Link>
+                    </Typography>
+                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+                        {pages.map((page) => (
+                            <Button
+                                id='nav-btn'
+                                key={page}
+                                onClick={() => handleNav(page)}
+                                sx={{ my: 2, color: 'white', display: 'block' }}
+                            >
+                                {page}
+                            </Button>
+                        ))}
+                    </Box>
+                    {/* profile settings */}
+                    <Box sx={{ flexGrow: 0 }}>
+                        <Tooltip title='Open settings'>
+                            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                                <Avatar alt='Profile Picture' src='/icon-about.png' />
+                            </IconButton>
+                        </Tooltip>
+                        <Menu
+                            sx={{ mt: '45px' }}
+                            id="menu-appbar"
+                            anchorEl={anchorElUser}
+                            anchorOrigin={{
+                                vertical: 'top',
+                                horizontal: 'right',
+                            }}
+                            keepMounted
+                            transformOrigin={{
+                                vertical: 'top',
+                                horizontal: 'right',
+                            }}
+                            open={Boolean(anchorElUser)}
+                            onClose={handleCloseUserMenu}
+                        >
+                            {userJWT != '' ?
+                                loggedInSettings.map((page: string) => (
+                                    <MenuItem className="nav-item" key={page} onClick={() => handleNav(page)}>
+                                        <Typography textAlign="center">{page}</Typography>
+                                    </MenuItem>
+                                ))
+                                :
+                                loggedOutSettings.map((page) => (
+                                    <MenuItem className="nav-item" key={page} onClick={() => handleNav(page)}>
+                                        <Typography textAlign="center">{page}</Typography>
+                                    </MenuItem>
+                                ))}
+                        </Menu>
+                    </Box>
+                </Toolbar>
+            </Container>
+        </AppBar>
     )
 }
