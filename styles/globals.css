@@ -223,6 +223,18 @@ select {
     font-size: larger;
 }
 
+#voteSubmit {
+    background-color: #174c4f;
+    color: #FFE184;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: xx-large;
+}
+
+#voteSubmit:disabled {
+    background-color: gainsboro;
+    color: rgb(141, 138, 138);
+}
+
 .footerBtn {
     margin: 10px;
     padding: 10px;
@@ -233,7 +245,6 @@ select {
     color: #174c4f;
 }
 
-#voteSubmit,
 #govtSearch1,
 #govtSearch2,
 #govtSearch3,
@@ -383,6 +394,7 @@ hr:after {
     align-items: stretch;
 }
 
-.profileContainer {
+.profileContainer,
+.voteContainer {
     margin-bottom: 100px;
 }

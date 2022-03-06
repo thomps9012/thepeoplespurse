@@ -6,7 +6,7 @@ export default function BudgetOutput(budget: any) {
     let budgetArr = budget.budget
     budgetArr.forEach((dept: { percent: number }) => totalBudget += dept.percent)
     useEffect(() => {
-        if(totalBudget!= 100) document.getElementById('voteSubmit')?.setAttribute('disabled', 'true')
+        if(totalBudget != 100) document.getElementById('voteSubmit')?.setAttribute('disabled', 'true')
     })
     if(totalBudget === 100){
         document.getElementById('voteSubmit')?.removeAttribute('disabled')
