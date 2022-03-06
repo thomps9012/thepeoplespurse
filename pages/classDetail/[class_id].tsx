@@ -1,7 +1,5 @@
 import { useQuery, gql } from '@apollo/client';
-import { useRouter } from 'next/router';
-import M from 'materialize-css';
-import { useEffect } from 'react';
+import useRouter from "next/router";
 
 const CLASS_ACTIONS = gql`
 query ClassActions($classId: ID!) {
@@ -29,9 +27,7 @@ export default function ClassDetail() {
             classId: classID
         }
     });
-    useEffect(() => {
-        M.AutoInit();
-    })
+
     if (loading) return <h1 style={{ margin: 35, padding: 35, textAlign: 'center' }}>🛠 Give us just a minute here... 🛠</h1>;
     if (error) return <h1 style={{ margin: 35, padding: 35, textAlign: 'center' }}>Error :({JSON.stringify(error)}</h1>;
     const classData = data.classActions;

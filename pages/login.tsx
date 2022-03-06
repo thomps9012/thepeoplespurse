@@ -44,7 +44,7 @@ export default function Login() {
     const loginFunc = async (e: any) => {
         e.preventDefault();
         if (errorMsg != '') {
-            M.toast({ html: errorMsg, classes: 'rounded' })
+            alert(errorMsg)
         } else {
             try {
 
@@ -65,7 +65,7 @@ export default function Login() {
             } catch {
                 if(error){
                     const errorAlert = error?.message 
-                    M.toast({ html: errorAlert })
+                   alert(errorAlert)
                 }
             }
         }

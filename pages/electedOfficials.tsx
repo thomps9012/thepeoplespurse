@@ -27,7 +27,7 @@ export default function ElectedOfficials() {
                 if (response.status === 200) {
                     return response.json();
                 } else {
-                    M.toast({ html: 'Please enter a valid address.' })
+                    alert('Please enter a valid address.')
                 }
             })
             .then(function (data) {
@@ -45,7 +45,7 @@ export default function ElectedOfficials() {
                 if (response.status === 200) {
                     return response.json();
                 } else {
-                    M.toast({ html: 'Please enter a valid address.' })
+                    alert('Please enter a valid address.')
                 }
             })
             .then(function (data) {
@@ -63,7 +63,7 @@ export default function ElectedOfficials() {
                 if (response.status === 200) {
                     return response.json();
                 } else {
-                    M.toast({ html: 'Please enter a valid address.' })
+                    alert('Please enter a valid address.')
                 }
             })
             .then(function (data) {
@@ -82,7 +82,7 @@ export default function ElectedOfficials() {
         officialDiv != null ? officialDiv.innerHTML = '' : '';
         officeOfficials.map((officeIndex: number) => {
             const lvlOfficial: any = officials[officeIndex];
-            const {name, party, urls, address, phones} = lvlOfficial;
+            const { name, party, urls, address, phones } = lvlOfficial;
             const lvlOfficialEl = ` 
                                     <div class="card" id='officialCard'>
                                         <div class="card-content white-text">
@@ -97,16 +97,16 @@ export default function ElectedOfficials() {
                                         </div>
                                         <div class="card-reveal">
                                             <span class="card-title grey-text text-darken-4">${name}<i class="material-icons right">close</i></span>
-                                            ${address ? 
-                                            `<p id='officialAdr'> Address: ${address[0].line1},
+                                            ${address ?
+                    `<p id='officialAdr'> Address: ${address[0].line1},
                                             ${address[0].city},
                                             ${address[0].state},
                                               ${address[0].zip}
                                               </p>`:
-                                              `Address Information Unavailable`}
-                                              ${phones ? 
-                                              `<p id='officialPhone' >Phone: ${phones[0]}</p>`:
-                                              `Phone Information Unavailable`}    
+                    `Address Information Unavailable`}
+                                              ${phones ?
+                    `<p id='officialPhone' >Phone: ${phones[0]}</p>` :
+                    `Phone Information Unavailable`}    
                                         </div>
                                     </div>
                                     `
@@ -140,13 +140,13 @@ export default function ElectedOfficials() {
                         <>
                             {/* can compartmentalize this */}
                             <a href='#officialInfo' id='officialOffice'>
-                            <h3 style={{ margin: 10, padding: 10}} key={office.name} onClick={() => displayOfficials(office)}>{office.name}</h3>
+                                <h3 style={{ margin: 10, padding: 10 }} key={office.name} onClick={() => displayOfficials(office)}>{office.name}</h3>
                             </a>
                             <br />
                         </>
                     )
                 })}
-                <div id='officialInfo' style={{rowGap: 20}}></div>
+                <div id='officialInfo' style={{ rowGap: 20 }}></div>
             </div>
         </div>
     )

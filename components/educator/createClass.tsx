@@ -34,10 +34,10 @@ export default function CreateClass() {
                             }
                         }).then(data => {
                             if (data.data.createClass != '' || null) {
-                                M.toast({ html: 'Successfully Created Class' })
+                                alert('Successfully Created Class')
                                 window.location.reload();
                             } else {
-                                M.toast({ html: 'Error Creating Class' })
+                              alert('Error Creating Class')
                             }
                         })
                     }}>

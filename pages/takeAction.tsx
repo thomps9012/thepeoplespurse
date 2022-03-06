@@ -64,7 +64,7 @@ export default function TakeAction() {
     const submitAction = async (e: any) => {
         e.preventDefault();
         if (errorMsg != '') {
-            M.toast({ html: errorMsg, classes: 'rounded' })
+           alert(errorMsg)
         } else {
             try {
                 const actionResponse = await takeAction({
@@ -82,14 +82,14 @@ export default function TakeAction() {
                 const actionID = actionResponse.data.takeAction
                 console.log(actionID)
                 if (actionID) {
-                    M.toast({ html: "Your action has been recorded successfully", classes: 'rounded' })
+                    alert('Your action has been recorded successfully')
                     window.location.assign('/profile')
                 }
             }
             catch {
                 if (error) {
                     const errorAlert = error?.message
-                    M.toast({ html: errorAlert })
+                    alert(errorAlert)
                 }
             }
         }

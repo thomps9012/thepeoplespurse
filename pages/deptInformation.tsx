@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { DeptInfo } from '../components/deptInfo'
 import Image from 'next/image'
-import M from 'materialize-css';
 
 
 export default function DeptInformation() {
@@ -14,9 +13,6 @@ export default function DeptInformation() {
         code: DeptInfo[0].code
     })
     //   possibly replace with own select to avoid issues
-    useEffect(() => {
-        M.AutoInit();
-    })
     let handleChange = (e: any) => {
         const selected = e.target.value
         const newDept = DeptInfo.find(({ abbr }: any) => abbr === selected)

@@ -58,7 +58,7 @@ export default function SignUp() {
     const signUpFunc = async (e: any) => {
         e.preventDefault();
         if (errorMsg != '') {
-            M.toast({ html: errorMsg, classes: 'rounded' })
+            alert(errorMsg)
         } else {
             try {
 
@@ -81,7 +81,7 @@ export default function SignUp() {
             } catch {
                 if (error) {
                     const errorAlert = error?.message
-                    M.toast({ html: errorAlert })
+                    alert(errorAlert)
                 }
             }
         }
@@ -160,7 +160,7 @@ export default function SignUp() {
                         <i className='material-icons right'>login</i>
                         Sign Up
                     </a>
-                    <h6 className='signupLoginToggle' id='toggleLink' style={{textAlign: 'center' }}>
+                    <h6 className='signupLoginToggle' id='toggleLink' style={{ textAlign: 'center' }}>
                         <Link href='/login'>Returning User?</Link>
                     </h6>
                 </div>

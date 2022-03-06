@@ -1,5 +1,5 @@
 import '../styles/globals.css'
-import { AppProps } from 'next/app';
+import AppProps from 'next/app';
 import {
   ApolloClient,
   InMemoryCache,

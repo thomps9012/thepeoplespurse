@@ -7,22 +7,11 @@ export default function Navbar() {
 
     useEffect(() => {
         setUserJWT(sessionStorage.getItem('auth_token') || '');
-        const init = async () => {
-            const M = await import('materialize-css');
-            const elems = document.querySelectorAll('.sidenav');
-            const instances = M.Sidenav.init(elems);
-        };
-        init();
     }, []);
 
     const logout = () => {
         sessionStorage.clear();
         window.location.replace('/')
-    }
-    const hideNav = () => {
-        const elems = document.querySelector('.sidenav') as HTMLElement;
-        var instance = M.Sidenav.getInstance(elems)
-        instance.close()
     }
     return (
         <div style={{ marginBottom: 50 }}>
@@ -61,7 +50,7 @@ export default function Navbar() {
                 </div >
             </nav >
 
-            <ul className="sidenav" id="mobile-demo" onMouseUp={hideNav}>
+            <ul className="sidenav" id="mobile-demo">
                 <div style={{ display: 'flex', justifyContent: 'center', marginTop: 10 }}>
                     <Link href="/" passHref>
                         <Image
