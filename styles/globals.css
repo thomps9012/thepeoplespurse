@@ -182,7 +182,8 @@ select {
 
 #chart {
     min-height: 75vh;
-    margin: 20px;
+    margin: 50px;
+    padding: 20px;
 }
 
 #footer {
@@ -380,4 +381,8 @@ hr:after {
     flex-direction: column;
     justify-content: center;
     align-items: stretch;
+}
+
+.profileContainer {
+    margin-bottom: 100px;
 }

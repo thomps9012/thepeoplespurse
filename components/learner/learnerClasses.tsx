@@ -1,5 +1,6 @@
 import { useQuery, useMutation, gql } from "@apollo/client"
-import Link from "next/link";
+import Fab from '@mui/material/Fab';
+import Delete from '@mui/icons-material/Delete';
 import LoggedOut from "../loggedOut";
 
 const GET_CLASSES = gql`
@@ -40,15 +41,17 @@ export default function LearnerClasses() {
     const classes = data.classes;
     return (
         <div>
-            <h5 style={{textAlign: 'center'}}>Your Classes</h5>
-            <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around', padding: 10, margin: 10}}>
+            <h1 style={{ textAlign: 'center' }}>Your Classes</h1>
+            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around', padding: 10, margin: 10 }}>
                 {classes.map((classDetail: any) => {
                     return (
-                        <div key={classDetail._id}>
-                            <h6>
+                        <div key={classDetail._id} style={{display: 'flex', margin: 5, padding: 5}}>
+                            <h2 style={{ padding: 5 }}>
                                 {classDetail.class_code}
-                                <a style={{ margin: 5, marginTop: 5 }} className="btn-floating btn-small waves-effect waves-light red" onClick={removeClass}><i id={classDetail._id} className='material-icons'>clear</i>Remove Class</a>
-                            </h6>
+                            </h2>
+                            <Fab size='small' color='error' onClick={removeClass}>
+                                <Delete />
+                            </Fab>
                         </div>
                     )
                 })}

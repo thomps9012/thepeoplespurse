@@ -90,7 +90,7 @@ export default function SignUp() {
                 const token = signUpResponse.data.signUp.token
                 if (token) {
                     sessionStorage.setItem('auth_token', token)
-                    window.location.assign('/profile')
+                    window.location.assign('/Profile')
                 }
             } catch {
                 if (error) {

@@ -14,7 +14,7 @@ const OfficialCards = ({ office, officials }: any) => {
                 const { name, party, urls, address, phones } = lvlOfficial;
                 console.log(lvlOfficial)
                 return (
-                    <Card>
+                    <Card style={{ margin: 10, padding: 10 }}>
                         <CardContent>
                             <Typography variant='h5' component='div'>
                                 {name}
@@ -34,7 +34,8 @@ const OfficialCards = ({ office, officials }: any) => {
                         <CardActions>
                             <Button size="small" href={urls
                                 ? urls[0]
-                                : `https://www.google.com/search?q=${encodeURI(name)}`}>
+                                : `https://www.google.com/search?q=${encodeURI(name)}`}
+                                target='_blank'>
                                 Learn More
                             </Button>
                         </CardActions>

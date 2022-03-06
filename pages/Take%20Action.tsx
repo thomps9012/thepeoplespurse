@@ -83,7 +83,7 @@ export default function TakeAction() {
                 console.log(actionID)
                 if (actionID) {
                     alert('Your action has been recorded successfully')
-                    window.location.assign('/profile')
+                    window.location.assign('/Profile')
                 }
             }
             catch {

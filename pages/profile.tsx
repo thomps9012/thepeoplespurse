@@ -3,6 +3,7 @@ import Link from 'next/link';
 import ClassInfo from '../components/educator/classInfo';
 import LearnerClasses from '../components/learner/learnerClasses';
 import LoggedOut from '../components/loggedOut';
+import Button from '@mui/material/Button';
 
 const GET_USER = gql`
 query Query {
@@ -28,13 +29,13 @@ export default function ProfilePage() {
     const user = data.getUser;
     const { first_name, last_name, educator, actions } = user;
     return (
-        <div className='container'>
-            <div style={{ display: 'flex', marginTop: 15 }}>
-                <h5 style={{ marginRight: 10 }}>{first_name}</h5>
-                <h5>{last_name}</h5>
+        <div className='profileContainer'>
+            <div style={{ display: 'flex', margin: 25 }}>
+                <h3 style={{ marginRight: 10 }}>{first_name}</h3>
+                <h3>{last_name}</h3>
             </div>
             {educator ?
-                <div className='container'>
+                <div className='profileContainer'>
                     <ClassInfo />
                     <div style={{ display: 'flex', justifyContent: 'center' }}>
                         <div style={{ textAlign: 'center', margin: 20 }}>
@@ -47,25 +48,31 @@ export default function ProfilePage() {
                     </div>
                 </div> :
                 <div className='learnerProfile'>
-                    <h5 style={{ textAlign: 'center', margin: 40 }}>{actions.length} Actions Taken</h5>
+                    <h1 style={{ textAlign: 'center', margin: 40 }}>{actions.length} Actions Taken</h1>
                     <LearnerClasses />
                     <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap' }}>
                         {/* join a class */}
                         <div style={{ textAlign: 'center', margin: 20 }}>
-                            <Link href='/joinClass' passHref>
-                                <div id='btn' className='waves-effect btn-large'><i className='material-icons left'>school</i>Join a New Class</div>
+                            <Link href='/JoinClass' passHref>
+                                <Button id='btn'>
+                                    <i className='material-icons left'>school</i>Join a New Class
+                                </Button>
                             </Link>
                         </div>
                         {/* take an action */}
                         <div style={{ textAlign: 'center', margin: 20 }}>
-                            <Link href='/takeAction' passHref>
-                                <div id='btn' className='waves-effect btn-large'><i className='material-icons left'>task_alt</i>Take a Civic Action</div>
+                            <Link href='/Take%20Action' passHref>
+                                <Button id='btn'>
+                                    <i className='material-icons left'>task_alt</i>Take a Civic Action
+                                </Button>
                             </Link>
                         </div>
                         {/* vote */}
                         <div style={{ textAlign: 'center', margin: 20 }}>
-                            <Link href='/voting' passHref>
-                                <div id='btn' className='waves-effect btn-large'><i className='material-icons left'>addchart</i>Craft a Federal Budget</div>
+                            <Link href='/Craft%20Budget' passHref>
+                                <Button id='btn'>
+                                    <i className='material-icons left'>addchart</i>Craft a Federal Budget
+                                </Button>
                             </Link>
                         </div>
                     </div>

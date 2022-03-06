@@ -9,6 +9,7 @@ import {
     ArcElement
 } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
+import Skeleton from '@mui/material/Skeleton';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -102,7 +103,8 @@ const AllVotesCharts = () => {
             }
         }
     }
-    if (loading) return <h1 id='loading' style={{ margin: 35, padding: 35, textAlign: 'center'}}>🛠 Give us just a minute here... 🛠 </h1>;
+    // if (loading) return <h1 id='loading' style={{ margin: 35, padding: 35, textAlign: 'center'}}>🛠 Give us just a minute here... 🛠 </h1>;
+    if (loading) return <Skeleton />;
     if (error) return <h1 style={{ margin: 35, padding: 35, textAlign: 'center' }}>Error :( {JSON.stringify(error.message)}</h1>;
 
     const options = {
@@ -228,13 +230,7 @@ const AllVotesCharts = () => {
         }]
     };
     return (
-        <div className='container'>
-            {/* <Bar
-            data={chartData}
-            width={400}
-            height={400}
-            options={options}
-        /> */}
+        <div >
             <Doughnut
                 data={chartData}
                 options={options}
