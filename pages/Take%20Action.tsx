@@ -1,5 +1,9 @@
 import { useMutation, gql } from "@apollo/client"
 import { useEffect, useState } from "react";
+import TextField from '@mui/material/TextField';
+import FormControl from '@mui/material/FormControl';
+import Button from '@mui/material/Button';
+import FormLabel from '@mui/material/FormLabel';
 
 const TAKE_ACTION = gql`
 mutation Mutation($input: TakeAction!) {
@@ -64,7 +68,7 @@ export default function TakeAction() {
     const submitAction = async (e: any) => {
         e.preventDefault();
         if (errorMsg != '') {
-           alert(errorMsg)
+            alert(errorMsg)
         } else {
             try {
                 const actionResponse = await takeAction({
@@ -96,91 +100,75 @@ export default function TakeAction() {
     }
     if (loading) return <h1 id='loading' style={{ margin: 35, padding: 35, textAlign: 'center' }}>🛠 Give us just a minute here to record your awesome action... 🛠 </h1>;
     return (
-        <div style={{ marginTop: 20 }} className='container'>
+        <div style={{ margin: 50, marginBottom: 100 }} className='container'>
             <div>
                 <a id='volunteerLink' href="https://www.volunteermatch.org/" target="_blank" rel="noopener noreferrer">
-                    <h5>
+                    <h2>
                         Looking for Volunteer Opportunities and Ideas?
-                    </h5>
+                    </h2>
                     <i id='volunteerIcon' className='material-icons'>volunteer_activism</i>
                 </a>
             </div>
-            <form
-                className="actionForm"
-            >
-                <div className="actionForm">
-                    <div className="input-field">
-
-                        <label>Action Description</label>
-                        <input
-                            type='text'
-                            name='name'
-                            id='name'
-                            required
-                            onChange={handleChange}
+            <FormControl fullWidth>
+                <TextField
+                    name='name'
+                    required
+                    label='Action Description'
+                    margin='normal'
+                    onChange={handleChange}
+                />
+                <TextField
+                    name='detail'
+                    required
+                    label='Detailed Description'
+                    multiline
+                    margin='normal'
+                    onChange={handleChange}
+                />
+                <TextField
+                    name='length'
+                    required
+                    label='Action Length'
+                    type='number'
+                    margin='normal'
+                    onChange={handleChange}
+                />
+                <TextField
+                    name='date'
+                    required
+                    type='datetime-local'
+                    margin='normal'
+                    helperText='Action Date / Time'
+                    onChange={handleChange}
+                />
+                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                    <TextField
+                        name='organization'
+                        label='Organization'
+                        margin='normal'
+                        helperText='Not Required'
+                        style={{marginRight: 5}}
+                        onChange={handleChange}
+                        fullWidth
                         />
-                    </div>
-                    <div className="input-field">
-                        <label>Action Detail</label>
-                        <textarea
-                            className="materialize-textarea"
-                            name='detail'
-                            id='detail'
-                            required
-                            onChange={handleChange}
-                        />
-                    </div>
-                    <div className="input-field">
-                        <label>Length of Action</label>
-                        <input
-                            type='number'
-                            name='length'
-                            id='length'
-                            required
-                            onChange={handleChange}
-                        />
-                    </div>
-                    <label>Action Date</label>
-                    <input
-                        type='date'
-                        name='action_date'
-                        id='action_date'
+                    <TextField
+                        name='contact'
+                        label='Contact'
                         required
+                        margin='normal'
+                        helperText='Family Members Count'
+                        style={{marginLeft: 5}}
+                        fullWidth
                         onChange={handleChange}
                     />
-                    <div className="row">
-                        <div className="input-field col s6">
-                            <label>Affiliated Organization</label>
-                            <input
-                                type='text'
-                                name='organization'
-                                id='organization'
-                                required
-                                onChange={handleChange}
-                            />
-                        </div>
-                        <div className="input-field col s6">
-                            <label>Contact at Organization</label>
-                            <input
-                                type='text'
-                                name='contact'
-                                id='contact'
-                                required
-                                onChange={handleChange}
-                            />
-                        </div>
-                    </div>
                 </div>
-            </form>
+            </FormControl>
             <div style={{ margin: 30, display: 'flex', justifyContent: 'center' }}>
-
-                <a id='btn'
-                    className='waves-effect btn-large'
-                    onClick={submitAction}
-                >
+                <Button id='btn' onClick={submitAction}>
                     <i className='material-icons left'>done</i>
                     Record Civic Action
-                </a>
+
+                </Button>
             </div>
         </div>
     )

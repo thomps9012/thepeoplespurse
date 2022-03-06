@@ -4,6 +4,7 @@ import ClassInfo from '../components/educator/classInfo';
 import LearnerClasses from '../components/learner/learnerClasses';
 import LoggedOut from '../components/loggedOut';
 import Button from '@mui/material/Button';
+import Skeleton from '@mui/material/Skeleton';
 
 const GET_USER = gql`
 query Query {
@@ -22,7 +23,7 @@ query Query {
 
 export default function ProfilePage() {
     const { loading, error, data } = useQuery(GET_USER);
-    if (loading) return <h1 id='loading' style={{ margin: 77, padding: 77, textAlign: 'center' }}>🛠 Give us just a minute here... 🛠</h1>;
+    if (loading) return <Skeleton />;
     if (error) {
         return <LoggedOut />
     }
