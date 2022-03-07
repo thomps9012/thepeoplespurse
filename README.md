@@ -8,7 +8,7 @@ The People's Purse is an educational and social change platform that aims to inf
 2.	Citizens then work with elected officials to craft budgetary proposals to meet these needs
 3.	Citizens are then able to vote on where and how public funds are spent
 
-The project is live and free to use at [People's Purse](https://peoplespurse.org). 
+#### The project is live and free to use at [People's Purse](https://peoplespurse.org). 
 
 
 ### Features include: 
@@ -30,7 +30,7 @@ The project is live and free to use at [People's Purse](https://peoplespurse.org
 7. ReactChart.js (React Based Components for Chart.js)
 
 ## Project Notes
-This project is currently hosted on an Azure Web Application with a seperatly hosted CosmosDB Backend, also on Azure. Functionality is being adding in based on educator and user feedback, so any and all recommendations are not only encouraged, but welcomed. The People's Purse can be run either locally or visited at [Link](https://peoplespurse.org)
+This project is currently hosted on an Azure Web Application with a seperatly hosted CosmosDB Backend, also on Azure. Functionality is being adding in based on educator and user feedback, so any and all recommendations are not only encouraged, but welcomed. The People's Purse can be run either locally or visited at [People's Purse](https://peoplespurse.org)
 
 ## Installation and Setup Instructions
 In order to clone this repository you'll need `node` installed on your machine. Once you've cloned the repository you can run the following commands for usage:
