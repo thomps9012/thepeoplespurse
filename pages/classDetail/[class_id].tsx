@@ -1,5 +1,11 @@
 import { useQuery, gql } from '@apollo/client';
-import {useRouter} from 'next/router';
+import { useRouter } from 'next/router';
+import Skeleton from '@mui/material/Skeleton';
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import Typography from '@mui/material/Typography';
+import ExpandMoreSharp from '@mui/icons-material/ExpandMoreSharp';
 
 const CLASS_ACTIONS = gql`
 query ClassActions($classId: ID!) {
@@ -28,7 +34,7 @@ export default function ClassDetail() {
         }
     });
 
-    if (loading) return <h1 style={{ margin: 35, padding: 35, textAlign: 'center' }}>🛠 Give us just a minute here... 🛠</h1>;
+    if (loading) return <Skeleton />
     if (error) return <h1 style={{ margin: 35, padding: 35, textAlign: 'center' }}>Error :({JSON.stringify(error)}</h1>;
     const classData = data.classActions;
     console.log(classData)
@@ -39,32 +45,38 @@ export default function ClassDetail() {
                 {classData.length === 0 ?
                     <h3 style={{ textAlign: 'center' }}>No learners have joined this class yet</h3>
                     :
-                    <ul className='collapsible'>
+                    <Accordion>
                         {classData.map((learner: any) => {
                             const { _id, first_name, actions, last_name } = learner;
                             return (
                                 <li className='collapsible-header' id='btn' key={_id}>
-                                    <h5 id={_id}>{first_name} {last_name}</h5>
-                                    <ol className='collapsible-body' id={learner._id + 'List'} style={{ display: 'none' }}>
-                                        {actions.map((action: any) => {
-                                            const { action_date, name, detail } = action;
-                                            let year = action_date.slice(0, 4);
-                                            let month = action_date.slice(5, 7)
-                                            let day = action_date.slice(8, 10)
-                                            let formattedDate = `${month}/${day}/${year}`;
-                                            return (
-                                                <li key={action_date}>
-                                                    <h5>{name}</h5>
-                                                    <h6>{formattedDate}</h6>
-                                                    <p>{detail}</p>
-                                                </li>
-                                            )
-                                        })}
-                                    </ol>
+                                    <AccordionSummary id={_id} expandIcon={<ExpandMoreSharp />}>
+                                        <Typography>
+                                            {first_name} {last_name}
+                                        </Typography>
+                                    </AccordionSummary>
+                                    <AccordionDetails>
+                                        <ol id={learner._id + 'List'}>
+                                            {actions.map((action: any) => {
+                                                const { action_date, name, detail } = action;
+                                                let year = action_date.slice(0, 4);
+                                                let month = action_date.slice(5, 7)
+                                                let day = action_date.slice(8, 10)
+                                                let formattedDate = `${month}/${day}/${year}`;
+                                                return (
+                                                    <li key={action_date}>
+                                                        <h5>{name}</h5>
+                                                        <h6>{formattedDate}</h6>
+                                                        <p>{detail}</p>
+                                                    </li>
+                                                )
+                                            })}
+                                        </ol>
+                                    </AccordionDetails>
                                 </li>
                             )
                         })}
-                    </ul>
+                    </Accordion>
                 }
             </div>
         </div>

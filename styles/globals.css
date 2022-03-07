@@ -26,14 +26,16 @@ select {
     background-color: '#1a237e'
 }
 
-.loginContainer {
-    height: 70vh;
+.loginContainer,
+.signUpContainer {
+    min-height: 70vh;
     padding: 1rem;
     width: 100%;
     display: inline-flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 100px;
 }
 
 .loginForm,
@@ -50,15 +52,6 @@ select {
     }
 }
 
-.signUpContainer {
-    min-height: 70vh;
-    padding: 1rem;
-    width: 100%;
-    display: inline-flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
 
 .signupLoginToggle {
     font-weight: bolder;

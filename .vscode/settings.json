@@ -1,4 +1,5 @@
 {
+    "appService.showBuildDuringDeployPrompt": false,
     "appService.defaultWebAppToDeploy": "/subscriptions/3d359aa6-29c5-46c0-ac67-78da511e5463/resourceGroups/peoples_purse/providers/Microsoft.Web/sites/peoplespurse",
     "appService.deploySubpath": "."
 }

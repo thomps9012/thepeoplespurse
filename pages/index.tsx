@@ -19,7 +19,7 @@ const Home: NextPage = () => {
           priority
         />
         <h2 id='sideNavInstructions' style={{ margin: 25, padding: 15, textAlign: 'center' }}>
-          Use the Side NavBar above to Sign Up or Login
+          Use the Menus Above to Sign Up or Login and Navigate the Website
         </h2>
       </div>
       <div style={{ margin: 25, padding: 10, marginBottom: 50 }}>
