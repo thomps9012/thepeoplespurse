@@ -11,6 +11,7 @@ import Email from '@mui/icons-material/Email';
 import Lock from '@mui/icons-material/Lock';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import Button from '@mui/material/Button';
+import FormControl from '@mui/material/FormControl';
 
 const LOGIN = gql`
 mutation CreateClass($input: LoginInput!) {
@@ -100,9 +101,7 @@ export default function Login() {
     }
     return (
         <div className='loginContainer'>
-            <form
-                className="loginForm"
-            >
+            <FormControl fullWidth>
                 <TextField
                     name='username'
                     id="outlined-basic"
@@ -155,21 +154,18 @@ export default function Login() {
                         )
                     }}
                 />
-
-                <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 10, flexDirection: 'column' }}>
-                    <div style={{ display: 'flex', justifyContent: 'center', margin: 20, padding: 10, flexDirection: 'column' }}>
-                        <Button id='btn' onClick={loginFunc} size='large'>
-                            Login
+                <div style={{ display: 'flex', justifyContent: 'center', margin: 20, padding: 10, flexDirection: 'column' }}>
+                    <Button id='btn' onClick={loginFunc} size='large'>
+                        Login
+                    </Button>
+                    <h2 style={{ textAlign: 'center' }}> - or - </h2>
+                    <Link href='/Sign%20Up' passHref>
+                        <Button id='btn' className='signupLoginToggle'>
+                            New User?
                         </Button>
-                        <h2 style={{ textAlign: 'center' }}> - or - </h2>
-                        <Link href='/signUp' passHref>
-                            <Button id='btn' className='signupLoginToggle'>
-                                New User?
-                            </Button>
-                        </Link>
-                    </div>
+                    </Link>
                 </div>
-            </form>
+            </FormControl>
         </div>
     )
 }
