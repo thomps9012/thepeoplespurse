@@ -11,7 +11,7 @@ export function checkPassword(input: any) {
 
 
 export function officialDiv() {
-    const officialContainer = document.getElementById('officialContainer') as HTMLElement;
+    const officialContainer = document.querySelector('.officialContainer') as HTMLElement;
     const officialDiv = document.getElementById('officialInfo') as HTMLElement;
     console.log(officialContainer)
     console.log(officialDiv)
