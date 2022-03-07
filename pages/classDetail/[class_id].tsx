@@ -1,5 +1,5 @@
 import { useQuery, gql } from '@apollo/client';
-import useRouter from "next/router";
+import {useRouter} from 'next/router';
 
 const CLASS_ACTIONS = gql`
 query ClassActions($classId: ID!) {

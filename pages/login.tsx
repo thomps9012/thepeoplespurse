@@ -162,7 +162,7 @@ export default function Login() {
                             Login
                         </Button>
                         <h2 style={{ textAlign: 'center' }}> - or - </h2>
-                        <Link href='/signUp'>
+                        <Link href='/signUp' passHref>
                             <Button id='btn' className='signupLoginToggle'>
                                 New User?
                             </Button>

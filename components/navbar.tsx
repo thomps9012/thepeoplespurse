@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import Image from 'next/image'
-import Link from "next/link";
+import { useEffect, useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
@@ -143,7 +143,7 @@ export default function Navbar() {
                     <Box sx={{ flexGrow: 0 }}>
                         <Tooltip title='Profile Options'>
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                <Avatar alt='Profile Picture' src='/profile.png' />
+                                <Avatar alt='Profile Picture' src='/favicon.png' />
                             </IconButton>
                         </Tooltip>
                         <Menu
