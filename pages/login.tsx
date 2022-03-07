@@ -11,7 +11,6 @@ import Email from '@mui/icons-material/Email';
 import Lock from '@mui/icons-material/Lock';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import Button from '@mui/material/Button';
-import FormControl from '@mui/material/FormControl';
 
 const LOGIN = gql`
 mutation CreateClass($input: LoginInput!) {
@@ -101,7 +100,7 @@ export default function Login() {
     }
     return (
         <div className='loginContainer'>
-            <FormControl fullWidth>
+            <form className='loginForm'>
                 <TextField
                     name='username'
                     id="outlined-basic"
@@ -165,7 +164,7 @@ export default function Login() {
                         </Button>
                     </Link>
                 </div>
-            </FormControl>
+            </form>
         </div>
     )
 }

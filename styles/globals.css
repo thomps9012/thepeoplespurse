@@ -46,7 +46,10 @@ select {
 }
 
 @media (max-width: 576px) {
-    .loginForm,
+    .loginForm {
+        min-width: 0px;
+        width: 100%;
+    }
     .signUpForm {
         min-width: 0px;
     }
