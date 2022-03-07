@@ -1,6 +1,7 @@
 # The People's Purse
 ![Alt text](./assets/peoplesPurseScreenShot.png?raw=true "Peoples Purse Landing Page")
-#### A full stack application utilizing the MGNT stack (MongoDb, GraphQL, Node, Next.js/TypeScript). 
+
+## The project is live and free to use at [People's Purse](https://peoplespurse.org). 
 
 ## Project Description
 The People's Purse is an educational and social change platform that aims to inform citizens about different governmental departments and the elected officials who represent them. The inspiration from the project stems from the idea of Participatory Budgeting, or PB, a concept that was invented in Brazil in 1989, and singled out as a best practice by both the World Bank and United Nations. PB comprises of three steps:
@@ -8,7 +9,6 @@ The People's Purse is an educational and social change platform that aims to inf
 2.	Citizens then work with elected officials to craft budgetary proposals to meet these needs
 3.	Citizens are then able to vote on where and how public funds are spent
 
-#### The project is live and free to use at [People's Purse](https://peoplespurse.org). 
 
 
 ### Features include: 
@@ -57,7 +57,7 @@ Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 
-    http://www.apache.org/licenses/LICENSE-2.0
+    (http://www.apache.org/licenses/LICENSE-2.0)
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
