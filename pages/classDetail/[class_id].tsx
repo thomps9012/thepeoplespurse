@@ -5,7 +5,7 @@ import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
-import ExpandMoreSharp from '@mui/icons-material/ExpandMoreSharp';
+import ExpandMore from '@mui/icons-material/ExpandMore';
 
 const CLASS_ACTIONS = gql`
 query ClassActions($classId: ID!) {
@@ -50,7 +50,7 @@ export default function ClassDetail() {
                             const { _id, first_name, actions, last_name } = learner;
                             return (
                                 <li className='collapsible-header' id='btn' key={_id}>
-                                    <AccordionSummary id={_id} expandIcon={<ExpandMoreSharp />}>
+                                    <AccordionSummary id={_id} expandIcon={<ExpandMore />}>
                                         <Typography>
                                             {first_name} {last_name}
                                         </Typography>
