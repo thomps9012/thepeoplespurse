@@ -3,6 +3,7 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import OfficialCards from "../components/officialCards";
 import FormControl from "@mui/material/FormControl";
+import { officialDiv } from "../utils/helpers";
 
 const API_KEY = "AIzaSyDsCAsDVamr-9rGO6DwtlXHcZL-8Tx5oeA"
 
@@ -37,12 +38,12 @@ export default function ElectedOfficials() {
                 }
             })
             .then(function (data) {
-                const officialDiv = document.getElementById('officialInfo')
-                officialDiv != null ? officialDiv.innerHTML = '' : '';
+                officialDiv()
                 const offices = data.offices;
                 setOffices(offices)
                 const officials = data.officials;
                 setOfficials(officials)
+                setOffice('')
             })
     }
     const stateLvl = async () => {
@@ -55,12 +56,12 @@ export default function ElectedOfficials() {
                 }
             })
             .then(function (data) {
-                const officialDiv = document.getElementById('officialInfo')
-                officialDiv != null ? officialDiv.innerHTML = '' : '';
+                officialDiv()
                 const offices = data.offices;
                 setOffices(offices)
                 const officials = data.officials;
                 setOfficials(officials)
+                setOffice('')
             })
     }
     const localLvl = async () => {
@@ -73,12 +74,12 @@ export default function ElectedOfficials() {
                 }
             })
             .then(function (data) {
-                const officialDiv = document.getElementById('officialInfo')
-                officialDiv != null ? officialDiv.innerHTML = '' : '';
+                officialDiv()
                 const offices = data.offices;
                 setOffices(offices)
                 const officials = data.officials;
                 setOfficials(officials)
+                setOffice('')
             })
     }
     const displayOfficials = (office: any) => {
