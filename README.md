@@ -1,7 +1,7 @@
 # The People's Purse
-![Alt text](./assets/peoplesPurseScreenShot.png?raw=true "Peoples Purse Landing Page")
-
 ## The project is live and free to use at [People's Purse](https://peoplespurse.org). 
+![Alt text](./assets/peoplesPurseScreenShot.png?raw=true "Peoples Purse Landing Page")
+#### A full stack application utilizing the MGNT stack (MongoDb, GraphQL, Node, Next.js/TypeScript). 
 
 ## Project Description
 The People's Purse is an educational and social change platform that aims to inform citizens about different governmental departments and the elected officials who represent them. The inspiration from the project stems from the idea of Participatory Budgeting, or PB, a concept that was invented in Brazil in 1989, and singled out as a best practice by both the World Bank and United Nations. PB comprises of three steps:
@@ -9,16 +9,14 @@ The People's Purse is an educational and social change platform that aims to inf
 2.	Citizens then work with elected officials to craft budgetary proposals to meet these needs
 3.	Citizens are then able to vote on where and how public funds are spent
 
-
-
 ### Features include: 
-1. A general educational component about the government's different departments with links to foster independent research
-2. Location specific information regarding elected officials based off user input
-3. The chance for users to craft a mock federal budget via budget percentage points
-4. Action recording functionality for learners to record civic actions, or volunteer opportunities taken in their communities
-5. Class creation capabilities for educators
-6. Class overview and detail pages where educators can view total class votes and actions taken in the community
-7. A budget overview page where users can view the aggregate of all votes across the application 
+- A general educational component about the government's different departments with links to foster independent research
+- Location specific information regarding elected officials based off user input
+- The chance for users to craft a mock federal budget via budget percentage points
+- Action recording functionality for learners to record civic actions, or volunteer opportunities taken in their communities
+- Class creation capabilities for educators
+- Class overview and detail pages where educators can view total class votes and actions taken in the community
+- A budget overview page where users can view the aggregate of all votes across the application 
 
 ## Technologies Used
 1. Apollo GraphQL (Application Program Interface 'API' routing)
@@ -53,11 +51,10 @@ In order to clone this repository you'll need `node` installed on your machine. 
 ## License
 Copyright [2021] [Samuel Thompson]
 
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 
-    (http://www.apache.org/licenses/LICENSE-2.0)
+    http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
