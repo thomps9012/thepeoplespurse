@@ -38,12 +38,11 @@ export default function ElectedOfficials() {
                 }
             })
             .then(function (data) {
-                officialDiv()
+                setOffice('')
                 const offices = data.offices;
                 setOffices(offices)
                 const officials = data.officials;
                 setOfficials(officials)
-                setOffice('')
             })
     }
     const stateLvl = async () => {
@@ -56,12 +55,11 @@ export default function ElectedOfficials() {
                 }
             })
             .then(function (data) {
-                officialDiv()
+                setOffice('')
                 const offices = data.offices;
                 setOffices(offices)
                 const officials = data.officials;
                 setOfficials(officials)
-                setOffice('')
             })
     }
     const localLvl = async () => {
@@ -74,12 +72,11 @@ export default function ElectedOfficials() {
                 }
             })
             .then(function (data) {
-                officialDiv()
+                setOffice('')
                 const offices = data.offices;
                 setOffices(offices)
                 const officials = data.officials;
                 setOfficials(officials)
-                setOffice('')
             })
     }
     const displayOfficials = (office: any) => {
