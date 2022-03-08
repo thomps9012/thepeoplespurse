@@ -3,9 +3,8 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import OfficialCards from "../components/officialCards";
 import FormControl from "@mui/material/FormControl";
-import { officialDiv } from "../utils/helpers";
 
-const API_KEY = "AIzaSyDsCAsDVamr-9rGO6DwtlXHcZL-8Tx5oeA"
+const GOOGLE_CIVIC_API = process.env;
 
 export default function ElectedOfficials() {
     const [location, setLocation] = useState('');
@@ -29,7 +28,7 @@ export default function ElectedOfficials() {
         }
     })
     const nationalLvl = async () => {
-        fetch(`https://civicinfo.googleapis.com/civicinfo/v2/representatives?address=${location}&includeOffices=true&levels=country&key=${API_KEY}`)
+        fetch(`https://civicinfo.googleapis.com/civicinfo/v2/representatives?address=${location}&includeOffices=true&levels=country&key=${GOOGLE_CIVIC_API}`)
             .then(function (response) {
                 if (response.status === 200) {
                     return response.json();
@@ -46,7 +45,7 @@ export default function ElectedOfficials() {
             })
     }
     const stateLvl = async () => {
-        fetch(`https://civicinfo.googleapis.com/civicinfo/v2/representatives?address=${location}&includeOffices=true&levels=administrativeArea1&key=${API_KEY}`)
+        fetch(`https://civicinfo.googleapis.com/civicinfo/v2/representatives?address=${location}&includeOffices=true&levels=administrativeArea1&key=${GOOGLE_CIVIC_API}`)
             .then(function (response) {
                 if (response.status === 200) {
                     return response.json();
@@ -63,7 +62,7 @@ export default function ElectedOfficials() {
             })
     }
     const localLvl = async () => {
-        fetch(`https://civicinfo.googleapis.com/civicinfo/v2/representatives?address=${location}&includeOffices=true&levels=administrativeArea2&levels=locality&key=${API_KEY}`)
+        fetch(`https://civicinfo.googleapis.com/civicinfo/v2/representatives?address=${location}&includeOffices=true&levels=administrativeArea2&levels=locality&key=${GOOGLE_CIVIC_API}`)
             .then(function (response) {
                 if (response.status === 200) {
                     return response.json();
