@@ -17,6 +17,6 @@ export function officialDiv() {
     console.log(officialDiv)
     officialContainer?.removeChild(officialDiv);
     const officialDiv2 = document.createElement('div');
-    officialDiv2.innerHTML = `<div id='officialInfo'></div>`;
+    officialDiv2.setAttribute('id', 'officialInfo');
     officialContainer?.appendChild(officialDiv2)
 }
