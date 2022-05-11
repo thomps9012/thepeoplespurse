@@ -17,12 +17,8 @@ query Query {
 `;
 export default function EducatorSignUp() {
     const { loading, error, data } = useQuery(GET_USER);
-    if (loading) return <Skeleton />;
-    if (error) {
-        return <LoggedOut />
-    }
-    const user = data.getUser;
-    const { first_name, last_name, email, _id } = user;
+    const user = data?.getUser;
+   
     const [formState, setFormState] = useState({
         educator_id: '',
         first_name: '',
@@ -33,8 +29,13 @@ export default function EducatorSignUp() {
         school_state: '',
         position: ''
     })
-   
-    if(first_name && last_name && email && _id){
+    
+    if (loading) return <Skeleton />;
+    if (error) {
+        return <LoggedOut />
+    }
+    if(user){
+        const { first_name, last_name, email, _id } = user;
         setFormState({
             ...formState,
             educator_id: _id,

@@ -4,7 +4,7 @@ import TextField from '@mui/material/TextField';
 import OfficialCards from "../components/officialCards";
 import FormControl from "@mui/material/FormControl";
 
-const GOOGLE_CIVIC_API = process.env;
+const {GOOGLE_CIVIC_API} = process.env;
 
 export default function ElectedOfficials() {
     const [location, setLocation] = useState('');
