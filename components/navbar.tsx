@@ -14,9 +14,9 @@ import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import Avatar from '@mui/material/Avatar';
 
-const pages = ['Home', 'Department Information', 'Elected Officials', 'Budget Results'];
-const loggedInSettings = ['Profile', 'Logout', 'Take Action', 'Craft Budget'];
-const loggedOutSettings = ['Sign Up', 'Login']
+const pages = [{link: 'Home', name: 'Home'}, {link: 'DepartmentInformation', name: 'Department Information'}, {link: 'ElectedOfficials', name: 'Elected Officials'}, {link: 'BudgetResults', name: 'Budget Results'}];
+const loggedInSettings = [{link:'Profile',name:'Profile'}, {link:'Logout', name:'Logout'}, {link: 'TakeAction', name:'Take Action'}, {link:'CraftBudget', name:'Craft Budget'}];
+const loggedOutSettings = [{link:'SignUp',name:'Sign Up'},{link:'Login',name:'Login'} ]
 
 export default function Navbar() {
     const [userJWT, setUserJWT] = useState('')
@@ -32,14 +32,14 @@ export default function Navbar() {
     const handleCloseNavMenu = () => {
         setAnchorElNav(null)
     }
-    const handleNav = (page: string) => {
+    const handleNav = (pageLink:string) => {
         setAnchorElNav(null);
-        if (page === 'Logout') {
+        if (pageLink === 'Logout') {
             sessionStorage.clear();
             window.location.assign('/')
-        } else if (page === 'Home') {
+        } else if (pageLink === 'Home') {
             window.location.assign('/')
-        } else { window.location.assign(`/${page}`) }
+        } else { window.location.assign(`/${pageLink}`) }
     };
 
     const handleCloseUserMenu = () => {
@@ -103,8 +103,8 @@ export default function Navbar() {
                                 display: { xs: 'block', md: 'none' },
                             }}
                         > {pages.map((page) => (
-                            <MenuItem className='nav-item' key={page} onClick={() => handleNav(page)}>
-                                <Typography textAlign="center">{page}</Typography>
+                            <MenuItem className='nav-item' key={page.link} onClick={() => handleNav(page.link)}>
+                                <Typography textAlign="center">{page.name}</Typography>
                             </MenuItem>
                         ))}
                         </Menu>
@@ -131,11 +131,11 @@ export default function Navbar() {
                         {pages.map((page) => (
                             <Button
                                 id='nav-btn'
-                                key={page}
-                                onClick={() => handleNav(page)}
+                                key={page.link}
+                                onClick={() => handleNav(page.link)}
                                 sx={{ my: 2, color: 'white', display: 'block' }}
                             >
-                                {page}
+                                {page.name}
                             </Button>
                         ))}
                     </Box>
@@ -163,15 +163,15 @@ export default function Navbar() {
                             onClose={handleCloseUserMenu}
                         >
                             {userJWT != '' ?
-                                loggedInSettings.map((page: string) => (
-                                    <MenuItem className="nav-item" key={page} onClick={() => handleNav(page)}>
-                                        <Typography textAlign="center">{page}</Typography>
+                                loggedInSettings.map((page: any) => (
+                                    <MenuItem className="nav-item" key={page.link} onClick={() => handleNav(page.link)}>
+                                        <Typography textAlign="center">{page.name}</Typography>
                                     </MenuItem>
                                 ))
                                 :
                                 loggedOutSettings.map((page) => (
-                                    <MenuItem className="nav-item" key={page} onClick={() => handleNav(page)}>
-                                        <Typography textAlign="center">{page}</Typography>
+                                    <MenuItem className="nav-item" key={page.link} onClick={() => handleNav(page.link)}>
+                                        <Typography textAlign="center">{page.name}</Typography>
                                     </MenuItem>
                                 ))}
                         </Menu>
