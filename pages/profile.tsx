@@ -1,4 +1,4 @@
-import { gql, useQuery } from '@apollo/client'
+import { gql, useQuery } from '@apollo/client';
 import Link from 'next/link';
 import ClassInfo from '../components/educator/classInfo';
 import LearnerClasses from '../components/learner/learnerClasses';

@@ -23,7 +23,8 @@ const authLink = setContext((_, { headers }) => {
 
 // development uri
 const httpLink = createHttpLink({
-  uri: 'https://peoplespurseserver.azurewebsites.net/',
+  uri: 'https://lit-meadow-50865.herokuapp.com/'
+  // uri: 'https://peoplespurseserver.azurewebsites.net/',
 })
 
 const client = new ApolloClient({
@@ -32,7 +33,7 @@ const client = new ApolloClient({
   cache: new InMemoryCache
 });
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({Component, pageProps}: AppProps) {
   return (
     <ApolloProvider client={client}>
       <Navbar />
