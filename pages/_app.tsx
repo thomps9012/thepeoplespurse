@@ -33,7 +33,7 @@ const client = new ApolloClient({
   cache: new InMemoryCache
 });
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({Component, pageProps}: AppProps) {
   return (
     <ApolloProvider client={client}>
       <Navbar />
