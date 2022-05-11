@@ -15,7 +15,6 @@ query Query {
     }
   }
 `;
-
 export default function EducatorSignUp() {
     const { loading, error, data } = useQuery(GET_USER);
     if (loading) return <Skeleton />;
@@ -25,15 +24,27 @@ export default function EducatorSignUp() {
     const user = data.getUser;
     const { first_name, last_name, email, _id } = user;
     const [formState, setFormState] = useState({
-        educator_id: _id,
-        first_name: first_name,
-        last_name: last_name,
-        email: email,
+        educator_id: '',
+        first_name: '',
+        last_name: '',
+        email: '',
         school_name: '',
         school_address: '',
         school_state: '',
         position: ''
     })
+   
+    if(first_name && last_name && email && _id){
+        setFormState({
+            ...formState,
+            educator_id: _id,
+            first_name: first_name,
+            last_name: last_name,
+            email: email
+        })
+   } else {
+        return <LoggedOut />
+    }
     const handleChange = (e: any) => {
         const { name, value } = e.target;
         setFormState({
