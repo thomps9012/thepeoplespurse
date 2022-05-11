@@ -197,7 +197,7 @@ export default function SignUp() {
                         Sign Up
                     </Button>
                     <h2 style={{textAlign: 'center'}}> - or - </h2>
-                    <Link href='/Login' passHref>
+                    <Link href='/login' passHref>
                         <Button id='btn' className='signupLoginToggle'>
                             Returning User?
                         </Button>
