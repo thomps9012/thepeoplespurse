@@ -23,7 +23,8 @@ const authLink = setContext((_, { headers }) => {
 
 // development uri
 const httpLink = createHttpLink({
-  uri: 'https://peoplespurseserver.azurewebsites.net/',
+  uri: 'https://lit-meadow-50865.herokuapp.com/'
+  // uri: 'https://peoplespurseserver.azurewebsites.net/',
 })
 
 const client = new ApolloClient({
