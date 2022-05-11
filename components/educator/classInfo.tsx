@@ -2,6 +2,7 @@ import {
   useQuery,
   gql
 } from '@apollo/client'
+import Skeleton from '@mui/material/Skeleton';
 
 
 const GET_CLASSES = gql`
@@ -18,7 +19,11 @@ query Query {
 
 export default function ClassInfo() {
   const { loading, error, data } = useQuery(GET_CLASSES);
-  if (loading) return <h1 id='loading' style={{margin: 35, padding: 35, textAlign: 'center'}}>🛠 Give us just a minute here... 🛠 </h1>;
+  if (loading) return (
+    <>
+      <h1 id='loading' style={{ margin: 35, padding: 35, textAlign: 'center' }}>🛠 Give us just a minute here... 🛠 </h1>
+      <Skeleton />
+    </>);
   if (error) return <h3 style={{ textAlign: 'center', margin: 30, padding: 20 }}>You Haven`t Created Any Classes Yet</h3>;
   const classes = data.getUser.classes;
   return (
@@ -29,12 +34,14 @@ export default function ClassInfo() {
           const { _id, class_code, votes } = classDetail;
           return (
             <div key={_id} className='card hoverable' id='btn' style={{ margin: 20, padding: 20, maxWidth: 200, minWidth: 200, textAlign: 'center' }}>
-              <a href={`/classDetail/${_id}`} className='classSelect'>
+              <a href={`/classActions/${_id}`} className='classSelect'>
                 <p key={_id} id={_id} style={{ fontSize: 'large', fontWeight: 'bold' }} >
-                  {class_code}
+                  View Actions for: {class_code}
                 </p>
-                <p style={{ fontSize: 'medium', fontWeight: 'bold' }}>
-                  Total Votes: {votes.length}
+              </a>
+              <a href={`/classVotes/${_id}`} className='classSelect'>
+                <p key={_id} id={_id} style={{ fontSize: 'large', fontWeight: 'bold' }} >
+                  View Votes for: {class_code}
                 </p>
               </a>
             </div>
