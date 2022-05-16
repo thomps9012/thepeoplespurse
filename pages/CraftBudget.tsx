@@ -58,7 +58,7 @@ export default function VotingPage() {
       }
     })
     if (voteResponse.data.castVote != '' || null) {
-      window.location.assign('/Budget%20Results')
+      window.location.assign('/BudgetResults')
     } else {
       alert('There seems to have been an error processing your vote')
     }
