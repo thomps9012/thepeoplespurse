@@ -54,7 +54,7 @@ export default function ProfilePage() {
                     <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap' }}>
                         {/* join a class */}
                         <div style={{ textAlign: 'center', margin: 20 }}>
-                            <Link href='/JoinClass' passHref>
+                            <Link href='/joinClass' passHref>
                                 <Button id='btn'>
                                     <i className='material-icons left'>school</i>Join a New Class
                                 </Button>
@@ -62,7 +62,7 @@ export default function ProfilePage() {
                         </div>
                         {/* take an action */}
                         <div style={{ textAlign: 'center', margin: 20 }}>
-                            <Link href='/Take%20Action' passHref>
+                            <Link href='/TakeAction' passHref>
                                 <Button id='btn'>
                                     <i className='material-icons left'>task_alt</i>Take a Civic Action
                                 </Button>
