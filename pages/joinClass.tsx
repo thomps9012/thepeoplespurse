@@ -40,7 +40,7 @@ export default function JoinClass() {
             })
             let joinedClassId = joinClassReponse.data.joinClass._id
             if (joinedClassId != null) {
-                window.location.replace('/Profile')
+                window.location.replace('/profile')
             }
         } catch {
             alert(`${error?.message}`)

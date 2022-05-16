@@ -15,7 +15,7 @@ import Tooltip from '@mui/material/Tooltip';
 import Avatar from '@mui/material/Avatar';
 
 const pages = [{link: 'Home', name: 'Home'}, {link: 'DepartmentInformation', name: 'Department Information'}, {link: 'ElectedOfficials', name: 'Elected Officials'}, {link: 'BudgetResults', name: 'Budget Results'}];
-const loggedInSettings = [{link:'Profile',name:'Profile'}, {link:'Logout', name:'Logout'}, {link: 'TakeAction', name:'Take Action'}, {link:'CraftBudget', name:'Craft Budget'}];
+const loggedInSettings = [{link:'profile',name:'Profile'}, {link:'Logout', name:'Logout'}, {link: 'TakeAction', name:'Take Action'}, {link:'CraftBudget', name:'Craft Budget'}];
 const loggedOutSettings = [{link:'SignUp',name:'Sign Up'},{link:'login',name:'Login'} ]
 
 export default function Navbar() {

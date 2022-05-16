@@ -74,7 +74,7 @@ export default function Login() {
                 const token = loginResponse.data.login.token
                 if (token) {
                     sessionStorage.setItem('auth_token', token)
-                    window.location.assign('/Profile')
+                    window.location.assign('/profile')
                 }
             } catch {
                 if (error) {
