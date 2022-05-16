@@ -70,7 +70,7 @@ export default function ProfilePage() {
                         </div>
                         {/* vote */}
                         <div style={{ textAlign: 'center', margin: 20 }}>
-                            <Link href='/Craft%20Budget' passHref>
+                            <Link href='/CraftBudget' passHref>
                                 <Button id='btn'>
                                     <i className='material-icons left'>addchart</i>Craft a Federal Budget
                                 </Button>
