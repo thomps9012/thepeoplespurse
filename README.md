@@ -35,7 +35,7 @@ The People's Purse is an educational and social change platform that aims to inf
     - React Based Components for Chart.js
 
 ## Project Notes
-This project is currently hosted on an Azure Web Application with a seperatly hosted CosmosDB Backend, also on Azure. Functionality is being adding in based on educator and user feedback, so any and all recommendations are not only encouraged, but welcomed. The People's Purse can be run either locally or visited at [People's Purse](https://peoplespurse.org)
+This project is currently hosted on a Vercel platform with a google domain redirect. Functionality is being adding based on educator and user feedback, so any and all recommendations are not only encouraged, but welcome. The People's Purse can be run either locally or visited at [People's Purse](https://peoplespurse.org)
 
 ## Installation and Setup Instructions
 In order to clone this repository you'll need `node` installed on your machine. Once you've cloned the repository you can run the following commands for usage:
