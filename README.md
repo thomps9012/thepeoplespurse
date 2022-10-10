@@ -19,13 +19,20 @@ The People's Purse is an educational and social change platform that aims to inf
 - A budget overview page where users can view the aggregate of all votes across the application 
 
 ## Technologies Used
-1. Apollo GraphQL (Application Program Interface 'API' routing)
-2. Next.js (Lighweight Frontend Routing and Framework)
-3. TypeScript (Typesafe Functional JavaScript)
-4. Chart.js (Visualization of Budget Results)
-5. Material-UI (General CSS Functionality and Styling)
-6. Custom CSS (Mobile Responsive Capabilities)
-7. ReactChart.js (React Based Components for Chart.js)
+1. [Apollo GraphQL](https://www.apollographql.com/) 
+    - Application Program Interface 'API' routing
+2. [Next.js](https://nextjs.org/) 
+    - Lighweight Frontend Routing and Framework
+3. [TypeScript](https://www.typescriptlang.org/) 
+    - Typesafe Functional JavaScript
+4. [Chart.js](https://www.chartjs.org/) 
+    - Visualization of Budget Results
+5. [Material-UI](https://mui.com/material-ui/) 
+    - General CSS Functionality and Styling
+6. [Custom CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) 
+    - Mobile Responsive Capabilities
+7. [ReactChart.js](https://react-chartjs-2.js.org/) 
+    - React Based Components for Chart.js
 
 ## Project Notes
 This project is currently hosted on an Azure Web Application with a seperatly hosted CosmosDB Backend, also on Azure. Functionality is being adding in based on educator and user feedback, so any and all recommendations are not only encouraged, but welcomed. The People's Purse can be run either locally or visited at [People's Purse](https://peoplespurse.org)
