@@ -23,6 +23,7 @@ The People's Purse is an educational and social change platform that aims to inf
     - Application Program Interface 'API' routing
 2. [Next.js](https://nextjs.org/) 
     - Lighweight Frontend Routing and Framework
+    - Server Side Generation or Data and Static HTML generated at build time
 3. [TypeScript](https://www.typescriptlang.org/) 
     - Typesafe Functional JavaScript
 4. [Chart.js](https://www.chartjs.org/) 
